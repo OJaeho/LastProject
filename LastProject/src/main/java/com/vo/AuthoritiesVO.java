@@ -6,8 +6,7 @@ public class AuthoritiesVO {
 	private String aName;
 	private String delYn;
 	
-	
-	
+		
 	public int getaId() {
 		return aId;
 	}
