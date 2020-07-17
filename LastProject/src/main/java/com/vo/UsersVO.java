@@ -8,7 +8,7 @@ public class UsersVO {
 	private String mBirth;
 	private String mGender;
 	private String mEmail;
-	private int mTel;
+	private String mTel;
 	private String mAddr;
 	private int mPoint;
 	private String mAccount;
@@ -58,10 +58,10 @@ public class UsersVO {
 	public void setmEmail(String mEmail) {
 		this.mEmail = mEmail;
 	}
-	public int getmTel() {
+	public String getmTel() {
 		return mTel;
 	}
-	public void setmTel(int mTel) {
+	public void setmTel(String mTel) {
 		this.mTel = mTel;
 	}
 	public String getmAddr() {

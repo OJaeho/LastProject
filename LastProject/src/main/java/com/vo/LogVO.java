@@ -5,7 +5,7 @@ public class LogVO {
 	private String userName;
 	private String lFirst;
 	private String lRecent;
-	private String lCount;
+	private int lCount;
 	
 	
 	
@@ -33,10 +33,10 @@ public class LogVO {
 	public void setlRecent(String lRecent) {
 		this.lRecent = lRecent;
 	}
-	public String getlCount() {
+	public int getlCount() {
 		return lCount;
 	}
-	public void setlCount(String lCount) {
+	public void setlCount(int lCount) {
 		this.lCount = lCount;
 	}
 	
