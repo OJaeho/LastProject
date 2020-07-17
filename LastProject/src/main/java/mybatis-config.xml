@@ -12,11 +12,11 @@
  		<typeAlias alias="buy" type="com.vo.BuyVO" />
  		<typeAlias alias="category" type="com.vo.CategoryVO" />
  		<typeAlias alias="issue" type="com.vo.IssueVO" />
- 		<typeAlias alias="log" type="com.vo.LogVo" />
+ 		<typeAlias alias="log" type="com.vo.LogVO" />
  		<typeAlias alias="market" type="com.vo.MarketVO" />
  		<typeAlias alias="notice" type="com.vo.NoticeVO" />
  		<typeAlias alias="product" type="com.vo.ProductVO" />
- 		<typeAlias alias="qna" type="com.vo.QnaVo" />
+ 		<typeAlias alias="qna" type="com.vo.QnaVO" />
  		<typeAlias alias="review" type="com.vo.ReviewVO" />
  		<typeAlias alias="tour" type="com.vo.TourVO" />
  		<typeAlias alias="unit" type="com.vo.UnitVO" />
