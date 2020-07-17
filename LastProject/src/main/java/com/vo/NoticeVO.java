@@ -2,7 +2,7 @@ package com.vo;
 
 public class NoticeVO {
 	private int nId; 
-	private String userBame;
+	private String userName;
 	private String nTitle;
 	private String nContent;
 	private String nDate;
@@ -15,11 +15,11 @@ public class NoticeVO {
 	public void setnId(int nId) {
 		this.nId = nId;
 	}
-	public String getUserBame() {
-		return userBame;
+	public String getuserName() {
+		return userName;
 	}
-	public void setUserBame(String userBame) {
-		this.userBame = userBame;
+	public void setuserName(String userName) {
+		this.userName = userName;
 	}
 	public String getnTitle() {
 		return nTitle;

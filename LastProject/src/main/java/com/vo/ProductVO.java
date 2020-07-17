@@ -8,7 +8,7 @@ public class ProductVO {
 	private int pPrice;
 	private String pOption1;
 	private String pOption2;
-	private String pCount;
+	private int pCount;
 	private String pImg1;
 	private String pImg2;
 	private String pImg3;
@@ -59,10 +59,10 @@ public class ProductVO {
 	public void setpOption2(String pOption2) {
 		this.pOption2 = pOption2;
 	}
-	public String getpCount() {
+	public int getpCount() {
 		return pCount;
 	}
-	public void setpCount(String pCount) {
+	public void setpCount(int pCount) {
 		this.pCount = pCount;
 	}
 	public String getpImg1() {

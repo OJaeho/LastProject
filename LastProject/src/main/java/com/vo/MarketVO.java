@@ -7,8 +7,8 @@ public class MarketVO {
 	private String mkAddr;
 	private String mkTel;
 	private String mkDate;
-	private String mkCount;
-	private int mkIntro;
+	private int mkCount;
+	private String mkIntro;
 	private String mkImg1;
 	private String mkImg2;
 	private String mkImg3;
@@ -51,16 +51,17 @@ public class MarketVO {
 	public void setMkDate(String mkDate) {
 		this.mkDate = mkDate;
 	}
-	public String getMkCount() {
+	
+	public int getMkCount() {
 		return mkCount;
 	}
-	public void setMkCount(String mkCount) {
+	public void setMkCount(int mkCount) {
 		this.mkCount = mkCount;
 	}
-	public int getMkIntro() {
+	public String getMkIntro() {
 		return mkIntro;
 	}
-	public void setMkIntro(int mkIntro) {
+	public void setMkIntro(String mkIntro) {
 		this.mkIntro = mkIntro;
 	}
 	public String getMkImg1() {
