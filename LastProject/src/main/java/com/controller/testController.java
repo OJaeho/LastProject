@@ -28,5 +28,20 @@ public class testController {
 		return step;
 	
 	}
+	@RequestMapping("/shoping-cart.seller")
+	public String page1() {
+		return "shoping-cart";
+	
+	}
+	@RequestMapping("/product.market")
+	public String page2() {
+		return "product";
+	
+	}
+	@RequestMapping("/product-detail.admin")
+	public String page3() {
+		return "product-detail";
+	
+	}
 	
 }
