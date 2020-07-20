@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="index.do">Л²╦К█╠Л┼╓</a>
-<a href="tour.do">Й╢─Й╢▒Л╖─</a>
-<a href="product.do">М■└К║°К█∙М┼╦</a>
-<a href="product-detail.do">М■└К║°К█∙М┼╦ К■■М┘▄Л²╪</a>
-<a href="home-03.do">М≥┬-03</a>
-<a href="home-02.do">М≥┬-02</a>
-<a href="tour-home.do">М┬╛Л√╢ М≥┬</a>
+
+<a href="index.do">юн╣╕╫╨</a>
+<a href="shoping-cart.seller">╪Нгнд╚ф╝</a>
+<a href="product.market">га╥н╢Жф╝</a>
+<a href="product-detail.admin">га╥н╢Жф╝ ╣Певюо</a>
+<a href="home-03.do">х╗-03</a>
+<a href="home-02.do">х╗-02</a>
+
 </body>
 </html>

@@ -4,7 +4,7 @@ public class UsersVO {
 	private String userName;
 	private String mGroup;
 	private String mName;
-	private String mPassword;
+	private String Password;
 	private String mBirth;
 	private String mGender;
 	private String mEmail;
@@ -13,9 +13,22 @@ public class UsersVO {
 	private int mPoint;
 	private String mAccount;
 	private String delYn;
+	private int enable;
 	
 	
 	
+	public String getPassword() {
+		return Password;
+	}
+	public void setPassword(String password) {
+		Password = password;
+	}
+	public int getEnable() {
+		return enable;
+	}
+	public void setEnable(int enable) {
+		this.enable = enable;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -34,12 +47,7 @@ public class UsersVO {
 	public void setmName(String mName) {
 		this.mName = mName;
 	}
-	public String getmPassword() {
-		return mPassword;
-	}
-	public void setmPassword(String mPassword) {
-		this.mPassword = mPassword;
-	}
+	
 	public String getmBirth() {
 		return mBirth;
 	}

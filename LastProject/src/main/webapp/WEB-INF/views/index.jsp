@@ -53,8 +53,8 @@
 							Help & FAQs
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							My Account
+						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
+							회원가입
 						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
