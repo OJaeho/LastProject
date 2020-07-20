@@ -1,0 +1,33 @@
+.li_table {
+	width: 300px;
+	border: 1 solid red;
+	border-top: none;
+	border-right: none;
+	margin: auto
+}
+
+.li_table ul {
+	clear: left;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	border-top: 1 solid red;
+}
+/* list-style-type 블릿표시 padding: 0; 들여쓰기*/
+.li_table .subject {
+	font-weight: bold;
+	text-align: center;
+}
+
+.li_table ul li {
+	text-align: center;
+	float: left;
+	margin: 0;
+	padding: 2px, 1px;
+	border-right: 1 solid red;
+	width: 100px;
+}
+
+.li_table ul .col {
+	width: 99px;
+} /* 표 라인 맞추기기 위해*/
