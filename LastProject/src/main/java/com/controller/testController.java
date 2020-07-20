@@ -43,5 +43,10 @@ public class testController {
 		return "product-detail";
 	
 	}
+	@RequestMapping("/memberRegist.user")
+	public String imsi() {
+		return "MemberRegist";
+	
+	}
 	
 }
