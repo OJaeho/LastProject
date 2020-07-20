@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tour">
+	<select id="tourHome" parameterType="tour" resultType="tour">
+		<![CDATA[ SELECT * FROM tour WHERE rownum < 4 ]]>
+	</select>
+	<select id="tourList" parameterType="HashMap" resultType="tour">
+		<![CDATA[ select * from tour where rownum < #{su}]]>
+	</select>
+</mapper>

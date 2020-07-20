@@ -11,9 +11,16 @@ public class TourVO {
 	private String tImg3;
 	private String tCate;
 	private String delYn;
+	private String tAddr;
 	
 	
 	
+	public String gettAddr() {
+		return tAddr;
+	}
+	public void settAddr(String tAddr) {
+		this.tAddr = tAddr;
+	}
 	public int gettId() {
 		return tId;
 	}

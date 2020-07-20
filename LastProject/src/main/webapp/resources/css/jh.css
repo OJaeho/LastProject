@@ -1,0 +1,25 @@
+.container2 {max-width: 2000px;}
+.tour_title {
+    font-family: 'Noto Sans','¸¼Àº °íµñ','Malgun Gothic',Arial,Helvetica,sans-serif,Lucida,Grande,'Microsoft YaHei','Hiragino Sans GB',SimSun,Meiryo;
+    color: #009a45 !important;
+    margin-left:5%;
+}
+
+.tour_info .tour_name{
+	font-family: 'Noto Sans','¸¼Àº °íµñ';
+	font-size: 30px;
+}
+.tour_info{
+	width: 80%;
+	margin-left:10%;
+	border-collapse: separate;
+    border-spacing: 0 30px;
+}
+.tour_info .tour_detail{
+	margin-top: 100px;
+}
+.tour_info .tour_name .tour_addr{
+	font-size: 15px;
+}
+
+
