@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
    pageEncoding="utf-8"%>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
+
 <html lang="utf-8">
 <head>
+
 <meta charset="utf-8">
 <!-- meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/ -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,11 +63,13 @@
         }).open();
     }
 </script>
+
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
    rel="stylesheet" type="text/css" />
 </head>
+
 <body>
    
    <div class="container">
@@ -271,7 +275,7 @@
          </div>
          <hr/>
    
-   <form method="post" action="" name="userinput" id="userinput">
+   <form method="get" action="insertMember.user" name="userinput" id="userinput">
    <table class='table2'>
       <label for="provision" class="col-lg-2 control-label">가입정보입력</label>
          <tr>
@@ -325,28 +329,27 @@
         <div align="left">주소</div>
       </td>
       <td colspan="3" height="23" class="normal"> 
-      <input type="text" id="sample6_postcode" placeholder="우편번호">
+      <input type="text" name='mPost' id="sample6_postcode" placeholder="우편번호">
 	  <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-	  <input type="text" id="sample6_address" placeholder="주소"><br>
-	  <input type="text" id="sample6_detailAddress" placeholder="상세주소">
-	  <input type="text" id="sample6_extraAddress" placeholder="참고항목">
-      </td>
+	  <input type="text" name="addr" id="sample6_address" placeholder="주소"><br>
+	  <input type="text" name="detailAddr" id="sample6_detailAddress" placeholder="상세주소">
+	  <input type="text" id="sample6_extraAddress" placeholder="참고항목">   </td>
     </tr>
     
-     <tr> 
-      <td class="normalbold tb_ttl"> 
-        <div align="left">주민등록번호</div>
-      </td>
-      <td colspan="3" height="23" class="normal"> 
-        <input type="text" name="mJumin" id="mJumin">
-      </td>
-    </tr>
       <tr> 
       <td class="normalbold tb_ttl"> 
         <div align="left">이메일</div>
       </td>
       <td colspan="3" height="23" class="normal"> 
         <input type="text" name="mEmail" id="mEmail">
+      </td>
+    </tr>
+    <tr> 
+      <td class="normalbold tb_ttl"> 
+        <div align="left">생년월일</div>
+      </td>
+      <td colspan="3" height="23" class="normal"> 
+        <input type="date" name="mBirth" id="mBirth">
       </td>
     </tr>
     <tr>
@@ -363,32 +366,6 @@
     </td>
    </table>
    <hr/>
-<!--          <div class="normalbold tb_ttl"> -->
-<!--             <label for="inputEmailReceiveYn" class="col-lg-2 control-label">이메일 -->
-<!--                수신여부</label> -->
-<!--             <div class="col-lg-10"> -->
-<!--                <label class="radio-inline"> <input type="radio" -->
-<!--                   id="emailReceiveYn" name="emailReceiveYn" value="Y" checked> -->
-<!--                   동의합니다. -->
-<!--                </label> <label class="radio-inline"> <input type="radio" -->
-<!--                   id="emailReceiveYn" name="emailReceiveYn" value="N"> 동의하지 -->
-<!--                   않습니다. -->
-<!--                </label> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--          <div class="normalbold tb_ttl"> -->
-<!--             <label for="inputPhoneNumber" class="col-lg-2 control-label">SMS -->
-<!--                수신여부</label> -->
-<!--             <div class="col-lg-10"> -->
-<!--                <label class="radio-inline"> <input type="radio" -->
-<!--                   id="smsReceiveYn" name="smsReceiveYn" value="Y" checked> -->
-<!--                   동의합니다. -->
-<!--                </label> <label class="radio-inline"> <input type="radio" -->
-<!--                   id="smsReceiveYn" name="smsReceiveYn" value="N"> 동의하지 -->
-<!--                   않습니다. -->
-<!--                </label> -->
-<!--             </div> -->
-<!--          </div> -->
             <input type="submit" name="confirm" id="confirm" value="회원가입">
       </form>
 
