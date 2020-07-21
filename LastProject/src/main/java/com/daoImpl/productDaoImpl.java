@@ -17,7 +17,7 @@ public class productDaoImpl implements productDao{
 
 	@Override
 	public List<ProductVO> SelectProduct(ProductVO vo) {
-		System.out.println("===> ProductMapper selectproduct 호출");
+		System.out.println("===> ProductMapper selectproduct �샇異�");
 		return mybatis.selectList("product.selectProduct",vo);
 	}
 	

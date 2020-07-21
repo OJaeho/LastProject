@@ -1,7 +1,7 @@
 package com.daoImpl;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class tourDaoImpl implements tourDao {
 		return mybatis.selectList("tour.tourHome", vo);
 	}
 	
-	public List<TourVO> tourList(HashMap map) {
+	public List<TourVO> tourList(Map map) {
 		return mybatis.selectList("tour.tourList", map);
 	}
 } 

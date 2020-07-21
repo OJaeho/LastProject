@@ -8,12 +8,12 @@
 </head>
 <body>
 
-<a href="index.do">юн╣╕╫╨</a>
-<a href="shoping-cart.seller">╪Нгнд╚ф╝</a>
-<a href="product.market">га╥н╢Жф╝</a>
-<a href="product-detail.admin">га╥н╢Жф╝ ╣Певюо</a>
-<a href="home-03.do">х╗-03</a>
-<a href="home-02.do">х╗-02</a>
+<a href="index.do">Л²╦К█╠Л┼╓</a>
+<a href="tourHome.do">М┬╛Л√╢</a>
+<a href="product.market">О©╫О©╫О©╫н╢О©╫ф╝</a>
+<a href="product-detail.admin">О©╫О©╫О©╫н╢О©╫ф╝ О©╫О©╫О©╫О©╫О©╫О©╫</a>
+<a href="home-03.do">М≥┬-03</a>
+<a href="home-02.do">М≥┬-02</a>
 
 </body>
 </html>

@@ -84,7 +84,8 @@
 	</form>
 
 <!--===============================================================================================-->	
-	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+	
+	<script src="./resources/vendor/jquery/jquery-3.3.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="./resources/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -92,7 +93,7 @@
 	<script src="./resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="./resources/vendor/select2/select2.min.js"></script>
-	<script src="./resources/js/jh.js"></script>
+	<script src="./resources/js/jh2.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
