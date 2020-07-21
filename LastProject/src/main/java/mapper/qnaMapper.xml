@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnA">
+	  <select id="getQnAList" resultType="qna">
+      <![CDATA[
+      SELECT *
+      FROM QNA
+      ]]>
+   </select>
+   
+   <insert id="insertQnA" parameterType="qna">
+   INSERT INTO QNA
+   (qId, qWriter, qTitle, qlContent, qDate)
+   VALUES(
+   seq_qId.nextval,#{qWriter},#{qTitle},#{qlContent},sysdate
+   )   
+   </insert>
+</mapper>

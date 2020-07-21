@@ -14,15 +14,19 @@ public class UsersVO {
 	private String mAccount;
 	private String delYn;
 	private int enable;
-	private String mJumin;
+	private String mPost;
+	
+	//주소 합치기
+	private String addr;
+	private String detailAddr;
 	
 	
 	
-	public String getmJumin() {
-		return mJumin;
+	public String getmPost() {
+		return mPost;
 	}
-	public void setmJumin(String mJumin) {
-		this.mJumin = mJumin;
+	public void setmPost(String mPost) {
+		this.mPost = mPost;
 	}
 	public String getPassword() {
 		return Password;
@@ -80,10 +84,12 @@ public class UsersVO {
 		this.mTel = mTel;
 	}
 	public String getmAddr() {
+		setmAddr();
 		return mAddr;
 	}
-	public void setmAddr(String mAddr) {
-		this.mAddr = mAddr;
+	public void setmAddr() {
+		
+		this.mAddr = this.addr+" "+this.detailAddr;
 	}
 	public int getmPoint() {
 		return mPoint;
@@ -102,6 +108,18 @@ public class UsersVO {
 	}
 	public void setDelYn(String delYn) {
 		this.delYn = delYn;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getDetailAddr() {
+		return detailAddr;
+	}
+	public void setDetailAddr(String detailAddr) {
+		this.detailAddr = detailAddr;
 	}
 
 }
