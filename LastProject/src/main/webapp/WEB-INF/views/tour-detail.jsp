@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<!DOCTYPE html>
-<html>
+    
+<html lang="UTF-8">
 <head>
-<meta charset="utf-8">
-<title>tour-home</title>
+	<title>tour</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="./resources/images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -29,63 +30,28 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-	<link rel="stylesheet" type="text/css" href="./resources/css/jh.css">	
+	<link rel="stylesheet" type="text/css" href="./resources/css/jh.css">
 <!--===============================================================================================-->
 </head>
 <body>
-	<!-- breadcrumb -->
-	<div class="container">
-		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
-				Home
-				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-			</a>
-
-			<span class="stext-109 cl4">
-				주변 관광지 소개
-			</span>
-		</div><hr/>
-        <h2 class="tour_title">주변 관광지 둘러보기</h2>
-	</div>
+	<!-- header -->
+	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<div class="container" align="center">
-	adsfasfsd
-	</div>
-	<div class="container">
-		<div class="row" >
-	    	<table class="tour_info">
-	        	<c:forEach var="item" items="${tourlist}">
-	        		<tr class="tour_info_tr">
-	        			<td align="center" class="tour_name">${item.tName}<br/>
-	        				<span class="tour_addr">${item.tAddr}</span><br/>
-	        				<a href=""><img src="./resources/images/icons/map.jpg"></a>
-	        			</td>
-	        			<td align="center"><img src="${item.tImg1}"/></td>
-	        		</tr>
-	        		<tr class="tour_detail">
-		        		<td align="center" colspan="2">${item.tContent}</td>
-	        		</tr>
-	        </c:forEach>
-	    </table>
-	    </div>
-	</div>
-	
-	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85">
-		<div class="container2">
-			<div class="row">
-				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
-					<div class="m-l-25 m-r--38 m-lr-0-xl">
-						<div class="wrap-table-shopping-cart">
-						</div>
-                	</div>
-				</div>
-			</div>
+		<div class="row" align="center">
+		    <table class="tour_detail">
+		       	<tr class="tour_info_tr">
+	        		<td align="center" colspan="3" class="tour_name">${result.tName}<br/>
+	        		</td>
+	        	</tr>	
+	    	  	<tr class="tour_info_tr2">		  
+		    		<td align="center" colspan="2"><img src="${result.tImg1}"/></td>
+		    		<td align="center">${result.tContent}</td>
+	        	</tr>
+	    	</table>
 		</div>
-	</form>
-
+	</div>
 <!--===============================================================================================-->	
-	
-	<script src="./resources/vendor/jquery/jquery-3.3.1.min.js"></script>
+	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="./resources/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -93,7 +59,6 @@
 	<script src="./resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
 	<script src="./resources/vendor/select2/select2.min.js"></script>
-	<script src="./resources/js/jh2.js"></script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -106,8 +71,25 @@
 	<script src="./resources/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
 <!--===============================================================================================-->
 	<script src="./resources/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
 <!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
+	
+	<!-- footer -->
+	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 </body>
 </html>
