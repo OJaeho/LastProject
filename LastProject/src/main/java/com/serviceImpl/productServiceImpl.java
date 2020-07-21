@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.daoImpl.productDaoImpl;
 import com.service.productService;
+import com.vo.CategoryVO;
 import com.vo.ProductVO;
 
 @Service("productService")
@@ -16,10 +17,24 @@ public class productServiceImpl implements productService{
 	private productDaoImpl productDao;
 	
 	
+	//상품 리스트 가져오기
 	@Override
 	public List<ProductVO> SelectProduct(ProductVO vo) {
-		System.out.println("serv impl");
+		System.out.println("service select");
 		return productDao.SelectProduct(vo); 
 	}
+	//상품 검색
+	@Override
+	public List<ProductVO> SearchProduct(ProductVO vo) {
+		System.out.println("service search");
+		return productDao.SearchProduct(vo); 
+	}
+	//카테고리 가져오기
+	@Override
+	public List<CategoryVO> StoreCategory() {
+		System.out.println("service getcategory");
+		return productDao.StoreCategory(); 
+	}
+	
 
 }
