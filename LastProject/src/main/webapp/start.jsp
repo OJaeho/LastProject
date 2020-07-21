@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<a href="index.do">ÀÎµ¦½º</a>
-<a href="shoping-cart.seller">¼îÇÎÄ«Æ®</a>
-<a href="product.market">ÇÁ·Î´öÆ®</a>
-<a href="product-detail.admin">ÇÁ·Î´öÆ® µğÅ×ÀÏ</a>
+<a href="index.user">ì¸ë±ìŠ¤</a>
+<a href="shoping-cart.seller">shoping-cart.seller</a>
+<a href="product.market">product.market</a>
+<a href="product-detail.admin">product-detail.admin</a>
 <a href="home-03.do">È¨-03</a>
 <a href="home-02.do">È¨-02</a>
 
