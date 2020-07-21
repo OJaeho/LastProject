@@ -15,7 +15,6 @@ Primary use:  Company
         ...
   + Footer / footer
 
--------------------------------------------------------------------*/
 /*------------------------------------------------------------------
 [COLOR CODES]
 
@@ -28,7 +27,7 @@ Primary use:  Company
 /*------------------------------------------------------------------
 [TYPOGRAPHY]
 
-Body            : 16px/1.6 '', Arial, sans-serif;
+            : 16px/1.6 '', Arial, sans-serif;
 Title           : 18px/1.6 '', Arial, sans-serif;
 Paragrap        : 18px/1.6 '', Arial, sans-serif;
 Input, textarea : 14px/1.6 '', Arial, sans-serif;
@@ -224,8 +223,10 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*==================================================================
 [ Top bar ]*/
 .top-bar {
+
   height: 50px;
   background-color: #009a45;
+
 }
 /*---------------------------------------------*/
 .left-top-bar {
@@ -660,6 +661,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   -webkit-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
   -o-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
   -ms-box-shadow: 0 0px 3px 0px rgba(0,0,0,0.2);
+}
+
+.fix-menu-desktop .top-bar{
+  height: 50px;
+  background-color: #009a45;
 }
 
 .header-v2 .fix-menu-desktop.container-menu-desktop {
@@ -2161,14 +2167,14 @@ input.num-product::-webkit-inner-spin-button {
 /*==================================================================
     TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 ==================================================================*/
-.cl0 {color: #fff;}
+.cl0 {color: #000;}
 .cl1 {color: #717fe0;}
 .cl2 {color: #333;}
 .cl3 {color: #666;}
 .cl4 {color: #999;}
 .cl5 {color: #222;}
 .cl6 {color: #888;}
-.cl7 {color: #b2b2b2;}
+.cl7 {color: #000;}
 .cl8 {color: #555;}
 .cl9 {color: #aaa;}
 .cl10 {color: #1d1d1d;}
@@ -2217,7 +2223,7 @@ input.num-product::-webkit-inner-spin-button {
 
 .stext-107 {
   font-family: Poppins-Regular;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.923;
 }
 
@@ -2682,7 +2688,7 @@ input.num-product::-webkit-inner-spin-button {
 .bg0 {background-color: #fff;}
 .bg1 {background-color: #717fe0;}
 .bg2 {background-color: #e6e6e6;}
-.bg3 {background-color: #222;}
+.bg3 {background-color: #fffff;}
 .bg5 {background-color: rgba(0,0,0,0.5);}
 .bg6 {background-color: #f2f2f2;}
 .bg7 {background-color: #333;}

@@ -7,9 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dao.productDao;
+import com.vo.CategoryVO;
 import com.vo.ProductVO;
 
-@Repository("service")
+@Repository("productDao")
 public class productDaoImpl implements productDao{
 	
 	@Autowired
@@ -20,5 +21,13 @@ public class productDaoImpl implements productDao{
 		System.out.println("===> ProductMapper selectproduct �샇異�");
 		return mybatis.selectList("product.selectProduct",vo);
 	}
-	
+	@Override
+	public List<ProductVO> SearchProduct(ProductVO vo) {
+		System.out.println("===> ProductMapper Searchproduct 호출");
+		return mybatis.selectList("product.searchProduct",vo);
+	}
+	public List<CategoryVO> StoreCategory() {
+		System.out.println("===> ProductMapper CategoryStore 호출");
+		return mybatis.selectList("product.storeCategory");
+	}
 }

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,9 +55,7 @@
 							Help & FAQs
 						</a>
 
-						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
-							회원가입
-						</a>
+						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">회원가입</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							EN

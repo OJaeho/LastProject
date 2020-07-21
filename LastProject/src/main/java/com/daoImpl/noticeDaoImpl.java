@@ -23,17 +23,17 @@ import com.vo.NoticeVO;
 
 		public void updateNotice(NoticeVO vo) {
 			System.out.println("===> Mybatis updateNotice() 호출");
-			mybatis.update("NoticeDAO.updateNotice", vo);
+			mybatis.update("Notice.updateNotice", vo);
 		}
 
 		public void deleteNotice(NoticeVO vo) {
 			System.out.println("===> Mybatis deleteNotice() 호출");
-			mybatis.delete("NoticeDAO.deleteNotice", vo);
+			mybatis.delete("Notice.deleteNotice", vo);
 		}
 
 		public NoticeVO getNotice(NoticeVO vo) {
 			System.out.println("===> Mybatis getNotice() 호출");
-			return (NoticeVO) mybatis.selectOne("NoticeDAO.getNotice", vo);
+			return (NoticeVO) mybatis.selectOne("Notice.getNotice", vo);
 		}
 
 //		public List<NoticeVO> getNoticeList(NoticeVO vo) {
@@ -43,7 +43,7 @@ import com.vo.NoticeVO;
 		
 		public List<NoticeVO> Pagelist(NoticeVO vo) {
 			System.out.println("===> Mybatis Pagelist() 호출");
-			return mybatis.selectList("NoticeDAO.Pagelist", vo);
+			return mybatis.selectList("Notice.Pagelist", vo);
 		}
 
 		@Override

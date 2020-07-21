@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberMapper">
+	  <insert id="insertMember" parameterType="users">
+	  insert into 
+	  users(username ,password,mname,mtel,maddr,memail,mbirth,mgender,delyn,enabled,mpoint)
+	  values(#{userName},#{Password},#{mName},#{mTel},#{mAddr},#{mEmail} ,to_date(#{mBirth},'yyyy-mm-dd'),#{mGender},'N',1,0)
+	  </insert>
+	  <insert id="insertUserAuthority" parameterType="users">
+	  insert into
+	  authorities (username,authority,delyn)
+	  values(#{userName},'ROLE_USER','N')
+	  </insert>
+</mapper>
