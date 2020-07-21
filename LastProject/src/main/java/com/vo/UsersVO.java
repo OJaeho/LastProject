@@ -14,9 +14,16 @@ public class UsersVO {
 	private String mAccount;
 	private String delYn;
 	private int enable;
+	private String mJumin;
 	
 	
 	
+	public String getmJumin() {
+		return mJumin;
+	}
+	public void setmJumin(String mJumin) {
+		this.mJumin = mJumin;
+	}
 	public String getPassword() {
 		return Password;
 	}
