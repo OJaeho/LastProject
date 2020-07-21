@@ -14,9 +14,15 @@ public class ProductVO {
 	private String pImg3;
 	private String pDetail;
 	private String delYn;
+	private String keyword;
 	
 	
-	
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public int getpId() {
 		return pId;
 	}

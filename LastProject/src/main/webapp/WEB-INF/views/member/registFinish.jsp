@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-RLdikkkkkkkkkkkkkkkkkkkk
+<h1>회원가입 완료</h1>
 </body>
 </html>
