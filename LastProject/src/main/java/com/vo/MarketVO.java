@@ -13,8 +13,29 @@ public class MarketVO {
 	private String mkImg2;
 	private String mkImg3;
 	private String delYn;
+	private String mklocal;
+	private int mklong;
+	private int mklat;
 	
+	public String getMklocal() {
+		return mklocal;
+	}
+	public void setMklocal(String mklocal) {
+		this.mklocal = mklocal;
+	}
 	
+	public int getMklong() {
+		return mklong;
+	}
+	public void setMklong(int mklong) {
+		this.mklong = mklong;
+	}
+	public int getMklat() {
+		return mklat;
+	}
+	public void setMklat(int mklat) {
+		this.mklat = mklat;
+	}
 	public int getMkId() {
 		return mkId;
 	}

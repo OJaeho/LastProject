@@ -69,10 +69,9 @@
 </head>
 <body class="animsition">
 
-	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
-		<div class="container-menu-desktop">
+		<div class="container-menu-desktop">					
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
@@ -92,7 +91,7 @@
 
 					<!-- Logo desktop -->
 					<a href="index.do" class="logo"> <img
-						src="./resources/images/market3_logo.png" alt="IMG-LOGO">
+						src="./resources/images/market_3.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -126,11 +125,11 @@
 					<!-- Header desktop END -->
 				</nav>
 			</div>
+		</div>
 		<!-- Header END -->
 
 		<!-- Modal Search -->
-		<div
-			class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button
 					class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
@@ -146,7 +145,9 @@
 				</form>
 			</div>
 		</div>
+	</div>
 
 	</header>
+		
 </body>
 </html>

@@ -69,57 +69,134 @@
 </head>
 <body class="animsition">
 
-	<!-- footer -->
-	
-	<div class="section_footer">
-		<div class="footer_inner">
-			<div class="area_search">
-				<ul class="list_info">
-					<li><select name="select_item" class="select_item">
-							<option selected="selected">시장 선택</option>
-							<option>망원시장</option>
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<hr style="border: solid 1px;">
+	</br></br>	
+		<div class="container">
+			<div class="row">		
+				<div class="col-sm-6 col-lg-2 p-b-50">
+					<h3 class="stext-301 cl0 p-b-30">
+						우리시장엔
+					</h3>
 
-					</select></li>
-					<li>전화번호 : 02-335-3591</li>
-				</ul>
-			</div>
-			<div class="guide_area">
-					<span class="link_guide"> <a href="#"
-						class="glyphicon glyphicon-info-sign"><span class="blind">도움말</span></a>
-						<span class="ico_edge _footerLayerArrow" style="display: none"></span>
-					</span>
-					<div class="layer_guide _footerLayerGuide" style="display: none">
-						<div class="txt_guide">
-							<p class="text">
-								마켓싹쓰리에 대해, 더 많이 알고싶다면?<br> 네이버 검색창에 <a
-									href="http://search.naver.com/search.naver?ie=UTF-8&amp;query=%EB%A7%9D%EC%9B%90%EC%8B%9C%EC%9E%A5%40"
-									class="point_text" target="_blank">"망원시장@"</a>으로 검색하도록 안내하세요.
-							</p>
-							<p class="text">
-								'거리마다' 는 전통시장의 주변관광지를 알려주고<br>'있어요' 에는 시장의 중요한 공지사항이 있어요.
-							</p>
-							<p class="summary_text">
-								<span class="nicon_info1"></span>
-							</p>
-						</div>
-						<a href="#" class="btn_close _icoCloseHelp"><span
-							class="nicon_close"><span class="blind">닫기</span></span></a>
-					</div>
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								시장소개
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								오시는길
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								업종별상점
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								상점배치도
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								시장이슈
+							</a>
+						</li>
+					</ul>
 				</div>
-		</div>
 
-		<!-- [D] 계좌정보 없을경우 is_change 클래스 추가 -->
-		<div class="area_sns is_change">
-			<a href="#" class="glyphicon glyphicon-info-sign"><span
-				class="blind">네이버 블로그</span></a> <a href="#"
-				class="glyphicon glyphicon-info-sign"><span class="blind">네이버
-					카페</span></a> <a href="#" class="glyphicon glyphicon-info-sign"><span
-				class="blind">페이스북</span></a> <a href="#"
-				class="glyphicon glyphicon-info-sign"><span class="blind">네이버
-					밴드</span></a>
-		</div>
+				<div class="col-sm-6 col-lg-2 p-b-50">
+					<h3 class="stext-301 cl0 p-b-30">
+						거리마다
+					</h3>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								놀거리(주변관광지)
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								먹을거리(시장맛집) 
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="col-sm-6 col-lg-2 p-b-50">
+					<h3 class="stext-301 cl0 p-b-30">
+						우리것이 있어요
+					</h3>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								우리 것(상품)
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								공시사항
+							</a>
+						</li>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Q&A
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h3 class="stext-301 cl0 p-b-30">
+						어느 시장으로 가볼까요?
+					</h3>
+
+					<form>
+						<ul class="list_info">
+						<li>
+						<select name="select_item" class="select_item">
+						 <option value="selected">선 택</option>
+						  	<c:forEach var="item" items="${list}" >
+					    		<option value="${item.mkName}">${item.mkName}</option>
+						  	</c:forEach>
+						</select>
+						</li>
+							</br>
+						<li>주소 : 서울특별시 마포구 망원동 411-2</li>
+							</br>
+						<li>전화번호 : 02-335-3591</li>
+						</ul>
+					</form>
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+
+					<a href="index.do" class="logo"> 
+					<img src="./resources/images/market_3.png" alt="IMG-LOGO">
+					</a>
+				</div>
 	</div>
-	<!-- //footer -->
 
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |Made by MARKET SSAK3</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+				</p>
+			</div>
+	
+	
+	</footer>			
 </body>
 </html>
