@@ -3,22 +3,34 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="product">
 	<resultMap type="category" id="category">
-		<result property="cId" column="CID"/>
-		<result property="cName" column="CNAME"/>
+		<result property="cId" column="CID" />
+		<result property="cName" column="CNAME" />
 	</resultMap>
-	
-	<select id="selectProduct" parameterType="product" resultType="product">
-		select * from product  
+
+	<select id="selectProduct" parameterType="product"
+		resultType="product">
+		select * from product
 	</select>
-	
-	<select id="searchProduct" parameterType="product" resultType="product">
-		select * from product  
-			<if test="keyword != null and keyword != '' ">
-				where pname like '%'||#{keyword}||'%'
-			</if>
+
+	<select id="searchProduct" parameterType="product"
+		resultType="product">
+		select * from product
+		<if test="keyword != null and keyword != '' ">
+			where pname like '%'||#{keyword}||'%'
+		</if>
 	</select>
-	
+
 	<select id="storeCategory" resultType="category">
 		select * from category
-	</select> 
+	</select>
+
+	<select id="searchCategory" parameterType="category"
+		resultType="product">
+		select p.* from product p,store s,category c
+		<if test="cName != null and cName != '' ">
+			where (c.cid=s.cid and p.sid = s.sid)
+			and c.cname=#{cName}
+		</if>
+	</select>
+
 </mapper>
