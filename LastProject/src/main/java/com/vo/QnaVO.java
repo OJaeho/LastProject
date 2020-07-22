@@ -14,9 +14,16 @@ public class QnaVO {
 	private String qaWriter;
 	private String qaDate;
 	private String delYn;
+	private String qPassword;
 	
 	
 	
+	public String getqPassword() {
+		return qPassword;
+	}
+	public void setqPassword(String qPassword) {
+		this.qPassword = qPassword;
+	}
 	public int getqId() {
 		return qId;
 	}

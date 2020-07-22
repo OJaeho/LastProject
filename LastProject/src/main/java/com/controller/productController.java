@@ -22,7 +22,6 @@ public class productController{
 	public String SelectProduct(ProductVO vo,Model model){
 		List<ProductVO> product = service.SelectProduct(vo);
 		List<CategoryVO> category = service.StoreCategory();
-		System.out.println(category.get(0).getcName()+"8888888888888888");
 		model.addAttribute("categoryget", category);
 		model.addAttribute("productget", product);
 		return "product/getproduct";
@@ -30,8 +29,10 @@ public class productController{
 	//상품 검색
 	@RequestMapping(value="/searchproduct.user")
 	public String SearchProduct(ProductVO vo,Model model) {
-		List<ProductVO> res = service.SearchProduct(vo);
-		model.addAttribute("productget", res);
+		List<ProductVO> product = service.SearchProduct(vo);
+		List<CategoryVO> category = service.StoreCategory();
+		model.addAttribute("productget", product);
+		model.addAttribute("categoryget", category);
 		return "product/getproduct";
 	}
 	
@@ -40,12 +41,33 @@ public class productController{
 	@RequestMapping(value="/storecategory.user")
 	public String StoreCategory(Model model) {
 		//카테고리 가져오기
-		System.out.println("연겨르르르르르ㅡ르");
-		
 		return "product/getproduct";
 	}
 	
-	
+	//카테고리 검색
+	@RequestMapping(value="/categoryitem.user")
+	public String SearchCategory(CategoryVO cvo,ProductVO vo,Model model) {
+		List<ProductVO> product = service.SearchProduct(vo);
+		List<CategoryVO> category = service.StoreCategory();
+		List<ProductVO> cateitem = service.SearchCategory(cvo);
+		System.out.println(cvo.getcName());
+		model.addAttribute("productget", product);
+		model.addAttribute("categoryget", category);
+		model.addAttribute("productget", cateitem);
+		return "product/getproduct";
+	}
+	//상품 디테일 페이지
+	@RequestMapping(value="/product-detail.user")
+	public String detail(){
+		return "product/product-detail";
+		
+	}
+	//업종별 점포 페이지
+		@RequestMapping(value="/storelist.user")
+		public String store(){
+			return "product/storelist";
+			
+		}
 	
 	
 }

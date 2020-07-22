@@ -9,9 +9,7 @@ import com.vo.QnaVO;
 public interface qnaService {
 	// CRUD 기능의 메소드 구현
 	// 글 등록
-	static void insertQnA(QnaVO vo) {
-	} 
-	
+	void insertQnA(QnaVO vo);
 	// 글 수정
 	void updateQnA(QnaVO vo);
 

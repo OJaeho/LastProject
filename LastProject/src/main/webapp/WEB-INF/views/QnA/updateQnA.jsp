@@ -27,44 +27,59 @@
 	</span>
 	</div>
 	
-
 	<div class="page_list Content ec-base-table container">
-
+	<form action="updateQnA.user" method="get">
 		<table class="table table-bordered table-hover">
 		<thead>
 			<tr>
-				<th class="mythlist">제목</th>
-				<td>${getQnA.qTitle }</td>			
-				<th class="mythlist">날짜</th>
-				<td>${getQnA.qDate }</td>
+				<th class="mythlist" scope="row">
+				<label class="labellist" for="qTitle">제목</label>
+				</th>
+				<td>
+				<input class="input_txt" name="qTitle" type="text"
+					value="${getQnA.qTitle }" />
+				</td>			
+				<th class="mythlist">
+				<label class="labellist" for="qDate">날짜</label>
+				</th>
+				<td>
+				<label class="labellist" for="qDate">${getQnA.qDate }</label>
+				</td>
 			</tr>
 			<tr>
-				<th class="mythlist" colspan="2">작성자</th>
+				<th class="mythlist" colspan="2">
+				<label class="labellist" for="qWriter">작성자</label>
+				</th>
 				<td colspan="3">
-				${getQnA.qWriter }
+				<label class="labellist" for="qWriter">${getQnA.qWriter }</label>			
 				</td>			
 			</tr>			
 			<tr>
 				<td colspan="4">
-				${getQnA.qlContent }
+				<input class="input_txt" name="qlContent" type="text"
+					value="${getQnA.qlContent }" />
 				</td>			
+			</tr>
+			<tr>
+			<th class="mythlist" colspan="2">
+			<label class="labellist" for="qPassword">비밀번호</label>
+			</th>
+			<td colspan="3">
+			<input class="input_txt"
+			type="password" value="${getQnA.qPassword }" />
+			</td>
 			</tr>
 		</thead>
 		</table>		
-
+		</form>
 		<hr/>
 		<div>		
 		<span>
 		<a class="btn btn-default" href="getQnAList.user">목록</a>
+		<!-- <input type="sumit" class="btn btn-default" value="수정"/> -->
 		<a class="btn btn-default" href="getQnAList.user">취소</a>
-			<form action="updateRegistQnA.user" method="get">
-			<input type="hidden" name="qTitle" value="${getQnA.qTitle }" />
-			<input type="hidden" name="qDate" value="${getQnA.qDate }" />
-			<input type="hidden" name="qWriter" value="${getQnA.qWriter }" />
-			<input type="hidden" name="qlContent" value="${getQnA.qlContent }" />
-			<input type="submit" value="수정" class="btn btn-default"/>
-			</form>
-		<a class="btn btn-default" href="deleteQnA.user?qId=${getQnA.qId }">삭제</a>
+		<a class="btn btn-default" href="updateQnA.user?qPassword=${getQnA.qPassword }">수정</a>
+		<a class="btn btn-default" href="deleteQnA.user?qPassword=${getQnA.qPassword }">삭제</a>
 		</span>
 		</div>
 		<div class="text-center">

@@ -1,17 +1,50 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-   pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
-
-<html lang="utf-8">
+<html lang="en">
 <head>
+	<title>회원가입</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="./resources/images/icons/favicon.png"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="./resources/css/util.css">
+	<link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<!--===============================================================================================-->
 
-<meta charset="utf-8">
-<!-- meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/ -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원가입</title>
-<script type="text/javascript" src="resources/js/jquery-1.7.1.js"></scrpt>
+<!-- script -->
+<script type="text/javascript" src="resources/js/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="resources/js/js_userinput.js"></script>
+<!-- 유효성 체크  -->
+<script src='resources/js/jquery.validate.min.js' type="text/javascript"></script>
+<script type="text/javascript" src="resources/js/nh.js"></script> 
+
 <!-- post검색--------------------------------------------------------------------------------------------------------------------------  -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -68,12 +101,24 @@
 <!-- Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
    rel="stylesheet" type="text/css" />
-</head>
 
-<body>
-   
-   <div class="container">
+</head>
+<body class="animsition">
+	
+	<!-- Header -->
+	  <jsp:include page="/WEB-INF/views/market/header.jsp" />
+<!-- Title page -->
+   <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+      <h2 class="ltext-105 cl0 txt-center">
+         회원가입
+      </h2>
+   </section>   
+<!-- header끝 -->
+   <!-- Content page -->
+   <section class="bg0 p-t-75 p-b-120">
+      <div class="container">
       <!-- 좌우측의 공간 확보 -->
+   
       <div class="row">
          <p></p>
          <div class="col-md-12"></div>
@@ -81,7 +126,7 @@
 
       <hr />
       <!-- 본문 들어가는 부분 -->
-      
+      	<div class="mregist">
          <div class="form-group">
             <label for="provision" class="col-lg-2 control-label">회원가입약관</label>
             <div class="col-lg-10" id="provision">
@@ -226,14 +271,14 @@
 부 칙 1. (시행일) 본 약관은 2016년 1월 1일부터 시행됩니다.
                         </textarea>
                <div class="radio">
-                  <label> <input type="radio" id="provisionYn"
-                     name="provisionYn" value="Y" autofocus="autofocus" checked>
+                  <label> <input type="radio" class="Terms"
+                     name="provisionYn" id="mTermsY" value="Y" autofocus="autofocus" checked>
                      동의합니다.
                   </label>
                </div>
                <div class="radio">
-                  <label> <input type="radio" id="provisionYn"
-                     name="provisionYn" value="N"> 동의하지 않습니다.
+                  <label> <input type="radio" class="Terms"
+                     name="provisionYn" id="mTermsN" value="N"> 동의하지 않습니다.
                   </label>
                </div>
             </div>
@@ -262,14 +307,15 @@
 위 개인정보의 수집 및 이용에 대한 동의를 거부할 수 있으나, 동의를 거부할 경우 회원 가입이 제한됩니다.
                         </textarea>
                <div class="radio">
-                  <label> <input type="radio" id="memberInfoYn"
-                     name="memberInfoYn" value="Y" checked> 동의합니다.
+                  <label> <input type="radio" class="Terms" id="infoTermsY" "
+                    name="infoTermsYN" value="Y" checked> 동의합니다.
                   </label>
                </div>
                <div class="radio">
-                  <label> <input type="radio" id="memberInfoYn"
-                     name="memberInfoYn" value="N"> 동의하지 않습니다.
+                  <label> <input type="radio"  class="Terms" id="infoTermsN" "
+                   name="infoTermsYN" value="N"> 동의하지 않습니다.
                   </label>
+                     <input type="button" value="머!인식하라고!" id="Hellotest">
                </div>
             </div>
          </div>
@@ -283,7 +329,7 @@
                <div align="left">ID</div>
             </td>
             <td colspan="3" class="normal">
-            <input type="text" name="userName" id="userName" size="20"> 
+            <input type="text" name="userName" id="userName" required=""  size="20"> 
             <span id="idCheckResult" style="width: 150px; color: red"></span>
             </td>
          </tr>
@@ -293,7 +339,7 @@
         <div align="left">비밀번호</div>
       </td>
       <td width="154" class="normal"> 
-        <input type="password" name="Password" id="Password">
+        <input type="password" name="Password" required=""  id="Password">
       </td>
       </tr>
       
@@ -302,7 +348,7 @@
         <div align="left">비밀번호 확인</div>
       </td>
       <td width="160"> 
-        <input type="password" name="Password2" id="Password">
+        <input type="password" name="Password2" required=""  id="Password2">
       </td>
     </tr>
     
@@ -311,7 +357,7 @@
         <div align="left">이름</div>
       </td>
       <td colspan="3" height="23" class="normal"> 
-        <input type="text" name="mName" id="mName">
+        <input type="text" name="mName" required=""  id="c">
       </td>
     </tr>
     
@@ -320,7 +366,8 @@
         <div align="left">휴대폰번호</div>
       </td>
       <td colspan="3" height="23" class="normal"> 
-        <input  placeholder="전화번호 (-)없이 입력" type="text" name="mTel" id="mTel">
+        <input  placeholder="전화번호 (-)없이 입력" required=""  type="text" name="mTel" id="mTel">
+      	<span id="telCheckResult" style="width: 150px; color: red"></span>
       </td>
     </tr>
     
@@ -358,21 +405,126 @@
     </td>    
     <td colspan="3" height="23" class="normal">
     	<label class="radio-inline"> 
-    		<input type="radio" id="mGender" name="mGender" value="Female" checked>여자
+    		<input type="radio" id="Female" name="mGender" value="Female" checked>여자
          </label> 
          <label class="radio-inline"> 
          <input type="radio" id="mGender" name="mGender" value="Male"> 남자
          </label>
     </td>
+    </tr>
    </table>
    <hr/>
-            <input type="submit" name="confirm" id="confirm" value="회원가입">
+            <input type="submit" name="submit" id="submit"   value="회원가입">
       </form>
 
-      <hr />
-
+      <hr/>
+</div>
    </div>
-</body>
-</html>
+  </section>
+
+
+<!-- script	 -->
+<!--===============================================================================================-->	
+	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/bootstrap/js/popper.js"></script>
+	<script src="./resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/daterangepicker/moment.min.js"></script>
+	<script src="./resources/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/slick/slick.min.js"></script>
+	<script src="./resources/js/slick-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/parallax100/parallax100.js"></script>
+	<script>
+        $('.parallax100').parallax100();
+	</script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/sweetalert/sweetalert.min.js"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	
+	</script>
+<!--===============================================================================================-->
+	<script src="./resources/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="./resources/js/main.js"></script>
+
 </body>
 </html>

@@ -26,7 +26,7 @@ public class productServiceImpl implements productService{
 	//상품 검색
 	@Override
 	public List<ProductVO> SearchProduct(ProductVO vo) {
-		System.out.println("service search");
+		System.out.println("service product search");
 		return productDao.SearchProduct(vo); 
 	}
 	//카테고리 가져오기
@@ -34,6 +34,12 @@ public class productServiceImpl implements productService{
 	public List<CategoryVO> StoreCategory() {
 		System.out.println("service getcategory");
 		return productDao.StoreCategory(); 
+	}
+	//카테고리 통해 검색
+	@Override
+	public List<ProductVO> SearchCategory(CategoryVO cvo) {
+		System.out.println("service category search");
+		return productDao.SearchCategory(cvo); 
 	}
 	
 

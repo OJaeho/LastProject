@@ -32,11 +32,11 @@
 		
 		<section id="container">
 			<form action="insertQnA.user" method="get" id="QnAinsert">
-		<table class="table table-striped table-bordered">
+		<table class="table table-bordered">
 	
 					<tr>
-						<th scope="row">
-						<label for="qTitle">제목</label>
+						<th class="mythlist" scope="row">
+						<label class="labellist" for="qTitle">제목</label>
 						</th>						
 						<td>
 						<input type="text" id="qTitle" name ="qTitle" class="input_txt" 
@@ -46,21 +46,26 @@
 					</tr>
 					
 					<tr>
-						<th scope="row">작성자</th>
+						<th class="mythlist" scope="row">
+						<label class="labellist" for="qWriter">작성자</label>
+						</th>
 						<td>
-						<input type="text" name="qWriter"  class="inputTypeText" 
-						placeholder="" maxlength="125"  style="width:100px; height:22px;" /></td>
+						<input type="text" id="qWriter" class="input_txt" 
+						form-index="3" data-name="작성자" name="qWriter"
+						style="width:300px">						
+						</td>
 					</tr>
 					<tr>
-						<th scope="row">내용</th>
+						<th class="mythlist" scope="row">
+						<label class="labellist" for="qlContent">내용</label>
+						</th>
 						<td>
 						<div class="test_area_wrap">
-						<div class="text_area _textarea" placeholder="내용을 입력해주세요." 
+						<input class="text_area _textarea input_txt" 
 						contenteditable="true" id="qlContent" name="qlContent" form-index="7" 
 						 data-type="textarea" 
 						role="textbox" aria-labelledby="qlContent" 
-						aria-multiline="true">
-						</div>
+						aria-multiline="true"/>
 						</div>
 						</td>
 					</tr>
@@ -75,26 +80,17 @@
 <!-- 					file타입의 name은 MultipartFile의 프라퍼티  -->
 <!-- 					<input type="file" name='file' maxlength="60" size="40"> -->
 <!-- 				</td> -->
-<!-- 			</tr>	  -->
+<!-- 			</tr>	  -->						
 				
-			<tr>
-				<td colspan="2" align="center" class="bor502">
-					<div class="header-cart-buttons btn_login">	
-					<span class="cleft">
-					<a href="getQnAList.user">글목록</a>
-					</span>					
-					<span class="cright">
-						<input type="submit" value="등록" class="inputBtn"/>
-						<a href="getQnAList.user">취소</a>			
-					</span>
-					</div>
-					<div class="search row">
-					<div class="col-xs-2 col-sm-2">							
-					</div>			
-			</tr>
-			
 		</table>
 		</form>
+		<hr/>
+		<div class="btn_left">
+			<span>
+				<input type="submit" value="등록" class="btn btn-default"/>
+				<a href="getQnAList.user" class="btn btn-default" data-role="cancle">취소</a>						
+			</span>
+		</div>
 			</div>
 		</div>
 
