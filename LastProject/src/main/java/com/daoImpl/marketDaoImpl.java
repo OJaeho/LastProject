@@ -33,6 +33,12 @@ import com.vo.MarketVO;
 			return mybatis.selectList("MarketDAO.market");
 		}
 
+		@Override
+		public MarketVO marketHome(MarketVO vo) {
+			System.out.println("===> Mybatis marketHome() 호출");
+			return mybatis.selectOne("MarketDAO.marketHome",vo);
+		}
+
 //		public List<NoticeVO> getNoticeList(NoticeVO vo) {
 //			System.out.println("===> Mybatis getNoticeList() 호출");
 //			return mybatis.selectList("Notice.getNoticeList", vo);

@@ -186,7 +186,7 @@
 					<img src="./resources/images/market_3.png" alt="IMG-LOGO">
 					</a>
 				</div>
-	</div>
+				</div>
 
 				<p class="stext-107 cl6 txt-center">
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

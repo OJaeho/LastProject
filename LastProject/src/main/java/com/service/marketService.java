@@ -22,6 +22,9 @@ public interface marketService {
 
 	// 풋터 마켓 목록 조회
 	List<MarketVO> selectMarket();
+	
+	// 마켓홈 이동할때 mkid 호출
+	MarketVO marketHome(MarketVO vo);
 
 }
 

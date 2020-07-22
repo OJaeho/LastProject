@@ -154,14 +154,14 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*//////////////////////////////////////////////////////////////////
 [ BUTTON BACK TO TOP ]*/
 .btn-back-to-top {
-  display: none;
+  display: inline;
   position: fixed;
   width: 40px;
   height: 38px;
   bottom: 0px;
   right: 40px;
   background-color: #717fe0;
-  opacity: 0.5;
+  opacity: 10%;
   justify-content: center;
   align-items: center;
   z-index: 1000;

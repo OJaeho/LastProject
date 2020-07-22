@@ -24,5 +24,10 @@
       	<![CDATA[
       	SELECT * FROM market 
       	]]>     
-  	 </select> 
+  	</select>
+  	<select id="marketHome" parameterType="market" resultType="market">
+      	<![CDATA[
+      	SELECT mkid FROM market where mkname=#{mkName} 
+      	]]>     
+  	</select>  
 </mapper>
