@@ -20,4 +20,15 @@ public class MemberSerivceImpl implements MemberSerivce {
 		
 	}
 
+	@Override
+	public UsersVO idCheck_Login(UsersVO vo) {
+		return dao.idCheck_Login(vo);
+		
+	}
+
+	@Override
+	public UsersVO telCheck_Login(UsersVO vo) {
+		return dao.telCheck_Login(vo);
+	}
+
 }

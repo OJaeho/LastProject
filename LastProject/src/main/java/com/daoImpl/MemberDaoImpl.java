@@ -19,4 +19,16 @@ public class MemberDaoImpl implements MemberDao {
 		mybatis.insert("MemberMapper.insertUserAuthority",vo);
 	}
 
+	@Override
+	public UsersVO idCheck_Login(UsersVO vo) {
+		
+		return mybatis.selectOne("MemberMapper.selectIdLogin",vo);
+	}
+
+	@Override
+	public UsersVO telCheck_Login(UsersVO vo) {
+		
+		return mybatis.selectOne("MemberMapper.selectTelLogin",vo);
+	}
+
 }

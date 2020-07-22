@@ -13,4 +13,18 @@
 	  authorities (username,authority,delyn)
 	  values(#{userName},'ROLE_USER','N')
 	  </insert>
+	  
+<!-- 	  로그인시 아이디 확인 -->
+	  <select id="selectIdLogin" parameterType="users" resultType="users">
+	  
+	  select username from users where username=#{userName}
+	  </select>
+<!-- 	  로그인시 전화번호 확인 -->
+		<select id="selectTelLogin" parameterType="users" resultType="users">
+	  
+	  select mtel from users where mtel=#{mTel}
+	  </select>
+
+	
+
 </mapper>
