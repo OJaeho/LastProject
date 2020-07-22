@@ -17,4 +17,20 @@
    seq_qId.nextval,#{qWriter},#{qTitle},#{qlContent},sysdate
    )   
    </insert>
+   
+   	<select id="getQnA" parameterType="qna" resultType="qna">
+		<![CDATA[
+		SELECT *
+		FROM QNA
+		WHERE qId = #{qId}
+		]]>
+	</select>
+	
+	<delete id="deleteQnA" parameterType="qna">
+		<![CDATA[
+		DELETE QNA
+		WHERE qId = #{qId}
+		]]>
+	</delete>
+	
 </mapper>
