@@ -78,8 +78,8 @@
 					<div class="left-top-bar">전통시장의 정을 온라인으로 느껴보세요!</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> 회원가입 </a> <a
-							href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
+						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25"> 회원가입 </a> <a
+							href="#" class="flex-c-m trans-04 p-lr-25">
 							로그인 </a> <a href="#" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a> <a
 							href="#" class="flex-c-m trans-04 p-lr-25"> ENGLISH </a>
 					</div>
@@ -103,21 +103,21 @@
 									<li><a href="#">오시는길</a></li>
 									<li><a href="#">업종별상점</a></li>
 									<li><a href="#">상점배치도</a></li>
-									<li><a href="#">시장이슈</a></li>
+									<li><a href="folliumtest.user">시장이슈</a></li>
 								</ul></li>
 
 							<li><a href="#">거리마다</a>
 								<ul class="sub-menu">
-									<li><a href="#">놀거리(주변관광지)</a></li>
-									<li><a href="#">먹을거리(시장맛집)</a></li>
+									<li><a href="tourHome.do">놀거리(주변관광지)</a></li>
+									<li><a href="insertTour.do">먹을거리(시장맛집)</a></li>
 								</ul></li>
 
-							<li class="label1" data-label1="hot"><a href="#">우리 것이</a></li>
+							<li class="label1" data-label1="hot"><a href="getproduct.user">우리 것이</a></li>
 
 							<li><a href="#">있어요</a>
 								<ul class="sub-menu">
 									<li><a href="#">공지사항</a></li>
-									<li><a href="#">Q&A</a></li>
+									<li><a href="getQnAList.user">Q&A</a></li>
 								</ul></li>
 						</ul>
 					</div>

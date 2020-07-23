@@ -101,12 +101,12 @@
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="index3.user" class="stext-107 cl7 hov-cl1 trans-04">
 								상점배치도
 							</a>
 						</li>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="folliumtest.user" class="stext-107 cl7 hov-cl1 trans-04">
 								시장이슈
 							</a>
 						</li>
@@ -120,13 +120,13 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="tourHome.do" class="stext-107 cl7 hov-cl1 trans-04">
 								놀거리(주변관광지)
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="insertTour.do" class="stext-107 cl7 hov-cl1 trans-04">
 								먹을거리(시장맛집) 
 							</a>
 						</li>
@@ -140,18 +140,18 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="getproduct.user" class="stext-107 cl7 hov-cl1 trans-04">
 								우리 것(상품)
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								공시사항
+								공지사항
 							</a>
 						</li>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="getQnAList.user" class="stext-107 cl7 hov-cl1 trans-04">
 								Q&A
 							</a>
 						</li>

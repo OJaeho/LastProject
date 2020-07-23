@@ -24,13 +24,16 @@ public class marketController {
 	private marketService service;
 	
 	//풋터에서 전국시장 셀렉트박스에 보여주기
-	@RequestMapping("/about.user")
+	@RequestMapping("/index3.user")
 	public String selectMarket(Model model) {
 		List<MarketVO> list= service.selectMarket();
 		System.out.println(list.get(0)+"+++++++++++++++++++++++++++");
 		model.addAttribute("list", list);
 		return "index2";
 	}
+	
+	
+	
 	//전국시장 지도에 셀렉트박스에 전국시장 보여주기
 	@RequestMapping("/folliumtest.user")
 	public String folliumtest(Model model) {
@@ -40,10 +43,11 @@ public class marketController {
 		return "folliumtest";
 
 	}
+	
+	
 	//셀렉트박스에서 망원시장일 경우, 메인으로 옮겨가기 : index로 갈무리 셋팅해놓음(수정필요)
 	@RequestMapping("/index2.user")
 	public String marketHome(@ModelAttribute MarketVO vo, HttpSession session) {
-
 		System.out.println("+++++++++++++++++++++++++++++++++"+vo.getMkName());
 		MarketVO vo1 = service.marketHome(vo);
 		int mkid=vo1.getMkId();
