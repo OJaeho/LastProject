@@ -6,6 +6,10 @@
 		<result property="cId" column="CID" />
 		<result property="cName" column="CNAME" />
 	</resultMap>
+	<resultMap type="store" id="store">
+		<result property="sId" column="SID" />
+		<result property="sName" column="SNAME" />
+	</resultMap>
 
 	<select id="selectProduct" parameterType="product"
 		resultType="product">
@@ -30,6 +34,15 @@
 		<if test="cName != null and cName != '' ">
 			where (c.cid=s.cid and p.sid = s.sid)
 			and c.cname=#{cName}
+		</if>
+	</select>
+	
+	
+	<select id="searchCategory_store" parameterType="category"
+		resultType="store">
+		select s.* from store s,category c
+		<if test="cName != null and cName != '' ">
+			where c.cid=s.cid and c.cname=#{cName}
 		</if>
 	</select>
 

@@ -62,62 +62,27 @@
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Title page -->
 	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120">
-		<div class="container">
-			<!-- Product -->
-			<hr />
-			<!-- category -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92">
+		<h2 class="ltext-105 cl0 txt-center">업종별 상점목록</h2>
+		<div class="container" align="center">
 			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<c:forEach items="${categoryget}" var="cate">
-						<form action="categoryitem.user" method="get">
-							<div class="button">
-								<input type="submit" class="btn btn-link" style="color: green;"
-									name="cName" value="${cate.cName}">
-							</div>
-						</form>
-					</c:forEach>
-				</div>
-
-
-				<!-- 상품 -->
-				<div class="row isotope-grid">
-
-					<c:forEach items="${productget}" var="list">
-
-						<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-							<!-- Block2 -->
-							<div class="block2">
-								<div class="block2-pic hov-img0">
-									<img src="${list.pImg1}" alt="IMG-PRODUCT"> <a href="#"
-										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-										Quick View </a>
-								</div>
-
-								<div class="block2-txt flex-w flex-t p-t-14">
-									<div class="block2-txt-child1 flex-col-l ">
-										<a href="product-detail.user?pName=${list.pName}"
-											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-											${list.pName} </a> <span class="stext-105 cl3">
-											${list.pPrice}원 </span>
-									</div>
-
-									<div class="block2-txt-child2 flex-r p-t-3">
-										<a href="#"
-											class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-											<img class="icon-heart1 dis-block trans-04"
-											src="./resources/images/icons/icon-heart-01.png" alt="ICON">
-											<img class="icon-heart2 dis-block trans-04 ab-t-l"
-											src="./resources/images/icons/icon-heart-02.png" alt="ICON">
-										</a>
-									</div>
-								</div>
-							</div>
+				<c:forEach items="${categoryget}" var="cate">
+					<form action="showstore.user" method="get"> 
+						<div class="button">
+							<input type="submit" class="btn btn-link" style="color: green;"
+								name="cName" value="${cate.cName}">
+								들어가기
 						</div>
-					</c:forEach>
-				</div>
+					</form>
+				</c:forEach>
 			</div>
+		</div>
 	</section>
+
+
+
+
+
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
 		<span class="symbol-btn-back-to-top"> <i

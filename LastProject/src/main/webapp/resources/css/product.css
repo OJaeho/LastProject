@@ -46,5 +46,22 @@ categoryname{
 	margin:0 auto; 
 	text-align:center;
 } 
+.storeimg{
+	width:270px;
+	height:270px;
+}
+#storeinfo{
+	width:270px;
+	height:70px;
+}
 
-
+.store-div{
+	padding: 10px 10px 10px 10px;
+}
+.container{
+	padding: 10px 10px 10px 10px;
+}
+.first>.second>#storeallview{
+	position:relative;
+	height: auto;
+}

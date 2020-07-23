@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.service.productService;
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
+import com.vo.StoreVO;
 
 @Controller
 public class productController{
@@ -44,6 +45,26 @@ public class productController{
 		return "product/getproduct";
 	}
 	
+	//상품 디테일 페이지 이동
+	@RequestMapping(value="/product-detail.user")
+	public String detail(String pName){
+		System.out.println(pName);
+		return "product/product-detail";
+	}
+	
+	//점포 디테일 페이지 이동
+		@RequestMapping(value="/store-detail.user")
+		public String detailstore(String pName){
+			return "product/store-detail";
+		}
+	//업종별 점포 카테고리 페이지
+	@RequestMapping(value="/storelist.user")
+	public String store(Model model){
+		List<CategoryVO> category = service.StoreCategory();
+		model.addAttribute("categoryget", category);
+		return "product/storelist";
+	}
+
 	//카테고리 검색
 	@RequestMapping(value="/categoryitem.user")
 	public String SearchCategory(CategoryVO cvo,ProductVO vo,Model model) {
@@ -56,18 +77,15 @@ public class productController{
 		model.addAttribute("productget", cateitem);
 		return "product/getproduct";
 	}
-	//상품 디테일 페이지
-	@RequestMapping(value="/product-detail.user")
-	public String detail(){
-		return "product/product-detail";
-		
+	//점포리스트 페이지
+	@RequestMapping(value="/showstore.user")
+	public String ShowStore(CategoryVO cvo,Model model) {
+		List<CategoryVO> category = service.StoreCategory();
+		List<StoreVO> catestore = service.SearchCategory_store(cvo);
+		System.out.println(cvo.getcName());
+		model.addAttribute("storeget", catestore);
+		model.addAttribute("categoryget", category);
+		return "product/getstore";
 	}
-	//업종별 점포 페이지
-		@RequestMapping(value="/storelist.user")
-		public String store(){
-			return "product/storelist";
-			
-		}
-	
 	
 }

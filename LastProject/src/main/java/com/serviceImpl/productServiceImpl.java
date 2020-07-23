@@ -9,6 +9,7 @@ import com.daoImpl.productDaoImpl;
 import com.service.productService;
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
+import com.vo.StoreVO;
 
 @Service("productService")
 public class productServiceImpl implements productService{
@@ -35,12 +36,17 @@ public class productServiceImpl implements productService{
 		System.out.println("service getcategory");
 		return productDao.StoreCategory(); 
 	}
-	//카테고리 통해 검색
+	//카테고리 통해 검색(상품)
 	@Override
 	public List<ProductVO> SearchCategory(CategoryVO cvo) {
 		System.out.println("service category search");
 		return productDao.SearchCategory(cvo); 
 	}
-	
+	//카테고리 통해 검색(점포)
+		@Override
+		public List<StoreVO> SearchCategory_store(CategoryVO cvo) {
+			System.out.println("service category search");
+			return productDao.SearchCategory_store(cvo); 
+		} 
 
 }
