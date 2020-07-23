@@ -99,8 +99,8 @@
 						<ul class="main-menu">
 							<li><a href="#">우리 시장엔</a>
 								<ul class="sub-menu">
-									<li><a href="#">시장소개</a></li>
-									<li><a href="#">오시는길</a></li>
+									<li><a href="introMarket.user">시장소개</a></li>
+									<li><a href="waytoMarket.user">오시는길</a></li>
 									<li><a href="#">업종별상점</a></li>
 									<li><a href="#">상점배치도</a></li>
 									<li><a href="folliumtest.user">시장이슈</a></li>
@@ -108,7 +108,7 @@
 
 							<li><a href="#">거리마다</a>
 								<ul class="sub-menu">
-									<li><a href="tourHome.do">놀거리(주변관광지)</a></li>
+									<li><a href="tosurHome.do">놀거리(주변관광지)</a></li>
 									<li><a href="insertTour.do">먹을거리(시장맛집)</a></li>
 								</ul></li>
 
@@ -145,7 +145,7 @@
 				</form>
 			</div>
 		</div>
-	</div>
+
 
 	</header>
 		

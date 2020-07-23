@@ -17,8 +17,8 @@ public interface marketService {
 //	// 글 삭제
 //	void deleteNotice(NoticeVO vo);
 //
-//	// 글 상세 조회
-//	NoticeVO getNotice(NoticeVO vo);
+	// 시장소개 정보 조회
+	MarketVO introMarket(MarketVO vo);
 
 	// 풋터 마켓 목록 조회
 	List<MarketVO> selectMarket();

@@ -21,6 +21,7 @@
  		<typeAlias alias="tour" type="com.vo.TourVO" />
  		<typeAlias alias="unit" type="com.vo.UnitVO" />
  		<typeAlias alias="users" type="com.vo.UsersVO" />
+ 		<typeAlias alias="store" type="com.vo.StoreVO" />
  	</typeAliases>
  	
 

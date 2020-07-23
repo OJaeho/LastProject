@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<%@page import="com.vo.ProductVO"%>
-<%@page import="com.vo.CategoryVO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="UTF-8">
 <head>
-<title>Product</title>
+
+<title>waytoMarket</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="./resources/css/market.css" />
+<!--===============================================================================================-->
 <!--===============================================================================================-->
 <link rel="icon" type="image/png"
 	href="./resources/images/icons/favicon.png" />
@@ -53,112 +53,86 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css" href="./resources/css/product.css">
 <!--===============================================================================================-->
 
 </head>
 <body class="animsition">
+
+	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
+
 	<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
+		style="background-image: url('images/bg-01.jpg');">
+		<h2 class="ltext-105 cl0 txt-center">시장오시는길</h2>
+	</section>
+
 	<!-- Content page -->
+
+	<section class="bg0 p-t-75 p-b-120">
 		<div class="container">
-				<!-- Product -->
-				<hr />
-				<!-- category -->
-				<div class="flex-w flex-sb-m p-b-52">
-					<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-						<c:forEach items="${categoryget}" var="cate">
-							<form action="categoryitem.user" method="get">
-								<div class="button">
-									<input type="submit" class="btn btn-link" style="color: green;"
-										name="cName" value="${cate.cName}">
-								</div>
-							</form>
-						</c:forEach>
-					</div>
+			<div class="row p-b-148">
+				<div class="col-md-7 col-lg-8">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">시장오시는길</h3>
+						<div class="main_area current" data-cid="78z0udho"
+							data-anchor="367564f783e6db3ab00bf9c85e458944"
+							data-adult-flag="0" data-title="시장오시는길">
+							<div class="inner _inner">
+								<!-- 오시는길 이미지3 삽입할곳 -->
+								<div class="component_box component_margin _component"
+									data-index="0">
+									<div
+										class="gallery_area _image_view_container type5 align_l v_align_m black_bg sma   txt_none">
 
-					<div class="flex-w flex-c-m m-tb-10">
-
-						<div
-							class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-							<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-							<i
-								class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-							상품 검색
-						</div>
-					</div>
-
-					<!-- Search product -->
-					<div class="dis-none panel-search w-full p-t-10 p-b-15">
-						<div class="bor8 dis-flex p-l-15">
-							<form action="searchproduct.user" method="get" value="검색">
-								<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text"
-									name="keyword" placeholder="키워드를 입력하시오."> <input
-									class="mtext-107 cl2 size-50 plh2 p-r-15" type="submit"
-									value="검색">
-							</form>
-						</div>
-					</div>
-				</div>
-
-
-				<!-- 상품 -->
-				<div class="row isotope-grid">
-
-					<c:choose>
-						<c:when test="${empty productget}">
-							
-								<img class='readyimg' src="./resources/images/ready.jpg"
-									alt="IMG-PRODUCT">
-						</c:when>
-						<c:otherwise>
-							<c:forEach items="${productget}" var="list">
-
-								<div
-									class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-									<!-- Block2 -->
-									<div class="block2">
-										<div class="block2-pic hov-img0">
-											<img src="${list.pImg1}" alt="IMG-PRODUCT"> <a href="#"
-												class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-												Quick View </a>
+										<div class="gallery_img">
+											<a href=""><img alt="" src="${intro.mkJido}" alt="이미지"
+												width="1000" height="800"></a>
 										</div>
-
-										<div class="block2-txt flex-w flex-t p-t-14">
-											<div class="block2-txt-child1 flex-col-l ">
-												<a href="product-detail.user?pName=${list.pName}"
-													class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-													${list.pName} </a> <span class="stext-105 cl3">
-													${list.pPrice}원 </span>
-											</div>
-
-											<div class="block2-txt-child2 flex-r p-t-3">
-												<a href="#"
-													class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-													<img class="icon-heart1 dis-block trans-04"
-													src="./resources/images/icons/icon-heart-01.png" alt="ICON">
-													<img class="icon-heart2 dis-block trans-04 ab-t-l"
-													src="./resources/images/icons/icon-heart-02.png" alt="ICON">
-												</a>
-											</div>
-										</div>
+										<div class="mask_bg" style="opacity: 0;"></div>
 									</div>
 								</div>
-							</c:forEach>
-						</c:otherwise>
-					</c:choose>
-				</div>
-				<hr/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-			</div>
-			
-	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn" >
-		<span class="symbol-btn-back-to-top"> <i
-			class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
-	<jsp:include page="/WEB-INF/views/market/footer.jsp"></jsp:include>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="1">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+								<!-- 시장 이름넣은곳(mkName) -->
+								<div class="component_box _component" data-index="2">
+									<div class="view_table bdr_table ">
+										<table class="tx_a_c tx_v_m" border="1" cellspacing="0"
+											summary="표 입력">
+											<tbody>
+												<tr>
+													<td rowspan="1" colspan="1" data-row="0" data-column="0">시장 주소</td>
+													<td rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkAddr}</td>
+												</tr>
+												<tr>
+													<td rowspan="1" colspan="1" data-row="0" data-column="0">전화 번호</td>
+													<td rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTel}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="3">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- footer -->
+	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -208,7 +182,7 @@
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
-		$('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
+		$('.js-addwish-b2').on('click', function(e) {
 			e.preventDefault();
 		});
 
@@ -268,6 +242,6 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
-	<script src="./resources/js/product.js"></script>
+
 </body>
 </html>
