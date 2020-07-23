@@ -2,10 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tour">
-	<select id="tourHome" parameterType="tour" resultType="tour">
-		<![CDATA[ SELECT * FROM tour WHERE rownum < 4 ]]>
+	<select id="tourCount" resultType="int">
+		SELECT COUNT(*) FROM tour
 	</select>
-	<select id="tourList" parameterType="HashMap" resultType="tour">
-		<![CDATA[ select * from tour where rownum < #{su}]]>
+	<select id="selectTour" resultType="tour">
+		SELECT * 
+		FROM (
+			SELECT ROWNUM RN, A.* 
+				FROM (
+						SELECT * 
+						FROM tour 
+						) A
+				)
+	WHERE RN BETWEEN #{start} AND #{end}
 	</select>
+	
+	<select id="selectTourDetail" parameterType="tour" resultType="tour">
+		select * from tour where tid = #{tId}
+	</select>
+	
+	<insert id="insertTour" parameterType="tour">
+		insert into tour(tid, tname, timg1,taddr, tcontent) values(seq_tid.nextval, #{tName}, #{tImg1} ,#{tAddr}, #{tContent})
+	</insert>
+	
+	
 </mapper>

@@ -35,10 +35,19 @@
 <body>
 	<!-- header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
-	<section>   
+	   
+	  <!-- Title page -->
+   <section class="bg-img1 txt-center p-lr-15 p-tb-92" id="title_section" style="background-image: url('images/bg-01.jpg');">
+      <h2 class="ltext-105 cl0 txt-center tour_title">
+         주변 관광지 둘러보기
+      </h2>
+   </section>   
+
+
+   <!-- Content page -->
+   <section class="bg0 p-t-75 p-b-120">
 		<div class="container">
 			<div class="row">
-				<h2 class="tour_title">주변 관광지 둘러보기</h2>
 					<table class="tour_info">
 						<c:forEach var="item" items="${tourlist}">
 							<tr class="tour_info_tr">
@@ -48,14 +57,21 @@
 								<td align="center" class="timg"><img src="${item.tImg1}" /></td>
 							</tr>
 							<tr class="tour_detail">
-								<td align="center" colspan="2">${item.tContent}</td>
+								<td align="center" colspan="2">
+									<table id='tour_inner_table'">
+										<tr>
+											<td id="tour_inner_table_td">
+											${item.tContent}
+											</td>
+										</tr>
+									</table>
+								</td>
 							</tr>
-							<br/>
 						</c:forEach>
 					</table>
 			</div>
+			<hr/>
 			<div class="container">
-				
 				<div style="display: block; text-align: center;" class="pageBtn">
 					<c:if test="${paging.startPage != 1 and empty param.searchType }">
 						<a href="tourHome.do?nowPage=${paging.startPage - 1 }">&lt;</a>
@@ -95,18 +111,7 @@
 		</div>
 	
 		<!-- Shoping Cart -->
-		<form class="bg0 p-t-75 p-b-85">
-			<div class="container2">
-				<div class="row">
-					<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
-						<div class="m-l-25 m-r--38 m-lr-0-xl">
-							<div class="wrap-table-shopping-cart">
-							</div>
-	                	</div>
-					</div>
-				</div>
-			</div>
-		</form>
+		
 	</section>
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />

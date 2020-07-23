@@ -26,7 +26,7 @@ public class tourDaoImpl implements tourDao {
 //		return mybatis.selectList("tour.tourList", map);
 //	}
 
-	//°ü±¤Áö ¸®½ºÆ®, ÆäÀÌÂ¡Ã³¸®
+	//ê´€ê´‘ì§€ ë¦¬ìŠ¤íŠ¸, í˜ì´ì§•ì²˜ë¦¬
 	@Override
 	public int countTourList() {
 		return mybatis.selectOne("tour.tourCount");
@@ -36,8 +36,13 @@ public class tourDaoImpl implements tourDao {
 		return mybatis.selectList("tour.selectTour",vo);
 	}
 	
-	//°ü±¤Áö µğÅ×ÀÏ È­¸é
+	//ê´€ê´‘ì§€ ë””í…Œì¼ í™”ë©´
 	public TourVO tourDetail(TourVO vo) {
 		return mybatis.selectOne("tour.selectTourDetail", vo);
 	}
+	@Override
+	public int InsertTour(TourVO vo) {
+		return mybatis.insert("tour.insertTour",vo);
+	}
+	
 } 

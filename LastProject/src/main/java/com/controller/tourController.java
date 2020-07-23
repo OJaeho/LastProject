@@ -20,7 +20,7 @@ public class tourController {
 	@Autowired
 	private tourService tourservice;
 	
-	//Åõ¾î ÀüÃ¼ ¸®½ºÆ® , ÆäÀÌÂ¡
+	//íˆ¬ì–´ ì „ì²´ ë¦¬ìŠ¤íŠ¸ , í˜ì´ì§•
 	@RequestMapping("/tourHome.do")
 	public void tourHome(PagingVO vo, Model model, 
 			@RequestParam(value="nowPage", required = false)String nowPage,
@@ -40,30 +40,21 @@ public class tourController {
 		model.addAttribute("tourlist", list);
 	}
 	
-	//°ü±¤Áö µğÅ×ÀÏ È­¸é
+	//ê´€ê´‘ì§€ ë””í…Œì¼ í™”ë©´
 	@RequestMapping("/tourDetail.do")
 	public String tourDetail(TourVO vo, HttpServletRequest request, Model model) {
 		int tid = Integer.parseInt(request.getParameter("tId"));
 		vo.settId(tid);
 		model.addAttribute("result", tourservice.tourDetail(vo));
 		return "/tour-detail";
-			
-		
-		
 	}
-//	@ResponseBody
-//	@RequestMapping(value="/tourList.do", produces = "application/json; charset=utf-8")
-//	public void tourHome(TourVO vo, Model model, String num) {
-//		System.out.println(num);
-//		int su = Integer.parseInt(num);
-//		HashMap map = new HashMap();
-//		map.put("su", su);
-//		map.put("vo", vo);
-//		List<TourVO> tourList = tourservice.tourList(map);
-//		//ModelAndView mv = new ModelAndView();
-//		model.addAttribute("tourList", tourList);
-//		HashMap result = new HashMap();
-//		result.put("tourList", tourList);
-//		System.out.println(result);
-	}
+//	//ì‹ ê·œ ê´€ê´‘ì§€ ë“±ë¡
+//	@RequestMapping("/newTour.do")
+//	public String InsertTour(TourVO vo) {
+//		int result = tourservice.InsertTour(vo);
+//		if(result != 0) {		
+//		}
+//		return "redirect:/insertTour";
+//	}
+}
 
