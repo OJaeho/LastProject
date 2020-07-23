@@ -56,24 +56,23 @@
 			<div class="row">
 				<div class="col-md-8 col-lg-9 p-b-80">
 					<div class="p-r-45 p-r-0-lg">
-						<!--  -->
-						<form action="newTour.do" id="insertTour">
+						<form id="insertTour">
 							<div class="bor19 size-218 m-b-20">	
 								<input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="tName" id="tName" placeholder="관광지명..">
 							</div>
 							<div class="bor19 size-218 m-b-20">
 								<input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="tAddr" id="tAddr" placeholder="주소..">
-								<input class="btn btn-info" id="findpostcode" type="button" value="우편번호 검색" onclick="execDaumPostcode()">
+								<input class="btn btn-info" id="findpostcode" type="button" value="우편번호 검색">
 							</div>
 							<div class="bor19 m-b-20">
 								<input class="stext-111 cl2 plh3 size-124 p-lr-18 p-tb-15" type="text" placeholder="새로운 관광지를 홍보해주세요" id='tContent' name ="tContent">										
 							</div>
 							<div class="bor19 size-218 m-b-20">	
-								<input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="tImg" id="urlReg" placeholder="관광공사의 url을 입력해주세요.">
+								<input class="stext-111 cl2 plh3 size-116 p-lr-18" type="text" name="tImg1" id="urlReg" placeholder="관광공사의 url을 입력해주세요.">
 							</div>
 							<div id="url"></div>
 							<div id="urlcheck"></div>
-							<input type="submit" value="등록하기" id="btn_submit">
+							<input type="button" value="등록하기" id="btn_submit">
 						</form>
 					</div>
 				</div>
@@ -83,7 +82,9 @@
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 	<!--===============================================================================================-->
-
+	<script type="text/javascript">
+	</script>
+	<!--===============================================================================================-->
 	<script src="./resources/vendor/jquery/jquery-3.3.1.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/animsition/js/animsition.min.js"></script>
@@ -92,14 +93,7 @@
 	<script src="./resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/select2/select2.min.js"></script>
-	<script>
-		$(".js-select2").each(function(){
-			$(this).select2({
-				minimumResultsForSearch: 20,
-				dropdownParent: $(this).next('.dropDownSelect2')
-			});
-		})
-	</script>
+	
 	<!--===============================================================================================-->
 	<script
 		src="./resources/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>

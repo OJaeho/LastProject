@@ -1,12 +1,12 @@
 .container2 {max-width: 2000px;}
 .tour_title {
-    font-family: 'Noto Sans','∏º¿∫ ∞ÌµÒ','Malgun Gothic',Arial,Helvetica,sans-serif,Lucida,Grande,'Microsoft YaHei','Hiragino Sans GB',SimSun,Meiryo;
+    font-family: 'Noto Sans','ÎßëÏùÄ Í≥†Îîï','Malgun Gothic',Arial,Helvetica,sans-serif,Lucida,Grande,'Microsoft YaHei','Hiragino Sans GB',SimSun,Meiryo;
     color: #009a45 !important;
     margin-left:5%;
 }
 
 .tour_info .tour_name{
-	font-family: 'Noto Sans','∏º¿∫ ∞ÌµÒ';
+	font-family: 'Noto Sans','ÎßëÏùÄ Í≥†Îîï';
 	font-size: 30px;
 }
 .tour_info{
@@ -43,6 +43,7 @@
 	align-content: center;
 }
 .pageBtn b{
+	
 	display:block;
 	margin:0 3px;
 	float:left;
@@ -64,6 +65,17 @@
 }
 .tour_detail .tour_info_tr2:nth-child(2){
 	width : 50%;
+}
+
+#title_section{
+	padding-bottom: 30px;
+}
+
+.container .row .tour_info #tour_inner_table_td{
+	border: 2px solid #F5ECCE;
+	border-radius: 1em;
+	padding: 20px;
+	border-radius: 20%;	
 }
 
 

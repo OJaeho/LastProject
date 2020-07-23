@@ -19,5 +19,6 @@ public interface tourDao {
 	//관광지 디테일 화면
 	public TourVO tourDetail(TourVO vo);
 	
+	//신규 관광지 등록
 	public int InsertTour(TourVO vo);
 } 

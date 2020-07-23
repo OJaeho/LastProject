@@ -37,6 +37,7 @@ public class tourServiceImpl implements tourService {
 	public TourVO tourDetail(TourVO vo) {
 		return tourdao.tourDetail(vo);
 	}
+	//신규 관광지 등록
 	@Override
 	public int InsertTour(TourVO vo) {
 		return tourdao.InsertTour(vo);

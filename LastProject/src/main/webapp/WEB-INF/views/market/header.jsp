@@ -108,7 +108,7 @@
 
 							<li><a href="#">거리마다</a>
 								<ul class="sub-menu">
-									<li><a href="tosurHome.do">놀거리(주변관광지)</a></li>
+									<li><a href="tourHome.do">놀거리(주변관광지)</a></li>
 									<li><a href="insertTour.do">먹을거리(시장맛집)</a></li>
 								</ul></li>
 

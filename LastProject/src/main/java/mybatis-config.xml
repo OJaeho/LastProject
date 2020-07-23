@@ -22,6 +22,7 @@
  		<typeAlias alias="unit" type="com.vo.UnitVO" />
  		<typeAlias alias="users" type="com.vo.UsersVO" />
  		<typeAlias alias="store" type="com.vo.StoreVO" />
+ 		<typeAlias alias="paging" type="com.vo.PagingVO" />
  	</typeAliases>
  	
 

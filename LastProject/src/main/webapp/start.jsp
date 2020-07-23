@@ -17,5 +17,6 @@
 <a href="home-02.do">홈-02</a>
 <a href="blog-detail.user">헤더풋터 확인</a>
 <a href="folliumtest.user">지도 확인</a>
+<a href="insertTour.do">insertTour</a>
 </body>
 </html>

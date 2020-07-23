@@ -51,17 +51,17 @@
 					<table class="tour_info">
 						<c:forEach var="item" items="${tourlist}">
 							<tr class="tour_info_tr">
-								<td align="center" class="tour_name"><a href="tourDetail.do?tId=${item.tId}">${item.tName}</a><hr/> 
+								<td align="center" class="tour_name"><a href="tourDetail.do?tId=${item.tId}">${item.tName}</a><br/> 
 									<span class="tour_addr">${item.tAddr}</span><br />
 								</td>
-								<td align="center" class="timg"><img src="${item.tImg1}" /></td>
+								<td align="center" class="timg"><img src="${item.tImg1}" style=" width:300px; height:300px;"/></td>
 							</tr>
 							<tr class="tour_detail">
 								<td align="center" colspan="2">
 									<table id='tour_inner_table'">
 										<tr>
 											<td id="tour_inner_table_td">
-											${item.tContent}
+												${item.tContent}
 											</td>
 										</tr>
 									</table>

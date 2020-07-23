@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.service.tourService;
 import com.vo.PagingVO;
@@ -48,13 +49,14 @@ public class tourController {
 		model.addAttribute("result", tourservice.tourDetail(vo));
 		return "/tour-detail";
 	}
-//	//신규 관광지 등록
-//	@RequestMapping("/newTour.do")
-//	public String InsertTour(TourVO vo) {
-//		int result = tourservice.InsertTour(vo);
-//		if(result != 0) {		
-//		}
-//		return "redirect:/insertTour";
-//	}
+	
+	//신규 관광지 등록
+	@ResponseBody
+	@RequestMapping(value="/newTour.do", produces="application/json; charset=utf-8")
+	public String InsertTour(TourVO vo, Model model){
+		System.out.println(vo.gettName());
+		String result = String.valueOf(tourservice.InsertTour(vo));
+		return result;
+	}
 }
 
