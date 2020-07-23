@@ -27,10 +27,16 @@ import com.vo.MarketVO;
 //			System.out.println("===> Mybatis deleteNotice() 호출");
 //			mybatis.delete("NoticeDAO.deleteNotice", vo);
 //		}
-//
+		@Override
 		public List<MarketVO> selectMarket() {
 			System.out.println("===> Mybatis selectMarket() 호출");
 			return mybatis.selectList("MarketDAO.market");
+		}
+		
+		@Override
+		public MarketVO introMarket(MarketVO vo) {
+			System.out.println("===> Mybatis introMarket() 호출");
+			return mybatis.selectOne("MarketDAO.introMarket",vo);
 		}
 
 		@Override
@@ -39,21 +45,6 @@ import com.vo.MarketVO;
 			return mybatis.selectOne("MarketDAO.marketHome",vo);
 		}
 
-//		public List<NoticeVO> getNoticeList(NoticeVO vo) {
-//			System.out.println("===> Mybatis getNoticeList() 호출");
-//			return mybatis.selectList("Notice.getNoticeList", vo);
-//		}
-//		
-//		public List<NoticeVO> Pagelist(NoticeVO vo) {
-//			System.out.println("===> Mybatis Pagelist() 호출");
-//			return mybatis.selectList("NoticeDAO.Pagelist", vo);
-//		}
-//
-//		@Override
-//		public List<NoticeVO> getNoticeList() {
-//			// TODO Auto-generated method stub
-//			return mybatis.selectList("Notice.getNoticeList");
-//		}
-//		
+
 	}
 

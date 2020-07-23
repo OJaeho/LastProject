@@ -73,7 +73,7 @@
 	<footer class="bg3 p-t-75 p-b-32">
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 	<hr style="border: solid 1px;">
-	</br></br>	
+	<br><br>	
 		<div class="container">
 			<div class="row">		
 				<div class="col-sm-6 col-lg-2 p-b-50">
@@ -83,13 +83,13 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="introMarket.user" class="stext-107 cl7 hov-cl1 trans-04">
 								시장소개
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="waytoMarket.users" class="stext-107 cl7 hov-cl1 trans-04">
 								오시는길
 							</a>
 						</li>
@@ -173,10 +173,11 @@
 						  	</c:forEach>
 						</select>
 						</li>
-							</br>
+							
 						<li>주소 : 서울특별시 마포구 망원동 411-2</li>
-							</br>
+						<br/>
 						<li>전화번호 : 02-335-3591</li>
+						<br/>
 						</ul>
 					</form>
 				</div>

@@ -11,12 +11,19 @@ public class MarketVO {
 	private String mkIntro;
 	private String mkImg1;
 	private String mkImg2;
-	private String mkImg3;
+	private String mkJido;
 	private String delYn;
 	private String mklocal;
 	private int mklong;
 	private int mklat;
+	private String mkTime;
 	
+	public String getMkTime() {
+		return mkTime;
+	}
+	public void setMkTime(String mkTime) {
+		this.mkTime = mkTime;
+	}
 	public String getMklocal() {
 		return mklocal;
 	}
@@ -97,11 +104,12 @@ public class MarketVO {
 	public void setMkImg2(String mkImg2) {
 		this.mkImg2 = mkImg2;
 	}
-	public String getMkImg3() {
-		return mkImg3;
+	
+	public String getMkJido() {
+		return mkJido;
 	}
-	public void setMkImg3(String mkImg3) {
-		this.mkImg3 = mkImg3;
+	public void setMkJido(String mkJido) {
+		this.mkJido = mkJido;
 	}
 	public String getDelYn() {
 		return delYn;

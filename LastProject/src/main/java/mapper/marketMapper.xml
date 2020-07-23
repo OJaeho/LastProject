@@ -2,32 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MarketDAO">
-<!-- 		<resultMap id="market" type="market">
-			<result property="mkid" column="mkid" />
-			<result property="mkname" column="mkname" />
-			<result property="mkowner" column="mkowner" />
-			<result property="mkaddr" column="mkaddr" />
-			<result property="mktel" column="mktel" />
-			<result property="mkdate" column="mkdate" />
-			<result property="mkcount" column="mkcount" />
-			<result property="mkintro" column="mkintro" />
-			<result property="mkimg1" column="mkimg1" />
-			<result property="mkimg2" column="mkimg2" />
-			<result property="mkimg3" column="mkimg3" />
-			<result property="delyn" column="delyn" />
-			<result property="mklocal" column="mklocal" />
-			<result property="mklong" column="mklong" />
-			<result property="mklat" column="mklat" />
-		</resultMap>
-		 -->
+
 	<select id="market" resultType="market">
       	<![CDATA[
       	SELECT * FROM market 
       	]]>     
   	</select>
+  	
   	<select id="marketHome" parameterType="market" resultType="market">
       	<![CDATA[
       	SELECT mkid FROM market where mkname=#{mkName} 
       	]]>     
   	</select>  
+  	
+  	<select id="introMarket" parameterType="market" resultType="market">
+      	<![CDATA[
+      	SELECT * FROM market where mkid=#{mkId} 
+      	]]>     
+  	</select>
 </mapper>

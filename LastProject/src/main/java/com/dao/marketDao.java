@@ -11,6 +11,8 @@ public interface marketDao {
 
 	public List<MarketVO> selectMarket();
 	
+	public MarketVO introMarket(MarketVO vo);
+	
 	public MarketVO marketHome(MarketVO vo);
 
 }

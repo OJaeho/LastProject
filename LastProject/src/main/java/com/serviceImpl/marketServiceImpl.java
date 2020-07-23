@@ -33,6 +33,12 @@ public class marketServiceImpl implements marketService {
 //		return noticeDao.getNotice(vo);
 //	}
 	@Override
+	public MarketVO introMarket(MarketVO vo) {
+		return marketDao.introMarket(vo);
+	}
+	
+	
+	@Override
 	public List<MarketVO> selectMarket() {
 		return marketDao.selectMarket();
 	}
