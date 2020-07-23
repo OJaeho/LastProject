@@ -10,11 +10,11 @@
       ]]>
    </select>
    
-   <insert id="insertNotice" parameterType="notice">
+   <insert id="insertNotice" parameterType="notice" >
    INSERT INTO notice
-   (nId, userName, nTitle, nContent, nDate)
+   (nId, userName, nTitle, nContent, nDate,delYn,mkId)
    VALUES(
-   seq_nId.nextval,#{userName},#{nTitle},#{nContent},sysdate
+   seq_nId.nextval,#{userName},#{nTitle},#{nContent},sysdate,'N',#{mkId}
    )   
    </insert>
 </mapper>

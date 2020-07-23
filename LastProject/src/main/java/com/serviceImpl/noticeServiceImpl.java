@@ -17,8 +17,8 @@ public class noticeServiceImpl implements noticeService {
 	private noticeDaoImpl noticeDao;
 
 	@Override
-	public void insertNotice(NoticeVO vo) {		
-		noticeDao.insertNotice(vo);
+	public int insertNotice(NoticeVO vo) {		
+		return (int)noticeDao.insertNotice(vo);
 		
 	}
 

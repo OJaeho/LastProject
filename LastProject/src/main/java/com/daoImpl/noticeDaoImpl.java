@@ -16,9 +16,9 @@ import com.vo.NoticeVO;
 		@Autowired
 		private SqlSessionTemplate mybatis;
 
-		public void insertNotice(NoticeVO vo) {
+		public int insertNotice(NoticeVO vo) {
 			System.out.println("===> Mybatis insertNotice() 호출");
-			mybatis.insert("Notice.insertNotice", vo);
+			return (int)mybatis.insert("Notice.insertNotice", vo);
 		}
 
 		public void updateNotice(NoticeVO vo) {

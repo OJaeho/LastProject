@@ -51,7 +51,7 @@
 		</thead>		
 		<div class="btn">
 		<span>
-		<a href="insertNotice.user">글쓰기</a>
+		<a href="insertNotice.market">글쓰기</a>
 		</span>
 		</div>
 	</div>

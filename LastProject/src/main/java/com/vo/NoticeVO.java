@@ -7,17 +7,28 @@ public class NoticeVO {
 	private String nContent;
 	private String nDate;
 	private String delYn;
+	private int mkId;
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public int getMkId() {
+		return mkId;
+	}
+	public void setMkId(int mkId) {
+		this.mkId = mkId;
+	}
 	public int getnId() {
 		return nId;
 	}
 	public void setnId(int nId) {
 		this.nId = nId;
 	}
-	public String getuserName() {
-		return userName;
-	}
+	
 	public void setuserName(String userName) {
 		this.userName = userName;
 	}

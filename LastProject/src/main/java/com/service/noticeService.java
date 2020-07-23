@@ -8,7 +8,7 @@ import com.vo.NoticeVO;
 public interface noticeService {
 	// CRUD 기능의 메소드 구현
 	// 글 등록
-	void insertNotice(NoticeVO vo);
+	int insertNotice(NoticeVO vo);
 	
 	// 글 수정
 	void updateNotice(NoticeVO vo);
