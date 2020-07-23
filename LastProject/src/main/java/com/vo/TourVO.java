@@ -1,5 +1,10 @@
 package com.vo;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.springframework.web.multipart.MultipartFile;
+
 public class TourVO {
 	private int tId;
 	private String userName;
@@ -12,9 +17,47 @@ public class TourVO {
 	private String tCate;
 	private String delYn;
 	private String tAddr;
+	private String pfName;
+	private Long pfSize;
 	
 	
 	
+	public Long getPfSize() {
+		return pfSize;
+	}
+	public String getPfName() {
+		return pfName;
+	}
+	public void setPfName(String pfName) {
+		this.pfName = pfName;
+	}
+	public void setPfSize(Long pfSize) {
+		this.pfSize = pfSize;
+	}
+	
+	//사진 업로드
+	MultipartFile file;
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+		
+		if(!file.isEmpty()) {
+			//MultipartFile에서 파일명과 크기만 얻어오기 >>DB에 입력하기 위해서
+			this.pfName = file.getOriginalFilename(); //파일명
+			this.pfSize = file.getSize(); //파일사이즈
+
+			//실제파일로 저장하기
+			File f= new File("D:\\LastProject\\LastProject\\src\\main\\webapp\\resources\\images"+pfName); //괄호 안에 진짜경로
+			try {
+				file.transferTo(f);
+			} catch (IOException e) {
+				System.out.println("파일전송실패" + e.getMessage());
+				e.printStackTrace();
+			}
+		}
+	}
 	public String gettAddr() {
 		return tAddr;
 	}

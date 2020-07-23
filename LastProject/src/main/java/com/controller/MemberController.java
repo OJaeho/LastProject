@@ -34,7 +34,6 @@ public class MemberController {
 	@ResponseBody//(****************비동기통신을 해주세요) AJAX통신을 하는애는 반드시 이 어노테이션이 있어야함 
 	@RequestMapping(value = "/idCheck.user", produces="application/test; charset=UTF-8")
 	public String idcheck(UsersVO vo) {
-		System.out.println("Hello");
 		UsersVO result = service.idCheck_Login(vo);
 		String message = "중복된 아이디입니다";
 		if(result==null) message="사용가능한 아이디입니다";

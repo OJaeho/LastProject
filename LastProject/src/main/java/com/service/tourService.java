@@ -6,16 +6,18 @@ import com.vo.PagingVO;
 import com.vo.TourVO;
 
 public interface tourService {
-	//ÁÖº¯°ü±¤Áö È¨È­¸é
+	//ì£¼ë³€ê´€ê´‘ì§€ í™ˆí™”ë©´
 //	public List<TourVO> tourHome(TourVO vo);
 //	public List<TourVO> tourList(Map map);
 	
-	//°ü±¤Áö ¸®½ºÆ® ÃÑ°¹¼ö
+	//ê´€ê´‘ì§€ ë¦¬ìŠ¤íŠ¸ ì´ê°¯ìˆ˜
 	public int countTourList();
-	//ÆäÀÌÂ¡ Ã³¸® ¸®½ºÆ® Á¶È¸
+	//í˜ì´ì§• ì²˜ë¦¬ ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ
 	public List<TourVO> selectTourList(PagingVO vo);
-	//detail È­¸é
+	//detail í™”ë©´
 	public TourVO tourDetail(TourVO vo);
+	//ìƒˆ ê´€ê´‘ì§€ ë“±ë¡
+	public int InsertTour(TourVO vo);
 
 	
 }

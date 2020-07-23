@@ -38,12 +38,8 @@
 	<link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 <!--===============================================================================================-->
 
-<!-- script -->
-<script type="text/javascript" src="resources/js/jquery-1.7.1.js"></script>
-<script type="text/javascript" src="resources/js/js_userinput.js"></script>
-<!-- 유효성 체크  -->
-<script src='resources/js/jquery.validate.min.js' type="text/javascript"></script>
-<script type="text/javascript" src="resources/js/nh.js"></script> 
+
+
 
 <!-- post검색--------------------------------------------------------------------------------------------------------------------------  -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -101,7 +97,7 @@
 <!-- Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
    rel="stylesheet" type="text/css" />
-
+   
 </head>
 <body class="animsition">
 	
@@ -315,13 +311,12 @@
                   <label> <input type="radio"  class="Terms" id="infoTermsN" "
                    name="infoTermsYN" value="N"> 동의하지 않습니다.
                   </label>
-                     <input type="button" value="머!인식하라고!" id="Hellotest">
                </div>
             </div>
          </div>
          <hr/>
    
-   <form method="get" action="insertMember.user" name="userinput" id="userinput">
+   <form method="get" action="insertMember.user" id="frm">
    <table class='table2'>
       <label for="provision" class="col-lg-2 control-label">가입정보입력</label>
          <tr>
@@ -329,7 +324,7 @@
                <div align="left">ID</div>
             </td>
             <td colspan="3" class="normal">
-            <input type="text" name="userName" id="userName" required=""  size="20"> 
+            <input type="text" name="userName" id="userName" required="" name="userName" size="20"> 
             <span id="idCheckResult" style="width: 150px; color: red"></span>
             </td>
          </tr>
@@ -339,7 +334,7 @@
         <div align="left">비밀번호</div>
       </td>
       <td width="154" class="normal"> 
-        <input type="password" name="Password" required=""  id="Password">
+        <input type="password" name="Password" required="" id="Password">
       </td>
       </tr>
       
@@ -348,7 +343,7 @@
         <div align="left">비밀번호 확인</div>
       </td>
       <td width="160"> 
-        <input type="password" name="Password2" required=""  id="Password2">
+        <input type="password" name="Password2" required=""   id="Password2">
       </td>
     </tr>
     
@@ -357,7 +352,7 @@
         <div align="left">이름</div>
       </td>
       <td colspan="3" height="23" class="normal"> 
-        <input type="text" name="mName" required=""  id="c">
+        <input type="text" name="mName" required=""  id="mName">
       </td>
     </tr>
     
@@ -424,6 +419,9 @@
 
 
 <!-- script	 -->
+
+
+<!-- 유효성 체크  -->
 <!--===============================================================================================-->	
 	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -432,6 +430,15 @@
 	<script src="./resources/vendor/bootstrap/js/popper.js"></script>
 	<script src="./resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
+
+<!--===============================================================================================-->	
+<!-- <script type="text/javascript" src="resources/js/jquery-1.7.1.js"></script> -->
+<script type="text/javascript" src="resources/js/nh.js"></script> 
+<!-- <script src='resources/js/jquery.validate.min.js' type="text/javascript"></script> -->
+<script
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="resources/js/js_userinput.js"></script>
+<!--===============================================================================================-->	
 	<script src="./resources/vendor/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){

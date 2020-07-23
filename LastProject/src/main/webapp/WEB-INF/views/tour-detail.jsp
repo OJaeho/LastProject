@@ -36,13 +36,13 @@
 <body>
 	<!-- header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" id="title_section" style="background-image: url('images/bg-01.jpg');">
+    	<h2 class="ltext-105 cl0 txt-center tour_title">${result.tName}</h2>
+   	</section>
+	
 	<div class="container" align="center">
 		<div class="row" align="center">
-		    <table class="tour_detail">
-		       	<tr class="tour_info_tr">
-	        		<td align="center" colspan="3" class="tour_name">${result.tName}<br/>
-	        		</td>
-	        	</tr>	
+		    <table class="tour_detail">	
 	    	  	<tr class="tour_info_tr2">		  
 		    		<td align="center" colspan="2"><img src="${result.tImg1}"/></td>
 		    		<td align="center">${result.tContent}</td>

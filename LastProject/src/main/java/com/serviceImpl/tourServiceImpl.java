@@ -23,7 +23,7 @@ public class tourServiceImpl implements tourService {
 //	public List<TourVO> tourList(Map map) {
 //		return tourdao.tourList(map);
 //	}
-	//°ü±¤Áö ÆäÀÌÂ¡, ¸®½ºÆ® ¸ñ·Ï
+	//ê´€ê´‘ì§€ í˜ì´ì§•, ë¦¬ìŠ¤íŠ¸ ëª©ë¡
 	public int countTourList() {
 		return tourdao.countTourList();
 	}
@@ -32,10 +32,14 @@ public class tourServiceImpl implements tourService {
 		return tourdao.selectTourList(vo);
 	}
 
-	//°ü±¤Áö µğÅ×ÀÏ È­¸é
+	//ê´€ê´‘ì§€ ë””í…Œì¼ í™”ë©´
 	@Override
 	public TourVO tourDetail(TourVO vo) {
 		return tourdao.tourDetail(vo);
+	}
+	@Override
+	public int InsertTour(TourVO vo) {
+		return tourdao.InsertTour(vo);
 	}
 	 
 }

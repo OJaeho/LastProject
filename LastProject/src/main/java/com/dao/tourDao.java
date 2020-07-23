@@ -12,10 +12,12 @@ public interface tourDao {
 	//public List<TourVO> tourHome(TourVO vo);
 	//public List<TourVO> tourList(Map map);
 	
-	//°ü±¤Áö ¸®½ºÆ® ÆäÀÌÂ¡ Ã³¸®
+	//ê´€ê´‘ì§€ ë¦¬ìŠ¤íŠ¸ í˜ì´ì§• ì²˜ë¦¬
 	public int countTourList();
 	public List<TourVO> selectTourList(PagingVO vo);
 	
-	//°ü±¤Áö µğÅ×ÀÏ È­¸é
+	//ê´€ê´‘ì§€ ë””í…Œì¼ í™”ë©´
 	public TourVO tourDetail(TourVO vo);
+	
+	public int InsertTour(TourVO vo);
 } 
