@@ -120,7 +120,7 @@ $(document).ready(function(){
 				maxlength:16,
 				passwordCk :true
 				},
-			Password2 : {equalTo:'#mpassword'}   
+			Password2 : {equalTo:'#Password'}   
 			},
 			mTel :{
 				required:true,
