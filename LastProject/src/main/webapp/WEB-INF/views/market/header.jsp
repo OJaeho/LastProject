@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -71,16 +74,26 @@
 
 	<header>
 		<!-- Header desktop -->
-		<div class="container-menu-desktop">					
+		<div class="container-menu-desktop">
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">전통시장의 정을 온라인으로 느껴보세요!</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25"> 회원가입 </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25">
-							로그인 </a> <a href="#" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a> <a
+						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
+							회원가입 </a> 
+							 <sec:authorize	access="isAuthenticated()">
+								<form:form action="${pageContext.request.contextPath}/logout"
+								method="POST"> 
+									<input type="submit" value="로그아웃" />
+								</form:form> 
+								</sec:authorize>
+								<sec:authorize access="isAnonymous()"> 
+								<a href="login/loginForm.do" class="flex-c-m trans-04 p-lr-25">로그인 </a> 
+								</sec:authorize>
+								
+							<a href="#" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a> <a
 							href="#" class="flex-c-m trans-04 p-lr-25"> ENGLISH </a>
 					</div>
 				</div>
@@ -102,8 +115,8 @@
 									<li><a href="introMarket.user">시장소개</a></li>
 									<li><a href="waytoMarket.user">오시는길</a></li>
 									<li><a href="#">업종별상점</a></li>
-									<li><a href="#">상점배치도</a></li>
-									<li><a href="folliumtest.user">시장이슈</a></li>
+									<li><a href="folliumtest.user">상점배치도</a></li>
+									<li><a href="marketIssue.user">시장이슈</a></li>
 								</ul></li>
 
 							<li><a href="#">거리마다</a>
@@ -112,7 +125,8 @@
 									<li><a href="insertTour.do">먹을거리(시장맛집)</a></li>
 								</ul></li>
 
-							<li class="label1" data-label1="hot"><a href="getproduct.user">우리 것이</a></li>
+							<li class="label1" data-label1="hot"><a
+								href="getproduct.user">우리 것이</a></li>
 
 							<li><a href="#">있어요</a>
 								<ul class="sub-menu">
@@ -129,7 +143,8 @@
 		<!-- Header END -->
 
 		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+		<div
+			class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button
 					class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
@@ -148,6 +163,6 @@
 
 
 	</header>
-		
+
 </body>
 </html>

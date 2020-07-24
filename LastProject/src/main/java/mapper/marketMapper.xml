@@ -5,19 +5,25 @@
 
 	<select id="market" resultType="market">
       	<![CDATA[
-      	SELECT * FROM market 
+      	SELECT * FROM market where delyn='N'
       	]]>     
   	</select>
   	
   	<select id="marketHome" parameterType="market" resultType="market">
       	<![CDATA[
-      	SELECT mkid FROM market where mkname=#{mkName} 
+      	SELECT mkid FROM market where mkname=#{mkName} and delyn='N'
       	]]>     
   	</select>  
   	
   	<select id="introMarket" parameterType="market" resultType="market">
       	<![CDATA[
-      	SELECT * FROM market where mkid=#{mkId} 
+      	SELECT * FROM market where mkid=#{mkId} and delyn='N' 
+      	]]>     
+  	</select>
+  	
+  	<select id="marketIssue" parameterType="issue" resultType="issue">
+      	<![CDATA[
+      	SELECT * FROM issue where mkid=#{mkId} and delyn='N' 
       	]]>     
   	</select>
 </mapper>
