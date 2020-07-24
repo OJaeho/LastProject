@@ -32,5 +32,9 @@
 		insert into tour(tid, tname, timg1, taddr, tcontent) values(seq_tid.nextval, #{tName}, #{tImg1} ,#{tAddr}, #{tContent})
 	</insert>
 	
+	<!-- 관광지 삭제 -->
+	<delete id="deleteTour" parameterType="String">
+		delete from tour where tid = #{tId}
+	</delete>
 	
 </mapper>
