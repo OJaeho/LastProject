@@ -85,19 +85,7 @@ $(function() {
 	$('#btn_submit')
 			.click(
 					function() {
-						var vali = false;
-						urlchk = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
-						if ($('#tName').val() === "") {
-							alert("관광지명을 입력해주세요");
-							return false;
-						} else if ($('#tAddr').val() === "") {
-							alert("주소를 입력해주세요");
-							return false;
-						} else if (!urlchk.test($('#urlReg').val())) {
-							alert("url주소를 입력해주세요");
-							return false;
-						}
-						$('insertTour').submit();
+						
 					});
 
 	$("#findpostcode").click(
@@ -105,7 +93,6 @@ $(function() {
 				new daum.Postcode(
 						{
 							oncomplete : function(data) {
-								alert("주소찾기")
 								// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
 								// 각 주소의 노출 규칙에 따라 주소를 조합한다.
@@ -116,10 +103,10 @@ $(function() {
 
 								// 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
 								if (data.userSelectedType === 'R') { // 사용자가
-																		// 도로명
-																		// 주소를
-																		// 선택했을
-																		// 경우
+									// 도로명
+									// 주소를
+									// 선택했을
+									// 경우
 									addr = data.roadAddress;
 								} else { // 사용자가 지번 주소를 선택했을 경우(J)
 									addr = data.jibunAddress;
@@ -165,7 +152,24 @@ $(function() {
 
 	var tourCheck = false;
 	$("#btn_submit").click(function(evt) {
-		alert("연결은 됐습니까????????");
+		var urlchk = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+			if ($('#tName').val() === "") {
+				event.preventDefault();
+				alert("관광지명을 입력해주세요");
+				return false;
+			} else if ($('#tAddr').val() === "") {
+				event.preventDefault();
+				alert("주소를 입력해주세요");
+				return false;
+			} else if ($('#urlReg').val() === "") {
+				alert("이미지 주소를 입력해주세요.")
+				event.preventDefault();
+				return false;
+			} else if (!urlchk.test($('#urlReg').val())) {
+				event.preventDefault();
+				alert("이미지 주소가 유효하지 않습니다.");
+				return false;
+			} 
 		$.ajax({
 			async : true,
 			type : "get",
@@ -173,27 +177,31 @@ $(function() {
 			data : {
 				"tName" : $("#tName").val(),
 				"tAddr" : $("#tAddr").val(),
-				"tImg1" : $("#tImg1").val(),
+				"tImg1" : $("#urlReg").val(),
 				"tContent" : $("#tContent").val()
 			},
 			contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 			dataType : "text",
-			success : function(resultData) {
-				alert("성공");
-				if (resultData === '1') {
+			success : function(resultData) { 
 					alert("신규 관광지 정보가 등록되었습니다.");
-					tourCheck = true;
-					window.location = "index2.jsp";
-				} else {
-					alert("입력 정보를 확인해주세요.");
-					tourCheck = false;
-				}
-			},
-			error : function(error) {
-				console.log('>>>>' + error);
+					window.location = "insertTour.do";
 			}
 		});
-		alert("연결은 됐습니까2222222");
-
 	})
+	var tId = $("#tid").val();
+	var pno = $("#pno").val();
+	$(".deleteBtn").click(function(){
+		event.preventDefault();
+		alert("연결됐나확인");
+		alert(tId);
+		alert(pno);
+		var check = confirm("정말로 삭제하시겠습니까?");
+		if(check){
+			window.location = "deleteTour.do?tId="+tId+"&pno="+pno;
+		}else{
+			event.preventDefault();
+		}
+	})
+	
+	
 });
