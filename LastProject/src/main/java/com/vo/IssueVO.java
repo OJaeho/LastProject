@@ -8,9 +8,21 @@ public class IssueVO {
 	private String isDate;
 	private String isImg;
 	private String delYn;
-	
-	
-	
+	private int mkId;
+	private String isStory;
+		
+	public String getIsStory() {
+		return isStory;
+	}
+	public void setIsStory(String isStory) {
+		this.isStory = isStory;
+	}
+	public int getMkId() {
+		return mkId;
+	}
+	public void setMkId(int mkId) {
+		this.mkId = mkId;
+	}
 	public int getIsId() {
 		return isId;
 	}

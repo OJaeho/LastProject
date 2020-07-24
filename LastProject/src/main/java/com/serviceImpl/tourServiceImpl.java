@@ -42,5 +42,9 @@ public class tourServiceImpl implements tourService {
 	public int InsertTour(TourVO vo) {
 		return tourdao.InsertTour(vo);
 	}
+	@Override
+	public void deleteTour(String tId) {
+		tourdao.deleteTour(tId);
+	}
 	 
 }
