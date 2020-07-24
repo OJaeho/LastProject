@@ -9,6 +9,25 @@
 <link rel="stylesheet" type="text/css" href="./resources/vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
+<!-- include libraries(jQuery, bootstrap) -->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<script type="text/javascript">
+$(document).ready(function() {
+	  $('#summernote').summernote({
+		  height: 300,                 // 에디터 높이
+		  minHeight: null,             // 최소 높이
+		  maxHeight: null,             // 최대 높이
+		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+		  lang: "ko-KR",					// 한글 설정
+		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder
+		  });
+	});
+</script>
+<!-- include summernote css/js-->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 </head>
 <body>
    <!-- Content page -->
@@ -41,8 +60,9 @@
 			<tr>
 				<th class="mythlist" colspan="2">작성자</th>
 				<td colspan="3">
-				${getQnA.qWriter }
-				</td>			
+				${getQnA.userName }
+				</td>
+<%-- 				<input type="hidden" id="Writer" value="${getQnA.userName }" >		 --%>
 			</tr>			
 			<tr>
 				<td colspan="4">
@@ -53,29 +73,36 @@
 		</table>		
 
 		<hr/>
-		<div>		
-		<span>
+		
+		<!-- 답변~ -->
+		<c:if test="${Check eq 'true' }"> 
+
+		<h2 class="text-left notice_title theme_color type_block">답변 작성</h2>
+
+		<div id="summernote">			
+		</div>
+
+		</c:if>
+		
+		<div>
+		<div class="div-left">		
+		<span>		
 		<a class="btn btn-default" href="getQnAList.user">목록</a>
-		<a class="btn btn-default" href="getQnAList.user">취소</a>
-			<form action="updateRegistQnA.user" method="get">
-			<input type="hidden" name="qTitle" value="${getQnA.qTitle }" />
-			<input type="hidden" name="qDate" value="${getQnA.qDate }" />
-			<input type="hidden" name="qWriter" value="${getQnA.qWriter }" />
-			<input type="hidden" name="qlContent" value="${getQnA.qlContent }" />
-			<input type="submit" value="수정" class="btn btn-default"/>
-			</form>
-		<a class="btn btn-default" href="deleteQnA.user?qId=${getQnA.qId }">삭제</a>
 		</span>
 		</div>
-		<div class="text-center">
-			<ul class="pagination">
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-			</ul>
+		
+		<div class="div-right">
+		<span>
+		<a class="btn btn-default" href="#">답변</a>
+		<a class="btn btn-default" href="getQnAList.user">취소</a>
+		</span>
 		</div>
+		<c:if test="${getId eq getQnA.userName }">
+		<a id="btnDelete" class="btn btn-default" href="deleteQnA.user?qId=${getQnA.qId }">삭제</a>		
+		</c:if>
+		</div>
+		<br/>
+		
 	</div>
 	</section>
 </body>

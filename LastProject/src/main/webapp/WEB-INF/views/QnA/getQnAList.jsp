@@ -88,7 +88,7 @@
 			<a href="getQnA.user?qId=${qna.qId }">
 			${qna.qTitle }</a>
 			</td>
-			<td>${qna.qWriter }</td>
+			<td>${qna.userName }</td>
 			<td>${qna.qDate }</td>
 			</tr>
 		</c:forEach>
@@ -97,13 +97,18 @@
 		</thead>		
 		<hr/>
 		</div>
-		<div class="btn_left">
+		
+		<div class="div-right">
+		<div>
 		<span>
-		<a class="btnqna btn_qna" href="registQnA.user">글쓰기</a>		
+		<a class="btnqna btn_qna qna_hover" href="registQnA.loguser">글쓰기</a>		
 		</span>
 		</div>
-		<div class="text-center">
-			<ul class="pagination">
+		</div>
+		<br/>
+
+		<div class="text-center-page">
+			<ul class="pagination div-center">
 				<li><a href="#">1</a></li>
 				<li><a href="#">2</a></li>
 				<li><a href="#">3</a></li>
