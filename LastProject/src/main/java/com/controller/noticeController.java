@@ -1,5 +1,9 @@
 package com.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +36,27 @@ public class noticeController {
 		return "notice/getNoticeList";
 	}
 	
-    @RequestMapping("/insertNotice.user")
+    @RequestMapping("/insertNotice.market")
     public String insertNotice() throws Exception {    
     	System.out.println("======글쓰기출력======");
        return "notice/InsertNotice";
+    }
+    
+    @RequestMapping("/registNotice.user")
+    public String registNotice(NoticeVO vo, HttpServletRequest request,HttpSession session) {
+    	try {
+			request.setCharacterEncoding("UTF-8");
+			String ntitle = URLDecoder.decode(vo.getnTitle(), "UTF-8"); 
+			String ncotent= URLDecoder.decode(vo.getnContent(), "UTF-8");
+			vo.setuserName(request.getRemoteUser()); //로그인한 아이디값 저장
+			System.out.println(session.getAttribute("mkId"));
+			vo.setMkId((int)session.getAttribute("mkId"));
+			service.insertNotice(vo);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+    	return "redirect:/getNoticeList.user";
     }
 
 	

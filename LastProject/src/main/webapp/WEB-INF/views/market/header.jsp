@@ -116,7 +116,7 @@
 
 							<li><a href="#">있어요</a>
 								<ul class="sub-menu">
-									<li><a href="#">공지사항</a></li>
+									<li><a href="getNoticeList.user">공지사항</a></li>
 									<li><a href="getQnAList.user">Q&A</a></li>
 								</ul></li>
 						</ul>
