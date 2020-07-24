@@ -163,21 +163,17 @@
 						어느 시장으로 가볼까요?
 					</h3>
 
-					<form>
+					<form action='index2.user' method="get">
 						<ul class="list_info">
 						<li>
-						<select name="select_item" class="select_item">
+						<select name="mkName" class="mkName" style="width: 200px; height: 50px;">
 						 <option value="selected">선 택</option>
 						  	<c:forEach var="item" items="${list}" >
 					    		<option value="${item.mkName}">${item.mkName}</option>
 						  	</c:forEach>
 						</select>
-						</li>
-							
-						<li>주소 : 서울특별시 마포구 망원동 411-2</li>
-						<br/>
-						<li>전화번호 : 02-335-3591</li>
-						<br/>
+						<input name="select_item" id="submit" type="submit" value="GO"	style="width: 100px; height: 50px;">
+						</li>					
 						</ul>
 					</form>
 				</div>

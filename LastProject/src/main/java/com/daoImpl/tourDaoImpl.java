@@ -44,5 +44,9 @@ public class tourDaoImpl implements tourDao {
 	public int InsertTour(TourVO vo) {
 		return mybatis.insert("tour.insertTour",vo);
 	}
+	@Override
+	public void deleteTour(String tId) {
+		mybatis.delete("tour.deleteTour", tId);
+	}
 	
 } 

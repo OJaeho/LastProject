@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@page import="com.vo.ProductVO"%>
+<%@page import="com.vo.CategoryVO"%>
+<%@page import="com.vo.StoreVO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -48,581 +54,158 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css" href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css"
+	href="./resources/css/product-detail.css">
 
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
 
 	<!-- Header -->
-	<header class="header-v4">
-		<!-- Header desktop -->
-		<div class="container-menu-desktop">
-			<!-- Topbar -->
-			<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">Free shipping for standard order
-						over $100</div>
-
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25"> Help & FAQs </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25"> My Account </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25"> EN </a> <a href="#"
-							class="flex-c-m trans-04 p-lr-25"> USD </a>
-					</div>
-				</div>
-			</div>
-
-			<div class="wrap-menu-desktop how-shadow1">
-				<nav class="limiter-menu-desktop container">
-
-					<!-- Logo desktop -->
-					<a href="#" class="logo"> <img
-						src="./resources/images/icons/logo-01.png" alt="IMG-LOGO">
-					</a>
-
-					<!-- Menu desktop -->
-					<div class="menu-desktop">
-						<ul class="main-menu">
-							<li><a href="index.html">Home</a>
-								<ul class="sub-menu">
-									<li><a href="index.html">Homepage 1</a></li>
-									<li><a href="home-02.html">Homepage 2</a></li>
-									<li><a href="home-03.html">Homepage 3</a></li>
-								</ul></li>
-
-							<li><a href="product.html">Shop</a></li>
-
-							<li class="label1" data-label1="hot"><a
-								href="shoping-cart.html">Features</a></li>
-
-							<li><a href="blog.html">Blog</a></li>
-
-							<li><a href="about.html">About</a></li>
-
-							<li><a href="contact.html">Contact</a></li>
-						</ul>
-					</div>
-
-					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div
-							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
-
-						<div
-							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-							data-notify="2">
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
-
-						<a href="#"
-							class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-							data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
-						</a>
-					</div>
-				</nav>
-			</div>
-		</div>
-
-		<!-- Header Mobile -->
-		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->
-			<div class="logo-mobile">
-				<a href="index.html"><img
-					src="./resources/images/icons/logo-01.png" alt="IMG-LOGO"></a>
-			</div>
-
-			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div
-					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
-				</div>
-
-				<div
-					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-					data-notify="2">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
-				<a href="#"
-					class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
-					data-notify="0"> <i class="zmdi zmdi-favorite-outline"></i>
-				</a>
-			</div>
-
-			<!-- Button show menu -->
-			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box"> <span class="hamburger-inner"></span>
-				</span>
-			</div>
-		</div>
-
-
-		<!-- Menu Mobile -->
-		<div class="menu-mobile">
-			<ul class="topbar-mobile">
-				<li>
-					<div class="left-top-bar">Free shipping for standard order
-						over $100</div>
-				</li>
-
-				<li>
-					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m p-lr-10 trans-04"> Help & FAQs </a> <a
-							href="#" class="flex-c-m p-lr-10 trans-04"> My Account </a> <a
-							href="#" class="flex-c-m p-lr-10 trans-04"> EN </a> <a href="#"
-							class="flex-c-m p-lr-10 trans-04"> USD </a>
-					</div>
-				</li>
-			</ul>
-
-			<ul class="main-menu-m">
-				<li><a href="index.html">Home</a>
-					<ul class="sub-menu-m">
-						<li><a href="index.html">Homepage 1</a></li>
-						<li><a href="home-02.html">Homepage 2</a></li>
-						<li><a href="home-03.html">Homepage 3</a></li>
-					</ul> <span class="arrow-main-menu-m"> <i
-						class="fa fa-angle-right" aria-hidden="true"></i>
-				</span></li>
-
-				<li><a href="product.html">Shop</a></li>
-
-				<li><a href="shoping-cart.html" class="label1 rs1"
-					data-label1="hot">Features</a></li>
-
-				<li><a href="blog.html">Blog</a></li>
-
-				<li><a href="about.html">About</a></li>
-
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</div>
-
-		<!-- Modal Search -->
-		<div
-			class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button
-					class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="./resources/images/icons/icon-close2.png" alt="CLOSE">
-				</button>
-
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search"
-						placeholder="Search...">
-				</form>
-			</div>
-		</div>
-	</header>
-
-	<!-- Cart -->
-	<div class="wrap-header-cart js-panel-cart">
-		<div class="s-full js-hide-cart"></div>
-
-		<div class="header-cart flex-col-l p-l-65 p-r-25">
-			<div class="header-cart-title flex-w flex-sb-m p-b-8">
-				<span class="mtext-103 cl2"> Your Cart </span>
-
-				<div
-					class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
-					<i class="zmdi zmdi-close"></i>
-				</div>
-			</div>
-
-			<div class="header-cart-content flex-w js-pscroll">
-				<ul class="header-cart-wrapitem w-full">
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="./resources/images/item-cart-01.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								White Shirt Pleat </a> <span class="header-cart-item-info"> 1
-								x $19.00 </span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="./resources/images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star </a> <span class="header-cart-item-info"> 1
-								x $39.00 </span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="./resources/images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather </a> <span class="header-cart-item-info">
-								1 x $17.00 </span>
-						</div>
-					</li>
-				</ul>
-
-				<div class="w-full">
-					<div class="header-cart-total w-full p-tb-40">Total: $75.00</div>
-
-					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
-							View Cart </a> <a href="shoping-cart.html"
-							class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-							Check Out </a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<!-- breadcrumb -->
-	<div class="container">
-		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04"> Home
-				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-			</a> <a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
-				Men <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
-			</a> <span class="stext-109 cl4"> Lightweight Jacket </span>
-		</div>
-	</div>
-
-
+	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Product Detail -->
 	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-lg-7 p-b-30">
-					<div class="p-l-25 p-r-30 p-lr-0-lg">
-						<div class="wrap-slick3 flex-sb flex-w">
-							<div class="wrap-slick3-dots">여러 이미지 넣을곳</div>
 
-							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+			<c:forEach items="${productget}" var="item">
+				<div class="row" style="width: 1200px;">
+					<div class="col-md-6 col-lg-7 p-b-30" style="width: 1200px;">
+						<div class="p-l-25 p-r-30 p-lr-0-lg" style="width: 1200px;">
+							<hr />
+							<br />
+							<div class="wrap-slick3 flex-sb flex-w" style="width: 1350px;">
+								<img src="${item.pImg1}" style="width: 500px; height: 400px;">
+								<div class="col-md-6 col-lg-5 p-b-30">
+									<div class="p-r-50 p-t-5 p-lr-0-lg">
+										<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+											[${item.sName}]<br />${item.pName}</h4>
+											<input type="hidden" value="${item.pName}" id="aa"/>
 
-							<div class="slick3 gallery-lb">
+										<div>
 
-								<div class="item-slick3"
-									data-thumb="images/product-detail-01.jpg">
-
-
-									<div class="wrap-pic-w pos-relative">
-										<img src="./resources/images/product-detail-01.jpg"
-											alt="IMG-PRODUCT"> <a
-											class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-											href="images/product-detail-01.jpg"> <i
-											class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-
-								<div class="item-slick3"
-									data-thumb="images/product-detail-02.jpg">
-									<div class="wrap-pic-w pos-relative">
-										<img src="./resources/images/product-detail-02.jpg"
-											alt="IMG-PRODUCT"> <a
-											class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-											href="images/product-detail-02.jpg"> <i
-											class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-
-								<div class="item-slick3"
-									data-thumb="images/product-detail-03.jpg">
-									<div class="wrap-pic-w pos-relative">
-										<img src="./resources/images/product-detail-03.jpg"
-											alt="IMG-PRODUCT"> <a
-											class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-											href="images/product-detail-03.jpg"> <i
-											class="fa fa-expand"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-6 col-lg-5 p-b-30">
-					<div class="p-r-50 p-t-5 p-lr-0-lg">
-						<h4 class="mtext-105 cl2 js-name-detail p-b-14">상점명 넣을곳</h4>
-
-
-						<!--  -->
-						<div class="p-t-33">
-						셀렉트박스(상품명+상품가격)
-						</div>
-
-						<!--  -->
-						<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-							<div class="flex-m bor9 p-r-10 m-r-11">
-								<a href="#"
-									class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
-									data-tooltip="Add to Wishlist"> <i
-									class="zmdi zmdi-favorite"></i>
-								</a>
-							</div>
-
-							<a href="#"
-								class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-								data-tooltip="Facebook"> <i class="fa fa-facebook"></i>
-							</a> <a href="#"
-								class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-								data-tooltip="Twitter"> <i class="fa fa-twitter"></i>
-							</a> <a href="#"
-								class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-								data-tooltip="Google Plus"> <i class="fa fa-google-plus"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				
-				
-			</div>
-
-			<div class="bor10 m-t-50 p-t-43 p-b-40">
-				<!-- Tab01 -->
-				<div class="tab01">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="nav-item p-b-10"><a class="nav-link active"
-							data-toggle="tab" href="#description" role="tab">Q&a</a></li>
-
-						<li class="nav-item p-b-10"><a class="nav-link"
-							data-toggle="tab" href="#information" role="tab">구매전 주의사항</a></li>
-
-						<li class="nav-item p-b-10"><a class="nav-link"
-							data-toggle="tab" href="#reviews" role="tab">리뷰</a></li>
-					</ul>
-
-					<!-- Tab panes -->
-					<div class="tab-content p-t-43">
-						<!-- qna -->
-						<div class="tab-pane fade show active" id="description"
-							role="tabpanel">
-							<div class="row">
-								<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-									<div class="li_table" >
-										<ul class="subject">
-											<li>제목</li>
-											<li>작성자</li>
-											<li>작성일</li>
-											
-										</ul>
-										<ul>
-											<li>제목 나올곳</li>
-											<li>작성자 나올곳</li>
-											<li>작성일 나올곳</li>
-										</ul>
-										
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- 주의 -->
-						<div class="tab-pane fade" id="information" role="tabpanel">
-							<div class="row">
-								<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-									<td colspan="3" class="_2LB5aY76-l">시장 장보기의 특성상 배송이 불가능한
-										지역의 배달은 불가하며, 상점의 상황에따라 주문취소가 발생할 수 있습니다.</td>
-								</div>
-							</div>
-						</div>
-
-						<!-- review -->
-						<div class="tab-pane fade" id="reviews" role="tabpanel">
-							<div class="row">
-								<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-									<div class="p-b-30 m-lr-15-sm">
-										<!-- Review -->
-										<div class="li_table" >
-											<ul class="subject">
-												<li>제목</li>
-												<li>내용</li>
-												<li>작성일</li>
-											
-											</ul>
-											<ul>
-												<li>제목 나올곳</li>
-												<li>내용 나올곳</li>
-												<li>작성일 나올곳</li>
-											</ul>
+											<b>${item.pDetail}</b>
 										</div>
-										<br/><br/>
-										<hr/>
-										<!-- Add review -->
-										<form class="w-full">
-											<h5 class="mtext-108 cl2 p-b-7">리뷰작성</h5>
 
-											<div class="flex-w flex-m p-t-50 p-b-23">
-												<span class="stext-102 cl3 m-r-16"> 별점 </span> <span
-													class="wrap-rating fs-18 cl11 pointer"> <i
-													class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-													class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-													class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-													class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-													class="item-rating pointer zmdi zmdi-star-outline"></i> <input
-													class="dis-none" type="number" name="rating">
-												</span>
+
+
+										<form  name="subcart">
+											<!-- 옵션박스 -->
+											<div class="p-t-33">
+												<hr />
+												<select name="size">
+													<option value="">---------옵션선택---------</option>
+													<c:forEach items="${optionget}" var="item2">
+														<option value="${item2.pPrice}">[
+															${item2.pOption1} - ${item2.pPrice} ]</option>
+													</c:forEach>
+												</select>
 											</div>
+											<!-- 옵션박스 -->
 
-											<div class="row p-b-25">
-												<div class="col-12 p-b-5">
-													<label class="stext-102 cl3" for="review">내용</label>
-													<textarea
-														class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
-														id="review" name="review"></textarea>
+
+											<!-- 수량버튼 -->
+											<div class="wrap-num-product flex-w m-r-20 m-tb-10">
+												<div
+													class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+													<i class="fs-16 zmdi zmdi-minus"></i>
 												</div>
 
-											</div>
+												<input class="mtext-104 cl3 txt-center num-product"
+													type="number" name="count" value="1">
 
-											<button
-												class="flex-c-m stext-101 cl0 size-112 bg7 bor11 hov-btn3 p-lr-15 trans-04 m-b-10">
-												작성</button>
-										</form>
+												<div
+													class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+													<i class="fs-16 zmdi zmdi-plus"></i>
+												</div>
+												
+											</div>
+											<!-- 수량버튼 -->
+											
+											<!-- 담기버튼 -->
+											<input type="button" name="addsubcart" id="addProduct"
+											style="width:50px; background-color: lightgrey; color: green;"
+											  value="담기"/>
+											  <table>
+											  	<tr>
+											  		<td>상품명</td>
+											  		<td>갯수</td>
+											  	</tr>
+											  	<tr>
+											  		<td><input type="text" id="addName"></td>
+											  		<td><input type="text" id="addQantitu"></td></td>
+											  	</tr>
+											  </table>
+										</form> 
+										<hr />
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
 
-		<div class="bg6 flex-c-m flex-w size-302 m-t-73 p-tb-15">
-			<span class="stext-107 cl6 p-lr-25"> </span> <span
-				class="stext-107 cl6 p-lr-25"> </span>
-		</div>
-	</section>
+					<div class="bor10 m-t-50 p-t-43 p-b-40"
+						style="border-color: green; width:1500px;">
+						<!-- Tab01 -->
+						<div class="tab01">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" role="tablist">
+
+								<li class="nav-item p-b-10"><a class="nav-link"
+									data-toggle="tab" href="#information" role="tab">구매전 주의사항</a></li>
+
+								<li class="nav-item p-b-10"><a class="nav-link"
+									data-toggle="tab" href="#reviews" role="tab">REVIEW</a></li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content p-t-43">
+
+								<!-- Q & A탭 -->
+								<div class="tab-pane fade show active" id="description"
+									role="tabpanel">
+									<div class="row" style="width: 1087px; margin: auto;">
+										<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
+											style="margin: auto;">${item.pName}</div>
+									</div>
+								</div>
+								<!-- Q & A탭 -->
 
 
+								<!-- 구매전 주의사항탭 -->
+								<div class="tab-pane fade" id="information" role="tabpanel">
+									<div class="row" style="width: 1087px; margin: auto;">
+										<b>시장 장보기의 특성상 배송이 불가능한 지역의 배달은 불가하며, 상점의 상황에따라 주문취소가 발생할
+											수 있습니다.</b>
+									</div>
+								</div>
+								<!-- 구매전 주의사항탭 -->
 
 
+								<!-- REVIEW탭 -->
+								<div class="tab-pane fade" id="reviews" role="tabpanel">
+									<div class="row" style="width: 1168px; margin: auto;">
+										<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
+											style="width: 1168px; margin: auto;">
+											<img src="${item.pName}" style="width: 582px; margin: auto;">
+										</div>
+									</div>
+								</div>
+								<!-- REVIEW탭 -->
 
-	<!-- Footer -->
-	<footer class="bg3 p-t-75 p-b-32">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">Categories</h4>
 
-					<ul>
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> Women </a></li>
+							</div>
+							<!-- Tab panes -->
 
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> Men </a></li>
-
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> Shoes </a></li>
-
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> Watches </a></li>
-					</ul>
-				</div>
-
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">Help</h4>
-
-					<ul>
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> Track Order </a></li>
-
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> Returns </a></li>
-
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> Shipping </a></li>
-
-						<li class="p-b-10"><a href="#"
-							class="stext-107 cl7 hov-cl1 trans-04"> FAQs </a></li>
-					</ul>
-				</div>
-
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">GET IN TOUCH</h4>
-
-					<p class="stext-107 cl7 size-201">Any questions? Let us know in
-						store at 8th floor, 379 Hudson St, New York, NY 10018 or call us
-						on (+1) 96 716 6879</p>
-
-					<div class="p-t-27">
-						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
-							class="fa fa-facebook"></i>
-						</a> <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
-							class="fa fa-instagram"></i>
-						</a> <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16"> <i
-							class="fa fa-pinterest-p"></i>
-						</a>
+						</div>
 					</div>
 				</div>
-
-				<div class="col-sm-6 col-lg-3 p-b-50">
-					<h4 class="stext-301 cl0 p-b-30">Newsletter</h4>
-
-					<form>
-						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text"
-								name="email" placeholder="email@example.com">
-							<div class="focus-input1 trans-04"></div>
-						</div>
-
-						<div class="p-t-18">
-							<button
-								class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-								Subscribe</button>
-						</div>
-					</form>
-				</div>
-			</div>
-
-			<div class="p-t-40">
-				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1"> <img
-						src="./resources/images/icons/icon-pay-01.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="./resources/images/icons/icon-pay-02.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="./resources/images/icons/icon-pay-03.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="./resources/images/icons/icon-pay-04.png" alt="ICON-PAY">
-					</a> <a href="#" class="m-all-1"> <img
-						src="./resources/images/icons/icon-pay-05.png" alt="ICON-PAY">
-					</a>
-				</div>
-
-				<p class="stext-107 cl6 txt-center">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					Copyright &copy;
-					<script>
-						document.write(new Date().getFullYear());
-					</script>
-					All rights reserved | Made with <i class="fa fa-heart-o"
-						aria-hidden="true"></i> by <a href="https://colorlib.com"
-						target="_blank">Colorlib</a> &amp; distributed by <a
-						href="https://themewagon.com" target="_blank">ThemeWagon</a>
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-				</p>
+			</c:forEach>
+			<div style="text-align: center;">
+				<img align="middle"
+					src="https://shop-phinf.pstatic.net/20200211_72/1581380892722e31C6_JPEG/FOOD_%C0%E5%BA%B8%B1%E2_INFO_%B8%C1%BF%F8%BD%C3%C0%E5_%C5%E4%BF%E4%C0%CF%BC%F6%C1%A4.jpg?type=w860">
 			</div>
 		</div>
-	</footer>
-
+	</section>
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
@@ -631,128 +214,7 @@
 		</span>
 	</div>
 
-	<!-- Modal1 -->
-	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
-		<div class="overlay-modal1 js-hide-modal1"></div>
-
-		<div class="container">
-			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
-				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
-					<img src="./resources/images/icons/icon-close.png" alt="CLOSE">
-				</button>
-
-				<div class="row">
-					<div class="col-md-6 col-lg-7 p-b-30">
-						<div class="p-l-25 p-r-30 p-lr-0-lg">
-							<div class="wrap-slick3 flex-sb flex-w">
-								<div class="wrap-slick3-dots"></div>
-								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
-								<div class="slick3 gallery-lb">
-									<div class="item-slick3"
-										data-thumb="images/product-detail-01.jpg">
-										<div class="wrap-pic-w pos-relative">
-											<img src="./resources/images/product-detail-01.jpg"
-												alt="IMG-PRODUCT"> <a
-												class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-												href="images/product-detail-01.jpg"> <i
-												class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-
-									<div class="item-slick3"
-										data-thumb="images/product-detail-02.jpg">
-										<div class="wrap-pic-w pos-relative">
-											<img src="./resources/images/product-detail-02.jpg"
-												alt="IMG-PRODUCT"> <a
-												class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-												href="images/product-detail-02.jpg"> <i
-												class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-
-									<div class="item-slick3"
-										data-thumb="images/product-detail-03.jpg">
-										<div class="wrap-pic-w pos-relative">
-											<img src="./resources/images/product-detail-03.jpg"
-												alt="IMG-PRODUCT"> <a
-												class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
-												href="images/product-detail-03.jpg"> <i
-												class="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-5 p-b-30">
-						<div class="p-r-50 p-t-5 p-lr-0-lg">
-							<h4 class="mtext-105 cl2 js-name-detail p-b-14">상품명 넣을곳</h4>
-
-							<span class="mtext-106 cl2"> 상품가격 넣을곳 </span>
-
-							<p class="stext-102 cl3 p-t-23">상품설명 넣을곳</p>
-
-							<!--  -->
-							<div class="p-t-33">
-
-
-
-								<div class="flex-w flex-r-m p-b-10">
-									<div class="size-204 flex-w flex-m respon6-next">
-										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-											<div
-												class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product"
-												type="number" name="num-product" value="1">
-
-											<div
-												class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-
-										<button
-											class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-											장바구니 넣기</button>
-									</div>
-								</div>
-							</div>
-
-							<!--  -->
-							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-								<div class="flex-m bor9 p-r-10 m-r-11">
-									<a href="#"
-										class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
-										data-tooltip="Add to Wishlist"> <i
-										class="zmdi zmdi-favorite"></i>
-									</a>
-								</div>
-
-								<a href="#"
-									class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-									data-tooltip="Facebook"> <i class="fa fa-facebook"></i>
-								</a> <a href="#"
-									class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-									data-tooltip="Twitter"> <i class="fa fa-twitter"></i>
-								</a> <a href="#"
-									class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
-									data-tooltip="Google Plus"> <i class="fa fa-google-plus"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="/WEB-INF/views/market/footer.jsp"></jsp:include>
 
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -862,6 +324,6 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
-
+	<script src="./resources/js/product.js"></script>
 </body>
 </html>

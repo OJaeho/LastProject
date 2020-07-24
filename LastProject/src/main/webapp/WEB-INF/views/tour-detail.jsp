@@ -7,7 +7,8 @@
 	<title>tour</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
+	
 	<link rel="icon" type="image/png" href="./resources/images/icons/favicon.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="./resources/vendor/bootstrap/css/bootstrap.min.css">
@@ -42,12 +43,31 @@
 	
 	<div class="container" align="center">
 		<div class="row" align="center">
-		    <table class="tour_detail">	
+		    <table class="tour_detail" style="border-spacing: 10px">	
 	    	  	<tr class="tour_info_tr2">		  
-		    		<td align="center" colspan="2"><img src="${result.tImg1}"/></td>
-		    		<td align="center">${result.tContent}</td>
+		    		<td align="center"><img src="${result.tImg1}" style="width:500px; height:300px;"/></td>
+		    		<td>
+		    			<table border="1" style="border-color: #F5F6CE; margin-left: 10%; margin-right: 10%;">
+		    				<tr>
+			    				<td>
+			    					${result.tContent}		
+			    				</td>
+		    				</tr>
+		    			</table>
+		    		</td>
+	        	</tr>
+	        	<tr>
+	        		<td align="center">
+	        			<a href="https://korean.visitseoul.net/index" target="_blank">마포관광 구청 바로가기</a>
+	        		</td>
+	        		<td align="center">
+	        			<a href="https://map.kakao.com/link/search/${result.tAddr}" target="_blank">
+	        				<span>위치찾기</span><img src="./resources/images/icons/unnamed.png"/>
+	        			</a>
+		    		</td>
 	        	</tr>
 	    	</table>
+	    	<div id="map"></div>
 		</div>
 	</div>
 <!--===============================================================================================-->	
@@ -88,7 +108,6 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
-	
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 </body>

@@ -1,16 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-<%@page import="com.vo.ProductVO"%>
-<%@page import="com.vo.CategoryVO"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="UTF-8">
 <head>
-<title>Product</title>
+
+<!-- 지도 ajax 설정 -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	
+</script>
+<title>introMarket</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="./resources/css/market.css" />
+<!--===============================================================================================-->
 <!--===============================================================================================-->
 <link rel="icon" type="image/png"
 	href="./resources/images/icons/favicon.png" />
@@ -53,44 +59,187 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product.css">
 <!--===============================================================================================-->
 
 </head>
 <body class="animsition">
+
+	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
+
 	<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
+		style="background-image: url('images/bg-01.jpg');">
+		<h2 class="ltext-105 cl0 txt-center">시장소개</h2>
+	</section>
+
 	<!-- Content page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92">
-		<h2 class="ltext-105 cl0 txt-center">업종별 상점목록</h2>
-		<div class="container" align="center">
-			<div class="flex-w flex-sb-m p-b-52">
-				<c:forEach items="${categoryget}" var="cate">
-					<form action="showstore.user" method="get"> 
-						<div class="button">
-							<input type="submit" class="btn btn-link" style="color: green;"
-								name="cName" value="${cate.cName}">
-								들어가기
+
+	<section class="bg0 p-t-75 p-b-120">
+		<div class="container">
+			<div class="row p-b-148">
+				<div class="col-md-7 col-lg-8">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">시장소개</h3>
+						<div class="main_area current" data-cid="78z0udho"
+							data-anchor="367564f783e6db3ab00bf9c85e458944"
+							data-adult-flag="0" data-title="시장소개">
+							<div class="inner _inner">
+								<!-- 이미지1 삽입할곳 -->
+								<div class="component_box component_margin _component"
+									data-index="0">
+									<div
+										class="gallery_area _image_view_container type5 align_l v_align_m black_bg sma   txt_none">
+
+										<div class="gallery_img">
+											<a href=""><img alt="" src="${intro.mkImg1}" alt="이미지"
+												width="1000" height="800"></a>
+										</div>
+										<div class="mask_bg" style="opacity: 0;"></div>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="1">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+								<!-- 시장 이름넣은곳(mkName) -->
+								<div class="component_box _component" data-index="2">
+									<div class="txt_box">
+										<div class="txt_component color1 big align_c t_space "
+											style="color: rgb(0, 154, 69);">
+											<h4>${intro.mkName}은</h4>
+										</div>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="3">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+								<!-- 시장 소개넣은곳(mkIntro) -->
+								<div class="component_box _component" data-index="4">
+									<div class="txt_box">
+										<div class="txt_component color2 big align_c t_space ">
+											<p>${intro.mkIntro}</p>
+										</div>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="5">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="6">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+								<!-- 이미지2 삽입할곳 -->
+								<div class="component_box component_margin _component"
+									data-index="7">
+									<div class="gallery_img">
+										<a href=""><img alt="" src="${intro.mkImg2}" alt="이미지"
+											width="1000" height="800"></a>
+									</div>
+									<div class="mask_bg" style="opacity: 0;"></div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="8">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+
+								<!-- 시장 상점갯수와 넣는 곳은-->
+								<div class="component_box _component" data-index="9">
+									<div class="txt_box">
+										<div class="txt_component color1 big align_c t_space "
+											style="color: rgb(0, 154, 69);">
+											<h3>${intro.mkName}상점수는</h3>
+										</div>
+									</div>
+								</div>
+
+								<!-- 시장 소개넣은곳(mkCount) -->
+								<div class="component_box _component" data-index="10">
+									<div class="txt_box">
+										<br>
+										<div class="txt_component color2 big align_c t_space ">
+											<p>음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
+												있고,</p>
+										</div>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="11">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+								<div class="component_box _component" data-index="12">
+									<div class="txt_box">
+										<div class="txt_component color1 big align_c t_space " >
+											<div class="txt_component color1 big align_c t_space "
+											style="color: rgb(0, 154, 69);">
+											<h3>시장이 생긴 날짜는</h3>
+										</div>
+											<div class="txt_component color2 big align_c t_space ">											
+											<p>${intro.mkDate} 입니다.</p>
+										</div></div>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="13">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+
+								<!-- 시장 상점갯수와 넣는 곳은-->
+								<div class="component_box _component" data-index="14">
+									<div class="txt_box">
+										<div class="txt_component color1 big align_c t_space "
+											style="color: rgb(0, 154, 69);">
+											<h3>${intro.mkName}영업시간은</h3>
+										</div>
+									</div>
+								</div>
+								<!-- 여백 -->
+								<div class="component_box _component" data-index="15">
+									<div class="division_line">
+										<div class="space"></div>
+									</div>
+								</div>
+								<!-- 운영시간 넣는 곳-->
+								<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+								<div class="component_margin _component" data-index="16">
+									<div class="view_table bdr_table ">
+										<table class="tx_a_c tx_v_m" border="1" cellspacing="0"
+											summary="표 입력">
+											<tbody>
+												<tr>
+													<td rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTime}</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
 						</div>
-					</form>
-				</c:forEach>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 
-
-
-
-
-	<!-- Back to top -->
-	<div class="btn-back-to-top" id="myBtn">
-		<span class="symbol-btn-back-to-top"> <i
-			class="zmdi zmdi-chevron-up"></i>
-		</span>
-	</div>
-	<jsp:include page="/WEB-INF/views/market/footer.jsp"></jsp:include>
-
+	<!-- footer -->
+	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -140,7 +289,7 @@
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
-		$('.js-addwish-b2, .js-addwish-detail').on('click', function(e) {
+		$('.js-addwish-b2').on('click', function(e) {
 			e.preventDefault();
 		});
 
@@ -200,6 +349,6 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
-	<script src="./resources/js/product.js"></script>
+
 </body>
 </html>

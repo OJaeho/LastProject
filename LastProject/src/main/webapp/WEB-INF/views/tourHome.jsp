@@ -36,7 +36,7 @@
 	<!-- header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	   
-	  <!-- Title page -->
+	  <!-- 타이틀페이지 -->
    <section class="bg-img1 txt-center p-lr-15 p-tb-92" id="title_section" style="background-image: url('images/bg-01.jpg');">
       <h2 class="ltext-105 cl0 txt-center tour_title">
          주변 관광지 둘러보기
@@ -44,21 +44,27 @@
    </section>   
 
 
-   <!-- Content page -->
+   <!-- 관광지 리스트 영역 -->
    <section class="bg0 p-t-75 p-b-120">
 		<div class="container">
 			<div class="row">
 					<table class="tour_info">
 						<c:forEach var="item" items="${tourlist}">
 							<tr class="tour_info_tr">
+								<input type="hidden" value="${item.tId}" id="tid"/>
 								<td align="center" class="tour_name"><a href="tourDetail.do?tId=${item.tId}">${item.tName}</a><br/> 
 									<span class="tour_addr">${item.tAddr}</span><br />
 								</td>
-								<td align="center" class="timg"><img src="${item.tImg1}" style=" width:300px; height:300px;"/></td>
+								<td align="center" class="timg">
+								<c:if test="${authority == 'true'}">
+								<a href="#" class="deleteBtn"><img src="./resources/images/icons/icon-close2.png" ></a>
+								</c:if>
+								<img src="${item.tImg1}" style=" width:300px; height:300px;"/>
+								</td>
 							</tr>
 							<tr class="tour_detail">
 								<td align="center" colspan="2">
-									<table id='tour_inner_table'">
+									<table id='tour_inner_table'>
 										<tr>
 											<td id="tour_inner_table_td">
 												${item.tContent}
@@ -71,8 +77,10 @@
 					</table>
 			</div>
 			<hr/>
+			<!-- 페이징 처리 영역 -->
 			<div class="container">
 				<div style="display: block; text-align: center;" class="pageBtn">
+				<input type="hidden" value="${paging.nowPage}" id="pno"/>
 					<c:if test="${paging.startPage != 1 and empty param.searchType }">
 						<a href="tourHome.do?nowPage=${paging.startPage - 1 }">&lt;</a>
 					</c:if>
@@ -113,6 +121,12 @@
 		<!-- Shoping Cart -->
 		
 	</section>
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top"> <i
+			class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 <!--===============================================================================================-->	
