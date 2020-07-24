@@ -5,10 +5,11 @@
 	uri="http://www.springframework.org/security/tags"%>
 <%@page import="com.vo.ProductVO"%>
 <%@page import="com.vo.CategoryVO"%>
+<%@page import="com.vo.StoreVO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>Product</title>
+<title>Store Detail</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -54,34 +55,104 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 <link rel="stylesheet" type="text/css"
-	href="./resources/css/product.css">
-<!--===============================================================================================-->
+	href="./resources/css/product-detail.css">
 
+<!--===============================================================================================-->
 </head>
 <body class="animsition">
+
+	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
-	<!-- Title page -->
-	<!-- Content page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92">
-		<h2 class="ltext-105 cl0 txt-center">업종별 상점목록</h2>
-		<div class="container" align="center">
-			<div class="flex-w flex-sb-m p-b-52">
-				<c:forEach items="${categoryget}" var="cate">
-					<form action="showstore.user" method="get"> 
-						<div class="button">
-							<input type="submit" class="btn btn-link" style="color: green;"
-								name="cName" value="${cate.cName}">
-								들어가기
+	<!-- Product Detail -->
+	<section class="sec-product-detail bg0 p-t-65 p-b-60">
+		<div class="container">
+
+			<c:forEach items="${storeget}" var="store">
+				<div class="row" style="width: 1200px;">
+					<div class="col-md-6 col-lg-7 p-b-30" style="width: 1200px;">
+						<div class="p-l-25 p-r-30 p-lr-0-lg" style="width: 1200px;">
+							<hr />
+							<br />
+							<div class="wrap-slick3 flex-sb flex-w"
+								style="width: 1350px; margin: auto;">
+								<img src="${store.sImg1}"
+									style="width: 500px; height: 400px; margin: auto;">
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+							</div>
 						</div>
-					</form>
-				</c:forEach>
-			</div>
+					</div>
+				</div>
+
+				<div class="bor10 m-t-50 p-t-43 p-b-40" style="border-color: green;">
+					<!-- Tab01 -->
+					<div class="tab01">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li class="nav-item p-b-10"><a class="nav-link active"
+								data-toggle="tab" href="#description" role="tab">상점 소개</a></li>
+
+							<li class="nav-item p-b-10"><a class="nav-link"
+								data-toggle="tab" href="#information" role="tab">상점 정보</a></li>
+
+							<li class="nav-item p-b-10"><a class="nav-link"
+								data-toggle="tab" href="#reviews" role="tab">상점 위치</a></li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content p-t-43">
+							<!-- 상점 소개탭 -->
+							<div class="tab-pane fade show active" id="description"
+								role="tabpanel">
+								<div class="row" style="width: 1087px; margin: auto;">
+									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
+										style="margin: auto;">${store.sDetail}</div>
+								</div>
+							</div>
+							<!-- 상점 정보탭 -->
+							<div class="tab-pane fade" id="information" role="tabpanel">
+								<div class="row" style="width: 1087px; margin: auto;">
+									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+										<table border="2"
+											style="margin: auto; width: 600px; border-color: lightgrey;">
+											<tbody>
+												<tr>
+													<td style="width: 25%; color: green;" data-row="0"
+														data-column="0">전화번호&nbsp;</td>
+													<td style="width: 75%;" data-row="0" data-column="1">${store.sTel}&nbsp;</td>
+												</tr>
+												<tr>
+													<td style="width: 25%; color: green;" data-row="1"
+														data-column="0">영업시간 & 휴 일&nbsp;</td>
+													<td style="width: 75%;" data-row="1" data-column="1">${store.sTime}&nbsp;</td>
+												</tr>
+												<tr>
+													<td style="width: 25%; color: green;" rowspan="1"
+														data-row="2" data-column="0">&nbsp;주 소</td>
+													<td style="width: 75%;" rowspan="1" data-row="2"
+														data-column="1">${store.sAddr}&nbsp;</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+
+							<!-- 상점 위치탭 -->
+							<div class="tab-pane fade" id="reviews" role="tabpanel">
+								<div class="row" style="width: 1168px; margin: auto;">
+									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
+										style="width: 1168px; margin: auto;">
+										<img src="${store.sImg3}" style="width: 582px; margin: auto;">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 	</section>
-
-
-
-
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
@@ -89,8 +160,8 @@
 			class="zmdi zmdi-chevron-up"></i>
 		</span>
 	</div>
-	<jsp:include page="/WEB-INF/views/market/footer.jsp"></jsp:include>
 
+	<jsp:include page="/WEB-INF/views/market/footer.jsp"></jsp:include>
 
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -200,6 +271,6 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
-	<script src="./resources/js/product.js"></script>
+
 </body>
 </html>

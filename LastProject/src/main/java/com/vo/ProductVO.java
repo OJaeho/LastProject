@@ -15,8 +15,14 @@ public class ProductVO {
 	private String pDetail;
 	private String delYn;
 	private String keyword;
+	private String sName;
 	
-	
+	public String getsName() {
+		return sName;
+	}
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
 	public String getKeyword() {
 		return keyword;
 	}
