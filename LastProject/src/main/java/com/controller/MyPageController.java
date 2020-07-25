@@ -2,41 +2,53 @@ package com.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class MyPageController {
 
-	//권한별 마이페이지 이동
-	@RequestMapping("/mypage.loguser")
+	// 권한별 마이페이지 이동
+	@RequestMapping("/mypage.checking")
 	public String preMypage(HttpServletRequest request) {
-		if (request.isUserInRole("ROLE_ADMIN")){
-			return "redirect:/Amypage.admin";
-		}else if (request.isUserInRole("ROLE_Market")) {
+		System.out.println("4" + request.isUserInRole("ROLE_ADMIN"));
+		System.out.println("3" + request.isUserInRole("ROLE_MARKET"));
+		System.out.println("2" + request.isUserInRole("ROLE_SELLER"));
+		System.out.println("1" + request.isUserInRole("ROLE_USER"));
+		if (request.isUserInRole("ROLE_ADMIN")) {
+			return "redirect:/Amypage.master";
+		} else if (request.isUserInRole("ROLE_MAKET")) {
 			return "redirect:/Mmypage.market";
-		}else if (request.isUserInRole("ROLE_Seller")) {
+		} else if (request.isUserInRole("ROLE_SELLER")) {
 			return "redirect:/Smypage.seller";
-		}else {
-			return "redirect:/Umypage.loguser";
+		} else {
+			return "redirect:/Umypage.user";
 		}
+
+
 	}
-	//시스템 관리자 마이페이지
-	@RequestMapping("/Amypage.admin")
+
+	// 시스템 관리자 마이페이지
+	@RequestMapping("/Amypage.master")
 	public String Amypage() {
-		return "";
+		return "mypage/Amypage";
 	}
-	//마켓 관리자 마이페이지
+
+	// 마켓 관리자 마이페이지
 	@RequestMapping("/Mmypage.market")
 	public String Mmypage() {
-		return "";
+		return "mypage/Mmypage";
 	}
-	//판매자 마이페이지
+
+	// 판매자 마이페이지
 	@RequestMapping("/Smypage.seller")
 	public String Smypage() {
-		return "";
+		return "mypage/Smypage";
 	}
-	//user 마이페이지
-	@RequestMapping("/Umypage.loguser")
+
+	// user 마이페이지
+	@RequestMapping("/Umypage.user")
 	public String Umypage() {
-		return "";
+		return "mypage/Umypage";
 	}
 }
