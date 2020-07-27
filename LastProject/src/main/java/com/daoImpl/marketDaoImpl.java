@@ -1,5 +1,6 @@
 package com.daoImpl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.dao.marketDao;
 import com.vo.IssueVO;
 import com.vo.MarketVO;
+import com.vo.PagingVO;
+import com.vo.TourVO;
 
 	@Repository("marketDao") 
 	public class marketDaoImpl implements marketDao{
@@ -31,13 +34,30 @@ import com.vo.MarketVO;
 			System.out.println("===> Mybatis marketHome() 호출");
 			return mybatis.selectOne("MarketDAO.marketHome",vo);
 		}
-
+	
+		
 		@Override
-		public List<IssueVO> marketIssue(IssueVO vo) {
-			System.out.println("===> Mybatis marketIssue() 호출");
-			return mybatis.selectList("MarketDAO.marketIssue",vo);
+		public int getTotalCount(IssueVO vo) {
+			System.out.println("===> Mybatis getTotalCount() 호출");
+			return mybatis.selectOne("MarketDAO.getTotalCount",vo);
 		}
 
+		@Override
+		public List<IssueVO> marketIssue(IssueVO vo, int endRow, int firstRow) {
+			System.out.println("===> Mybatis marketIssue() 호출");
+			HashMap m=new HashMap();
+			m.put("first",firstRow);
+			m.put("end", endRow);
+			m.put("mkId", vo.getMkId());
+			return mybatis.selectList("MarketDAO.marketIssue",m);
+		}
+
+		public void saveIssue(IssueVO vo) {
+			System.out.println("===> Mybatis saveIssue() 호출");
+			mybatis.insert("MarketDAO.saveIssue", vo);
+			
+		}
+		
 
 	}
 

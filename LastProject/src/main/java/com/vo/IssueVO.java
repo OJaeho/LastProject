@@ -10,7 +10,7 @@ public class IssueVO {
 	private String delYn;
 	private int mkId;
 	private String isStory;
-		
+
 	public String getIsStory() {
 		return isStory;
 	}

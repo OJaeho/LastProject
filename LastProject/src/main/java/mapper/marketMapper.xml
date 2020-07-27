@@ -21,9 +21,30 @@
       	]]>     
   	</select>
   	
-  	<select id="marketIssue" parameterType="issue" resultType="issue">
-      	<![CDATA[
-      	SELECT * FROM issue where mkid=#{mkId} and delyn='N' 
-      	]]>     
-  	</select>
+	
+  	
+  	 <!-- 이슈 리스트 갯수 -->
+	<select id="getTotalCount" parameterType="issue" resultType="int">
+		<![CDATA[
+		SELECT COUNT(*) AS TOTALCOUNT FROM issue where mkid=#{mkId} and delyn='N' 
+		]]>  
+	</select>
+	
+	<!-- 이슈 리스트 페이징 -->
+	<select id="marketIssue" parameterType="hashmap"  resultType="issue">
+		<![CDATA[
+			SELECT issue.*
+     		 FROM (select rownum rm, issue.* from issue where mkid=#{mkId} and delyn='N') issue
+     		 where rm between ${first} and ${end}
+     		  
+		]]>    
+	</select>
+	
+	<insert id="saveIssue" parameterType="issue" >
+		<![CDATA[
+		INSERT INTO issue(ISID, USERNAME, ISTITLE, ISCONTENT, ISDATE,  ISIMG, DELYN, MKID, ISSTORY)
+		VALUES(SEQ_ISID.nextval, #{userName}, #{isTitle}, #{isContent}, sysdate, #{isImg}, 'N',#{mkId}, #{isStory})
+		]]>
+</insert>
+	
 </mapper>
