@@ -1,5 +1,6 @@
 package com.serviceImpl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,10 @@ import com.vo.QnaVO;
 
 @Service("qnaService")
 public class qnaServiceImpl implements qnaService {
+	private int totalRecCount;		// 전체 레코드 수	
+	private int pageTotalCount;		// 전체 페이지 수
+	private int countPerPage = 3;	// 한페이지당 레코드 수
+	
 	@Autowired
 	private qnaDaoImpl qnaDao;
 
@@ -20,11 +25,6 @@ public class qnaServiceImpl implements qnaService {
 		
 	}
 
-	@Override
-	public void updateQnA(QnaVO vo) {
-		qnaDao.updateQnA(vo);
-		
-	}
 	
 	@Override
 	public void deleteQnA(QnaVO vo) {
@@ -38,21 +38,27 @@ public class qnaServiceImpl implements qnaService {
 	}
 
 	@Override
-	public List<QnaVO> getQnAList() {
-		return qnaDao.getQnAList();
+	public List<QnaVO> getQnAList(String pNum) {
+		int pageNum=1;
+		if(pNum != null) pageNum = Integer.parseInt(pNum);
+		
+		int firstRow = (pageNum-1)*countPerPage+1;
+		int endRow=pageNum*countPerPage;
+	
+		//페이지 당 검색해 온 레코드를 return
+		return qnaDao.getQnAList(firstRow, endRow);	
 	}
 
+	//전체 게시글 수 가져오기
 	@Override
-	public List<QnaVO> Pagelist(QnaVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+	public int getTotalCount() {
+		totalRecCount=qnaDao.getTotalCount();
+		pageTotalCount=totalRecCount/countPerPage;
+		if(totalRecCount % countPerPage>0) pageTotalCount++;
+		return pageTotalCount;
 	}
 
-//	@Override
-//	public List<QnaVO> Pagelist(QnaVO vo) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
+
 
 
 

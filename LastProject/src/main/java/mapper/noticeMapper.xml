@@ -3,10 +3,11 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Notice">
-	  <select id="getNoticeList" resultType="notice">
+	  <select id="getNoticeList" parameterType="hashmap" resultType="notice">
       <![CDATA[
       SELECT *
-      FROM NOTICE
+      FROM (select rownum rm, notice.* from notice where mkId=${mkId}) notice
+      where rm between ${first} and ${end} 
       ]]>
    </select>
    
@@ -17,4 +18,9 @@
    seq_nId.nextval,#{userName},#{nTitle},#{nContent},sysdate,'N',#{mkId}
    )   
    </insert>
+   
+   <select id="getTotalCount" resultType="int" parameterType="hashmap">
+	select count(*) from notice 
+	</select>
+<!-- 	where delyn='N' -->
 </mapper>

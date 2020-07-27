@@ -29,16 +29,22 @@ public class qnaController {
 	
 	// 목록 조회 (이게 QnA 첫 페이지가 된다)
 	@RequestMapping("/getQnAList.user")
-	public String getQnApage(Model model, HttpServletRequest request) {
-		System.out.println("=====QnA출력======");		
-		model.addAttribute("getQnAList", service.getQnAList());
-		model.addAttribute("getId", request.getRemoteUser());
-		model.addAttribute("list", con.selectFooter());
+	public String getQnApage(String pNum,Model model, HttpServletRequest request) {
+		String pageNum = "1";
+		if (pNum != null) {
+			pageNum = pNum;
+		}
+		System.out.println(pageNum);
+		model.addAttribute("getQnAList", service.getQnAList(pageNum));
+		model.addAttribute("getId", request.getRemoteUser());//현재 로그인되어있는 id
+		model.addAttribute("list", con.selectFooter()); //footer처리
+		model.addAttribute("totalpNum", service.getTotalCount());// qna 총 페이지 수
+		
 		return "QnA/getQnAList";
 	}
 
 	// 글쓰기 페이지로 이동
-	@RequestMapping(value="registQnA.loguser")
+	@RequestMapping(value="registQnA.checking")
 	public String RegistQnA(HttpServletRequest request, Model model, QnaVO vo) {	
 		model.addAttribute("getId", request.getRemoteUser());
 		model.addAttribute("list", con.selectFooter());

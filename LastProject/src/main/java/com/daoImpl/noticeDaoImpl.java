@@ -1,5 +1,6 @@
 package com.daoImpl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -36,20 +37,23 @@ import com.vo.NoticeVO;
 			return (NoticeVO) mybatis.selectOne("Notice.getNotice", vo);
 		}
 
-//		public List<NoticeVO> getNoticeList(NoticeVO vo) {
-//			System.out.println("===> Mybatis getNoticeList() 호출");
-//			return mybatis.selectList("Notice.getNoticeList", vo);
-//		}
-		
-		public List<NoticeVO> Pagelist(NoticeVO vo) {
-			System.out.println("===> Mybatis Pagelist() 호출");
-			return mybatis.selectList("Notice.Pagelist", vo);
-		}
 
 		@Override
-		public List<NoticeVO> getNoticeList() {
-			// TODO Auto-generated method stub
-			return mybatis.selectList("Notice.getNoticeList");
+		public List<NoticeVO> getNoticeList(int firstRow,int endRow,int mkId) {
+			System.out.println("===> Mybatis getQnAList() 호출");
+			HashMap m=new HashMap();
+			m.put("first",firstRow);
+			m.put("end", endRow);
+			m.put("mkId", mkId);
+			return mybatis.selectList("Notice.getNoticeList",m );
+		}
+		
+		@Override
+		public int getTotalCount(int mkId) {
+			System.out.println("===> QnA getTotalCount 호출");
+			HashMap m=new HashMap();
+			m.put("mkId", mkId);
+			return mybatis.selectOne("QnA.getTotalCount",m);
 		}
 		
 	}

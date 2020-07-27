@@ -1,5 +1,6 @@
 package com.daoImpl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -36,21 +37,28 @@ import com.vo.QnaVO;
 			return (QnaVO) mybatis.selectOne("QnA.getQnA", vo);
 		}
 
-		public List<QnaVO> getQnAList(QnaVO vo) {
+		public List<QnaVO> getQnAList(int firstRow,int endRow) {
 			System.out.println("===> Mybatis getQnAList() 호출");
-			return mybatis.selectList("QnA.getQnAList", vo);
+			HashMap m=new HashMap();
+			System.out.println(firstRow +  "Hello");
+			
+			m.put("first",firstRow);
+			m.put("end", endRow);
+			return mybatis.selectList("QnA.getQnAList",m );
 		}
+		@Override
+		public int getTotalCount() {
+			System.out.println("===> QnA getTotalCount 호출");
+			return mybatis.selectOne("QnA.getTotalCount");
+		}
+		
 		
 //		public List<QnaVO> QnAlist(QnaVO vo) {
 //			System.out.println("===> Mybatis Pagelist() 호출");
 //			return mybatis.selectList("QnA.Pagelist", vo);
 //		}
 
-		@Override
-		public List<QnaVO> getQnAList() {
-			// TODO Auto-generated method stub
-			return mybatis.selectList("QnA.getQnAList");
-		}
+	
 
 
 	}

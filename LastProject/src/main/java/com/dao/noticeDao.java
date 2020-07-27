@@ -11,6 +11,7 @@ public interface noticeDao {
 	
 	public NoticeVO getNotice(NoticeVO vo);
 	
-	public List<NoticeVO> getNoticeList();
+	public List<NoticeVO> getNoticeList(int firstRow,int endRow,int mkId);
 
+	public int getTotalCount(int mkId);
 }
