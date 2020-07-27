@@ -12,9 +12,9 @@
    
    <insert id="insertQnA" parameterType="qna">
    INSERT INTO QNA
-   (qId, qWriter, qTitle, qlContent, qDate)
+   (qId, userName, qTitle, qlContent, qDate, qCate)
    VALUES(
-   seq_qId.nextval,#{qWriter},#{qTitle},#{qlContent},sysdate
+   seq_qId.nextval,#{userName},#{qTitle},#{qlContent},sysdate,#{qCate}
    )   
    </insert>
    

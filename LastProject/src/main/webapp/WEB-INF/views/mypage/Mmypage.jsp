@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>QnA - Market3</title>
+	<title>마켓 마이페이지</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -36,132 +36,55 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-	<link rel="stylesheet" type="text/css" href="./resources/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
-	<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
-<!-- include libraries(jQuery, bootstrap) -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
-<script type="text/javascript">
-$(document).ready(function() {
-	  $('#summernote').summernote();
-	});
 
-</script>
-<!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 
+
+
+
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- Bootstrap -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+   rel="stylesheet" type="text/css" />
+   
 </head>
 <body class="animsition">
 	
-	<jsp:include page="/WEB-INF/views/market/header.jsp" />
-
+	<!-- Header -->
+	  <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
+      <h2 class="ltext-105 cl0 txt-center">
+       마켓 마이페이지
+      </h2>
    </section>   
-
+<!-- header끝 -->
    <!-- Content page -->
    <section class="bg0 p-t-75 p-b-120">
-    <div class="container">
-	<div class="inner Content container">
-	<div class="title">
-	<h2 class="notice_title theme_color type_block">
-	<span class="notice_title_bullet them_background"></span>
-	QnA
-	</h2>
-	</div>	
-	<br>
-	</div>
-	<div class="board">
-	<span>
-	</span>
-	</div>
-	
-				<div class="container">
-		
-		<section id="container">
-			<form action="insertQnA.user" method="get" id="QnAinsert">
-		<table class="table table-bordered">
-					
-					<tr>
-					<th class="mythlist" scope="row">
-						<label class="labellist" for="qTitle">QnA</label>					
-					<td>
-					<select name="qCate" style="vertical-align: middle; text-align: center">					<option selected disabled> > QnA</option>		
-					<option value="구매문의">구매문의</option>
-					<option value="예약문의">예약문의</option>	
-					<option value="상품문의">상품문의</option>			
-					</select>
-					</td>
-					</th>
-					</tr>
-					<tr>
-						<th class="mythlist" scope="row">
-						<label class="labellist" for="qTitle">제목</label>
-						</th>						
-						<td>
-						<input type="text" id="qTitle" name ="qTitle" class="input_txt" 
-						 placeholder="Market3 Q&amp;A 게시판" form-index="6" 
-						data-name="제목" data-required="true">
-						</td>
-					</tr>
-					
-					<tr>
-						<th class="mythlist" scope="row">
-						<label class="labellist" for="userName">작성자</label>
-						</th>
-						<td>
-						${getId }
-						</td>
-					</tr>
-					<tr>
-						<th class="mythlist" scope="row">
-						<label class="labellist" for="qlContent">내용</label>
-						</th>
-						<td>
-						<input class="text_area _textarea input_txt" 
-						contenteditable="true" id="qlContent" name="qlContent" form-index="7" 
-						 data-type="textarea" 
-						role="textbox" aria-labelledby="qlContent" 
-						aria-multiline="true"/>
+      <div class="container">
+      <!-- 좌우측의 공간 확보 -->
+   
+      <div class="row">
+         <p></p>
+         <div class="col-md-12"></div>
+      </div>
 
-						</td>
-					</tr>
+      <hr />
+      <!-- 본문 들어가는 부분 -->
 
-<!-- 				<td width="70">파일</td> -->
-<%-- 				<td align="left">${board.boardfile }</td> --%>
-					
-<!-- 				</tr> -->
-<!-- 			<tr> -->
-<!-- 				<td width="100">첨부파일</td> -->
-<!-- 				<td align="left"> -->
-<!-- 					file타입의 name은 MultipartFile의 프라퍼티  -->
-<!-- 					<input type="file" name='file' maxlength="60" size="40"> -->
-<!-- 				</td> -->
-<!-- 			</tr>	  -->						
-				
-		</table>		
-		<hr/>	
-	
-		<div class="div-right">
-			<span>
-				<input type="submit" value="등록" class="btnqna btn_qna qna_hover"/>
-				<a href="getQnAList.user" class="btnqna btn_qna qna_hover" data-role="cancle">취소</a>						
-			</span>
-			
-		</div>
-		</form>
-			</div>			
-		</div>
-		
-	</section>
-	<!-- footer -->
-	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
-	
-				
+<h2>마켓 마이페이지</h2>
+
+
+
+   </div>
+  </section>
+ <jsp:include page="/WEB-INF/views/market/footer.jsp" />
+
+<!-- script	 -->
+
+
+<!-- 유효성 체크  -->
 <!--===============================================================================================-->	
 	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -170,6 +93,15 @@ $(document).ready(function() {
 	<script src="./resources/vendor/bootstrap/js/popper.js"></script>
 	<script src="./resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
+
+<!--===============================================================================================-->	
+<!-- <script type="text/javascript" src="resources/js/jquery-1.7.1.js"></script> -->
+<script type="text/javascript" src="resources/js/nh.js"></script> 
+<!-- <script src='resources/js/jquery.validate.min.js' type="text/javascript"></script> -->
+<script
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="resources/js/js_userinput.js"></script>
+<!--===============================================================================================-->	
 	<script src="./resources/vendor/select2/select2.min.js"></script>
 	<script>
 		$(".js-select2").each(function(){

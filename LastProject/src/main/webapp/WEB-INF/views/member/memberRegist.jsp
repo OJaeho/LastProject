@@ -36,6 +36,9 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <!--===============================================================================================-->
 
 
@@ -101,31 +104,23 @@
 </head>
 <body class="animsition">
 	
-	<!-- Header -->
-	  <jsp:include page="/WEB-INF/views/market/header.jsp" />
+   <!-- Header -->
+     <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-      <h2 class="ltext-105 cl0 txt-center">
-         회원가입
-      </h2>
-   </section>   
-<!-- header끝 -->
-   <!-- Content page -->
-   <section class="bg0 p-t-75 p-b-120">
-      <div class="container">
-      <!-- 좌우측의 공간 확보 -->
-   
-      <div class="row">
-         <p></p>
-         <div class="col-md-12"></div>
-      </div>
 
-      <hr />
-      <!-- 본문 들어가는 부분 -->
-      	<div class="mregist">
-         <div class="form-group">
-            <label for="provision" class="col-lg-2 control-label">회원가입약관</label>
-            <div class="col-lg-10" id="provision">
+   </section> 
+
+<!-- header끝 -->
+   <!-- Content page -->   
+<div class="joinMain">
+<div class="mArticle">
+
+<div>
+<h2 class="myth theme_color joinfont">회원가입</h2>
+<br/>
+<strong class="tf_required">회원가입약관</strong>
+<div>
                <textarea class="form-control" rows="8" style="resize: none">약관동의
 제 1장 총칙
 
@@ -266,6 +261,7 @@
 국가공간정보포털과 이용자간에 발생한 서비스 이용에 관한 분쟁에 대하여는 대한민국 법을 적용하며, 본 분쟁으로 인한 소는 민사소송법상의 관할법원에 제기합니다.
 부 칙 1. (시행일) 본 약관은 2016년 1월 1일부터 시행됩니다.
                         </textarea>
+                        
                <div class="radio">
                   <label> <input type="radio" class="Terms"
                      name="provisionYn" id="mTermsY" value="Y" autofocus="autofocus" checked>
@@ -278,10 +274,10 @@
                   </label>
                </div>
             </div>
-         </div>
-         <div class="form-group">
-            <label for="memberInfo" class="col-lg-2 control-label">개인정보취급방침</label>
-            <div class="col-lg-10" id="memberInfo">
+         <div>
+            <strong class="tf_required">개인정보취급방침</strong>
+            <div>
+            
                <textarea class="form-control" rows="8" style="resize: none">개인정보의 항목 및 수집방법
 가. 개인정보의 수집 및 이용 목적
 ① 국가공간정보포털은 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
@@ -302,6 +298,7 @@
 라. 동의 거부 권리 및 동의 거부에 따른 불이익
 위 개인정보의 수집 및 이용에 대한 동의를 거부할 수 있으나, 동의를 거부할 경우 회원 가입이 제한됩니다.
                         </textarea>
+
                <div class="radio">
                   <label> <input type="radio" class="Terms" id="infoTermsY" "
                     name="infoTermsYN" value="Y" checked> 동의합니다.
@@ -311,111 +308,109 @@
                   <label> <input type="radio"  class="Terms" id="infoTermsN" "
                    name="infoTermsYN" value="N"> 동의하지 않습니다.
                   </label>
-               </div>
+                  <br/>    
+                  <hr/>
+                  
+    <!-- 회원가입 정보입력 시작 -->                             
+    <div>       
+	    <form method="get" action="insertMember.user" id="frm">
+	    <h2 class="myth theme_color joinfont">가입정보입력</h2> 
+	    	<div class="divlist2">
+		    <div>
+		    <strong class="tf_required">ID</strong>
+		    <div class="divlist">
+		    <input type="text" name="userName" id="userName" class="lab_placeholder" 
+		    placeholder="아이디를 입력해 주세요" required=""> 
+		   	<span id="idCheckResult" style="width: 150px; color: red"></span>
+		    </div>
+		    </div>
+		    
+		    <div class="divlist">
+		    <strong class="tf_required">비밀번호</strong>
+		    <input type="password" name="Password" class="lab_placeholder"
+		    placeholder="비밀번호" required="" id="Password">
+		    </div>
+		    <div class="divlist">
+		    <input type="password" name="Password2" class="lab_placeholder"
+		    placeholder="비밀번호" required=""   id="Password2">
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">이름</strong>
+		    <div class="divlist">
+		    <input type="text" name="mName" id="mName" class="lab_placeholder" 
+		    placeholder="이름을 입력해 주세요" required=""> 
+		   	<span id="idCheckResult" style="width: 150px; color: red"></span>    
+		    </div>		    
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">전화번호</strong>
+		    <div class="divlist">
+		    <input placeholder="전화번호 (-)없이 입력" required="" class="lab_placeholder"
+		    type="text" name="mTel" id="mTel">
+         	<span id="telCheckResult" style="width: 150px; color: red"></span>		    
+		    </div>
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">주소</strong>
+		    <div class="divlist">
+		    <input type="text" name='mPost' id="sample6_postcode" 
+		    class="lab_placeholder" placeholder="우편번호">
+		    <div class="divlist2">
+     		<input type="button" onclick="sample6_execDaumPostcode()" 
+     		class="btn_area join-btn" value="우편번호 찾기">
+     		</div>
+     		<input type="text" name="addr" id="sample6_address" 
+     		class="lab_placeholder" placeholder="주소"><br>
+     		<input type="text" name="detailAddr" id="sample6_detailAddress" 
+     		class="lab_placeholder" placeholder="상세주소">
+     		<div class="divlist">
+     		<input type="text" id="sample6_extraAddress" 
+     		class="lab_placeholder" placeholder="참고항목">
+     		</div>
+		    </div>
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">이메일</strong>
+		    <div class="divlist">
+		    <input type="text" name="mEmail" id="mEmail" class="lab_placeholder" 
+		    placeholder="이메일 주소 입력" required="">
+		    </div>		    
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">생년월일/성별</strong>
+		    <div class="divlist">
+		    <input type="date" name="mBirth" id="mBirth" class="lab_placeholder">
+		    </div>
+		    <div class="divlist checkbox icheck-success">
+		    <label>
+		    <input type="radio" id="Female" name="mGender" value="Female" checked>여자
+		    </label>
+		    <label>
+		    <input type="radio" id="mGender" name="mGender" value="Male">남자
+		    </label>
+		    </div>	    
+		    </div>
+		    <hr/>
+		    <div>
+		    <div class="divlist">
+		    <input type="submit" name="submit" id="submit" value="등록" class="join-btn">
+		    </div>		    
+		    </div>		
+		   </div>
+	    </form>  
+    </div>
             </div>
-         </div>
-         <hr/>
-   
-   <form method="get" action="insertMember.user" id="frm">
-   <table class='table2'>
-      <label for="provision" class="col-lg-2 control-label">가입정보입력</label>
-         <tr>
-            <td class="normalbold tb_ttl">
-               <div align="left">ID</div>
-            </td>
-            <td colspan="3" class="normal">
-            <input type="text" name="userName" id="userName" required="" name="userName" size="20"> 
-            <span id="idCheckResult" style="width: 150px; color: red"></span>
-            </td>
-         </tr>
-         
-    <tr> 
-      <td class="normalbold tb_ttl">
-        <div align="left">비밀번호</div>
-      </td>
-      <td width="154" class="normal"> 
-        <input type="password" name="Password" required="" id="Password">
-      </td>
-      </tr>
-      
-      <tr>
-      <td class="normalbold tb_ttl"> 
-        <div align="left">비밀번호 확인</div>
-      </td>
-      <td width="160"> 
-        <input type="password" name="Password2" required=""   id="Password2">
-      </td>
-    </tr>
-    
-    <tr> 
-      <td class="normalbold tb_ttl"> 
-        <div align="left">이름</div>
-      </td>
-      <td colspan="3" height="23" class="normal"> 
-        <input type="text" name="mName" required=""  id="mName">
-      </td>
-    </tr>
-    
-     <tr> 
-      <td class="normalbold tb_ttl"> 
-        <div align="left">휴대폰번호</div>
-      </td>
-      <td colspan="3" height="23" class="normal"> 
-        <input  placeholder="전화번호 (-)없이 입력" required=""  type="text" name="mTel" id="mTel">
-      	<span id="telCheckResult" style="width: 150px; color: red"></span>
-      </td>
-    </tr>
-    
-     <tr> 
-      <td class="normalbold tb_ttl"> 
-        <div align="left">주소</div>
-      </td>
-      <td colspan="3" height="23" class="normal"> 
-      <input type="text" name='mPost' id="sample6_postcode" placeholder="우편번호">
-	  <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-	  <input type="text" name="addr" id="sample6_address" placeholder="주소"><br>
-	  <input type="text" name="detailAddr" id="sample6_detailAddress" placeholder="상세주소">
-	  <input type="text" id="sample6_extraAddress" placeholder="참고항목">   </td>
-    </tr>
-    
-      <tr> 
-      <td class="normalbold tb_ttl"> 
-        <div align="left">이메일</div>
-      </td>
-      <td colspan="3" height="23" class="normal"> 
-        <input type="text" name="mEmail" id="mEmail">
-      </td>
-    </tr>
-    <tr> 
-      <td class="normalbold tb_ttl"> 
-        <div align="left">생년월일</div>
-      </td>
-      <td colspan="3" height="23" class="normal"> 
-        <input type="date" name="mBirth" id="mBirth">
-      </td>
-    </tr>
-    <tr>
-    <td class="nrmalbold tb_ttl">
-    	 <div align="left">성별</div>
-    </td>    
-    <td colspan="3" height="23" class="normal">
-    	<label class="radio-inline"> 
-    		<input type="radio" id="Female" name="mGender" value="Female" checked>여자
-         </label> 
-         <label class="radio-inline"> 
-         <input type="radio" id="mGender" name="mGender" value="Male"> 남자
-         </label>
-    </td>
-    </tr>
-   </table>
-   <hr/>
-            <input type="submit" name="submit" id="submit"   value="회원가입">
-      </form>
-
-      <hr/>
+            </div>
+            
 </div>
-   </div>
-  </section>
+</div>
+</div>
+
 
 
 <!-- script	 -->

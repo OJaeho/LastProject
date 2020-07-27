@@ -93,7 +93,7 @@
 								<a href="login/loginForm.do" class="flex-c-m trans-04 p-lr-25">로그인 </a> 
 								</sec:authorize>
 								
-							<a href="#" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a> <a
+							<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a> <a
 							href="#" class="flex-c-m trans-04 p-lr-25"> ENGLISH </a>
 					</div>
 				</div>
