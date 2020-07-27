@@ -10,9 +10,7 @@ public interface qnaService {
 	// CRUD 기능의 메소드 구현
 	// 글 등록
 	void insertQnA(QnaVO vo);
-	// 글 수정
-	void updateQnA(QnaVO vo);
-
+	
 	// 글 삭제
 	void deleteQnA(QnaVO vo);
 
@@ -20,9 +18,10 @@ public interface qnaService {
 	QnaVO getQnA(QnaVO vo);
 
 	// 글 목록 조회
-	List<QnaVO> getQnAList();
+	List<QnaVO> getQnAList(String pNum);
 	
-	// 내 글 목록 조회
-	List<QnaVO> Pagelist(QnaVO vo);
+	//글 전체 갯수 가져오기
+	int getTotalCount();
+	
 }
 

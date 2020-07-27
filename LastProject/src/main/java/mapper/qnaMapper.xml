@@ -3,18 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="QnA">
-	  <select id="getQnAList" resultType="qna">
+	  <select id="getQnAList" parameterType="hashmap" resultType="qna">
       <![CDATA[
-      SELECT *
-      FROM QNA
+     SELECT *
+      FROM (select rownum rm,qid, username, qcate, qemail, qwriter,qtitle,qdate,qlcontent,qanswer,qawriter,qadate,delyn,mkid from qna) QNA
+      where rm between  ${first} and #{end}
       ]]>
    </select>
    
    <insert id="insertQnA" parameterType="qna">
    INSERT INTO QNA
-   (qId, userName, qTitle, qlContent, qDate, qCate)
+   (qId, userName, qTitle, qlContent, qDate, qCate,delyn)
    VALUES(
-   seq_qId.nextval,#{userName},#{qTitle},#{qlContent},sysdate,#{qCate}
+   seq_qId.nextval,#{userName},#{qTitle},#{qlContent},sysdate,#{qCate},'N'
    )   
    </insert>
    
@@ -33,4 +34,8 @@
 		]]>
 	</delete>
 	
+	<select id="getTotalCount" resultType="int" parameterType="hashmap">
+	select count(*) from qna 
+	</select>
+<!-- 	where delyn='N' -->
 </mapper>

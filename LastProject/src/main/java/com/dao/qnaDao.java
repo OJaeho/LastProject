@@ -13,6 +13,7 @@ public interface qnaDao {
 		
 	public QnaVO getQnA(QnaVO vo);
 	
-	public List<QnaVO> getQnAList();
+	public List<QnaVO> getQnAList(int firstRow,int endRow);
 
+	public int getTotalCount();
 }
