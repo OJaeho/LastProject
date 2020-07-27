@@ -32,20 +32,25 @@
 	<link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 	<link rel="stylesheet" type="text/css" href="./resources/css/jh.css">
+	<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+	<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
 </head>
 <body>
 	<!-- header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" id="title_section" style="background-image: url('images/bg-01.jpg');">
-    	<h2 class="ltext-105 cl0 txt-center tour_title">${result.tName}</h2>
+	    <h1 class="tour-title theme_color type_block">
+	      <span class="notice_title_bullet them_background"></span>
+	      ${result.tName}
+	     </h1>
    	</section>
 	
 	<div class="container" align="center">
 		<div class="row" align="center">
 		    <table class="tour_detail" style="border-spacing: 10px">	
 	    	  	<tr class="tour_info_tr2">		  
-		    		<td align="center"><img src="${result.tImg1}" style="width:500px; height:300px;"/></td>
+		    		<td align="center"><img src="${result.tImg1}" style="width:auto; height:auto;"/></td>
 		    		<td>
 		    			<table border="1" style="border-color: #F5F6CE; margin-left: 10%; margin-right: 10%;">
 		    				<tr>

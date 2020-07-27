@@ -10,27 +10,80 @@
 
 <body onload="document.f.id.focus();">
 
-<h3>아이디와 비밀번호를 입력해주세요.</h3>
+<div class="container">
+<div class="col-lg-4"></div>
+	<div class="col-lg-4">
+		<div class="jumbotron" style="padding-top: 20px">
+				<c:url value="/login" var="loginUrl" />
+				<form:form name="f" action="${loginUrl}" method="POST">
+					<div>
+					<h2 style="text-align: center; color: #009a45 !important;">로그인</h2>
+					<span style="
+					position: absolute;
+   					left: 25%;
+    				bottom: auto;
+				    width: 50%;
+				    height: 1px;
+				    background-color: #009a45 !important;
+					"></span>
+					<p>
+					</div>
+					<div style="position: absolute; left: 50%; transform: translateX(-50%);">
+						<div style="padding-top: 10px">
+						<input class="form-control" type="text" id="id" name="id" placeholder="아이디"
+						style="
+						display: inline-block;
+					    height: 50px;
+					    width: 250px;
+					    letter-spacing: -.5px;
+					    color: #666;
+					    border: 1px solid #d0d0d0;
+					    border-radius: 3px;
+					    background: #fff;
+					    box-sizing: border-box;"
+						/><p>
+						<input class="form-control" type="password" 
+						id="password" name="password" placeholder="비밀번호"
+						style="
+						display: inline-block;
+					    height: 50px;
+					    width: 250px;
+					    letter-spacing: -.5px;
+					    color: #666;
+					    border: 1px solid #d0d0d0;
+					    border-radius: 3px;
+					    background: #fff;
+					    box-sizing: border-box;"/><p>
+							<div style="padding: 0; float: right;">
+							<input type="submit" value="로그인"
+							style="
+							display: inline-block;
+						    height: 40px;
+						    padding: 0px 10px 10px 10px;
+						    font-size: 15px;
+						    line-height: 40px;
+						    letter-spacing: 1px;
+						    color: #fff;
+						    font-weight: bold;
+						    border: 1px solid #ddd0;
+						    -webkit-border-radius: 2px;
+						    border-radius: 5px;
+						    background: #2ee27f;
+						    -webkit-box-sizing: border-box;
+						    box-sizing: border-box;
+						    cursor: pointer;
+							">
+							</div>
+						</div>
+					</div>
+				</form:form>
+					</div>
+				
 
-<c:url value="/login" var="loginUrl" />
-<form:form name="f" action="${loginUrl}" method="POST">
-    <c:if test="${param.error != null}">
-        <p>아이디와 비밀번호가 잘못되었습니다.</p>
-    </c:if>
-    <c:if test="${param.logout != null}">
-        <p>로그아웃 하였습니다.</p>
-    </c:if>
-    <p>
-        <label for="username">아이디</label>
-        <input type="text" id="id" name="id" />
-    </p>
-    <p>
-        <label for="password">비밀번호</label>
-        <input type="password" id="password" name="password"/>
-    </p>
-    <%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
-    <button type="submit" class="btn">로그인</button>
-</form:form>
+		</div>
+	</div>
+</div>
+
 
 </body>
 </html>

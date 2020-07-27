@@ -72,10 +72,12 @@
 }
 
 .container .row .tour_info #tour_inner_table_td{
-	border: 2px solid #F5ECCE;
-	border-radius: 1em;
-	padding: 20px;
-	border-radius: 20%;	
+	border: 1px solid #e6e6e6;
+    border-radius: 1em;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 180%;
 }
 
 
