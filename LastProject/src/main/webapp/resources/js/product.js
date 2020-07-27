@@ -4,7 +4,7 @@ $(function() {
 	var tc = new Array();
 	$('#addProduct').click(function() {
 		
-		var html = '';
+		var html = ''; 
 		tc.push({
 			option : $("#size option:selected").attr("value2"),
 			count : $('#numm').val(),
