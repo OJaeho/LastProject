@@ -53,21 +53,28 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/product.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
 
 </head>
 <body class="animsition">
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
-	<!-- Title page -->
+	<!-- 타이틀페이지 -->
+   <section class="bg-img1 txt-center p-lr-15" id="title_section" style="background-image: url('images/bg-01.jpg');">
+	<h2 class="tour-title theme_color type_block">
+	<span class="notice_title_bullet them_background"></span>
+	<img src="https://modo-phinf.pstatic.net/20171104_110/15097368212131akdH_JPEG/mosaI0btd3.jpeg?type=f320_320">
+	</h2>
+   </section>  
 	<!-- Content page -->
 	<div class="container">
 		<!-- Product -->
-		<hr />
+		
 		<!-- category -->
-		<div class="flex-w flex-sb-m p-b-52">
-			<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+		<div class="flex-w flex-sb-m">
+			<div class="flex-w flex-l-m filter-tope-group m-tb-10" style="padding-left: 3em;">
 				<c:forEach items="${categoryget}" var="cate">
 					<form action="categoryitem.user" method="get">
 						<div class="button">
@@ -81,7 +88,7 @@
 			<div class="flex-w flex-c-m m-tb-10">
 
 				<div
-					class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+					class="flex-c-m stext-106 cl6 size-105 bor4 pointer product-hov trans-04 m-tb-4 js-show-search">
 					<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
 					<i
 						class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
@@ -103,12 +110,12 @@
 
 			<!-- Search product -->
 			<div class="dis-none panel-search w-full p-t-10 p-b-15">
-				<div class="bor8 dis-flex p-l-15">
-					<form action="searchproduct.user" method="get" value="검색">
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text"
-							name="keyword" placeholder="키워드를 입력하시오."> <input
-							class="mtext-107 cl2 size-50 plh2 p-r-15" type="submit"
-							value="검색">
+				<div class="border-pro dis-flex p-l-15" style="width: 20rem; height: 5rem;
+}">
+					<form action="searchproduct.user" method="get" value="검색" >
+						<input class="pro-text cl2 size-114 plh2 p-r-15" type="text"
+							name="keyword" placeholder="키워드를 입력하시오."> 
+						<input class="btn-addr" type="hidden" value="검색">
 					</form>
 				</div>
 			</div>
@@ -120,9 +127,10 @@
 
 			<c:choose>
 				<c:when test="${empty productget}">
-
+				<div>
 					<img class='readyimg' src="./resources/images/ready.jpg"
 						alt="IMG-PRODUCT">
+				</div>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${productget}" var="list">
@@ -161,19 +169,12 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<hr />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
 
 	<!-- Back to top -->
