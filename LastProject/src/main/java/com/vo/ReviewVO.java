@@ -3,13 +3,27 @@ package com.vo;
 public class ReviewVO {
 	private int rId;
 	private int bId;
+	private float rRating;
 	private String rContent;
 	private String rTitle;
 	private String rDate;
 	private String delYn;
+	private String rWriter;
 	
 	
 	
+	public String getrWriter() {
+		return rWriter;
+	}
+	public void setrWriter(String rWriter) {
+		this.rWriter = rWriter;
+	}
+	public float getrRating() {
+		return rRating;
+	}
+	public void setrRating(float rRating) {
+		this.rRating = rRating;
+	}
 	public int getrId() {
 		return rId;
 	}

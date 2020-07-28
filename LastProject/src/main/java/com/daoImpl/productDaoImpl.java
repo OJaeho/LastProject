@@ -1,6 +1,5 @@
 package com.daoImpl;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.dao.productDao;
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
+import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
 @Repository("productDao")
@@ -71,5 +71,14 @@ public class productDaoImpl implements productDao {
 	public List<StoreVO> StoreInfo(StoreVO vo) {
 		System.out.println("===> ProductMapper storeInfo 호출");
 		return mybatis.selectList("product.storeInfo", vo);
+	}
+	
+	// 리뷰 정보 넣기
+	public void InsertReview(ReviewVO rvo) {
+		System.out.println("===> ProductMapper InsertReview 호출");
+		System.out.println(rvo.getrContent()+"1");
+		System.out.println(rvo.getrWriter()+"2");
+		System.out.println(rvo.getrRating()+"3");
+		mybatis.insert("product.insertReview",rvo);
 	}
 }
