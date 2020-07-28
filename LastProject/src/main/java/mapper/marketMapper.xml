@@ -3,25 +3,26 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MarketDAO">
 
+  	 <!-- 초기화면에 시장리스트 셀렉박스 조회 -->
 	<select id="market" resultType="market">
       	<![CDATA[
       	SELECT * FROM market where delyn='N'
       	]]>     
   	</select>
-  	
+
+  	 <!-- 시장이름이 같은  mkid 조회 -->  	
   	<select id="marketHome" parameterType="market" resultType="market">
       	<![CDATA[
       	SELECT mkid FROM market where mkname=#{mkName} and delyn='N'
       	]]>     
   	</select>  
   	
+  	 <!-- 시장소개 화면 정보 가져오기-->
   	<select id="introMarket" parameterType="market" resultType="market">
       	<![CDATA[
       	SELECT * FROM market where mkid=#{mkId} and delyn='N' 
       	]]>     
-  	</select>
-  	
-	
+  	</select>	
   	
   	 <!-- 이슈 리스트 갯수 -->
 	<select id="getTotalCount" parameterType="issue" resultType="int">
@@ -39,12 +40,30 @@
      		  
 		]]>    
 	</select>
-	
+
+	<!-- 이슈 등록 -->
 	<insert id="saveIssue" parameterType="issue" >
 		<![CDATA[
 		INSERT INTO issue(ISID, USERNAME, ISTITLE, ISCONTENT, ISDATE,  ISIMG, DELYN, MKID, ISSTORY)
 		VALUES(SEQ_ISID.nextval, #{userName}, #{isTitle}, #{isContent}, sysdate, #{isImg}, 'N',#{mkId}, #{isStory})
 		]]>
-</insert>
+	</insert>
 	
+	<!-- 이슈 삭제 delyn을 n->y로  -->
+	<update id="deleteIssue" parameterType="issue" >
+	<![CDATA[
+		UPDATE ISSUE 
+		SET DELYN='Y'
+		WHERE ISID=#{isId}
+		]]>
+	</update>
+	
+	<!-- 시장 등록 -->
+	<insert id="saveMarket" parameterType="market" >
+		<![CDATA[
+		INSERT INTO market(MKID, MKNAME, MKOWNER, MKADDR, MKTEL, MKDATE, MKCOUNT, MKINTRO, MKIMG1, MKIMG2, DELYN, MKLOCAL, MKLONG, MKLAT, MKTIME, MKJIDO, USERNAME)
+		VALUES(SEQ_MKID.nextval, #{mkName}, #{mkOwner}, #{mkAddr}, #{mkTel}, sysdate,#{mkCount}, #{mkIntro},#{mkImg1},#{mkImg2},'N',#{mkLocal}, #{mkLong}, #{mkLat}, to_date(#{mkTime},'yyyy-mm-dd'), #{mkJido}, #{userName})
+		]]>
+	</insert>
+
 </mapper>

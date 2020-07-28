@@ -61,4 +61,16 @@ public class marketServiceImpl implements marketService {
 		
 	}
 
+	@Override
+	public void deleteIssue(IssueVO vo) {
+		marketDao.deleteIssue(vo);
+		
+	}
+
+	@Override
+	public void insertMarket(MarketVO mvo) {
+		marketDao.saveMarket(mvo);
+		
+	}
+
 }

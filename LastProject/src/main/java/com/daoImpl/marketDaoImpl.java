@@ -57,6 +57,19 @@ import com.vo.TourVO;
 			mybatis.insert("MarketDAO.saveIssue", vo);
 			
 		}
+
+		public void deleteIssue(IssueVO vo) {
+			System.out.println("===> Mybatis deleteIssue() 호출");
+			mybatis.delete("MarketDAO.deleteIssue", vo);
+			
+		}
+
+		public void saveMarket(MarketVO mvo) {
+			System.out.println("===> Mybatis saveMarket() 호출");
+			mybatis.insert("MarketDAO.saveMarket", mvo);
+			mybatis.insert("MemberMapper.insertMarketAuthority", mvo);
+			mybatis.insert("MemberMapper.insertSellerAuthority", mvo);
+		}
 		
 
 	}

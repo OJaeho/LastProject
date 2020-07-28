@@ -13,36 +13,23 @@ public class MarketVO {
 	private String mkImg2;
 	private String mkJido;
 	private String delYn;
-	private String mklocal;
-	private int mklong;
-	private int mklat;
+	private String mkLocal;
+	private int mkLong;
+	private int mkLat;
 	private String mkTime;
+	private String mkPost;
+	private String userName;
 	
-	public String getMkTime() {
-		return mkTime;
+	public String getUserName() {
+		return userName;
 	}
-	public void setMkTime(String mkTime) {
-		this.mkTime = mkTime;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getMklocal() {
-		return mklocal;
-	}
-	public void setMklocal(String mklocal) {
-		this.mklocal = mklocal;
-	}
+	//주소 합치기
+	private String mkaddr;
+	private String mkdetailAddr;
 	
-	public int getMklong() {
-		return mklong;
-	}
-	public void setMklong(int mklong) {
-		this.mklong = mklong;
-	}
-	public int getMklat() {
-		return mklat;
-	}
-	public void setMklat(int mklat) {
-		this.mklat = mklat;
-	}
 	public int getMkId() {
 		return mkId;
 	}
@@ -62,10 +49,11 @@ public class MarketVO {
 		this.mkOwner = mkOwner;
 	}
 	public String getMkAddr() {
+		setMkAddr();
 		return mkAddr;
 	}
-	public void setMkAddr(String mkAddr) {
-		this.mkAddr = mkAddr;
+	public void setMkAddr() {
+		this.mkAddr = this.mkaddr+" "+this.mkdetailAddr;
 	}
 	public String getMkTel() {
 		return mkTel;
@@ -79,7 +67,6 @@ public class MarketVO {
 	public void setMkDate(String mkDate) {
 		this.mkDate = mkDate;
 	}
-	
 	public int getMkCount() {
 		return mkCount;
 	}
@@ -104,7 +91,6 @@ public class MarketVO {
 	public void setMkImg2(String mkImg2) {
 		this.mkImg2 = mkImg2;
 	}
-	
 	public String getMkJido() {
 		return mkJido;
 	}
@@ -117,5 +103,48 @@ public class MarketVO {
 	public void setDelYn(String delYn) {
 		this.delYn = delYn;
 	}
-
+	public String getMkLocal() {
+		return mkLocal;
+	}
+	public void setMkLocal(String mkLocal) {
+		this.mkLocal = mkLocal;
+	}
+	public int getMkLong() {
+		return mkLong;
+	}
+	public void setMkLong(int mkLong) {
+		this.mkLong = mkLong;
+	}
+	public int getMkLat() {
+		return mkLat;
+	}
+	public void setMkLat(int mkLat) {
+		this.mkLat = mkLat;
+	}
+	public String getMkTime() {
+		return mkTime;
+	}
+	public void setMkTime(String mkTime) {
+		this.mkTime = mkTime;
+	}
+	public String getMkPost() {
+		return mkPost;
+	}
+	public void setMkPost(String mkPost) {
+		this.mkPost = mkPost;
+	}
+	public String getMkaddr() {
+		return mkaddr;
+	}
+	public void setMkaddr(String mkaddr) {
+		this.mkaddr = mkaddr;
+	}
+	public String getMkdetailAddr() {
+		return mkdetailAddr;
+	}
+	public void setMkdetailAddr(String mkdetailAddr) {
+		this.mkdetailAddr = mkdetailAddr;
+	}
+	
+	
 }

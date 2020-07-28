@@ -24,6 +24,12 @@ public interface marketService {
 	// 시장이슈 등록 후 저장
 	void saveIssue(IssueVO vo);
 	
+	// 시장이슈 삭제
+	void deleteIssue(IssueVO vo);
+
+	// 시장 등록 후 저장
+	void insertMarket(MarketVO mvo);
+	
 
 }
 

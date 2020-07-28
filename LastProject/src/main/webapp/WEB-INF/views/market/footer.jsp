@@ -89,24 +89,24 @@
 						</li>
 
 						<li class="p-b-10">
-							<a href="waytoMarket.users" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="waytoMarket.user" class="stext-107 cl7 hov-cl1 trans-04">
 								오시는길
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="storelist.user" class="stext-107 cl7 hov-cl1 trans-04">
 								업종별상점
 							</a>
 						</li>
 
 						<li class="p-b-10">
-							<a href="index3.user" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="insertMarket.market" class="stext-107 cl7 hov-cl1 trans-04">
 								상점배치도
 							</a>
 						</li>
 						<li class="p-b-10">
-							<a href="folliumtest.user" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="marketIssue.user" class="stext-107 cl7 hov-cl1 trans-04">
 								시장이슈
 							</a>
 						</li>
@@ -120,7 +120,7 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="tourHome.do" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="tourHome.user" class="stext-107 cl7 hov-cl1 trans-04">
 								놀거리(주변관광지)
 							</a>
 						</li>
@@ -146,7 +146,7 @@
 						</li>
 
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="getNoticeList.user" class="stext-107 cl7 hov-cl1 trans-04">
 								공지사항
 							</a>
 						</li>

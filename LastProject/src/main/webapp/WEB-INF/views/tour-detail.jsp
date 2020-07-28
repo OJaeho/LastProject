@@ -51,8 +51,8 @@
 		    <table class="tour_detail" style="border-spacing: 10px">	
 	    	  	<tr class="tour_info_tr2">		  
 		    		<td align="center"><img src="${result.tImg1}" style="width:auto; height:auto;"/></td>
-		    		<td>
-		    			<table border="1" style="border-color: #F5F6CE; margin-left: 10%; margin-right: 10%;">
+		    		<td style="border-bottom: 1px #777777 dotted;">
+		    			<table class="tour_info" style="margin-left: 10%; margin-right: 10%; text-align: center; line-height: 180%;">
 		    				<tr>
 			    				<td>
 			    					${result.tContent}		
@@ -61,13 +61,13 @@
 		    			</table>
 		    		</td>
 	        	</tr>
-	        	<tr>
+	        	<tr id="detail">
 	        		<td align="center">
 	        			<a href="https://korean.visitseoul.net/index" target="_blank">마포관광 구청 바로가기</a>
 	        		</td>
-	        		<td align="center">
+	        		<td align="center" style="padding: 3rem">
 	        			<a href="https://map.kakao.com/link/search/${result.tAddr}" target="_blank">
-	        				<span>위치찾기</span><img src="./resources/images/icons/unnamed.png"/>
+	        				<img src="./resources/images/icons/unnamed.png"  class="scale"/>
 	        			</a>
 		    		</td>
 	        	</tr>

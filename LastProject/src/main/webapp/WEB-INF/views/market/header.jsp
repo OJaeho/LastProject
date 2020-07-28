@@ -2,14 +2,34 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
+
 <head>
 <title>Home</title>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+<style type="text/css">
+.log_out {
+	font-family: Poppins-Regular;
+	font-size: 14px;
+	font-family: 'Noto Sans', '맑은 고딕', 'Malgun Gothic', Arial, Helvetica,
+		sans-serif, Lucida, Grande, 'Microsoft YaHei', 'Hiragino Sans GB',
+		SimSun, Meiryo;
+	line-height: 1.8;
+	height: 100%;
+	color: #FFF;
+	border-right: 1px solid rgba(255, 255, 255, 0.3);
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: rgba(255, 255, 255, 0.3);
+	background-color: transparent;
+}
+</style>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -70,6 +90,7 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 <!--===============================================================================================-->
 </head>
+
 <body class="animsition">
 
 	<header>
@@ -82,19 +103,21 @@
 
 					<div class="right-top-bar flex-w h-full">
 						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
-							회원가입 </a> 
-							 <sec:authorize	access="isAuthenticated()">
-								<form:form action="${pageContext.request.contextPath}/logout"
-								method="POST"> 
-									<input type="submit" value="로그아웃" />
-								</form:form> 
-								</sec:authorize>
-								<sec:authorize access="isAnonymous()"> 
-								<a href="login/loginForm.do" class="flex-c-m trans-04 p-lr-25">로그인 </a> 
-								</sec:authorize>
-								
-							<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25"> 마이페이지 </a> <a
-							href="#" class="flex-c-m trans-04 p-lr-25"> ENGLISH </a>
+							회원가입 </a>
+						<sec:authorize access="isAuthenticated()">
+							<form:form action="${pageContext.request.contextPath}/logout"
+								method="POST">
+								<input type="submit" value="로그아웃" class="log_out" />
+							</form:form>
+						</sec:authorize>
+						<sec:authorize access="isAnonymous()">
+							<a href="login/loginForm.do" class="flex-c-m trans-04 p-lr-25">로그인
+							</a>
+						</sec:authorize>
+
+						<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25">
+							마이페이지 </a> <a href="#" class="flex-c-m trans-04 p-lr-25"> ENGLISH
+						</a>
 					</div>
 				</div>
 			</div>
@@ -103,8 +126,8 @@
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="index.do" class="logo"> <img
-						src="./resources/images/market_3.png" alt="IMG-LOGO">
+					<a href="folliumtest.user" class="logo"> <img
+						src="./resources/images/market_logo.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -114,14 +137,14 @@
 								<ul class="sub-menu">
 									<li><a href="introMarket.user">시장소개</a></li>
 									<li><a href="waytoMarket.user">오시는길</a></li>
-									<li><a href="#">업종별상점</a></li>
-									<li><a href="folliumtest.user">상점배치도</a></li>
+									<li><a href="storelist.user">업종별상점</a></li>
+									<li><a href="insertMarket.master">상점배치도</a></li>
 									<li><a href="marketIssue.user">시장이슈</a></li>
 								</ul></li>
 
 							<li><a href="#">거리마다</a>
 								<ul class="sub-menu">
-									<li><a href="tourHome.do">놀거리(주변관광지)</a></li>
+									<li><a href="tourHome.user">놀거리(주변관광지)</a></li>
 									<li><a href="insertTour.do">먹을거리(시장맛집)</a></li>
 								</ul></li>
 
