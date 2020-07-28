@@ -15,9 +15,15 @@ public class QnaVO {
 	private String qaDate;
 	private String delYn;
 	private String qPassword;
+	private int mkId;
 	
-	
-	
+	 
+	public int getMkId() {
+		return mkId;
+	}
+	public void setMkId(int mkId) {
+		this.mkId = mkId;
+	}
 	public String getqPassword() {
 		return qPassword;
 	}

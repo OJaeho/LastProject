@@ -30,9 +30,15 @@ public class noticeController {
 	
 	// 공지 목록 조회 (이게 공지사항 첫 페이지가 된다)
 	@RequestMapping("/getNoticeList.user")
-	public String getNoticepage(Model model) {
+	public String getNoticepage(String pNum,Model model,HttpSession session) {
 		System.out.println("======공지목록출력======");
-		model.addAttribute("getNoticeList", service.getNoticeList());
+		String pageNum = "1";
+		if (pNum != null) {
+			pageNum = pNum;
+		}
+		int mkId=(int)session.getAttribute("mkId");
+		model.addAttribute("getNoticeList", service.getNoticeList(pageNum,mkId));
+		model.addAttribute("totalpNum", service.getTotalCount(mkId));// qna 총 페이지 수
 		return "notice/getNoticeList";
 	}
 	
@@ -59,6 +65,10 @@ public class noticeController {
     	return "redirect:/getNoticeList.user";
     }
 
+    @RequestMapping("/getNotice.user")
+    public String getNotice() {
+    	return "";
+    }
 	
 
 

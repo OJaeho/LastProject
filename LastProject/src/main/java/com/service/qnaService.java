@@ -23,5 +23,9 @@ public interface qnaService {
 	//글 전체 갯수 가져오기
 	int getTotalCount();
 	
+	//아이디가 담당하는 시장Id
+	int selectUserMarket(String userName);
+	
+	void updateQA(QnaVO vo);
 }
 
