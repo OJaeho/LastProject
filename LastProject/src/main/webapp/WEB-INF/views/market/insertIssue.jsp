@@ -83,11 +83,11 @@
 					<h3 class="mtext-111 cl2 p-b-16">시장이슈 등록</h3>
 					<div class="col-sm-6 col-md-12">
 						<a href="#" class="image"> <img
-							src="./resources/images/issue_image.jpg" alt="issue_image">
+							src="./resources/images/market_issue.png" alt="issue_image" class="issue_image">
 						</a>
 					</div>
-					<div class="col-sm-6 col-md-12">
-						<!-- 이미지1 삽입할곳 -->
+					<div class="col-md-12">
+						<!-- 시장이슈 등록할 부분 -->
 
 						<form:form action="saveIssue.market" method="GET">
 

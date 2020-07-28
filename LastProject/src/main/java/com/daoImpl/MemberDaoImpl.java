@@ -17,6 +17,7 @@ public class MemberDaoImpl implements MemberDao {
 	public void insertMember(UsersVO vo) {
 		mybatis.insert("MemberMapper.insertMember",vo);
 		mybatis.insert("MemberMapper.insertUserAuthority",vo);
+		
 	}
 
 	@Override

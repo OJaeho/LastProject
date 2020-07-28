@@ -79,11 +79,11 @@
 							data-anchor="367564f783e6db3ab00bf9c85e458944"
 							data-adult-flag="0" data-title="시장 이슈 ">
 							<!-- 시장이슈 등록화면 이동 -->
-							<c:if test="${authority eq true}">							
-								<div class="insertIssue">
-									
-										<a href="insertIssue.market" id='insertIssue'>이슈등록</a> />
-									</form>
+							<c:if test="${authority eq true}">
+								<div class="col-sm-4 col-md-12 col-lg-12 insertIssue">
+								
+										<a href="insertIssue.market" class='insert_Issue'>이슈등록</a>
+								
 								</div>
 							</c:if>
 							<!-- 기사정보 카드형태로 반복 -->
@@ -111,6 +111,12 @@
 
 												</div>
 
+											</td>
+											<td colspan='1' rowspan='2'>
+												<!-- 시장이슈 등록화면 이동 --> 
+												<c:if test="${authority eq true}">
+													<a href="deleteIssue.market?isId=${issue.isId}" id='deleteIssue'>삭제</a>
+												</c:if>
 											</td>
 										</tr>
 

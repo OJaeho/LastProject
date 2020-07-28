@@ -5,8 +5,6 @@ import com.vo.IssueVO;
 import com.vo.MarketVO;
 
 
-
-
 public interface marketDao {
 
 	public List<MarketVO> selectMarket();
@@ -20,4 +18,8 @@ public interface marketDao {
 	public List<IssueVO> marketIssue(IssueVO vo, int endRow, int firstRow);
 
 	public void saveIssue(IssueVO vo);
+	
+	public void deleteIssue(IssueVO vo);
+	
+	public void saveMarket(MarketVO mvo);
 }
