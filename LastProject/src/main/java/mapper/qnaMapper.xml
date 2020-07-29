@@ -5,9 +5,11 @@
 <mapper namespace="QnA">
 	  <select id="getQnAList" parameterType="hashmap" resultType="qna">
       <![CDATA[
-     SELECT *
-      FROM (select rownum rm,qid, username, qcate, qemail, qwriter,qtitle,qdate,qlcontent,qanswer,qawriter,qadate,delyn,mkid from qna) QNA
-      where rm between  ${first} and #{end}
+    SELECT *
+      FROM (select rownum rm,q.qid qid, q.username username, q.qcate qcate, q.qemail qemaill, q.qwriter qwriter,q.qtitle qtitle,q.qdate qdate,q.qlcontent qlcontent,
+      q.qanswer qanswer,q.qawriter qawriter,q.qadate qadate,q.delyn delyn,q.mkid mkid from (select * from qna  order by qdate desc) q where delyn='N' ) QNA
+      where rm between  ${first} and #{end} 
+      
       ]]>
    </select>
    

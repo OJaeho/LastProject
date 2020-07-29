@@ -40,8 +40,6 @@
 	<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 	<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
-<!-- select 선택 안했을 시 체크하도록  js-->
-<script type="text/javascript" src="resources/js/nh2.js"></script> 
 <!-- include libraries(jQuery, bootstrap) -->
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
@@ -265,6 +263,7 @@ $(document).ready(function() {
 	</script>
 <!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
-
+	<!-- select 선택 안했을 시 체크하도록  js-->
+<script type="text/javascript" src="resources/js/nh2.js"></script> 
 </body>
 </html>
