@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@page import="com.vo.ProductVO"%>
 <%@page import="com.vo.CategoryVO"%>
 <%@page import="com.vo.StoreVO"%>
+<%@page import="com.vo.UsersVO"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -76,15 +79,16 @@
 							<div class="wrap-slick3 flex-sb flex-w"
 								style="width: 1350px; margin: auto;">
 								<img src="${item.pImg1}" style="width: 500px; height: 400px;">
-								<div class="col-md-6 col-lg-5 p-b-30">
+								<div class="col-md-6 col-lg-5 p-b-30" style="margin: auto;">
 									<div class="p-r-50 p-t-5 p-lr-0-lg">
 										<h4 class="mtext-105 cl2 js-name-detail p-b-14">
 											[${item.sName}]<br />${item.pName}</h4>
-										<input type="hidden" value="${item.pName}" id="itemname" />
+										<input type="hidden" value="${item.pName}" id="itemname" /> <input
+											type="hidden" value="${item.pDetail}" id="bContent" /> <input
+											type="hidden" value="${item.pId}" id="pId" />
 
-										<div>
-
-											<b>${item.pDetail}</b>
+										<div style="text-align: center;">
+											<strong>${item.pDetail}</strong>
 										</div>
 
 
@@ -93,9 +97,8 @@
 										<!-- 옵션박스 -->
 										<div class="p-t-33">
 											<hr />
-
 											<select id="size">
-												<option value="">---------옵션선택---------</option>
+												<option disabled>---------옵션선택---------</option>
 												<c:forEach items="${optionget}" var="item2">
 													<option id="price" value="${item2.pPrice}"
 														value2="${item2.pOption1}">[ ${item2.pOption1} -
@@ -126,38 +129,59 @@
 										<!-- 수량버튼 -->
 
 										<!-- 담기버튼 -->
+										<table style="height: 35px;">
+											<tr>
+												<td style="width: 20px;"><input type="radio"
+													name="chk_info" value="배송"></td>
+												<td style="width: 40px;">배송</td>
+												<td style="width: 20px;"><input type="radio"
+													name="chk_info" value="픽업"></td>
+												<td style="width: 40px;">픽업</td>
+											</tr>
+										</table>
+
 										<input type="button" name="addsubcart" id="addProduct"
-											style="width: 50px; background-color: lightgrey; color: green;"
-											value="담기" />
-											<br/>
+											style="width: auto; background-color: lightgrey; color: green;"
+											value="장바구니 담기" />
+										<hr />
+										<label style="width: 30px; height: 20px; color: green;">preview</label>
 										<form name="subcart">
-											<table style="width: 482px; border: 1px solid green;">
-												<thead>
-													<tr>
-														<td style="width: 20%;">옵션</td>
-														<td style="width: 20%;">수량</td>
-														<td style="width: 30%;">가격</td>
+											<table style="width: auto; border: 1px solid green;">
+												<thead style="width: auto;">
+													<tr style="width: auto;">
+														<td style="width: auto;">옵션</td>
+														<td style="width: auto;">수량</td>
+														<td style="width: auto;">가격</td>
+														<td style="width: auto;">수령</td>
+														<td style="width: auto;"></td>
 													</tr>
 												</thead>
-												<tbody id="dynamicTbody">
+												<tbody id="dynamicTbody" style="width: auto;">
 												</tbody>
-												<tfoot>
+
+												<tfoot style="width: auto;">
 													<tr>
 														<td>총액 :</td>
 														<td></td>
 														<td><input type="text" id="paytotal"></td>
+														<td></td>
+														<td></td>
 													</tr>
 												</tfoot>
 											</table>
 											<hr />
-											<table style="width: 482px;">
-												<tr>
-													<td><input class="btn btn-success" type="submit" value="바로 결제" style="" 
-													onclick="javascript: form.action='/manage/update';" /></td>
-													<td><input class="btn btn-success" type="submit" value="장바구니 담기" style="" 
-													onclick="javascript: form.action='shopingCart.user';" /></td>
+											<table style="width: 482px; margin: auto;">
+												<tr style="text-align: center;">
+													<td style="width: 100px;"><input
+														class="btn btn-success" type="submit" value="바로 구매하기"
+														style=""
+														onclick="javascript: form.action='/manage/update';" /></td>
+													<td style="padding-left: 7px;"><input id="cartBtn"
+														class="btn btn-success" type="button" value="장바구니 가기"
+														onclick="javascript: form.action='shopingCart.user';" /></td>
 												</tr>
 											</table>
+
 										</form>
 									</div>
 								</div>
@@ -182,17 +206,6 @@
 							<!-- Tab panes -->
 							<div class="tab-content p-t-43">
 
-								<!-- Q & A탭 -->
-								<div class="tab-pane fade show active" id="description"
-									role="tabpanel">
-									<div class="row" style="width: 1087px; margin: auto;">
-										<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
-											style="margin: auto;">${item.pName}</div>
-									</div>
-								</div>
-								<!-- Q & A탭 -->
-
-
 								<!-- 구매전 주의사항탭 -->
 								<div class="tab-pane fade" id="information" role="tabpanel">
 									<div class="row" style="width: 1087px; margin: auto;">
@@ -202,13 +215,87 @@
 								</div>
 								<!-- 구매전 주의사항탭 -->
 
-
 								<!-- REVIEW탭 -->
 								<div class="tab-pane fade" id="reviews" role="tabpanel">
-									<div class="row" style="width: 1168px; margin: auto;">
-										<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
-											style="width: 1168px; margin: auto;">
-											<img src="${item.pName}" style="width: 582px; margin: auto;">
+									<div class="row">
+										<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
+											<div class="p-b-30 m-lr-15-sm">
+												<!-- Review -->
+												<div class="flex-w flex-t p-b-68">
+													<div
+														class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
+														<img src="./resources/images/i.jpg" alt="AVATAR">
+													</div>
+
+													<div class="size-207">
+														<div class="flex-w flex-sb-m p-b-17">
+															<span class="mtext-107 cl2 p-r-20"> 아이린 </span> <span
+																class="fs-18 cl11"> <i class="zmdi zmdi-star"></i>
+																<i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i>
+																<i class="zmdi zmdi-star"></i> <i
+																class="zmdi zmdi-star-half"></i>
+															</span>
+														</div>
+
+														<p class="stext-102 cl6">달콤한 그 맛 아이스크림 케이크~!</p>
+														<hr />
+													</div>
+
+													<div
+														class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
+														<img src="./resources/images/y.jpg" alt="AVATAR">
+													</div>
+
+													<div class="size-207">
+														<div class="flex-w flex-sb-m p-b-17">
+															<span class="mtext-107 cl2 p-r-20"> 예리 </span> <span
+																class="fs-18 cl11"> <i class="zmdi zmdi-star"></i>
+																<i class="zmdi zmdi-star"></i> <i class="zmdi zmdi-star"></i>
+																<i class="zmdi zmdi-star-half"></i>
+															</span>
+														</div>
+
+														<p class="stext-102 cl6">빠빠빠빠빨갓맛 떡볶이 대줜맛</p>
+													</div>
+												</div>
+
+												
+													<c:if test="${not empty bId}">													
+													
+													<!-- Add review -->
+
+													<h5 class="mtext-108 cl2 p-b-7">리뷰를 달아주세요 ~!</h5>
+
+													<p class="stext-102 cl6">당신의 응원에 많은 소상공인이 힘을 냅니다 *</p>
+													<form action="insertreview.user" class="w-full" method="get">
+													<div class="flex-w flex-m p-t-50 p-b-23">
+													<span class="stext-102 cl3 m-r-16"> ID 입력 </span>
+													<input type="text" name="rWriter" placeholder="여기에 입력해주세요."
+													>
+														<span class="stext-102 cl3 m-r-16"> Your Rating </span> <span
+															class="wrap-rating fs-18 cl11 pointer"> <i
+															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
+															class="item-rating pointer zmdi zmdi-star-outline"></i> <input
+															class="dis-none" type="number" name="rRating">
+														</span>
+													</div>
+
+													<div class="row p-b-25">
+														<div class="col-12 p-b-5">
+															<label class="stext-102 cl3" for="review"></label>
+															<textarea
+																class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
+																id="review" name="rContent"></textarea>
+														</div>
+
+													</div>
+													<input class="btn btn-success" type="submit" value="작성">
+												</form>
+												</c:if>
+											</div>
 										</div>
 									</div>
 								</div>

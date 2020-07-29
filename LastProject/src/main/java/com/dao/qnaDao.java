@@ -16,4 +16,8 @@ public interface qnaDao {
 	public List<QnaVO> getQnAList(int firstRow,int endRow);
 
 	public int getTotalCount();
+	
+	int selectUserMarket(String userName);
+	
+	void updateQA(QnaVO vo) ;
 }

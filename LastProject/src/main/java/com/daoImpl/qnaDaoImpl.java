@@ -51,15 +51,18 @@ import com.vo.QnaVO;
 			System.out.println("===> QnA getTotalCount 호출");
 			return mybatis.selectOne("QnA.getTotalCount");
 		}
-		
-		
-//		public List<QnaVO> QnAlist(QnaVO vo) {
-//			System.out.println("===> Mybatis Pagelist() 호출");
-//			return mybatis.selectList("QnA.Pagelist", vo);
-//		}
 
-	
-
+		@Override
+		public int selectUserMarket(String userName) {
+			HashMap m=new HashMap();
+			m.put("userName", userName);
+			return mybatis.selectOne("QnA.selectUserMarket",m);
+		}
+		//답변 등록
+		@Override
+		public void updateQA(QnaVO vo) {
+			mybatis.update("QnA.updateQA",vo);
+		}
 
 	}
 

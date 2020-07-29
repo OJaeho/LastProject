@@ -13,9 +13,9 @@
    
    <insert id="insertQnA" parameterType="qna">
    INSERT INTO QNA
-   (qId, userName, qTitle, qlContent, qDate, qCate,delyn)
+   (qId, userName, qTitle, qlContent, qDate, qCate,delyn,mkid)
    VALUES(
-   seq_qId.nextval,#{userName},#{qTitle},#{qlContent},sysdate,#{qCate},'N'
+   seq_qId.nextval,#{userName},#{qTitle},#{qlContent},sysdate,#{qCate},'N',#{mkId}
    )   
    </insert>
    
@@ -38,4 +38,13 @@
 	select count(*) from qna 
 	</select>
 <!-- 	where delyn='N' -->
+
+	<select id="selectUserMarket" parameterType="hashmap" resultType="int">
+	select mkid from market where username=#{userName}
+	</select>
+	
+	<update id="updateQA" parameterType="qna">
+	update qna set qAnswer=#{qAnswer},qaDate=sysdate,qaWriter=#{qaWriter} 
+	where qid=#{qId}
+	</update>
 </mapper>
