@@ -5,17 +5,19 @@
 <mapper namespace="QnA">
 	  <select id="getQnAList" parameterType="hashmap" resultType="qna">
       <![CDATA[
-     SELECT *
-      FROM (select rownum rm,qid, username, qcate, qemail, qwriter,qtitle,qdate,qlcontent,qanswer,qawriter,qadate,delyn,mkid from qna) QNA
-      where rm between  ${first} and #{end}
+    SELECT *
+      FROM (select rownum rm,q.qid qid, q.username username, q.qcate qcate, q.qemail qemaill, q.qwriter qwriter,q.qtitle qtitle,q.qdate qdate,q.qlcontent qlcontent,
+      q.qanswer qanswer,q.qawriter qawriter,q.qadate qadate,q.delyn delyn,q.mkid mkid from (select * from qna  order by qdate desc) q where delyn='N' ) QNA
+      where rm between  ${first} and #{end} 
+      
       ]]>
    </select>
    
    <insert id="insertQnA" parameterType="qna">
    INSERT INTO QNA
-   (qId, userName, qTitle, qlContent, qDate, qCate,delyn)
+   (qId, userName, qTitle, qlContent, qDate, qCate,delyn,mkid)
    VALUES(
-   seq_qId.nextval,#{userName},#{qTitle},#{qlContent},sysdate,#{qCate},'N'
+   seq_qId.nextval,#{userName},#{qTitle},#{qlContent},sysdate,#{qCate},'N',#{mkId}
    )   
    </insert>
    
@@ -38,4 +40,13 @@
 	select count(*) from qna 
 	</select>
 <!-- 	where delyn='N' -->
+
+	<select id="selectUserMarket" parameterType="hashmap" resultType="int">
+	select mkid from market where username=#{userName}
+	</select>
+	
+	<update id="updateQA" parameterType="qna">
+	update qna set qAnswer=#{qAnswer},qaDate=sysdate,qaWriter=#{qaWriter} 
+	where qid=#{qId}
+	</update>
 </mapper>

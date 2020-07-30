@@ -14,6 +14,18 @@
 	  values(#{userName},'ROLE_USER','N')
 	  </insert>
 	  
+	  <insert id="insertMarketAuthority" parameterType="market">
+	  insert into
+	  authorities (username,authority,delyn)
+	  values(#{userName},'ROLE_MARKET','N')
+	  </insert>
+	  
+	  <insert id="insertSellerAuthority" parameterType="market">
+	  insert into
+	  authorities (username,authority,delyn)
+	  values(#{userName},'ROLE_SELLER','N')
+	  </insert>
+	  
 <!-- 	  로그인시 아이디 확인 -->
 	  <select id="selectIdLogin" parameterType="users" resultType="users">
 	  

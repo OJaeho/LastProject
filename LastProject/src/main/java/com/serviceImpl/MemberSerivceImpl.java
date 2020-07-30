@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.MemberDao;
-import com.service.MemberSerivce;
+import com.service.memberService;
 import com.vo.UsersVO;
 
 @Service("memberService")
-public class MemberSerivceImpl implements MemberSerivce {
+public class MemberSerivceImpl implements memberService {
 
 	@Autowired
 	private MemberDao dao;
@@ -17,7 +17,6 @@ public class MemberSerivceImpl implements MemberSerivce {
 	@Override
 	public void insertMember(UsersVO vo) {
 		dao.insertMember(vo);
-		
 	}
 
 	@Override

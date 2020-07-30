@@ -9,6 +9,7 @@ import com.daoImpl.productDaoImpl;
 import com.service.productService;
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
+import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
 @Service("productService")
@@ -71,6 +72,13 @@ public class productServiceImpl implements productService {
 	public List<StoreVO> StoreInfo(StoreVO vo) {
 		System.out.println("service storeinfo");
 		return productDao.StoreInfo(vo);
+	}
+	
+	// 리뷰 정보 넣기
+	@Override
+	public void InsertReview(ReviewVO rvo) { 
+		System.out.println("service InsertReview");
+		productDao.InsertReview(rvo); 
 	}
 
 }

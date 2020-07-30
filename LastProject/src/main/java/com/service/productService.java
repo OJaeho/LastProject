@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
+import com.vo.ReviewVO;
 import com.vo.StoreVO;
+import com.vo.UsersVO;
 
 public interface productService {
 	// 상품 정보 가져오기
@@ -30,4 +32,7 @@ public interface productService {
 
 	// 선택된 점포 정보 가져오기
 	public List<StoreVO> StoreInfo(StoreVO vo);
+	
+	// 리뷰 정보 넣기
+	public void InsertReview(ReviewVO rvo);
 }

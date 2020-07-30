@@ -1,12 +1,13 @@
 package com.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.Redirect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.service.qnaService;
 import com.vo.QnaVO;
@@ -53,13 +54,10 @@ public class qnaController {
 
 	// 게시물 등록
 	@RequestMapping(value = "/insertQnA.user")
-	public String insertQnA(QnaVO vo, Model model, HttpServletRequest request) throws Exception{
-		vo.setUserName(request.getRemoteUser());
-		System.out.println(vo.getUserName()+": 작성자");
-		System.out.println(vo.getqTitle()+": 제목");
-		System.out.println(vo.getQlContent()+": 작성내용");
+	public String insertQnA(QnaVO vo, Model model, HttpServletRequest request, HttpSession session) throws Exception{
+		vo.setUserName(request.getRemoteUser()); //현재 로그인 중인 id vo에 저장
+		vo.setMkId((int)session.getAttribute("mkId"));
 		service.insertQnA(vo);		
-		System.out.println("=====글쓰기 성공=====");		
 		model.addAttribute("list", con.selectFooter());
 		return "redirect:/getQnAList.user";
 	}
@@ -84,21 +82,20 @@ public class qnaController {
     	QnaVO answer = service.getQnA(vo);
     	// 권한별 답변 등록 가능 기능 
     	model.addAttribute("Check",String.valueOf(request.isUserInRole("ROLE_MARKET"))); // 권한 일치 : true 권한 불일치: false
-   		model.addAttribute("getQnA", answer ); // Model 정보 저장 
-       	System.out.println("=====조회성공=====");
-       	model.addAttribute("list", con.selectFooter()); // footer select
+   		model.addAttribute("getQnA", answer ); // Model 정보 저장
+   		if(request.getRemoteUser() != null) {
+   		model.addAttribute("userMarket",service.selectUserMarket(request.getRemoteUser())); // 현재 로그인한 ID가 담당하는 시장
+   		}
+   		model.addAttribute("ID",(String)request.getRemoteUser());
+   		model.addAttribute("list", con.selectFooter()); // footer select
        	return "QnA/getQnA";
     }
     
-    @RequestMapping("/QnAck.user")
-    public String idCK(QnaVO vo, HttpServletRequest request) {
-    	
-    	String writer = vo.getUserName(); // 작성자
-    	String id = request.getRemoteUser(); // 로그인 ID
-    	if(writer == id) {
-    		return "true";
-    	}
-     return "false";
+    //답변등록시 
+    @RequestMapping(value="updateQA.market" , method = RequestMethod.GET)
+    public String insertQA(QnaVO vo) {
+    	service.updateQA(vo);
+    	return "redirect:/getQnAList.user";
     }
  
     

@@ -2,15 +2,21 @@ package com.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.service.productService;
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
+import com.vo.ReviewVO;
 import com.vo.StoreVO;
+import com.vo.UsersVO;
 
 @Controller
 public class productController {
@@ -60,11 +66,16 @@ public class productController {
 
 	// 상품 디테일 페이지 이동
 	@RequestMapping(value = "/product-detail.user")
-	public String detailproduct(String pName, int pPrice,Model model,ProductVO vo) {
+	public String detailproduct(Model model,ProductVO vo,String bId) {
 		List<ProductVO> productinfo = service.ProductInfo(vo);
 		List<ProductVO> productoption = service.ProductOption(vo);
 		model.addAttribute("productget",productinfo);
 		model.addAttribute("optionget",productoption);
+		if(bId!=null){
+			model.addAttribute("bId",bId);
+		} else {
+			model.addAttribute("bId","");
+		}
 		return "product/product-detail";
 	}
 
@@ -97,5 +108,17 @@ public class productController {
 		model.addAttribute("categoryget", category);
 		return "store/getstore";
 	}
+	
+	//리뷰 달기
+	@RequestMapping(value = "/insertreview.user")
+	public void InsertReview(ReviewVO rvo) {
+		
+		service.InsertReview(rvo);
+		
+//		return "redirect: /product/product-detail.user";
+		
+		
+	}
+	
 	
 }

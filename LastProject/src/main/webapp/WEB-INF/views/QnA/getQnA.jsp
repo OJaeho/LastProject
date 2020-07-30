@@ -22,7 +22,7 @@ $(document).ready(function() {
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
 		  lang: "ko-KR",					// 한글 설정
 		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder
-		  });
+	  });
 	});
 </script>
 <!-- include summernote css/js-->
@@ -74,16 +74,46 @@ $(document).ready(function() {
 
 		<hr/>
 		
-		<!-- 답변~ -->
-		<c:if test="${Check eq 'true' }"> 
+		<!-- 답변등록 -->
+<!-- 		qna는 시장별로 다르다 그러니 1. 권한, 2. 시장  3. 답변유무 를 확인해서 답변등록창이 보이게한다. -->
+		<c:if test="${Check eq 'true' and (userMarket eq getQnA.mkId) and (empty getQnA.qAnswer)  }"> 
 
 		<h2 class="text-left notice_title theme_color type_block">답변 작성</h2>
 
-		<div id="summernote">			
-		</div>
-
+		<form method="get" action="updateQA.market">
+		<input type="hidden" name="qId" value="${getQnA.qId }" />
+		<input type="hidden" name="qaWriter" value="${ID }" /><br>
+		<textarea id="summernote" name="qAnswer"></textarea>
+		<input type="submit" id="qnaAnswerbtn" value="답변 등록" class="btn btn-default" style="float: right;"/>
+		</form>
+		</c:if>
+		<!-- 답변등록  끝-->
+		<!-- 답변보여주기 -->
+		<c:if test="${not empty getQnA.qAnswer }">
+		<table class="table table-bordered table-hover">
+		<thead>
+			<tr>		
+			
+				<th class="mythlist">날짜</th>
+				<td>${getQnA.qaDate }</td>
+			</tr>
+			<tr>
+				<th class="mythlist" colspan="1">작성자</th>
+				<td colspan="2">
+				${getQnA.qaWriter }
+				</td>
+			</tr>			
+			<tr>
+				<td colspan="3">
+				${getQnA.qAnswer }
+				</td>			
+			</tr>
+		</thead>
+		</table>	
+		
 		</c:if>
 		
+		<!-- 답변보여주기 끝-->
 		<div>
 		<div class="div-left">		
 		<span>		
@@ -93,7 +123,6 @@ $(document).ready(function() {
 		
 		<div class="div-right">
 		<span>
-		<a class="btn btn-default" href="#">답변</a>
 		<a class="btn btn-default" href="getQnAList.user">취소</a>
 		</span>
 		</div>

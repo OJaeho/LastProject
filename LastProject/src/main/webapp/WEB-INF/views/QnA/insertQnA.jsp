@@ -90,7 +90,7 @@ $(document).ready(function() {
 					<th class="mythlist" scope="row">
 						<label class="labellist" for="qTitle">QnA</label>					
 					<td>
-					<select name="qCate" style="vertical-align: middle; text-align: center">					<option selected disabled> > QnA</option>		
+					<select name="qCate"  id="qCate" required style="vertical-align: middle; text-align: center">					<option selected disabled> > QnA</option>		
 					<option value="구매문의">구매문의</option>
 					<option value="예약문의">예약문의</option>	
 					<option value="상품문의">상품문의</option>			
@@ -148,7 +148,7 @@ $(document).ready(function() {
 	
 		<div class="div-right">
 			<span>
-				<input type="submit" value="등록" class="btnqna btn_qna qna_hover"/>
+				<input type="button" id="qnaInsertBtn" value="등록" class="btnqna btn_qna qna_hover"/>
 				<a href="getQnAList.user" class="btnqna btn_qna qna_hover" data-role="cancle">취소</a>						
 			</span>
 			
@@ -263,6 +263,7 @@ $(document).ready(function() {
 	</script>
 <!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
-
+	<!-- select 선택 안했을 시 체크하도록  js-->
+<script type="text/javascript" src="resources/js/nh2.js"></script> 
 </body>
 </html>

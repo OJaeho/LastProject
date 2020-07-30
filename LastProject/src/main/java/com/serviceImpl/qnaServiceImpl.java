@@ -19,24 +19,26 @@ public class qnaServiceImpl implements qnaService {
 	
 	@Autowired
 	private qnaDaoImpl qnaDao;
-
+	
+	//qna 글 등록
 	public void insertQnA(QnaVO vo) {		
 		qnaDao.insertQnA(vo);
 		
 	}
 
-	
+	//qna 삭제
 	@Override
 	public void deleteQnA(QnaVO vo) {
 		qnaDao.deleteQnA(vo);
 		
 	}
-
+	//qna detail 
 	@Override
 	public QnaVO getQnA(QnaVO vo) {
 		return qnaDao.getQnA(vo);
 	}
 
+	//qna 리스트 뽑기
 	@Override
 	public List<QnaVO> getQnAList(String pNum) {
 		int pageNum=1;
@@ -56,6 +58,19 @@ public class qnaServiceImpl implements qnaService {
 		pageTotalCount=totalRecCount/countPerPage;
 		if(totalRecCount % countPerPage>0) pageTotalCount++;
 		return pageTotalCount;
+	}
+
+	//아이디가 담당하는 시장Id 가져오기
+	@Override
+	public int selectUserMarket(String userName) {
+		return qnaDao.selectUserMarket(userName);
+	}
+
+	//답변 등록
+	@Override
+	public void updateQA(QnaVO vo) {
+		
+		qnaDao.updateQA(vo);
 	}
 
 

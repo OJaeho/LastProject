@@ -8,14 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.service.MemberSerivce;
+import com.service.memberService;
+import com.serviceImpl.MemberSerivceImpl;
 import com.vo.UsersVO;
 
 @Controller
 public class MemberController {
 	
 	@Autowired
-	private MemberSerivce service;
+	private MemberSerivceImpl service;
 	
 	@Autowired
 	private marketController con; //footer
