@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buyMapper">
+
+	<!-- 중복처리 위한 검색 (1)-->
+	<select id="selectCart" parameterType="buy" resultType="int">
+		select count(*) 
+		from buy  
+		where bstate = #{bState} and username = #{userName} and pid = #{pId} and boption = #{bOption}		
+	</select>
+	<!-- 장바구니 목록에 추가 (2)-->
+	<insert id="insertBuy" parameterType = "buy" >
+		insert into buy(bid,pid,username,bcontent,btitle,bdate,delyn,mkid,bquantity, bstate, boption)
+		values(SEQ_BID.nextval, #{pId}, #{userName}, #{bContent},#{bTitle},sysdate,'N', #{mkId}, #{bQuantity},#{bState},#{bOption})
+	</insert>
+	<!-- 장바구니 보여주는 select문 (해당상품만)(3) -->
+	<select id="cartSelect" parameterType="buy" resultType="buy">
+		select * from buy where pid = #{pId}	
+	</select>
+	
+	<!-- 장바구니목록에 있다면 업데이트 -->
+	<update id="cartUpdate" parameterType="buy">
+		update buy 
+		set bquantity = bquantity + #{bQuantity} 
+		where boption = #{bOption} and bState = #{bState} and username=#{userName} and pid=#{pId} 
+	</update>
+<!-- 	장바구니 페이지 목록 띄우기 -->
+	<select id="shoppingCart" parameterType="buy" resultType="buy">
+		select b.btitle, b.bId, b.pId, p.pPrice as bPrice, b.bState, b.bQuantity, b.bOption, b.bContent, p.pimg1 as bimg
+		from buy b inner join product p on b.pId = p.pId 
+		where username = #{userName} 
+		<if test="bState != null">
+			and bstate = #{bState}
+		</if>
+		
+	</select>
+<!-- 	장바구니페이지에서 상품 삭제버튼 -->
+	<delete id="deleteShoppingCart" parameterType="int">
+		delete from buy where bid= #{bId1}
+	</delete>
+	
+	
+
+</mapper>

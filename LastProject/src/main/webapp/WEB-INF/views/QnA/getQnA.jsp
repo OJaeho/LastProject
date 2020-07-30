@@ -16,13 +16,13 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	  $('#summernote').summernote({
-		  height8자까지 쓸 수 있습니다'	//placeholder
-		  });: 300,                 // 에디터 높이
+		  height: 300,                 // 에디터 높이
 		  minHeight: null,             // 최소 높이
 		  maxHeight: null,             // 최대 높이
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
 		  lang: "ko-KR",					// 한글 설정
-		  placeholder: '최대 204
+		  placeholder: '최대 2048자까지 쓸 수 있습니다'	//placeholder
+	  });
 	});
 </script>
 <!-- include summernote css/js-->
@@ -75,6 +75,7 @@ $(document).ready(function() {
 		<hr/>
 		
 		<!-- 답변등록 -->
+<!-- 		qna는 시장별로 다르다 그러니 1. 권한, 2. 시장  3. 답변유무 를 확인해서 답변등록창이 보이게한다. -->
 		<c:if test="${Check eq 'true' and (userMarket eq getQnA.mkId) and (empty getQnA.qAnswer)  }"> 
 
 		<h2 class="text-left notice_title theme_color type_block">답변 작성</h2>
@@ -83,7 +84,7 @@ $(document).ready(function() {
 		<input type="hidden" name="qId" value="${getQnA.qId }" />
 		<input type="hidden" name="qaWriter" value="${ID }" /><br>
 		<textarea id="summernote" name="qAnswer"></textarea>
-		<input type="button" id="qnaAnswerbtn" value="답변 등록" class="btn btn-default" style="float: right;"/>
+		<input type="submit" id="qnaAnswerbtn" value="답변 등록" class="btn btn-default" style="float: right;"/>
 		</form>
 		</c:if>
 		<!-- 답변등록  끝-->

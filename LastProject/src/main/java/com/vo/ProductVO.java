@@ -2,7 +2,7 @@ package com.vo;
 
 public class ProductVO {
 	private int pId;
-	private int uId;
+	private int sId;
 	private String pName;
 	private String pState;
 	private int pPrice;
@@ -16,7 +16,21 @@ public class ProductVO {
 	private String delYn;
 	private String keyword;
 	private String sName;
+	private int mkId;
+	private String priceOption;
 	
+	public String getPriceOption() {
+		return priceOption;
+	}
+	public void setPriceOption(String priceOption) {
+		this.priceOption = priceOption;
+	}
+	public int getMkId() {
+		return mkId;
+	}
+	public void setMkId(int mkId) {
+		this.mkId = mkId;
+	}
 	public String getsName() {
 		return sName;
 	}
@@ -35,11 +49,11 @@ public class ProductVO {
 	public void setpId(int pId) {
 		this.pId = pId;
 	}
-	public int getuId() {
-		return uId;
+	public int getsId() {
+		return sId;
 	}
-	public void setuId(int uId) {
-		this.uId = uId;
+	public void setsId(int sId) {
+		this.sId = sId;
 	}
 	public String getpName() {
 		return pName;
