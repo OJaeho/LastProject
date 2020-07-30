@@ -29,7 +29,7 @@ public class tourController {
 	private tourService tourservice;
 	
 	//투어 전체 리스트 , 페이징
-	@RequestMapping("/tourHome.do")
+	@RequestMapping("/tourHome.user")
 	public void tourHome(PagingVO vo, Model model, HttpServletRequest request, 
 			@RequestParam(value="nowPage", required = false)String nowPage,
 			@RequestParam(value="cntPerPage", required=false)String cntPerPage) {

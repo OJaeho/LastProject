@@ -1,72 +1,6 @@
 $(function() {
-	// $("#uploadFile").change(function(e){
-	// //div 내용 비워주기
-	//      
-	// var files = e.target.files;
-	// var arr =Array.prototype.slice.call(files);
-	//      
-	// //업로드 가능 파일인지 체크
-	// for(var i=0;i<files.length;i++){
-	// if(!checkExtension(files[i].name,files[i].size)){
-	// return false;
-	// }
-	// }
-	//      
-	// preview(arr);
-	//      
-	//      
-	// });//file change
-	//    
-	// function checkExtension(fileName,fileSize){
-	//
-	// var regex = new RegExp("(.*?)\.(exe|sh|zip|alz|txt|xlsx|hwp)$");
-	// var maxSize = 20971520; //20MB
-	//      
-	// if(fileSize >= maxSize){
-	// alert('파일 사이즈 초과');
-	// $("input[type='file']").val(""); //파일 초기화
-	// return false;
-	// }
-	//      
-	// if(regex.test(fileName)){
-	// alert('업로드 불가능한 파일이 있습니다.');
-	// $("input[type='file']").val(""); //파일 초기화
-	// return false;
-	// }
-	// return true;
-	// }
-	//    
-	// function preview(arr){
-	// arr.forEach(function(f){
-	// //파일명이 길면 파일명...으로 처리
-	// var fileName = f.name;
-	// if(fileName.length > 10){
-	// fileName = fileName.substring(0,7)+"...";
-	// }
-	//        
-	// //div에 이미지 추가
-	// var str = '<div style="display: inline-flex; padding: 10px;"><li>';
-	// str += '<span>'+fileName+'</span><br>';
-	//        
-	// //이미지 파일 미리보기
-	// if(f.type.match('image.*')){
-	// var reader = new FileReader(); //파일을 읽기 위한 FileReader객체 생성
-	// reader.onload = function (e) { //파일 읽어들이기를 성공했을때 호출되는 이벤트 핸들러
-	// str += '<button type="button" class="delBtn" value="'+f.name+'"
-	// style="background: red">x</button><br>';
-	// str += '<img src="'+e.target.result+'" title="'+f.name+'" width=100
-	// height=100 />';
-	// str += '</li></div>';
-	// $(str).appendTo('#preview');
-	// }
-	// reader.readAsDataURL(f);
-	// }else{
-	// str += '<img src="/resources/img/fileImg.png" title="'+f.name+'"
-	// width=100 height=100 />';
-	// $(str).appendTo('#preview');
-	// }
-	// });//arr.forEach
-	// }
+//-------------------------------------------------------------------------------------
+//신규 관광지 등록 유효성 검사-----------------------------------------------------------------
 	var urlcheck = false;
 	$('#urlReg')
 			.focusout(
@@ -81,12 +15,6 @@ $(function() {
 							urlcheck = true;
 						}
 					})
-
-	$('#btn_submit')
-			.click(
-					function() {
-						
-					});
 
 	$("#findpostcode").click(
 			function execDaumPostcode() {
@@ -149,7 +77,8 @@ $(function() {
 						}).open();
 
 			});
-
+//-----------------------------------------------------------------------------------------------------
+//신규 관광지 등록(관리자)------------------------------------------------------------------------------
 	var tourCheck = false;
 	$("#btn_submit").click(function(evt) {
 		var urlchk = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
@@ -173,7 +102,7 @@ $(function() {
 		$.ajax({
 			async : true,
 			type : "get",
-			url : "newTour.do",
+			url : "newTour.market",
 			data : {
 				"tName" : $("#tName").val(),
 				"tAddr" : $("#tAddr").val(),
@@ -184,17 +113,16 @@ $(function() {
 			dataType : "text",
 			success : function(resultData) { 
 					alert("신규 관광지 정보가 등록되었습니다.");
-					window.location = "insertTour.do";
+					window.location = "insertTour.user";
 			}
 		});
 	})
+//-----------------------------------------------------------------------
+//관광지 리스트 삭제버튼(관리자)------------------------------------------------
 	var tId = $("#tid").val();
 	var pno = $("#pno").val();
 	$(".deleteBtn").click(function(){
 		event.preventDefault();
-		alert("연결됐나확인");
-		alert(tId);
-		alert(pno);
 		var check = confirm("정말로 삭제하시겠습니까?");
 		if(check){
 			window.location = "deleteTour.do?tId="+tId+"&pno="+pno;
@@ -202,6 +130,50 @@ $(function() {
 			event.preventDefault();
 		}
 	})
+
+//------------------------------------------------------------------------
+//장바구니 예약상품, 주문배송 css -----------------------------------------------
+	$('.navLi').click(function(){
+		$(this).css("background-color","#eee");
+		$('.navLi').not($(this)).css("background-color","");
+	})
 	
-	
+//------------------------------------------------------------------------
+//자동 스크롤바---------------------------------------------------------------
+	var $win = $(window);
+	var top = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
+	/*사용자 설정 값 시작*/
+	var speed = 500; // 따라다닐 속도 : "slow", "normal", or "fast" or numeric(단위:msec)
+	var easing = 'linear'; // 따라다니는 방법 기본 두가지 linear, swing 
+	var $layer = $('#quickPanel'); // 레이어 셀렉팅 
+	var layerTopOffset = 0; // 레이어 높이 상한선, 단위:px 
+	$layer.css('position', 'relative').css('z-index', '1'); /*사용자 설정 값 끝*/ 
+	//스크롤 바를 내린 상태에서 리프레시 했을 경우를 위해 
+	if (top > 0 ) $win.scrollTop(layerTopOffset+top); 
+	else $win.scrollTop(0); //스크롤이벤트가 발생하면 
+	$(window).scroll(function(){ 
+		yPosition = $win.scrollTop() - 100; //이부분을 조정해서 화면에 보이도록 맞추세요
+		if (yPosition < 0) {
+			yPosition = 0;
+			} $layer.animate({"top":yPosition},	{duration : speed, easing : easing,	queue:false});
+	});
+//-------------------------------------------------------------------------
+//장바구니페이지 버튼 hover
+	$('.aa').hover(function(){
+		$(this).css("background-color","green");
+	}, function(){
+		$(this).css("background-color","black");
+	})
+//------------------------------------------------------------------------
+//장바구니페이지 취소 버튼 confirm 이벤트
+	$('cancleCart').on("click",function(){
+		event.preventDefault();
+		var check1 = confirm("취소하시겠습니까??");
+		if(check1){
+			window.location.reload();
+		}else{
+			event.preventDefault();
+		}
+	})
+		
 });
