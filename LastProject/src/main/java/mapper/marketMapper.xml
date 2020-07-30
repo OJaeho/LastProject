@@ -6,14 +6,14 @@
   	 <!-- 초기화면에 시장리스트 셀렉박스 조회 -->
 	<select id="market" resultType="market">
       	<![CDATA[
-      	SELECT * FROM market where delyn='N'
+      	SELECT * FROM market where delyn='N' order by mkName
       	]]>     
   	</select>
 
   	 <!-- 시장이름이 같은  mkid 조회 -->  	
   	<select id="marketHome" parameterType="market" resultType="market">
       	<![CDATA[
-      	SELECT mkid FROM market where mkname=#{mkName} and delyn='N'
+      	SELECT mkid FROM market where mkname=#{mkName} and delyn='N' 
       	]]>     
   	</select>  
   	
@@ -36,7 +36,7 @@
 		<![CDATA[
 			SELECT issue.*
      		 FROM (select rownum rm, issue.* from issue where mkid=#{mkId} and delyn='N') issue
-     		 where rm between ${first} and ${end}
+     		 where rm between ${first} and ${end} order by mkid
      		  
 		]]>    
 	</select>
@@ -65,5 +65,29 @@
 		VALUES(SEQ_MKID.nextval, #{mkName}, #{mkOwner}, #{mkAddr}, #{mkTel}, sysdate,#{mkCount}, #{mkIntro},#{mkImg1},#{mkImg2},'N',#{mkLocal}, #{mkLong}, #{mkLat}, to_date(#{mkTime},'yyyy-mm-dd'), #{mkJido}, #{userName})
 		]]>
 	</insert>
+	
+	 <!-- 시장페이지에서 시장정보 조회 -->
+	<select id="marketDetail" parameterType="int" resultType="market">
+      	<![CDATA[
+      	SELECT * FROM market where mkid=#{mkId} and delyn='N'
+      	]]>     
+  	</select>
+  	
+  	 <!-- 시장페이지에서 시장정보 수정 -->
+	<update id="updateMarket" parameterType="market" >
+      	<![CDATA[
+      	UPDATE market
+      	SET mkname=#{mkName}, mkowner=#{mkOwner}, mkaddr=#{mkAddr}, mktel=#{mkTel}, mkcount=#{mkCount}, mkimg1=#{mkImg1},mkimg2=#{mkImg2},mkjido=#{mkJido},mklocal=#{mkLocal},mklat=#{mkLat},mklong=#{mkLong},mkdate=#{mkDate},mkintro=#{mkIntro}      	
+      	where mkid=#{mkId} and delyn='N'
+      	]]>     
+  	</update>
+  	
+  	<update id="deleteMarket" parameterType="market" >
+      	<![CDATA[
+      	UPDATE market
+      	SET delyn='Y'
+      	where mkid=#{mkId} 
+      	]]>     
+  	</update>
 
 </mapper>

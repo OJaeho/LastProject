@@ -14,11 +14,14 @@ public class MarketVO {
 	private String mkJido;
 	private String delYn;
 	private String mkLocal;
-	private int mkLong;
-	private int mkLat;
+	private double mkLong;
+	private double mkLat;
 	private String mkTime;
 	private String mkPost;
 	private String userName;
+	//주소 합치기
+	private String mkaddr;
+	private String mkdetailAddr;
 	
 	public String getUserName() {
 		return userName;
@@ -26,9 +29,7 @@ public class MarketVO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	//주소 합치기
-	private String mkaddr;
-	private String mkdetailAddr;
+
 	
 	public int getMkId() {
 		return mkId;
@@ -51,6 +52,9 @@ public class MarketVO {
 	public String getMkAddr() {
 		setMkAddr();
 		return mkAddr;
+	}
+	public void setMkAddr(String mkAddr) {
+		this.mkAddr = mkAddr;
 	}
 	public void setMkAddr() {
 		this.mkAddr = this.mkaddr+" "+this.mkdetailAddr;
@@ -109,16 +113,16 @@ public class MarketVO {
 	public void setMkLocal(String mkLocal) {
 		this.mkLocal = mkLocal;
 	}
-	public int getMkLong() {
+	public double getMkLong() {
 		return mkLong;
 	}
-	public void setMkLong(int mkLong) {
+	public void setMkLong(double mkLong) {
 		this.mkLong = mkLong;
 	}
-	public int getMkLat() {
+	public double getMkLat() {
 		return mkLat;
 	}
-	public void setMkLat(int mkLat) {
+	public void setMkLat(double mkLat) {
 		this.mkLat = mkLat;
 	}
 	public String getMkTime() {

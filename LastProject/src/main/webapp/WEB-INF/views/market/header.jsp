@@ -116,8 +116,9 @@
 						</sec:authorize>
 
 						<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25">
-							마이페이지 </a> <a href="#" class="flex-c-m trans-04 p-lr-25"> ENGLISH
-						</a>
+							마이페이지 </a> 
+							<!--  <a href="marketDetail.master" class="flex-c-m trans-04 p-lr-25"> ENGLISH
+						</a>-->
 					</div>
 				</div>
 			</div>
@@ -138,7 +139,6 @@
 									<li><a href="introMarket.user">시장소개</a></li>
 									<li><a href="waytoMarket.user">오시는길</a></li>
 									<li><a href="storelist.user">업종별상점</a></li>
-									<li><a href="insertMarket.master">상점배치도</a></li>
 									<li><a href="marketIssue.user">시장이슈</a></li>
 								</ul></li>
 

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
 <title>footer</title>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -100,11 +102,6 @@
 							</a>
 						</li>
 
-						<li class="p-b-10">
-							<a href="insertMarket.market" class="stext-107 cl7 hov-cl1 trans-04">
-								상점배치도
-							</a>
-						</li>
 						<li class="p-b-10">
 							<a href="marketIssue.user" class="stext-107 cl7 hov-cl1 trans-04">
 								시장이슈

@@ -22,13 +22,22 @@ public interface marketService {
 	int getTotalCount(IssueVO vo);
 	
 	// 시장이슈 등록 후 저장
-	void saveIssue(IssueVO vo);
+	int saveIssue(IssueVO vo);
 	
 	// 시장이슈 삭제
-	void deleteIssue(IssueVO vo);
+	int deleteIssue(IssueVO vo);
 
 	// 시장 등록 후 저장
-	void insertMarket(MarketVO mvo);
+	int insertMarket(MarketVO mvo);
+	
+	// 시장 등록하여 화면이동 후 시장정보 조회
+	MarketVO marketDetail(int mkId);
+
+	// 시장 정보 수정
+	int updateMarket(MarketVO vo);
+	
+	// 시장 정보 삭제
+	int deleteMarket(MarketVO vo);
 	
 
 }

@@ -193,3 +193,19 @@ a.insert_Issue{
 .component_box{
 	height : 100 px;
 }
+
+.selectList {
+	width : 300px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.updateMarket, .deleteMarket{
+	width: 200px; 
+	margin: 20px 20px 20px;
+	border: 1px solid green;
+	border-radius: 2px;
+	font-color: green;
+	font-sixe: 20px;
+}

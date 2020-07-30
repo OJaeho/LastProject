@@ -36,6 +36,7 @@ public class marketServiceImpl implements marketService {
 
 	@Override
 	public List<IssueVO> marketIssue(IssueVO vo, String pNum) {
+		
 		int pageNum = 1;
 		if (pNum != null)
 			pageNum = Integer.parseInt(pNum);
@@ -56,20 +57,37 @@ public class marketServiceImpl implements marketService {
 	}
 
 	@Override
-	public void saveIssue(IssueVO vo) {
-		marketDao.saveIssue(vo);
+	public int saveIssue(IssueVO vo) {
+		return marketDao.saveIssue(vo);
 		
 	}
 
 	@Override
-	public void deleteIssue(IssueVO vo) {
-		marketDao.deleteIssue(vo);
+	public int deleteIssue(IssueVO vo) {
+		return marketDao.deleteIssue(vo);
 		
 	}
 
 	@Override
-	public void insertMarket(MarketVO mvo) {
-		marketDao.saveMarket(mvo);
+	public int insertMarket(MarketVO mvo) {
+		return marketDao.saveMarket(mvo);
+		
+	}
+
+	@Override
+	public MarketVO marketDetail(int mkId) {
+		return marketDao.marketDetail(mkId);
+	}
+
+	@Override
+	public int updateMarket(MarketVO vo) {
+		return marketDao.updateMarket(vo);
+		
+	}
+	
+	@Override
+	public int deleteMarket(MarketVO vo) {
+		return marketDao.deleteMarket(vo);
 		
 	}
 

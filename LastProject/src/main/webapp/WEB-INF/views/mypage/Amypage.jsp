@@ -74,8 +74,10 @@
       <!-- 본문 들어가는 부분 -->
 
 <h2>시스템관리자 마이페이지</h2>
-
-
+<hr>
+<h3><a href="insertMarket.master">시장등록</a></h3>
+<br>
+<h3><a href="marketDetail.master">시장정보수정및삭제</a></h3>
 
    </div>
   </section>

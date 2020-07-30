@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
+
 
 <title>marketIssue</title>
 <meta charset="UTF-8">
@@ -121,8 +123,6 @@
 										</tr>
 
 										<tr class='tr'>
-											<!-- 여백 -->
-
 											<td>
 												<div class="component_box _component" data-index="1">
 
@@ -145,11 +145,11 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</div>			</div>
 		</div>
 
 	</section>
+	
 
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />

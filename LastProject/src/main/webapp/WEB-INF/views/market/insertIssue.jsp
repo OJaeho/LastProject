@@ -2,16 +2,17 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
 
+
+
 <!-- 지도 ajax 설정 -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
-	
-</script>
+
 <title>insertIssue</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,7 +84,8 @@
 					<h3 class="mtext-111 cl2 p-b-16">시장이슈 등록</h3>
 					<div class="col-sm-6 col-md-12">
 						<a href="#" class="image"> <img
-							src="./resources/images/market_issue.png" alt="issue_image" class="issue_image">
+							src="./resources/images/market_issue.png" alt="issue_image"
+							class="issue_image">
 						</a>
 					</div>
 					<div class="col-md-12">
@@ -110,7 +112,7 @@
 								required="" style="width: 900px;">
 										</textarea>
 							<hr>
-							<input type="submit" align="center" value="등록"
+							<input type="submit" align="center" value="등록" id="submit"
 								style="width: 300px; height: 50px; position: center;">
 
 						</form:form>

@@ -52,23 +52,40 @@ import com.vo.TourVO;
 			return mybatis.selectList("MarketDAO.marketIssue",m);
 		}
 
-		public void saveIssue(IssueVO vo) {
+		public int saveIssue(IssueVO vo) {
 			System.out.println("===> Mybatis saveIssue() 호출");
-			mybatis.insert("MarketDAO.saveIssue", vo);
+			return mybatis.insert("MarketDAO.saveIssue", vo);
 			
 		}
 
-		public void deleteIssue(IssueVO vo) {
+		public int deleteIssue(IssueVO vo) {
 			System.out.println("===> Mybatis deleteIssue() 호출");
-			mybatis.delete("MarketDAO.deleteIssue", vo);
+			return mybatis.delete("MarketDAO.deleteIssue", vo);
 			
 		}
 
-		public void saveMarket(MarketVO mvo) {
-			System.out.println("===> Mybatis saveMarket() 호출");
-			mybatis.insert("MarketDAO.saveMarket", mvo);
+		public int saveMarket(MarketVO mvo) {
+			System.out.println("===> Mybatis saveMarket() 호출");			
 			mybatis.insert("MemberMapper.insertMarketAuthority", mvo);
 			mybatis.insert("MemberMapper.insertSellerAuthority", mvo);
+			return mybatis.insert("MarketDAO.saveMarket", mvo);
+		}
+
+		public MarketVO marketDetail(int mkId) {
+			System.out.println("===> Mybatis marketDetail() 호출");
+			return mybatis.selectOne("MarketDAO.marketDetail",mkId);
+		}
+
+		public int updateMarket(MarketVO vo) {
+			System.out.println("===> Mybatis updateMarket() 호출");
+			return mybatis.update("MarketDAO.updateMarket",vo);
+			
+		}
+
+		public int deleteMarket(MarketVO vo) {
+			System.out.println("===> Mybatis deleteMarket() 호출");
+			return mybatis.update("MarketDAO.deleteMarket",vo);
+			
 		}
 		
 

@@ -17,9 +17,14 @@ public interface marketDao {
 
 	public List<IssueVO> marketIssue(IssueVO vo, int endRow, int firstRow);
 
-	public void saveIssue(IssueVO vo);
+	public int saveIssue(IssueVO vo);
 	
-	public void deleteIssue(IssueVO vo);
+	public int deleteIssue(IssueVO vo);
 	
-	public void saveMarket(MarketVO mvo);
+	public int saveMarket(MarketVO mvo);
+	
+	public MarketVO marketDetail(int mkId);
+	
+	public int updateMarket(MarketVO vo);
 }
+
