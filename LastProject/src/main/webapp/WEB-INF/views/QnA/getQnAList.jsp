@@ -105,7 +105,6 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					</thead>
 					<hr />
 				</div>
 

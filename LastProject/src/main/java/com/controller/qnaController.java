@@ -3,6 +3,8 @@ package com.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,8 @@ import com.vo.QnaVO;
 
 public class qnaController {
 	
+	private static final Logger logger = (Logger) LogManager.getLogger("");
+	
 	@Autowired
 	private marketController con; 
 	
@@ -30,7 +34,7 @@ public class qnaController {
 	
 	// 목록 조회 (이게 QnA 첫 페이지가 된다)
 	@RequestMapping("/getQnAList.user")
-	public String getQnApage(String pNum,Model model, HttpServletRequest request) {
+	public String getQnApage(String pNum,Model model, HttpServletRequest request,HttpSession session) {
 		String pageNum = "1";
 		if (pNum != null) {
 			pageNum = pNum;
@@ -40,6 +44,15 @@ public class qnaController {
 		model.addAttribute("getId", request.getRemoteUser());//현재 로그인되어있는 id
 		model.addAttribute("list", con.selectFooter()); //footer처리
 		model.addAttribute("totalpNum", service.getTotalCount());// qna 총 페이지 수
+//		로그 처리
+		if ( request.getRemoteUser()==null)
+		{
+			logger.info("id : null");
+		}else {
+			logger.info("id :"+ request.getRemoteUser());
+
+		}
+		logger.info("시장명 :"+ session.getAttribute("mkId"));
 		
 		return "QnA/getQnAList";
 	}
@@ -70,7 +83,6 @@ public class qnaController {
 			return "redirect:/login/loginForm.do";
 		}
     	service.deleteQnA(vo);    
-    	System.out.println("=====삭제완료=====");    	
     	model.addAttribute("list", con.selectFooter());
     	return "redirect:/getQnAList.user";
     }

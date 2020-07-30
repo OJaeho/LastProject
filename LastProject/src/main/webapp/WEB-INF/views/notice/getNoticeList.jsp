@@ -112,7 +112,7 @@
 				<div class="div-right">
 					<div>
 						<span> <a class="btnqna btn_qna qna_hover"
-							href="registQnA.checking">글쓰기</a>
+							href="insertNotice.market">글쓰기</a>
 						</span>
 					</div>
 				</div>
@@ -184,34 +184,27 @@
 		$('.js-addwish-b2').on('click', function(e) {
 			e.preventDefault();
 		});
-
 		$('.js-addwish-b2').each(
 				function() {
 					var nameProduct = $(this).parent().parent().find(
 							'.js-name-b2').html();
 					$(this).on('click', function() {
 						swal(nameProduct, "is added to wishlist !", "success");
-
 						$(this).addClass('js-addedwish-b2');
 						$(this).off('click');
 					});
 				});
-
 		$('.js-addwish-detail').each(
 				function() {
 					var nameProduct = $(this).parent().parent().parent().find(
 							'.js-name-detail').html();
-
 					$(this).on('click', function() {
 						swal(nameProduct, "is added to wishlist !", "success");
-
 						$(this).addClass('js-addedwish-detail');
 						$(this).off('click');
 					});
 				});
-
 		/*---------------------------------------------*/
-
 		$('.js-addcart-detail').each(
 				function() {
 					var nameProduct = $(this).parent().parent().parent()
@@ -233,7 +226,6 @@
 				scrollingThreshold : 1000,
 				wheelPropagation : false,
 			});
-
 			$(window).on('resize', function() {
 				ps.update();
 			})

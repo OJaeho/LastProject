@@ -21,17 +21,14 @@ import com.vo.NoticeVO;
 
 public class noticeController {
 	
-	
+	@Autowired
+	private marketController con; 
 	@Autowired
 	private noticeService service;
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	
 	// 공지 목록 조회 (이게 공지사항 첫 페이지가 된다)
 	@RequestMapping("/getNoticeList.user")
 	public String getNoticepage(String pNum,Model model,HttpSession session) {
-		System.out.println("======공지목록출력======");
 		String pageNum = "1";
 		if (pNum != null) {
 			pageNum = pNum;
@@ -39,15 +36,17 @@ public class noticeController {
 		int mkId=(int)session.getAttribute("mkId");
 		model.addAttribute("getNoticeList", service.getNoticeList(pageNum,mkId));
 		model.addAttribute("totalpNum", service.getTotalCount(mkId));// qna 총 페이지 수
+		model.addAttribute("list", con.selectFooter());
 		return "notice/getNoticeList";
 	}
 	
+	//공지 등록화면으로 이동
     @RequestMapping("/insertNotice.market")
     public String insertNotice() throws Exception {    
-    	System.out.println("======글쓰기출력======");
        return "notice/InsertNotice";
     }
     
+    //공지 등록하기
     @RequestMapping("/registNotice.user")
     public String registNotice(NoticeVO vo, HttpServletRequest request,HttpSession session) {
     	try {
@@ -55,19 +54,22 @@ public class noticeController {
 			String ntitle = URLDecoder.decode(vo.getnTitle(), "UTF-8"); 
 			String ncotent= URLDecoder.decode(vo.getnContent(), "UTF-8");
 			vo.setuserName(request.getRemoteUser()); //로그인한 아이디값 저장
-			System.out.println(session.getAttribute("mkId"));
 			vo.setMkId((int)session.getAttribute("mkId"));
 			service.insertNotice(vo);
+			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
 
     	return "redirect:/getNoticeList.user";
     }
-
+    
+    //공지사항 상세히 가져오기
     @RequestMapping("/getNotice.user")
-    public String getNotice() {
-    	return "";
+    public String getNotice(NoticeVO vo,Model model) {
+    	model.addAttribute("notice", service.getNotice(vo));
+    	model.addAttribute("list", con.selectFooter());
+    	return "notice/getNotice";
     }
 	
 
