@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -16,7 +18,6 @@ import com.vo.CategoryVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
-import com.vo.UsersVO;
 
 @Controller
 public class productController {
@@ -66,15 +67,17 @@ public class productController {
 
 	// 상품 디테일 페이지 이동
 	@RequestMapping(value = "/product-detail.user")
-	public String detailproduct(Model model,ProductVO vo,String bId) {
+	public String detailproduct(Model model, ProductVO vo, String bId, ReviewVO rvo) {
 		List<ProductVO> productinfo = service.ProductInfo(vo);
 		List<ProductVO> productoption = service.ProductOption(vo);
-		model.addAttribute("productget",productinfo);
-		model.addAttribute("optionget",productoption);
-		if(bId!=null){
-			model.addAttribute("bId",bId);
+		List<ReviewVO> review = service.SelectReview(rvo);
+		model.addAttribute("productget", productinfo);
+		model.addAttribute("optionget", productoption);
+		model.addAttribute("reviewget", review);
+		if (bId != null) {
+			model.addAttribute("bId", bId);
 		} else {
-			model.addAttribute("bId","");
+			model.addAttribute("bId", "");
 		}
 		return "product/product-detail";
 	}
@@ -90,9 +93,9 @@ public class productController {
 
 	// 점포 디테일 페이지 이동
 	@RequestMapping(value = "/store-detail.user")
-	public String detailstore(String sName,Model model,StoreVO vo) {
+	public String detailstore(String sName, Model model, StoreVO vo) {
 		List<StoreVO> storeinfo = service.StoreInfo(vo);
-		model.addAttribute("storeget",storeinfo);
+		model.addAttribute("storeget", storeinfo);
 		return "store/store-detail";
 	}
 
@@ -108,17 +111,65 @@ public class productController {
 		model.addAttribute("categoryget", category);
 		return "store/getstore";
 	}
-	
-	//리뷰 달기
+
+	// 리뷰 달기
 	@RequestMapping(value = "/insertreview.user")
 	public void InsertReview(ReviewVO rvo) {
-		
 		service.InsertReview(rvo);
-		
 //		return "redirect: /product/product-detail.user";
-		
-		
 	}
-	
-	
+
+	// 상점등록 페이지 이동
+	@RequestMapping(value = "/insertstore.market", method = RequestMethod.GET)
+	public String InsertStorepage(CategoryVO cvo, Model model) {
+		List<CategoryVO> category = service.SelectMarket(cvo);
+		model.addAttribute("categoryget", category);
+		return "store/insertstore";
+	}
+
+	// 상점 등록하기
+	@RequestMapping(value = "/storeinsert.market", method = RequestMethod.GET)
+	public String InsertStore(String cName, StoreVO svo, HttpSession session) {
+		int cId = service.findcid(cName);
+		// 시장의 key값을 세션에서 가져옴
+		int mkId = (int) session.getAttribute("mkId");
+		svo.setmKId(mkId);
+		svo.setcId(cId);
+		service.InsertStore(svo);
+		return "redirect:/storelist.user";
+	}
+
+	// 상품등록 페이지 이동
+	@RequestMapping(value = "/insertproduct.market", method = RequestMethod.GET)
+	public String InsertProductpage(StoreVO svo, Model model) {
+		List<StoreVO> storeinfo = service.StoreInfo(svo);
+		model.addAttribute("storeget", storeinfo);
+		return "product/insertproduct";
+	}
+
+	// 상품 등록하기
+	@RequestMapping(value = "/pInsert.market", method = RequestMethod.GET)
+	public String InsertProduct(String sName, @ModelAttribute ProductVO pvo, HttpSession session, HttpServletRequest request) {
+		System.out.println(sName);
+		System.out.println(pvo.getPriceOption());
+		if (pvo.getpOption1() != null && pvo.getPriceOption() != null) {
+
+			int sId = service.findsid(sName);
+			// 시장의 key값을 세션에서 가져옴
+			int mkId = (int) session.getAttribute("mkId");
+			pvo.setMkId(mkId);
+			pvo.setsId(sId);
+
+			StringTokenizer st = new StringTokenizer(pvo.getpOption1(), "/");
+			StringTokenizer st2 = new StringTokenizer(pvo.getPriceOption(), "/");
+			while (st.hasMoreTokens()) {
+				pvo.setpOption1(st.nextToken());
+				pvo.setpPrice(Integer.parseInt(st2.nextToken()));
+				service.InsertProduct(pvo);
+				}//while
+		}//if
+
+		
+		return "redirect:/folliumtest.user";
+	}
 }

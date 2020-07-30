@@ -90,5 +90,38 @@
 		insert into review(rid,rdate,rcontent,rwriter,rrating)
 		values(seq_rid.nextval,sysdate,#{rContent},#{rWriter},#{rRating})
 	</insert>
-
+	
+	<!-- 리뷰 가져오기 -->
+	<select id="selectReview" parameterType="review"	resultType="review">
+		select * from review
+		
+	</select>
+	
+	<!-- 상점등록페이지 이동할때 카테고리이름 가져오기  -->
+	<select id="selectMarket" parameterType="category"	resultType="category">
+		select * from category
+		
+	</select>
+	<!-- 상점 등록하기 -->
+	<insert id="insertStore" parameterType="store" >
+		insert into store(sid,cid,mkid,sname,stime,sdetail,stel,saddr,simg1,simg3,delyn)
+		values(seq_sid.nextval,#{cId},#{mKId},#{sName},#{sTime},#{sDetail},#{sTel},#{sAddr},#{sImg1},#{sImg3},'N')
+	</insert>
+	
+	<!-- 상품 등록하기 -->
+	<insert id="insertProduct" parameterType="product" >
+		insert into product(pid,sid,pname,pprice,poption1,pimg1,pdetail,delyn,mkid)
+		values(seq_pid.nextval,#{sId},#{pName},#{pPrice},#{pOption1},#{pImg1},#{pDetail},'N',#{mkId})
+	</insert>
+	
+	<!-- 카테고리 이름 통해 cid 구하기  -->
+	<select id="findcid" parameterType="String" resultType="int">
+		select cid from category where cname=#{cName}
+	</select>
+	
+	<!-- 상점 이름 통해 상점 id 구하기  -->
+	<select id="findsid" parameterType="String" resultType="int">
+		select sid from store where sname=#{sName}
+	</select>
+	
 </mapper>

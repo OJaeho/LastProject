@@ -8,6 +8,7 @@
 <%@page import="com.vo.CategoryVO"%>
 <%@page import="com.vo.StoreVO"%>
 <%@page import="com.vo.UsersVO"%>
+<%@page import="com.vo.ReviewVO"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -85,7 +86,8 @@
 											[${item.sName}]<br />${item.pName}</h4>
 										<input type="hidden" value="${item.pName}" id="itemname" /> <input
 											type="hidden" value="${item.pDetail}" id="bContent" /> <input
-											type="hidden" value="${item.pId}" id="pId" />
+											type="hidden" value="${item.pId}" id="pId" /> <input
+											type="hidden" value="${item.pPrice}" id="pPrice" />
 
 										<div style="text-align: center;">
 											<strong>${item.pDetail}</strong>
@@ -176,9 +178,8 @@
 														class="btn btn-success" type="submit" value="바로 구매하기"
 														style=""
 														onclick="javascript: form.action='/manage/update';" /></td>
-													<td style="padding-left: 7px;"><input id="cartBtn"
-														class="btn btn-success" type="button" value="장바구니 가기"
-														onclick="javascript: form.action='shopingCart.user';" /></td>
+													<td><a href="shopping.user"><input id="cartBtn"
+															class="btn btn-success" type="button" value="장바구니 가기" /></a></td>
 												</tr>
 											</table>
 
@@ -256,44 +257,68 @@
 														</div>
 
 														<p class="stext-102 cl6">빠빠빠빠빨갓맛 떡볶이 대줜맛</p>
+														<hr />
 													</div>
+													
+													<c:forEach items="${reviewget}" var="review">
+													<c:if test= "${review.rWriter ne null}">
+													<div
+														class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
+														<img src="./resources/images/profile.jpg" alt="AVATAR">
+													</div>
+														<div class="size-207">
+															<div class="flex-w flex-sb-m p-b-17">
+																<span class="mtext-107 cl2 p-r-20">
+																	${review.rWriter} </span> <span class="fs-18 cl11"> <c:forEach
+																		var="i" begin="1" end="${review.rRating}" step="1">
+																		<i class="zmdi zmdi-star"></i>
+																	</c:forEach>
+																</span>
+															</div>
+
+															<p class="stext-102 cl6">${review.rContent}</p>
+															<hr />
+														</div>
+														</c:if>
+													</c:forEach>
+
 												</div>
 
-												
-													<c:if test="${not empty bId}">													
-													
+
+												<c:if test="${not empty bId}">
+
 													<!-- Add review -->
 
 													<h5 class="mtext-108 cl2 p-b-7">리뷰를 달아주세요 ~!</h5>
 
 													<p class="stext-102 cl6">당신의 응원에 많은 소상공인이 힘을 냅니다 *</p>
-													<form action="insertreview.user" class="w-full" method="get">
-													<div class="flex-w flex-m p-t-50 p-b-23">
-													<span class="stext-102 cl3 m-r-16"> ID 입력 </span>
-													<input type="text" name="rWriter" placeholder="여기에 입력해주세요."
-													>
-														<span class="stext-102 cl3 m-r-16"> Your Rating </span> <span
-															class="wrap-rating fs-18 cl11 pointer"> <i
-															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-															class="item-rating pointer zmdi zmdi-star-outline"></i> <i
-															class="item-rating pointer zmdi zmdi-star-outline"></i> <input
-															class="dis-none" type="number" name="rRating">
-														</span>
-													</div>
-
-													<div class="row p-b-25">
-														<div class="col-12 p-b-5">
-															<label class="stext-102 cl3" for="review"></label>
-															<textarea
-																class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
-																id="review" name="rContent"></textarea>
+													<form action="insertreview.user" class="w-full"
+														method="get">
+														<div class="flex-w flex-m p-t-50 p-b-23">
+															<span class="stext-102 cl3 m-r-16"> ID 입력 </span> <input
+																type="text" name="rWriter" placeholder="여기에 입력해주세요.">
+															<span class="stext-102 cl3 m-r-16"> Your Rating </span> <span
+																class="wrap-rating fs-18 cl11 pointer"> <i
+																class="item-rating pointer zmdi zmdi-star-outline"></i>
+																<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+																<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+																<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+																<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+																<input class="dis-none" type="number" name="rRating">
+															</span>
 														</div>
 
-													</div>
-													<input class="btn btn-success" type="submit" value="작성">
-												</form>
+														<div class="row p-b-25">
+															<div class="col-12 p-b-5">
+																<label class="stext-102 cl3" for="review"></label>
+																<textarea
+																	class="size-110 bor8 stext-102 cl2 p-lr-20 p-tb-10"
+																	id="review" name="rContent"></textarea>
+															</div>
+
+														</div>
+														<input class="btn btn-success" type="submit" value="작성">
+													</form>
 												</c:if>
 											</div>
 										</div>
