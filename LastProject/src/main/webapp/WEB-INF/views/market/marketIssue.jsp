@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
-<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
-
 
 <title>marketIssue</title>
 <meta charset="UTF-8">
@@ -55,6 +53,8 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
 
 </head>
@@ -66,7 +66,10 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">시장이슈</h2>
+	<h1 class="tour-title theme_color type_block">
+      <span class="notice_title_bullet them_background"></span>
+      	시장 이슈
+    </h1>
 	</section>
 
 	<!-- Content page -->
@@ -76,7 +79,8 @@
 			<div class="row p-b-148">
 				<div class="col-md-12 col-lg-12">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-						<h3 class="mtext-111 cl2 p-b-16">최근 이슈</h3>
+						<h3 class="cl2 p-b-16 theme_color news-underbar"
+						style="font-size: 20px;font-weight: bold;">최근 이슈</h3>
 						<div class="main_area current" data-cid="78z0udho"
 							data-anchor="367564f783e6db3ab00bf9c85e458944"
 							data-adult-flag="0" data-title="시장 이슈 ">
@@ -84,7 +88,7 @@
 							<c:if test="${authority eq true}">
 								<div class="col-sm-4 col-md-12 col-lg-12 insertIssue">
 								
-										<a href="insertIssue.market" class='insert_Issue'>이슈등록</a>
+										<a href="insertIssue.market" class='news-btn'>이슈등록</a>
 								
 								</div>
 							</c:if>
@@ -92,7 +96,7 @@
 							<table>
 								<tbody>
 									<c:forEach var="issue" items="${issue}">
-										<tr class='tr'>
+										<tr class='news-type01'>
 											<td colspan='5' rowspan='2'><a href="${issue.isContent}">
 													<img alt="" src="${issue.isImg}"
 													style="width: 400px; height: 300px;">
@@ -100,29 +104,31 @@
 											<td><br></td>
 											<td colspan='5' rowspan='2'>
 												<div class="txt_area">
-													<h2>
-														<a href="${issue.isContent}"><span>${issue.isTitle}</span></a>
+													<h2 id="tour">
+														<a href="${issue.isContent}" class="tit-news">
+														<span>“${issue.isTitle}”</span></a>
 													</h2>
-													<h3>
-														<span>${issue.isDate}</span>
-													</h3>
-													<br>
-													<h5>작성자 : ${issue.userName}</h5>
-													<br>
-													<p>${issue.isStory}</p>
-
+												<div>
+													<h5 class="update-time"><span>${issue.isDate}</span>｜작성자 : ${issue.userName}</h5>
+												</div>
+													<p class="lead">${issue.isStory}</p>
 												</div>
 
 											</td>
-											<td colspan='1' rowspan='2'>
+											<td colspan='1' rowspan='2' style="padding-bottom: 15rem;">
 												<!-- 시장이슈 등록화면 이동 --> 
 												<c:if test="${authority eq true}">
-													<a href="deleteIssue.market?isId=${issue.isId}" id='deleteIssue'>삭제</a>
+													<a href="deleteIssue.market?isId=${issue.isId}" id='deleteIssue'>
+													<img src="./resources/images/delete_news.png"
+													style="width: 1.5rem">
+													</a>
 												</c:if>
 											</td>
 										</tr>
 
 										<tr class='tr'>
+											<!-- 여백 -->
+
 											<td>
 												<div class="component_box _component" data-index="1">
 
@@ -145,11 +151,11 @@
 							</div>
 						</div>
 					</div>
-				</div>			</div>
+				</div>
+			</div>
 		</div>
 
 	</section>
-	
 
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />

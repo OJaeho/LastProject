@@ -17,12 +17,18 @@
 				<c:url value="/login" var="loginUrl" />
 				<form:form name="f" action="${loginUrl}" method="POST">
 					<div>
+					<img src="../resources/images/login_icon.png"
+					style="	height: auto;
+						    width: 300px;
+    						position: relative;
+    						left: 50%;
+    						transform: translateX(-48%);">
 					<h2 style="text-align: center; color: #009a45 !important;">로그인</h2>
 					<span style="
 					position: absolute;
-   					left: 25%;
+   					left: 40%;
     				bottom: auto;
-				    width: 50%;
+				    width: 20%;
 				    height: 1px;
 				    background-color: #009a45 !important;
 					"></span>

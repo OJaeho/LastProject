@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-
 <head>  
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -10,7 +9,6 @@
             L_NO_TOUCH = false;
             L_DISABLE_3D = false;
         </script>
-    
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -21,6 +19,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+    <link rel="stylesheet" media="(max-width: 320px)" type="text/css" href="./resources/css/mobile.css">
+	<link rel="stylesheet" href="./resources/css/bootstrap.css">
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     
@@ -30,9 +31,8 @@
                 #map_05cb59dcb3404d0499dd8162a238459d {
                     position: relative;
                     width: 50.0%;
-                    height: 70.0%;
-                    left: 10.0%;
-                    top: 20.0%;
+                    height: 400px;
+                    left: 40%;
                 }
                 #select{
                 	position: relative;
@@ -51,41 +51,49 @@
                     color: #009a45;
                     text-align: center;
                  }
-                
             </style>
         
 </head>
 <body>    
-	<div class=ltext-105>전통시장의 정을 온라인으로 느껴보세요.</div>
-       	<div class="col-sm-8 p-b-50" id="map_05cb59dcb3404d0499dd8162a238459d"></div>
-  		  <div class="col-sm-4 p-b-50" id="select" >
-  			<h2>
-				어느 시장으로 가볼까요?
-			</h2>
-					<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-					</br>
-					<form action="index2.user" method="get">
-						<ul class="list_info">
-						<li>
-						<select name="mkName" id="id_Select" class="select_item" style="width:250px;height:80px;">
-						 <option value="selected">선 택</option>
-						  	<c:forEach var="item" items="${list}" >
-					    		<option value="${item.mkName}">${item.mkName}</option>
-						  	</c:forEach>
-						</select>
-						<input name="select_item" id="submit" type="submit" value="GO"	style="width: 80px; height: 80px;">
-						
-						</li>						
-						</ul>					
-					</form>
-			</div> 
- 
-			
+<!-- header 영역 -->
+<div class="header">
+	<img src="./resources/images/maps2.png" style="width: 15%">
+</div>
+
+<!-- map 영역 -->
+<div class="row">
+	<div class="left">
+		<div class="card" id="map_05cb59dcb3404d0499dd8162a238459d">
+		</div>
+	</div>
+</div>
+<!-- select 영역 -->
+<div class="footer">
+<div class="right" style="position: absolute; left: 50%; transform: translateX(-50%); ">
+	<div class="card">
+	<h3 class="uio_title theme_color" id="title" style="padding-left: 15%; font-size: 20px; font-weight: bold; text-align: left;">
+      <span class="uio_title_bullet theme_background"></span>
+              원하는 시장을 선택해 보세요
+    </h3>
+	<form action="index2.user" method="get">
+		<ul class="list_info">
+		<li style="padding-right: 100px;">
+		<select name="mkName" id="id_Select" class="select_item" style="width:250px;height:50px;">
+		 <option value="selected">선 택</option>
+		  	<c:forEach var="item" items="${list}" >
+	    		<option value="${item.mkName}">${item.mkName}</option>
+		  	</c:forEach>
+		</select>
+		<input name="select_item" id="submit" type="submit" value="GO"	class="btn-maps">
+		</li>						
+		</ul>					
+	</form>
+	</div>
+</div>
+</div>
 </body>
+
 <script>    
-	
-
-
             var map_05cb59dcb3404d0499dd8162a238459d = L.map(
                 "map_05cb59dcb3404d0499dd8162a238459d",
                 {
