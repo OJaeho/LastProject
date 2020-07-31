@@ -2,7 +2,7 @@ package com.vo;
 
 public class StoreVO {
 	private int sId;
-	private int mKId;
+	private int mkId;
 	private int cId;
 	private String sName;
 	private String sDetail;
@@ -23,10 +23,10 @@ public class StoreVO {
 		this.sId = sId;
 	}
 	public int getmKId() {
-		return mKId;
+		return mkId;
 	}
-	public void setmKId(int mKId) {
-		this.mKId = mKId;
+	public void setmkId(int mkId) {
+		this.mkId = mkId;
 	}
 	public int getcId() {
 		return cId;

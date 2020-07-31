@@ -1,7 +1,67 @@
 //sub cart
 $(function() {
-
+	
+	//
+	$('#priceOption').keyup(function(){ 
+        //비동기통신 = ajax 
+		$.ajax({
+			type : 'get', //post방식으로 통신하겠습니다.
+			async : true,
+			url : 'optionCk.user',  
+			contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+			data: "pOption1=" +$('#pOption1').val()+"&priceOption="+$('#priceOption').val(),
+			success : function(resultData){
+				$('#optionCheckResult').html(resultData); 
+			},error:function(request,status,error){
+				alert("error="+error);
+			} 
+		});  
+       
+	})
+	
+	$(document).on("click","#deleteBtn",function(){
+      event.preventDefault();
+      var bId = $("#bId").val();
+      var dkanrjsk =  $(this).parent().parent();
+      var bro = parseInt($(this).parent().prev().children().val());
+      var total = parseInt($('#paytotal').val());
+      var check1 = confirm("취소하시겠습니까??");
+      if(check1){
+         $.ajax({
+            async : true,
+               type : "get",
+               url : "deleteDetailCart.user",
+               data : {
+                  "bId" : bId
+               },
+               contentType : 'application/json;charset=UTF-8',
+               dataType : "text",
+               success : function(result){
+                  dkanrjsk.remove();
+                  $('#paytotal').val(0);
+                  $('#paytotal').val(total-bro);
+               },
+               error : function(error){
+                  alert("왜실패?");
+                  
+               }
+         })
+      }else{
+         event.preventDefault();
+      }
+   })
+	
+	
 	$('#addProduct').click(function() {
+		   if($('input[name="chk_info"]:checked').val() == null){
+		         event.preventDefault();
+		         alert("주문방식을 선택해 주세요");
+		         return false;
+		      }else if($('#ok_login').length == 0){
+		         event.preventDefault();
+		         alert("로그인 후 이용 가능합니다");
+		         return window.location = "loginForm.checking";
+		      }
 	      var bState = $('input[name="chk_info"]:checked').val();
 	      var paytotal = 0;
 	      var bOption = $("#size option:selected").attr("value2");
@@ -29,7 +89,7 @@ $(function() {
 	            var html = '';
 	            for (key in result) {
 	               html += '<tr>';
-	               html += '<td class="listedName"><input type="hidden" value="'+result[key].bId+'"+/></td>';
+	               html += '<td class="listedName"><input type="hidden" id="bId" value="'+result[key].bId+'"+/></td>';
 	               html += '<td class="listedName"><input type="text" value="'+result[key].bOption+'"+/></td>';
 	               html += '<td><input type="text" id="bQuantity" value="'+result[key].bQuantity+'"+/></td>';
 	               html += '<td><input type="text" value="'+result[key].bQuantity*pPrice+'"/></td>';
@@ -46,10 +106,6 @@ $(function() {
 	             }
 	      })
 	})
-	      		
-	
-					
-					
 	$("#findpostcode").click(
 			function execDaumPostcode() {
 				new daum.Postcode(
@@ -110,21 +166,4 @@ $(function() {
 						}).open();
 			});
 
-	function deleteLine(obj) {
-		var tr = $(obj).parent().parent();
-		paytotal -= tr.nth - child(3).val();
-		$("#paytotal").val(paytotal);
-		tr.remove();
-	}
-
-	var eventTarget = document.getElementsByClassName('btn_delete')
-	for (var i = 0; i < eventTarget.length; i++) {
-		eventTarget[i].addEventListener('click', function() {
-			alert('ddd');
-			var parent = document.querySelector('#dynamicTbody')
-			parent.remove(this.parentElement.parentElement)
-			i--
-		})
-	}
-
-})
+});
