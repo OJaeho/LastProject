@@ -25,7 +25,18 @@ public class productServiceImpl implements productService {
 		System.out.println("service select");
 		return productDao.SelectProduct(vo);
 	}
-
+	
+	// 높은 가격 순 상품 가져오기
+	public List<ProductVO> HighItem(ProductVO vo){
+		System.out.println("service highitem");
+		return productDao.HighItem(vo);
+	}
+	// 낮은 가격 순 상품 가져오기
+		public List<ProductVO> LowItem(ProductVO vo){
+			System.out.println("service LowItem");
+			return productDao.LowItem(vo);
+		}
+	
 	// 상품 검색하기
 	@Override
 	public List<ProductVO> SearchProduct(ProductVO vo) {
@@ -103,6 +114,7 @@ public class productServiceImpl implements productService {
 			productDao.InsertProduct(pvo);
 		}
 	
+		
 	// 상점 등록페이지 - 카테고리이름 가져오기 
 	@Override
 	public List<CategoryVO> SelectMarket(CategoryVO cvo) {

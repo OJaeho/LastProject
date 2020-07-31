@@ -60,7 +60,7 @@
 	<!-- header 끝 -->
 
 	<div style="text-align: -webkit-center;">
-		<form action="pInsert.market" method="get">
+		<form action="pInsert.market" method="get" id="frm">
 			<table class="table_type2 type_background" style="width: 600px;">
 				<tbody class="inner" data-role="lead_form">
 					<tr>
@@ -89,15 +89,17 @@
 						<td><input type="text" name="pOption1" id="pOption1"
 							class="input_txt _isRequiredArea" placeholder="ex) 소/중/대"
 							data-required="true" style="width: 300px"></td>
+							
 					</tr>
 					<tr>
 						<th scope="row"><label style="width: 100px;" for="tName"
-							class="font-black">가격</label></th>
-						<td><input type="text" name="priceOption" id="pPrice"
+							class="font-black">가격</label><span id="optionCheckResult">ddd</span></th>
+						<td><input type="text" name="priceOption" id="priceOption"
 							class="input_txt _isRequiredArea"
 							placeholder="ex) 10000/18000/23000" data-required="true"
 							style="width: 300px"></td>
 					</tr>
+					
 					<tr>
 						<th scope="row"><label style="width: 100px;" for="tName"
 							class="font-black">상품설명</label></th>

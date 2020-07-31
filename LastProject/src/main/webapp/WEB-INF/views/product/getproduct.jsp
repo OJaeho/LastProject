@@ -97,13 +97,13 @@
 				<form action="highitem.user" method="get">
 					<div class="button">
 						<input type="submit" class="btn btn-link" style="color: grey;"
-							name="order" value="가격 오름차순">
+							name="order" value="가격 높은순">
 					</div>
 				</form>
 				<form action="lowitem.user" method="get">
 					<div class="button">
 						<input type="submit" class="btn btn-link" style="color: grey;"
-							name="order" value="가격 내림차순">
+							name="order" value="가격 낮은순">
 					</div>
 				</form>
 			</div>

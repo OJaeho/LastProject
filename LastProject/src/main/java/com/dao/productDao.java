@@ -16,6 +16,12 @@ public interface productDao {
 	// 상품 검색하기
 	public List<ProductVO> SearchProduct(ProductVO vo);
 
+	// 높은 가격순 상품 가져오기
+	public List<ProductVO> HighItem(ProductVO vo);
+
+	// 낮은 가격순 상품 가져오기
+	public List<ProductVO> LowItem(ProductVO vo);
+
 	// 카테고리 정보 가져오기
 	public List<CategoryVO> StoreCategory();
 
@@ -33,24 +39,25 @@ public interface productDao {
 
 	// 선택한 점포 정보 가져오기
 	public List<StoreVO> StoreInfo(StoreVO vo);
-	
+
 	// 리뷰 정보 넣기
 	public void InsertReview(ReviewVO rvo);
-	
+
 	// 리뷰 가져오기
 	public List<ReviewVO> SelectReview(ReviewVO rvo);
-	
+
 	// 상점 등록하기
 	public void InsertStore(StoreVO svo);
-	
+
 	// 상품 등록하기
-		public void InsertProduct(ProductVO pvo);
+	public void InsertProduct(ProductVO pvo);
 	
 	// 상점 등록페이지 - 카테고리이름 가져오기
 	public List<CategoryVO> SelectMarket(CategoryVO cvo);
-	
-	//카테고리이름 통해 카테고리id찾기
+
+	// 카테고리이름 통해 카테고리id찾기
 	public int findcid(String cName);
-	//상점이름 통해 상점id찾기
+
+	// 상점이름 통해 상점id찾기
 	public int findsid(String sName);
 }

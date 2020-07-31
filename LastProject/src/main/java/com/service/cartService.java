@@ -19,4 +19,7 @@ public interface cartService {
  	
  	//장바구니 목록 삭제
  	public void deleteShoppingCart(int bId1);
+ 	
+ 	//상품디테일 창에서 장바구니 삭제
+ 	public int deleteDetailCart(int bId);
 }

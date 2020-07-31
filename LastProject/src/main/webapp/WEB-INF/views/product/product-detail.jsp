@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@page import="com.vo.ProductVO"%>
 <%@page import="com.vo.CategoryVO"%>
 <%@page import="com.vo.StoreVO"%>
@@ -71,6 +70,8 @@
 	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
 
+
+			<!-- DB에 선택된 상품정보 가져오기  -->
 			<c:forEach items="${productget}" var="item">
 				<div class="row" style="width: 1200px;">
 					<div class="col-md-6 col-lg-7 p-b-30" style="width: 1200px;">
@@ -94,8 +95,6 @@
 										</div>
 
 
-
-
 										<!-- 옵션박스 -->
 										<div class="p-t-33">
 											<hr />
@@ -109,7 +108,7 @@
 											</select>
 
 										</div>
-										<!-- 옵션박스 -->
+										<!-- 옵션박스 끝-->
 
 
 										<!-- 수량버튼 -->
@@ -128,9 +127,9 @@
 											</div>
 											<input type="hidden" id="hiddennum" />
 										</div>
-										<!-- 수량버튼 -->
+										<!-- 수량버튼 끝 -->
 
-										<!-- 담기버튼 -->
+										<!-- 수령방법 -->
 										<table style="height: 35px;">
 											<tr>
 												<td style="width: 20px;"><input type="radio"
@@ -141,6 +140,8 @@
 												<td style="width: 40px;">픽업</td>
 											</tr>
 										</table>
+										<!-- 수령방법 끝 -->
+
 
 										<input type="button" name="addsubcart" id="addProduct"
 											style="width: auto; background-color: lightgrey; color: green;"
@@ -178,7 +179,7 @@
 														class="btn btn-success" type="submit" value="바로 구매하기"
 														style=""
 														onclick="javascript: form.action='/manage/update';" /></td>
-													<td><a href="shopping.user"><input id="cartBtn"
+													<td><a href="shopping.checking"><input id="cartBtn"
 															class="btn btn-success" type="button" value="장바구니 가기" /></a></td>
 												</tr>
 											</table>
@@ -237,8 +238,10 @@
 																class="zmdi zmdi-star-half"></i>
 															</span>
 														</div>
-
-														<p class="stext-102 cl6">달콤한 그 맛 아이스크림 케이크~!</p>
+														<p class="stext-102 cl6">${item.pName}
+															${item.pOption1}에 ${item.pPrice}원이라구요?!?!?!<br />사장님이
+															미치셨어요..!!
+														</p>
 														<hr />
 													</div>
 
@@ -256,29 +259,46 @@
 															</span>
 														</div>
 
-														<p class="stext-102 cl6">빠빠빠빠빨갓맛 떡볶이 대줜맛</p>
+														<p class="stext-102 cl6">빠빠빠빠빨갓맛 ${item.pName} 미친맛!</p>
 														<hr />
 													</div>
-													
-													<c:forEach items="${reviewget}" var="review">
-													<c:if test= "${review.rWriter ne null}">
+
 													<div
 														class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
-														<img src="./resources/images/profile.jpg" alt="AVATAR">
+														<img src="./resources/images/k.jpg" alt="AVATAR">
 													</div>
-														<div class="size-207">
-															<div class="flex-w flex-sb-m p-b-17">
-																<span class="mtext-107 cl2 p-r-20">
-																	${review.rWriter} </span> <span class="fs-18 cl11"> <c:forEach
-																		var="i" begin="1" end="${review.rRating}" step="1">
-																		<i class="zmdi zmdi-star"></i>
-																	</c:forEach>
-																</span>
-															</div>
 
-															<p class="stext-102 cl6">${review.rContent}</p>
-															<hr />
+													<div class="size-207">
+														<div class="flex-w flex-sb-m p-b-17">
+															<span class="mtext-107 cl2 p-r-20">EunJung Park</span> <span
+																class="fs-18 cl11"> <i
+																class="zmdi zmdi-star-half"></i>
+															</span>
 														</div>
+
+														<p class="stext-102 cl6">왜 안오시나요?(시장)</p>
+														<hr />
+													</div>
+
+													<c:forEach items="${reviewget}" var="review">
+														<c:if test="${review.rWriter ne null}">
+															<div
+																class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
+																<img src="./resources/images/profile.jpg" alt="AVATAR">
+															</div>
+															<div class="size-207">
+																<div class="flex-w flex-sb-m p-b-17">
+																	<span class="mtext-107 cl2 p-r-20">
+																		${review.rWriter} </span> <span class="fs-18 cl11"> <c:forEach
+																			var="i" begin="1" end="${review.rRating}" step="1">
+																			<i class="zmdi zmdi-star"></i>
+																		</c:forEach>
+																	</span>
+																</div>
+
+																<p class="stext-102 cl6">${review.rContent}</p>
+																<hr />
+															</div>
 														</c:if>
 													</c:forEach>
 
@@ -340,7 +360,9 @@
 			</div>
 		</div>
 	</section>
-
+	<sec:authorize access="isAuthenticated()">
+		<input type="hidden" value="ok_login" id="ok_login" />
+	</sec:authorize>
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">
 		<span class="symbol-btn-back-to-top"> <i
