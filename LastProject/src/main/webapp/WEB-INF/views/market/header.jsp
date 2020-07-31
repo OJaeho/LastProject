@@ -111,7 +111,7 @@
 							</form:form>
 						</sec:authorize>
 						<sec:authorize access="isAnonymous()">
-							<a href="login/loginForm.do" class="flex-c-m trans-04 p-lr-25">로그인
+							<a href="logincheck.checking" class="flex-c-m trans-04 p-lr-25">로그인
 							</a>
 						</sec:authorize>
 
@@ -142,15 +142,8 @@
 									<li><a href="marketIssue.user">시장이슈</a></li>
 								</ul></li>
 
-							<li><a href="#">거리마다</a>
-								<ul class="sub-menu">
-									<li><a href="tourHome.user">놀거리(주변관광지)</a></li>
-									<li><a href="insertTour.do">먹을거리(시장맛집)</a></li>
-								</ul></li>
-
-							<li class="label1" data-label1="hot"><a
-								href="getproduct.user">우리 것이</a></li>
-
+							<li><a href="tourHome.user">거리마다</a>
+								<li class="label1" data-label1="hot"><a href="getproduct.user">우리 것이</a></li>
 							<li><a href="#">있어요</a>
 								<ul class="sub-menu">
 									<li><a href="getNoticeList.user">공지사항</a></li>

@@ -28,9 +28,6 @@ public class qnaController {
 	
 	@Autowired
 	private qnaService service;
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	
 	// 목록 조회 (이게 QnA 첫 페이지가 된다)
 	@RequestMapping("/getQnAList.user")

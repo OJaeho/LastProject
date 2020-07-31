@@ -87,6 +87,12 @@ import com.vo.TourVO;
 			return mybatis.update("MarketDAO.deleteMarket",vo);
 			
 		}
+
+		@Override
+		public MarketVO selectMkName(int mkId) {
+			
+			return mybatis.selectOne("MarketDAO.selectMkName", mkId);
+		}
 		
 
 	}

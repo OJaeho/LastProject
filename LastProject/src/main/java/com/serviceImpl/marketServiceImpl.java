@@ -91,4 +91,12 @@ public class marketServiceImpl implements marketService {
 		
 	}
 
+	@Override
+	public MarketVO selectMkName(int mkId) {
+		
+		return marketDao.selectMkName(mkId);
+	}
+	
+	
+
 }

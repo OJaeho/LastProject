@@ -2,6 +2,8 @@ package com.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -13,14 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
-	@RequestMapping(value = "/login/loginForm.do", method = RequestMethod.GET)
-	public String loginFor(Locale locale, Model model) {
+	@RequestMapping(value = "/login/loginForm.user", method = RequestMethod.GET)
+	public String loginFor(Locale locale, Model model,HttpSession session) {
 		logger.info("Welcome Login Form!");
 		
+		session.getAttribute("mkId");
+		System.out.println("여기는 로그인 콘트롤럴 1 "+session.getAttribute("mkId"));
 		return "login/loginForm";
 	}
 	
-	@RequestMapping(value = "/login/accessDenied.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/accessDenied.user", method = RequestMethod.GET)
 	public String accessDenied(Locale locale, Model model) {
 		logger.info("Welcome Access Denied!");
 		

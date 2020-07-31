@@ -17,7 +17,7 @@ public class MyPageController {
 		System.out.println("1" + request.isUserInRole("ROLE_USER"));
 		if (request.isUserInRole("ROLE_ADMIN")) {
 			return "redirect:/Amypage.master";
-		} else if (request.isUserInRole("ROLE_MAKET")) {
+		} else if (request.isUserInRole("ROLE_MARKET")) {
 			return "redirect:/Mmypage.market";
 		} else if (request.isUserInRole("ROLE_SELLER")) {
 			return "redirect:/Smypage.seller";

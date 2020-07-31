@@ -75,16 +75,16 @@
       <span class="uio_title_bullet theme_background"></span>
               원하는 시장을 선택해 보세요
     </h3>
-	<form action="index2.user" method="get">
+	<form action="index2.user" id="foliumtest" method="get">
 		<ul class="list_info">
 		<li style="padding-right: 100px;">
-		<select name="mkName" id="id_Select" class="select_item" style="width:250px;height:50px;">
+		<select name="mkId" id="id_Select" class="select_item" style="width:250px;height:50px;">
 		 <option value="selected">선 택</option>
 		  	<c:forEach var="item" items="${list}" >
-	    		<option value="${item.mkName}">${item.mkName}</option>
+	    		<option value="${item.mkId}">${item.mkName}</option>
 		  	</c:forEach>
 		</select>
-		<input name="select_item" id="submit" type="submit" value="GO"	class="btn-maps">
+		<input name="select_item" id="submitFolium" type="button" value="GO"	class="btn-maps">
 		</li>						
 		</ul>					
 	</form>
@@ -92,7 +92,7 @@
 </div>
 </div>
 </body>
-
+<script type="text/javascript" src="resources/js/nh2.js"></script>
 <script>    
             var map_05cb59dcb3404d0499dd8162a238459d = L.map(
                 "map_05cb59dcb3404d0499dd8162a238459d",

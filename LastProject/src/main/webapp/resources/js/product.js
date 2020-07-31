@@ -60,7 +60,7 @@ $(function() {
 		      }else if($('#ok_login').length == 0){
 		         event.preventDefault();
 		         alert("로그인 후 이용 가능합니다");
-		         return window.location = "loginForm.checking";
+		         return window.location = "cartConfirm.checking?pName="+$('#itemname').val()+"&pPrice="+$('#pPrice').val();
 		      }
 	      var bState = $('input[name="chk_info"]:checked').val();
 	      var paytotal = 0;

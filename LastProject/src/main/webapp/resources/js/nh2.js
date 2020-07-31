@@ -6,5 +6,13 @@ $(document).ready(function(){
 			$("#QnAinsert").submit();
 		}
 	})
+	
+	$("#submitFolium").click(function(){
+		if($('#id_Select').val()=="selected"){
+			alert("시장을 선택해주세요");
+		}else{
+			$("#foliumtest").submit();
+		}
+	});
 
 });

@@ -97,8 +97,7 @@
 		      <td>
 				<textarea id='tContent' name ="tContent" class="textarea_tour"
 				placeholder="새로운 관광지를 홍보해 주세요" 
-				cols="40" rows="5" style="width:300px; height:250px; resize: vertical;">									
-		      	</textarea>
+				cols="40" rows="5" style="width:300px; height:250px; resize: vertical;"></textarea>
 		      </td>
 		    </tr>
 		

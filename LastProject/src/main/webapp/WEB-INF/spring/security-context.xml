@@ -14,15 +14,15 @@
         <intercept-url pattern="/*.market" access="hasAnyRole('MARKET,ADMIN')" />
         <intercept-url pattern="/*.master" access="hasAnyRole('ADMIN')" />
         
-        <form-login login-page="/login/loginForm.do"
-                    default-target-url="/index.do"
-                    authentication-failure-url="/login/loginForm.do?error"
+        <form-login login-page="/login/loginForm.user"
+                    default-target-url="/folliumtest.user"
+                    authentication-failure-url="/login/loginForm.user?error"
                     username-parameter="id"
                     password-parameter="password" />
         <logout logout-url="/logout"
-                logout-success-url="/index.do" />
+                logout-success-url="/folliumtest.user" />
                 
-        <access-denied-handler error-page="/login/accessDenied.do" />
+        <access-denied-handler error-page="/login/accessDenied.user" />
     </http>
     
     <beans:bean id="userDetailsService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">

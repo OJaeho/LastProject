@@ -83,5 +83,11 @@ public class tourController {
 		tourservice.deleteTour(tId);
 		return "redirect:/tourHome.user?nowPage="+pno;
 	}
+	
+	@RequestMapping("/insertTour.user")
+	public String pageinsertTour() {
+		return "insertTour";
+		
+	}
 }
 

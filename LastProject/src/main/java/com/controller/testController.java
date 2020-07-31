@@ -23,7 +23,7 @@ public class testController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping("/{step}.do")
+	@RequestMapping("/{step}.user")
 	public String page(@PathVariable String step) {
 		return step;
 	

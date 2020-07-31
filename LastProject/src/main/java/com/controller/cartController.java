@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -92,6 +94,17 @@ public class cartController {
 		int result = cartservice.deleteDetailCart(bId);
 		return result;
 		
+	}
+	
+	//장바구니 담기 로그인 안되엉있을 때
+	@RequestMapping("/cartConfirm.checking")
+	public String pageinsertTour(String pName,String pPrice ) {
+		String pName1 = null;
+		try {
+			pName1 = URLEncoder.encode(pName, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}return "redirect:/product-detail.user?pPrice="+pPrice+"&pName="+pName1;
 	}
 	
 }

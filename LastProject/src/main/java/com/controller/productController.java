@@ -116,7 +116,10 @@ public class productController {
 
 	// 상품 디테일 페이지 이동
 	@RequestMapping(value = "/product-detail.user")
-	public String detailproduct(Model model, ProductVO vo, String bId, ReviewVO rvo,HttpSession session) {
+	public String detailproduct(Model model, ProductVO vo, String bId, ReviewVO rvo,HttpSession session, HttpServletRequest request) {
+		System.out.println(vo.getpName()+"DDDDDD");
+		String pName = request.getParameter("pName");
+		vo.setpName(pName);
 		int mkId = (int) session.getAttribute("mkId");
 		vo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());

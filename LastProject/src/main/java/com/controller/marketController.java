@@ -47,19 +47,20 @@ public class marketController {
 		return "folliumtest";
 
 	}
+	@RequestMapping("logincheck.checking")
+	public String logincheck(HttpSession session) {
+		//mkId 세션에서 가져와서 파라미터로 넘김
+		int mkId=(int)session.getAttribute("mkId");
+		return "redirect:/index2.user?mkId="+mkId;
+	}
 
 	// 1_1. 메인메뉴에서 망원시장 선택할 경우, 시장메인화면으로 옮겨가기 : index로 갈무리 셋팅해놓음(수정필요)
 	@RequestMapping("/index2.user")
 	public String marketHome(@ModelAttribute MarketVO vo, HttpSession session, Model model) {
 		// 풋터 '전국시장' 셀렉트함수 호출
 		model.addAttribute("list", selectFooter());
-
-		// 내가 선택한 시장의 mkId 세션에 저장
-		MarketVO vo1 = service.marketHome(vo);
-		int mkid = vo1.getMkId();
-		session.setAttribute("mkId", mkid);
-
-		System.out.println("세션저장 성공");
+		//세션에 mkId 저장
+		session.setAttribute("mkId", vo.getMkId());
 
 		return "index";
 	}

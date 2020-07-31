@@ -26,5 +26,7 @@ public interface marketDao {
 	public MarketVO marketDetail(int mkId);
 	
 	public int updateMarket(MarketVO vo);
+	
+	public MarketVO selectMkName(int mkId);
 }
 

@@ -166,7 +166,7 @@ $(function() {
 	})
 //------------------------------------------------------------------------
 //장바구니페이지 취소 버튼 confirm 이벤트
-	$('cancleCart').on("click",function(){
+	$('#cancleCart').click(function(){
 		event.preventDefault();
 		var check1 = confirm("취소하시겠습니까??");
 		if(check1){

@@ -63,7 +63,7 @@
 	        	</tr>
 	        	<tr id="detail">
 	        		<td align="center">
-	        			<a href="https://korean.visitseoul.net/index" target="_blank">마포관광 구청 바로가기</a>
+	        			<a href="https://korean.visitseoul.net/index" target="_blank">서울관광구청 홈페이지 바로가기</a>
 	        		</td>
 	        		<td align="center" style="padding: 3rem">
 	        			<a href="https://map.kakao.com/link/search/${result.tAddr}" target="_blank">

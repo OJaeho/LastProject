@@ -39,6 +39,9 @@ public interface marketService {
 	// 시장 정보 삭제
 	int deleteMarket(MarketVO vo);
 	
+	//mkId 로 mkName으로 찾기
+	MarketVO selectMkName(int mkId);
+	
 
 }
 

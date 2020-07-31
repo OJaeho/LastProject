@@ -90,4 +90,8 @@
       	]]>     
   	</update>
 
+	<!-- 	시장 id로 시장 이름 찾기 -->
+	<select id="selectMkName" parameterType="int" resultType="market">
+	select * from market where mkId=#{mkId}
+	</select>
 </mapper>
