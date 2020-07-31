@@ -22,6 +22,10 @@
 <link rel="stylesheet" type="text/css" href="./resources/vendor/perfect-scrollbar/perfect-scrollbar.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
+<!--===============================================================================================-->
 
 <style >
 .test{
@@ -112,9 +116,10 @@
 				<div class="col-md-8 col-lg-9 p-b-80">
 					<div class="p-r-45 p-r-0-lg">
 
-						<h4 style="margin-top: 40px;" class="ltext-109 cl2 p-b-28">My Shopping Cart</h4>
+						<h4 style="margin-top: 40px;" class="ltext-109 cl2 p-b-20 theme_color">장바구니</h4>
+						<span class="notice_title_bullet them_background"></span>
 						<div class="container">					
-							<div class="row">
+							<div class="row" id="tour">
 								<ul class="nav nav-tabs" style="margin-left: 20%;">
   									<li role="presentation" style="font-size: x-large;" class="navLi"><a href="shopping.user">전체상품 보기</a></li>
 									<li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
@@ -126,77 +131,87 @@
 						</div>
 							
 						<div class="flex-w flex-sb-m p-b-52">
-							<table class="stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
-								style="width: 100%; margin-top: 40px;">
-								<tr align="center">
-									<td style="width:30%"></td>
-									<td><h3>상품명</h3></td>
-									<td><h3>가격</h3></td>
-									<td><h3>수량</h3></td>
-									<td><h3>옵션</h3></td>
-									<td><h3>주문</h3></td>
-								</tr>
-								<c:forEach items="${list}" var= "list">
-								<tr height="10px"></tr>
+							<table class="table-cart-01">
+								<thead>
 								<tr>
-									<td align="center">
-										<ul>
-											<li class="bor18"><img
-												src="${list.bImg }"
-												style="width: 150px; height: 150px;" /></li>
-										</ul>
+									<th scope="col" class="table_cell">상품정보</th>
+									<th scope="col" class="table_cell">가격</th>
+									<th scope="col" class="table_cell">수량</th>
+									<th scope="col" class="table_cell">옵션</th>
+									<th scope="col" class="table_cell">주문</th>
+								</tr>
+								</thead>
+							<tbody>
+								<c:forEach items="${list}" var= "list">
+								<tr class="table_row">
+									<td class="cart_table_line-02">
+										<div class="product_desc_wrap--pGO3mDnHCR">
+											<div class="product_description--aMGcm-GMeU">
+												<span class="product_thumb--39N9M1GjTm">
+												<img src="${list.bImg }" class="product_img--mmk3PpY1tk">
+												</span>
+												<input type="hidden" value="${list.bId }"/>
+												<a href="#" class="test">${list.bTitle}</a>						
+											</div>
+										</div>
 									</td>
-									<td align="center">
-										<input type="hidden" value="${list.bId }"/>
-										<ul>
-											<li class="bor18"><a href="#" class="test"><label class="test">${list.bTitle}</label></a></li>
-										</ul>
+									<td class="cart_table_line-01">
+										<div class="product_item_wrap">
+											<div class="product_item--price">
+											${list.bPrice}
+											</div>
+										</div>
 									</td>
-									<td id="" align="center">
-										<ul>
-											<li class="bor18"><label class="test" >${list.bPrice}</label></li>
-										</ul>
+									<td class="cart_table_line-01">
+										<div class="product_item_wrap">
+											<div class="product_item--price">
+											${list.bQuantity}
+											</div>
+										</div>
 									</td>
-									<td align="center">
-										<ul>
-											<li class="bor18"><label class="test" >${list.bQuantity}</label></li>
-										</ul>
+									<td class="cart_table_line-01">
+										<div class="product_item_wrap">
+											<div class="product_item--price">
+											${list.bOption}
+											</div>
+										</div>
 									</td>
-									<td align="center">
-										<ul>
-											<li class="bor18"><label class="test">${list.bOption}</label></li>
-										</ul>
+									<td class="cart_table_line-01">
+									<div class="product_item_wrap">
+											<div class="product_item--price">
+											${list.bState}
+											</div>
 										
-									</td>
-									<td align="center">
-										<ul>
-											<li class="bor18"><label class="test" >${list.bState}</label></li>
-										</ul>
 										<form action = "deleteShoppingCart.user">
 										<input type="hidden" value="${list.bId}" name = "bId"/>
-										<input type="submit" id="cancleCart" value="취소">
+										<input type="image" src="./resources/images/delete_product.png" id="cancleCart" value="취소" class="order_btn">
 										</form>
+									</div>
 									</td>
 								</tr>
 								</c:forEach>
+							</tbody>
 							</table>
 						</div>
 						
-						<div class="p-t-40">
-							<h5 align="legt" class="mtext-113 cl2 p-b-12">총 결제 금액</h5>
-								<label>총합 = </label><input type="text" value="${total} 원"/>
-								<div align="right" class="bor19 m-b-20">
-									
+						<div class="order_calculator--3j3-AVwhfY">
+							<strong class="product_price_total--3usHUQ97oy">총 주문금액</strong>
+								<span class="txt_point--bAwRwaaTcp">
+								<span class="price--JIZ5vfiqW7">${total}</span>
+								원
+								</span>
+								
+								<div align="right" class="m-b-20">									
 								</div>
 						</div>
 						<!-- 장바구니 페이지 버튼 -->
 						<div class="flex-w flex-t p-t-16" style="margin-left: 69%">
 							<a href="pay.user"><button style="background-color: black; color: white" class="aa flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-								결제하러 가기
+								결제
 							</button></a>
 							<br/><br/><br/>
 							<a href="getproduct.user"><button style="background-color: black; color: white;" class="aa flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-								쇼핑하러 가기
+								쇼핑 계속하기
 							</button></a>
 						</div>
 					</div>
@@ -216,7 +231,7 @@
 						
 						<!-- 퀵메뉴(자동스크롤바 영역) -->
 						<div class="p-t-55" id="quickPanel">
-							<h4 class="mtext-112 cl2 p-b-33">자주이용하는페이지??</h4>
+							<h4 class="mtext-112 cl2 p-b-33">즐겨찾기</h4>
 							<table id="quickMenu" style="width: 100%;">
 								<tr>
 									<td style="height: 30px; font-size: xx-large;">
@@ -235,7 +250,7 @@
 								</tr>
 								<tr>
 									<td style="height: 30px; font-size: xx-large;">
-										<a href="#" class="recommendation bor18 ">요새잘나가는제품? </a>										
+										<a href="#" class="recommendation bor18 ">주간 인기 상품</a>										
 									<td/>
 								</tr>
 							</table>
