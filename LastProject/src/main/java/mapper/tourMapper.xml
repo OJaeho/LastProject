@@ -4,12 +4,12 @@
 <mapper namespace="tour">
 	
 	<!-- 관광지 리스트 갯수 -->
-	<select id="tourCount" resultType="int">
-		SELECT COUNT(*) FROM tour
+	<select id="tourCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM tour where mkid = #{mkId} and delyn = 'N'
 	</select>
 	
 	<!-- 관광지 리스트 페이징 -->
-	<select id="selectTour" resultType="tour">
+	<select id="selectTour" parameterType="HashMap" resultType="tour">
 		SELECT * 
 		FROM (
 			SELECT ROWNUM RN, A.* 
@@ -18,18 +18,18 @@
 						FROM tour 
 						) A
 				)
-	WHERE RN BETWEEN #{start} AND #{end}
+	WHERE RN BETWEEN #{vo.start} AND #{vo.end} AND mkid = #{mkId} and delyn = 'N'
 	</select>
 	
 	<!-- 관광지 디테일 화면 -->
 	<select id="selectTourDetail" parameterType="tour" resultType="tour">
-		select * from tour where tid = #{tId}
+		select * from tour where tid = #{tId} and delyn = 'N'
 	</select>
 	
 	
 	<!-- 신규 관광지 등록 -->
 	<insert id="insertTour" parameterType="tour">
-		insert into tour(tid, tname, timg1, taddr, tcontent) values(seq_tid.nextval, #{tName}, #{tImg1} ,#{tAddr}, #{tContent})
+		insert into tour(tid, tname, timg1, taddr, tcontent, mkid, delyn) values(seq_tid.nextval, #{vo.tName}, #{vo.tImg1} ,#{vo.tAddr}, #{vo.tContent}, #{mkId}, 'N')
 	</insert>
 	
 	<!-- 관광지 삭제 -->

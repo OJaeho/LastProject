@@ -27,10 +27,13 @@ public class cartController {
 	
 	@Autowired
 	private cartService cartservice;
+	@Autowired
+	private marketController con; 
 	
 	@ResponseBody
 	@RequestMapping(value = "/insertCart.user", produces="application/json; charset=utf-8")
 	public String cartInsert(BuyVO vo, HttpServletRequest request, Model model, HttpSession session) {
+		model.addAttribute("list", con.selectFooter());
 		vo.setUserName(request.getRemoteUser());
 		vo.setMkId((int)session.getAttribute("mkId"));
 		Gson gson = new Gson();
@@ -57,8 +60,9 @@ public class cartController {
 		return "실패";
 	}
 	//장바구니 페이지 목록 불러오기
-	@RequestMapping("/shopping.user")
+	@RequestMapping("/shopping.checking")
 	public String shoppingCart(BuyVO vo,HttpServletRequest request, Model model){
+		model.addAttribute("list", con.selectFooter());
 		String user = request.getRemoteUser();
 		vo.setUserName(user);
 		List<BuyVO> result = cartservice.shoppingcart(vo);
@@ -74,10 +78,20 @@ public class cartController {
 	
 	//장바구니 페이지 상품 삭제
 	@RequestMapping("/deleteShoppingCart.user")
-	public String deleteCart(String bId, HttpServletRequest request){
+	public String deleteCart(String bId, HttpServletRequest request,Model model){
+		model.addAttribute("list", con.selectFooter());
 		int bId1 = Integer.parseInt(bId);
 		cartservice.deleteShoppingCart(bId1);
-		return "redirect:/shopping.user";
+		return "redirect:/shopping.checking";
+	}
+	
+	//상품디테일창 장바구니 영역에서 삭제
+	@ResponseBody
+	@RequestMapping(value = "/deleteDetailCart.user")
+	public int deleteDetailCart(int bId, HttpServletRequest request) {
+		int result = cartservice.deleteDetailCart(bId);
+		return result;
+		
 	}
 	
 }
