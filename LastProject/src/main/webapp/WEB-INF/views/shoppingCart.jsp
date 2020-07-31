@@ -121,11 +121,11 @@
 						<div class="container">					
 							<div class="row" id="tour">
 								<ul class="nav nav-tabs" style="margin-left: 20%;">
-  									<li role="presentation" style="font-size: x-large;" class="navLi"><a href="shopping.user">전체상품 보기</a></li>
+  									<li role="presentation" style="font-size: x-large;" class="navLi"><a href="shopping.checking">전체상품 보기</a></li>
 									<li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
-									<li role="presentation" style="font-size: x-large;" class="navLi"><a href="shopping.user?bState=픽업">포장예약상품 보기</a></li>
+									<li role="presentation" style="font-size: x-large;" class="navLi"><a href="shopping.checking?bState=픽업">포장예약상품 보기</a></li>
 									<li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
-  									<li role="presentation" style="font-size: x-large;" class="navLi"><a href="shopping.user?bState=배송">배송상품 보기</a></li>
+  									<li role="presentation" style="font-size: x-large;" class="navLi"><a href="shopping.checking?bState=배송">배송상품 보기</a></li>
 								</ul>
 							</div>
 						</div>
