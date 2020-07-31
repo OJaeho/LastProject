@@ -1,7 +1,7 @@
 package com.daoImpl;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +28,15 @@ public class tourDaoImpl implements tourDao {
 
 	//관광지 리스트, 페이징처리
 	@Override
-	public int countTourList() {
-		return mybatis.selectOne("tour.tourCount");
+	public int countTourList(int mkId) {
+		return mybatis.selectOne("tour.tourCount",mkId);
 	}
 	@Override
-	public List<TourVO> selectTourList(PagingVO vo) {
-		return mybatis.selectList("tour.selectTour",vo);
+	public List<TourVO> selectTourList(PagingVO vo, int mkId) {
+		HashMap map = new HashMap();
+		map.put("vo", vo);
+		map.put("mkId", mkId);
+		return mybatis.selectList("tour.selectTour", map);
 	}
 	
 	//관광지 디테일 화면
@@ -41,8 +44,11 @@ public class tourDaoImpl implements tourDao {
 		return mybatis.selectOne("tour.selectTourDetail", vo);
 	}
 	@Override
-	public int InsertTour(TourVO vo) {
-		return mybatis.insert("tour.insertTour",vo);
+	public int InsertTour(TourVO vo, int mkId) {
+		HashMap map = new HashMap();
+		map.put("vo", vo);
+		map.put("mkId", mkId);
+		return mybatis.insert("tour.insertTour",map);
 	}
 	@Override
 	public void deleteTour(String tId) {

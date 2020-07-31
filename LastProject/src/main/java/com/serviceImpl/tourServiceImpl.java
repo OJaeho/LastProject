@@ -24,12 +24,12 @@ public class tourServiceImpl implements tourService {
 //		return tourdao.tourList(map);
 //	}
 	//관광지 페이징, 리스트 목록
-	public int countTourList() {
-		return tourdao.countTourList();
+	public int countTourList(int mkId) {
+		return tourdao.countTourList(mkId);
 	}
 	@Override
-	public List<TourVO> selectTourList(PagingVO vo) {
-		return tourdao.selectTourList(vo);
+	public List<TourVO> selectTourList(PagingVO vo, int mkId) {
+		return tourdao.selectTourList(vo, mkId);
 	}
 
 	//관광지 디테일 화면
@@ -39,8 +39,8 @@ public class tourServiceImpl implements tourService {
 	}
 	//신규 관광지 등록
 	@Override
-	public int InsertTour(TourVO vo) {
-		return tourdao.InsertTour(vo);
+	public int InsertTour(TourVO vo, int mkId) {
+		return tourdao.InsertTour(vo, mkId);
 	}
 	@Override
 	public void deleteTour(String tId) {

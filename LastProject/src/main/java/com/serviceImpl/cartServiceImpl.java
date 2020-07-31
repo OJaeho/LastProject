@@ -47,5 +47,12 @@ public class cartServiceImpl implements cartService {
 	public void deleteShoppingCart(int bId1) {
 		cartdao.deleteShoppingCart(bId1);
 	}
+	
+	//상품 디테일 창에서 장바구니 삭제
+	@Override
+	public int deleteDetailCart(int bId) {
+		return cartdao.deleteDetailCart(bId);
+		
+	}
 
 }

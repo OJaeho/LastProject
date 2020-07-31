@@ -46,4 +46,10 @@ public class cartDaoImpl implements cartDao {
 	public void deleteShoppingCart(int bId1) {
 		mybatis.delete("buyMapper.deleteShoppingCart", bId1);
 	}
+	//상품 디테일 창에서 장바구니 삭제
+	@Override
+	public int deleteDetailCart(int bId) {
+		return mybatis.delete("buyMapper.deleteDetailCart",bId);
+		
+	}
 }

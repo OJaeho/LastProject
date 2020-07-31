@@ -16,7 +16,7 @@
 	</insert>
 	<!-- 장바구니 보여주는 select문 (해당상품만)(3) -->
 	<select id="cartSelect" parameterType="buy" resultType="buy">
-		select * from buy where pid = #{pId}	
+		select * from buy where pid = #{pId} and username = #{userName}	
 	</select>
 	
 	<!-- 장바구니목록에 있다면 업데이트 -->
@@ -40,6 +40,10 @@
 		delete from buy where bid= #{bId1}
 	</delete>
 	
+<!-- 	상품디테일 창에서 장바구니 삭제 -->
+	<delete id="deleteDetailCart" parameterType="buy">
+		delete from buy where bid = #{bId} 
+	</delete>
 	
 
 </mapper>
