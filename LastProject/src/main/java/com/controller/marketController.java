@@ -19,6 +19,8 @@ import com.service.marketService;
 import com.service.memberService;
 import com.vo.IssueVO;
 import com.vo.MarketVO;
+import com.vo.NoticeVO;
+import com.vo.QnaVO;
 import com.vo.UsersVO;
 
 @Controller
@@ -56,11 +58,21 @@ public class marketController {
 
 	// 1_1. 메인메뉴에서 망원시장 선택할 경우, 시장메인화면으로 옮겨가기 : index로 갈무리 셋팅해놓음(수정필요)
 	@RequestMapping("/index2.user")
-	public String marketHome(@ModelAttribute MarketVO vo, HttpSession session, Model model) {
+	public String marketHome(@ModelAttribute MarketVO vo, HttpSession session, Model model,NoticeVO nvo,IssueVO ivo,QnaVO qvo) {
 		// 풋터 '전국시장' 셀렉트함수 호출
 		model.addAttribute("list", selectFooter());
 		//세션에 mkId 저장
 		session.setAttribute("mkId", vo.getMkId());
+		int mkId=(int)session.getAttribute("mkId");
+		nvo.setMkId(mkId);
+		ivo.setMkId(mkId);
+		qvo.setMkId(mkId);
+		List<NoticeVO> notice = service.selectnotice(nvo);
+		List<IssueVO> issue = service.selectissue(ivo);
+		List<QnaVO> qna = service.selectqna(qvo);
+		model.addAttribute("noticeget", notice);
+		model.addAttribute("issueget", issue);
+		model.addAttribute("qnaget", qna);
 
 		return "index";
 	}

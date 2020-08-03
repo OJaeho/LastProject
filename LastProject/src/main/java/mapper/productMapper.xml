@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="product">
-	
+
 	<resultMap type="category" id="category">
 		<result property="cId" column="CID" />
 		<result property="cName" column="CNAME" />
@@ -27,7 +27,7 @@
 		resultType="product">
 		select * from product where mkid=#{mkId} and delyn='N'
 	</select>
-	
+
 	<!-- 상품 검색하기 -->
 	<select id="searchProduct" parameterType="product"
 		resultType="product">
@@ -36,50 +36,57 @@
 			and pname like '%'||#{keyword}||'%'
 		</if>
 	</select>
-	
+
 	<!-- 높은 가격 순 상품 가져오기 -->
 	<select id="highItem" parameterType="product"
 		resultType="product">
-		select * from product where mkid=#{mkId} and delyn='N' order by pprice desc 
+		select * from product where mkid=#{mkId} and delyn='N'
+		order by pprice desc
 	</select>
-	
+
 	<!-- 낮은 가격 순 상품 가져오기 -->
 	<select id="lowItem" parameterType="product"
 		resultType="product">
-		select * from product where mkid=#{mkId} and delyn='N' order by pprice asc
+		select * from product where mkid=#{mkId} and delyn='N'
+		order by pprice asc
 	</select>
-	
-	<!-- 선택된 상품 정보 가져오기-->
-	<select id="productInfo" 	parameterType="product" resultType="product">
-		select s.*,p.* from product p, store s where  s.mkid=#{mkId} and p.delyn='N'
+
+	<!-- 선택된 상품 정보 가져오기 -->
+	<select id="productInfo" parameterType="product"
+		resultType="product">
+		select s.*,p.* from product p, store s where s.mkid=#{mkId} and
+		p.delyn='N'
 		<if test="pName != null and pName != '' ">
-			and p.sid=s.sid and p.pname=#{pName} and p.pprice = #{pPrice}
+			and p.sid=s.sid and p.pname=#{pName} and p.pprice =
+			#{pPrice}
 		</if>
 	</select>
-	
-	<!-- 선택된 상품 옵션 가져오기-->
-	<select id="productOption" 	parameterType="product" resultType="product">
+
+	<!-- 선택된 상품 옵션 가져오기 -->
+	<select id="productOption" parameterType="product"
+		resultType="product">
 		select pprice,poption1 from product where mkid=#{mkId} and delyn='N'
 		<if test="pName != null and pName != '' ">
 			and pname=#{pName}
 		</if>
 	</select>
-	
+
 	<!-- 카테고리 정보 가져오기 -->
 	<select id="storeCategory" resultType="category">
-		select * from category 
+		select * from category
 	</select>
 
 	<!-- 상품 카테고리별로 분류 -->
 	<select id="searchCategory" parameterType="category"
 		resultType="product">
-		select p.* from product p,store s,category c where p.mkid=#{mkId} and p.delyn='N'
+		select p.* from product p,store s,category c where p.mkid=#{mkId} and
+		p.delyn='N'
 		<if test="cName != null and cName != '' ">
 			and (c.cid=s.cid and p.sid = s.sid)
 			and c.cname=#{cName}
 		</if>
 	</select>
-	
+
 	<!-- 점포 카테고리별로 분류 -->
 	<select id="searchCategory_store" parameterType="category"
 		resultType="store">
@@ -88,51 +95,65 @@
 			and c.cid=s.cid and c.cname=#{cName}
 		</if>
 	</select>
-	
-	<!-- 선택된 점포 정보 가져오기-->
-	<select id="storeInfo" 	resultType="store">
+
+	<!-- 선택된 점포 정보 가져오기 -->
+	<select id="storeInfo" resultType="store">
 		select * from store where mkid=#{mkId} and delyn='N'
 		<if test="sName != null and sName != '' ">
 			and sname=#{sName}
 		</if>
 	</select>
-	
+
 	<!-- 리뷰 정보 넣기 -->
-	<insert id="insertReview" parameterType="review" >
-		insert into review(rid,rdate,rcontent,rwriter,rrating,bid)
-		values(seq_rid.nextval,sysdate,#{rContent},#{rWriter},#{rRating},#{bId})
+	<insert id="insertReview" parameterType="review">
+		insert into
+		review(rid,rdate,rcontent,rwriter,rrating,payid,delyn,mkid,pid)
+		values(seq_rid.nextval,sysdate,#{rContent},#{rWriter},#{rRating},#{payId},
+		'N',#{mkId},#{pId})
 	</insert>
-	
+
 	<!-- 리뷰 가져오기 -->
-	<select id="selectReview" parameterType="review"	resultType="review">
-		select * from review where delyn='N'
-		
+	<select id="selectReview" parameterType="product"
+		resultType="review">
+		select * from review where delyn='N' and mkid=#{mkId} and
+		pid=#{pId}
 	</select>
 	
-	<!-- 상점등록페이지 이동할때 카테고리이름 가져오기  -->
-	<select id="selectMarket" parameterType="category"	resultType="category">
-		select * from category 
+	<!-- 리뷰 제한걸기 -->
+	<select id="getReviewCnt" parameterType="review"
+		resultType="int">
+		select nvl(count(*),0) as cnt from review where payid=#{payId}
+	</select>
+
+	<!-- 상점등록페이지 이동할때 카테고리이름 가져오기 -->
+	<select id="selectMarket" parameterType="category"
+		resultType="category">
+		select * from category
 	</select>
 	<!-- 상점 등록하기 -->
-	<insert id="insertStore" parameterType="store" >
-		insert into store(sid,cid,mkid,sname,stime,sdetail,stel,saddr,simg1,simg3,delyn)
+	<insert id="insertStore" parameterType="store">
+		insert into
+		store(sid,cid,mkid,sname,stime,sdetail,stel,saddr,simg1,simg3,delyn)
 		values(seq_sid.nextval,#{cId},#{mkId},#{sName},#{sTime},#{sDetail},#{sTel},#{sAddr},#{sImg1},#{sImg3},'N')
 	</insert>
-	
+
 	<!-- 상품 등록하기 -->
-	<insert id="insertProduct" parameterType="product" >
-		insert into product(pid,sid,pname,pprice,poption1,pimg1,pdetail,delyn,mkid)
+	<insert id="insertProduct" parameterType="product">
+		insert into
+		product(pid,sid,pname,pprice,poption1,pimg1,pdetail,delyn,mkid)
 		values(seq_pid.nextval,#{sId},#{pName},#{pPrice},#{pOption1},#{pImg1},#{pDetail},'N',#{mkId})
 	</insert>
-	
-	<!-- 카테고리 이름 통해 cid 구하기  -->
+
+	<!-- 카테고리 이름 통해 cid 구하기 -->
 	<select id="findcid" parameterType="string" resultType="int">
-		select cid from category where cname=#{cName} 
+		select
+		cid from category where cname=#{cName}
 	</select>
-	
-	<!-- 상점 이름 통해 상점 id 구하기  -->
+
+	<!-- 상점 이름 통해 상점 id 구하기 -->
 	<select id="findsid" parameterType="string" resultType="int">
-		select sid from store where sname=#{sName}  and delyn='N'
+		select
+		sid from store where sname=#{sName} and delyn='N'
 	</select>
-	
+
 </mapper>

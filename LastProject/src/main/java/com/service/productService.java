@@ -43,8 +43,10 @@ public interface productService {
 	public void InsertReview(ReviewVO rvo);
 
 	// 리뷰 가져오기
-	public List<ReviewVO> SelectReview(ReviewVO rvo);
+	public List<ReviewVO> SelectReview(ProductVO rvo);
 	
+	// 리뷰 카운트 제한
+	public int getReviewCnt(ReviewVO vo);
 	
 	// 상점 등록페이지 - 카테고리이름 가져오기
 	public List<CategoryVO> SelectMarket(CategoryVO cvo);

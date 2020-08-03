@@ -1,8 +1,11 @@
 package com.service;
 
 import java.util.List;
+
 import com.vo.IssueVO;
 import com.vo.MarketVO;
+import com.vo.NoticeVO;
+import com.vo.QnaVO;
 
 public interface marketService {
 
@@ -42,6 +45,10 @@ public interface marketService {
 	//mkId 로 mkName으로 찾기
 	MarketVO selectMkName(int mkId);
 	
+	//홈화면 공지/이슈/qna 정보 가져오기
+	List<NoticeVO> selectnotice(NoticeVO nvo);
+	List<IssueVO> selectissue(IssueVO ivo);
+	List<QnaVO> selectqna(QnaVO qvo);
 
 }
 

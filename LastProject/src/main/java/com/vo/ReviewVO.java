@@ -2,16 +2,35 @@ package com.vo;
 
 public class ReviewVO {
 	private int rId;
-	private int bId;
+	private int payId;
 	private float rRating;
 	private String rContent;
 	private String rTitle;
 	private String rDate;
 	private String delYn;
 	private String rWriter;
+	private int mkId;
+	private int pId;
 	
 	
-	
+	public int getpId() {
+		return pId;
+	}
+	public void setpId(int pId) {
+		this.pId = pId;
+	}
+	public int getPayId() {
+		return payId;
+	}
+	public void setPayId(int payId) {
+		this.payId = payId;
+	}
+	public int getMkId() {
+		return mkId;
+	}
+	public void setMkId(int mkId) {
+		this.mkId = mkId;
+	}
 	public String getrWriter() {
 		return rWriter;
 	}
@@ -29,12 +48,6 @@ public class ReviewVO {
 	}
 	public void setrId(int rId) {
 		this.rId = rId;
-	}
-	public int getbId() {
-		return bId;
-	}
-	public void setbId(int bId) {
-		this.bId = bId;
 	}
 	public String getrContent() {
 		return rContent;

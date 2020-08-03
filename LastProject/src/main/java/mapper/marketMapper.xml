@@ -94,4 +94,25 @@
 	<select id="selectMkName" parameterType="int" resultType="market">
 	select * from market where mkId=#{mkId}
 	</select>
+	
+	
+	<!-- 홈화면 공지/이슈/qna 가져오기 -->
+	<select id="selectnotice" parameterType="notice" resultType="notice">
+	<![CDATA[
+		select ntitle from notice where rownum <= 5 and mkid=#{mkId} and delyn='N'
+		]]>  
+	</select>
+	 
+	<select id="selectissue" parameterType="issue" resultType="issue">
+	<![CDATA[
+		select istitle from issue where rownum <= 5 and mkid=#{mkId} and delyn='N'
+		]]>  
+	</select>
+	
+	<select id="selectqna" parameterType="qna" resultType="qna">
+	<![CDATA[ 
+		select qtitle from qna where rownum <= 5 and mkid=#{mkId} and delyn='N'
+		]]>  
+	</select>
+	
 </mapper>
