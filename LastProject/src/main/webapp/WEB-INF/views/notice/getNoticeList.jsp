@@ -121,7 +121,7 @@
 				<div class="text-center-page">
 					<ul class="pagination div-center">
 						<c:forEach var="i" begin="1" end="${totalpNum }">
-							<li><a href="getQnAList.user?pNum=${i }">${i }</a></li>
+							<li><a href="getNoticeList.user?pNum=${i }">${i }</a></li>
 						</c:forEach>
 					</ul>
 				</div>
