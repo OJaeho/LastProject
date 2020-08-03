@@ -59,6 +59,8 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
 
 </head>
@@ -70,7 +72,10 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">시장소개</h2>
+		<h2 class="tour-title theme_color type_block">
+		<span class="notice_title_bullet them_background"></span>
+		시장소개
+		</h2>
 	</section>
 
 	<!-- Content page -->
@@ -80,11 +85,9 @@
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-						<h3 class="mtext-111 cl2 p-b-16">시장소개</h3>
-						<div class="main_area current" data-cid="78z0udho"
-							data-anchor="367564f783e6db3ab00bf9c85e458944"
-							data-adult-flag="0" data-title="시장소개">
-							<div class="inner _inner">
+						<h3 class="cl2 p-b-16 theme_color news-underbar"
+						style="font-size: 27px;font-weight: bold;">시장소개</h3>
+						<div style="margin-left: auto; margin-right: auto; margin: 10px;">
 								<!-- 이미지1 삽입할곳 -->
 								<div class="component_box component_margin _component"
 									data-index="0">
@@ -109,7 +112,7 @@
 									<div class="txt_box">
 										<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h4>${intro.mkName}은</h4>
+											<h4 class="intro_font_bold">${intro.mkName}은</h4>
 										</div>
 									</div>
 								</div>
@@ -122,8 +125,8 @@
 								<!-- 시장 소개넣은곳(mkIntro) -->
 								<div class="component_box _component" data-index="4">
 									<div class="txt_box">
-										<div class="txt_component color2 big align_c t_space ">
-											<p>${intro.mkIntro}</p>
+										<div class="txt_component color2 big align_c t_space">
+											<p class="intro_content_font">${intro.mkIntro}</p>
 										</div>
 									</div>
 								</div>
@@ -160,17 +163,16 @@
 									<div class="txt_box">
 										<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h3>${intro.mkName}상점수는</h3>
+											<h3 class="intro_font_bold">${intro.mkName} 상점 수는</h3>
 										</div>
 									</div>
 								</div>
 
 								<!-- 시장 소개넣은곳(mkCount) -->
-								<div class="component_box _component" data-index="10">
-									<div class="txt_box">
-										<br>
+								<div class="" data-index="10">
+									<div class="txt_box">s
 										<div class="txt_component color2 big align_c t_space ">
-											<p>음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
+											<p class="intro_content_font">음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
 												있고,</p>
 										</div>
 									</div>
@@ -186,10 +188,10 @@
 										<div class="txt_component color1 big align_c t_space " >
 											<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h3>시장이 생긴 날짜는</h3>
+											<h3 class="intro_font_bold">시장이 생긴 날짜는</h3>
 										</div>
 											<div class="txt_component color2 big align_c t_space ">											
-											<p>${intro.mkDate} 입니다.</p>
+											<p class="intro_content_font">${intro.mkDate} 입니다.</p>
 										</div></div>
 									</div>
 								</div>
@@ -205,7 +207,7 @@
 									<div class="txt_box">
 										<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h3>${intro.mkName}영업시간은</h3>
+											<h3 class="intro_font_bold">${intro.mkName} 영업시간은</h3>
 										</div>
 									</div>
 								</div>
@@ -223,7 +225,7 @@
 											summary="표 입력">
 											<tbody>
 												<tr>
-													<td rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTime}</td>
+													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTime}</td>
 												</tr>
 
 											</tbody>

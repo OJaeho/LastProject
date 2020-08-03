@@ -53,6 +53,8 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
 
 </head>
@@ -64,7 +66,10 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">시장오시는길</h2>
+		<h2 class="tour-title theme_color type_block">
+		<span class="notice_title_bullet them_background"></span>
+		시장 오시는 길
+		</h2>
 	</section>
 
 	<!-- Content page -->
@@ -74,11 +79,10 @@
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-						<h3 class="mtext-111 cl2 p-b-16">시장오시는길</h3>
-						<div class="main_area current" data-cid="78z0udho"
-							data-anchor="367564f783e6db3ab00bf9c85e458944"
-							data-adult-flag="0" data-title="시장오시는길">
-							<div class="inner _inner">
+					<h3 class="cl2 p-b-16 theme_color news-underbar"
+						style="font-size: 27px;font-weight: bold;">오시는 길</h3>
+						<div>
+							<div class="">
 								<!-- 오시는길 이미지3 삽입할곳 -->
 								<div class="component_box component_margin _component"
 									data-index="0">
@@ -102,333 +106,23 @@
 								<div class="component_box _component" data-index="2">
 									<div class="view_table bdr_table " style="border-color: green;">
 										<table class="tx_a_c tx_v_m" border="1" cellspacing="0"
-											summary="표 입력" style="border-color: green;">
+											summary="표 입력">
 											<tbody>
 												<tr>
-													<td rowspan="1" colspan="1" data-row="0" data-column="0">시장
+													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">시장
 														주소</td>
-													<td rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkAddr}</td>
+													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkAddr}</td>
 												</tr>
 												<tr>
-													<td rowspan="1" colspan="1" data-row="0" data-column="0">전화
+													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">전화
 														번호</td>
-													<td rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTel}</td>
+													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTel}</td>
 												</tr>
 											</tbody>
 										</table>
 									</div>
 								</div>
-								<!-- 여백 -->
-								<div class="component_box _component" data-index="3">
-									<div class="division_line">
-										<div class="space"></div>
-									</div>
-								</div>
-								<div class="r component_margin _component" data-index="4">
-									<div class="map_area _mapV2_container" data-lat="37.5553018"
-										data-lng="126.8952798" data-level="9"
-										data-companyname="${intro.mkName}">
-										<div class="map  _move_map"
-											style="position: relative; overflow: hidden; background: url(&quot;https://ssl.pstatic.net/static/maps/mantle/1x/pattern_1.png&quot;) 0px 0px repeat transparent;">
-											<div
-												style="position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; overflow: visible; width: 100%; height: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); z-index: 0; cursor: url(&quot;https://ssl.pstatic.net/static/maps/mantle/1x/openhand.cur&quot;), default;">
-												<div
-													style="position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; overflow: visible; width: 100%; height: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); z-index: 0;">
-													<div
-														style="overflow: visible; width: 100%; height: 0px; position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 1;">
-														<div
-															style="overflow: visible; width: 100%; height: 0px; position: absolute; display: none; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 0; user-select: none;"></div>
-														<div
-															style="overflow: visible; width: 100%; height: 0px; position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 1; user-select: none;">
-															<div
-																style="position: absolute; top: 0px; left: 0px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; display: block; width: 0px; height: 0px; overflow: visible; box-sizing: content-box !important;">
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 165px; left: 428px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/436/198.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -91px; left: 428px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/436/197.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 421px; left: 428px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/436/199.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -347px; left: 428px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/436/196.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -347px; left: 684px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/437/196.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 421px; left: 172px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/435/199.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -91px; left: 684px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/437/197.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 165px; left: 172px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/435/198.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 165px; left: 684px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/437/198.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -91px; left: 172px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/435/197.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 421px; left: 684px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/437/199.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -347px; left: 172px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/435/196.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -347px; left: 940px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/438/196.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 421px; left: -84px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/434/199.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -91px; left: 940px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/438/197.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 165px; left: -84px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/434/198.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 165px; left: 940px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/438/198.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -91px; left: -84px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/434/197.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 421px; left: 940px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/438/199.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -347px; left: -84px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/434/196.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -347px; left: 1196px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/439/196.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 421px; left: -340px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/433/199.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -91px; left: 1196px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/439/197.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 165px; left: -340px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/433/198.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 165px; left: 1196px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/439/198.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -91px; left: -340px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/433/197.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: 421px; left: 1196px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/439/199.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-																<div draggable="false" unselectable="on"
-																	style="position: absolute; top: -347px; left: -340px; z-index: 0; margin: 0px; padding: 0px; border: 0px solid transparent; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; opacity: 1; width: 256px; height: 256px;">
-																	<img draggable="false" unselectable="on" alt=""
-																		width="256" height="256"
-																		src="https://map.pstatic.net/nrb/styles/basic/1592557809/9/433/196.png?mt=bg.ol.sw.ar.lko"
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; opacity: 1; position: absolute; left: 0px; top: 0px; z-index: 0; width: 256px; height: 256px;">
-																</div>
-															</div>
-														</div>
-														<div
-															style="overflow: visible; width: 100%; height: 0px; position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 100;">
-															<div
-																style="overflow: visible; width: 100%; height: 0px; position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 101;"></div>
-															<div
-																style="overflow: visible; width: 100%; height: 0px; position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 103;">
-																<div title=""
-																	style="position: absolute; overflow: hidden; box-sizing: content-box !important; cursor: inherit; left: 535px; top: 198px; width: 29px; height: 42px;">
-																	<img draggable="false" unselectable="on"
-																		src="https://ssl.pstatic.net/static/modoo/ico/map/PIN_BIG_118x168.png"
-																		alt=""
-																		style="margin: 0px; padding: 0px; border: 0px solid transparent; display: block; user-select: none; -webkit-user-drag: none; box-sizing: content-box !important; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important; position: absolute; cursor: pointer; width: 29px; height: 42px; left: 0px; top: 0px;">
-																</div>
-															</div>
-															<div
-																style="overflow: visible; width: 100%; height: 0px; position: absolute; display: block; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; z-index: 106;"></div>
-														</div>
-													</div>
-													<div
-														style="position: absolute; display: none; margin: 0px; padding: 0px; border: 0px none; top: 0px; left: 0px; overflow: visible; width: 100%; height: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); background-color: rgb(255, 255, 255); z-index: 10000; opacity: 0.5;"></div>
-												</div>
-											</div>
-											<div class="zoom">
-												<a href="#" class="zoom_in _zoom _zoom_in"><span
-													class="blind">확대</span></a> <a href="#"
-													class="zoom_out _zoom _zoom_out"><span class="blind">축소</span></a>
-											</div>
-											<div
-												style="position: absolute; z-index: 100; margin: 0px; padding: 0px; pointer-events: none; bottom: 0px; left: 0px;">
-												<div
-													style="border: 0px none; margin: 0px; padding: 0px; pointer-events: none; float: left; height: 21px;">
-													<div
-														style="position: relative; width: 83px; height: 14px; margin: 0px 12px 7px 2px; overflow: hidden; pointer-events: auto;">
-														<span
-															style="display: block; margin: 0; padding: 0 4px; text-align: center; font-size: 10px; line-height: 11px; font-family: Helvetica, AppleSDGothicNeo-Light, nanumgothic, NanumGothic,&amp; quot; 나눔고딕 &amp;quot; , Dotum ,&amp;quot; 돋움 &amp;quot; , sans-serif; font-weight: bold; color: #000; text-shadow: -1px 0 rgba(255, 255, 255, 0.3), 0 1px rgba(255, 255, 255, 0.3), 1px 0 rgba(255, 255, 255, 0.3), 0 -1px rgba(255, 255, 255, 0.3);">20km</span><img
-															src="https://ssl.pstatic.net/static/maps/mantle/1x/scale-normal-b.png"
-															width="75" height="4" alt=""
-															style="position: absolute; left: 4px; bottom: 0px; z-index: 2; display: block; width: 75px; height: 4px; overflow: hidden; margin: 0px; padding: 0px; border: 0px none; max-width: none !important; max-height: none !important; min-width: 0px !important; min-height: 0px !important;"><img
-															src="https://ssl.pstatic.net/static/maps/mantle/1x/scale-normal-l.png"
-															width="4" height="10" alt=""
-															style="position: absolute; left: 0; bottom: 0; z-index: 2; display: block; width: 4px; height: 10px; overflow: hidden; margin: 0; padding: 0; border: 0 none; max-width: none !important; max-height: none !important; min-width: 0 !important; min-height: 0 !important;"><img
-															src="https://ssl.pstatic.net/static/maps/mantle/1x/scale-normal-r.png"
-															width="4" height="10" alt=""
-															style="position: absolute; right: 0; bottom: 0; z-index: 2; display: block; width: 4px; height: 10px; overflow: hidden; margin: 0; padding: 0; border: 0 none; max-width: none !important; max-height: none !important; min-width: 0 !important; min-height: 0 !important;">
-													</div>
-												</div>
-												<div
-													style="border: 0px none; margin: 0px; padding: 0px; pointer-events: none; float: left; height: 21px;">
-													<div class="map_copyright"
-														style="margin: 0px; padding: 0px 0px 2px 10px; height: 19px; line-height: 19px; color: rgb(68, 68, 68); font-family: Helvetica, AppleSDGothicNeo-Light, nanumgothic, NanumGothic, 나눔고딕, Dotum, 돋움, sans-serif; font-size: 11px; clear: both; white-space: nowrap; pointer-events: none;">
-														<div style="float: left;">
-															<span style="white-space: pre; color: rgb(68, 68, 68);">©
-																NAVER Corp.</span>
-														</div>
-														<a href="#"
-															style="font-family: Helvetica, AppleSDGothicNeo-Light, nanumgothic, NanumGothic, 나눔고딕, Dotum, 돋움, sans-serif; font-size: 11px; line-height: 19px; margin: 0px 0px 0px 5px; padding: 0px; color: rgb(68, 68, 68); float: left; pointer-events: auto; text-decoration: underline; display: none;">더보기</a>
-														<div style="float: left;">
-															<a target="_blank"
-																href="http://www.openstreetmap.org/copyright"
-																style="pointer-events: auto; white-space: pre; display: none; color: rgb(68, 68, 68);">
-																/OpenStreetMap</a>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div
-												style="border: 1px solid rgb(41, 41, 48); background: rgb(255, 255, 255); padding: 15px; color: rgb(51, 51, 51); position: absolute; font-size: 11px; line-height: 1.5; clear: both; display: none; max-width: 350px !important; max-height: 300px !important;">
-												<h5
-													style="font-size: 12px; margin-top: 0px; margin-bottom: 10px;">지도
-													데이터</h5>
-												<a href="#"
-													style="position: absolute; top: 8px; right: 8px; width: 14px; height: 14px; font-size: 14px; line-height: 14px; display: block; overflow: hidden; color: rgb(68, 68, 68); text-decoration: none; font-weight: bold; text-align: center;">x</a>
-												<div>
-													<span
-														style="white-space: pre; color: rgb(68, 68, 68); float: left;">©
-														NAVER Corp.</span><a target="_blank"
-														href="http://www.openstreetmap.org/copyright"
-														style="pointer-events: auto; white-space: pre; color: rgb(68, 68, 68); float: left; display: none;">
-														/OpenStreetMap</a>
-												</div>
-											</div>
-										</div>
-										<div class="zoom">
-											<a class="zoom_in _zoom_in" href="#"><span class="blind">확대</span></a>
-											<a class="zoom_out _zoom_out" href="#"><span
-												class="blind">축소</span></a>
-										</div>
-									</div>
-								</div>
+
 							</div>
 						</div>
 					</div>
