@@ -23,7 +23,7 @@
  		<typeAlias alias="users" type="com.vo.UsersVO" />
  		<typeAlias alias="store" type="com.vo.StoreVO" />
  		<typeAlias alias="paging" type="com.vo.PagingVO" />
- 		<typeAlias alias="paging" type="com.vo.PayVO" />
+ 		<typeAlias alias="pay" type="com.vo.PayVO" />
  	</typeAliases>
  	
 

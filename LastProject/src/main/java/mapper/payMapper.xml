@@ -5,10 +5,9 @@
 
 <!-- 	결제 페이지 넘어갈때 select -->
 	<select id="paySelect" parameterType="hashmap" resultType="pay">	
-		select b.bQuantity as pQuantity, p.pPrice as pPrice, b.btitle as pTitle, b.bstate as pState, b.boption as pOption, s.sname as psName, s.stel as psTel, p.pimg1 as pImg,
-			   b.bQuantity*p.pprice as pTotal, u.mpoint as pPoint, u.Memail as pEmail, u.mtel as pUtel, u.Maddr as pAddr, u.mname as pUname
+		select b.bState as payState, b.bQuantity as payCount, u.mname as userName, u.Maddr as payAddr, u.mtel as payTel, b.bQuantity*p.pprice as payTotal,
+			   p.pimg1 as payImg, s.sname as payStoreName, b.bTitle||b.bOption as payContent, b.bTitle as payTitle, b.bPrice as payPrice	
 		from buy b inner join product p on b.pid = p.pid inner join store s on s.sid = p.sid inner join users u on b.username = u.username
 		where b.bid= #{list}
 	</select>
-
 </mapper>

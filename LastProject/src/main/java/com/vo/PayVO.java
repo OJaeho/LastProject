@@ -2,16 +2,56 @@ package com.vo;
 
 public class PayVO {
 
-	private int payId; //주문 id 
+	private int payId;      //주문 id 
 	private String payState;//예약? 배달?
-	private int pId;//상품Id
-	private int payCount;//주문 수량
+	private int pId;        //상품Id
+	private int payCount;   //주문 수량
 	private String userName;//주문자
-	private String payAddr;// 배송지
-	private String payTel; //주문자 전화번호
+	private String payAddr; // 배송지
+	private String payTel;  //주문자 전화번호
 	private String payDate; //주문일
 	private String payContent; //상품 이름 + 상품 옵션 (변경됨)
-	private int payTotal; //수량 * 상품 가격 = 합계금액
+	private int payTotal;   //수량 * 상품 가격 = 합계금액
+	private String payImg;  // 상품 이미지
+	private String payStoreName; //상품판매된 점포이름
+	private String payTitle;//상품 이름만
+	private int payPrice;   //상품 단일가격
+	
+	
+	
+	public String getPayTitle() {
+		return payTitle;
+	}
+	public void setPayTitle(String payTitle) {
+		this.payTitle = payTitle;
+	}
+	public int getPayPrice() {
+		return payPrice;
+	}
+	public void setPayPrice(int payPrice) {
+		this.payPrice = payPrice;
+	}
+	public String getPayImg() {
+		return payImg;
+	}
+	public void setPayImg(String payImg) {
+		this.payImg = payImg;
+	}
+	public String getPayStoreName() {
+		return payStoreName;
+	}
+	public void setPayStoreName(String payStoreName) {
+		this.payStoreName = payStoreName;
+	}
+	public int getPayUserPoint() {
+		return payUserPoint;
+	}
+	public void setPayUserPoint(int payUserPoint) {
+		this.payUserPoint = payUserPoint;
+	}
+	private int payUserPoint;
+	
+	
 	
 	/*
 	 //상품 이름 ----------------------------------<없음>---

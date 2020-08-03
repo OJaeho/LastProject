@@ -16,10 +16,10 @@ public class payDaoImpl implements payDao {
 	
 	@Autowired 
 	private SqlSessionTemplate mybatis;
-
+	
+	////장바구니페이지 >> 결제 페이지 화면전환(장바구니 DB 불러옴)
 	public List<PayVO> paySelect(List<Integer> bId) {
 		List<PayVO> list = new ArrayList<PayVO>();
-		System.out.println("다오도착");
 		for(int i =0; i<bId.size(); i++) {
 			HashMap map = new HashMap();
 			map.put("list", bId.get(i));

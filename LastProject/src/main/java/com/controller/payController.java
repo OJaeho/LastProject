@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -30,9 +31,17 @@ public class payController {
 	//장바구니 창에서 결제하기 버튼 눌렀을때  
 		@RequestMapping("/payment.user")
 		public void payment(PayVO vo, @RequestParam List<Integer> boxValue,Model model) {
-			System.out.println(boxValue + "컨트롤");
 			model.addAttribute("list", con.selectFooter());
-			model.addAttribute("result", payservice.paySelect(boxValue));
+			List<PayVO> info = payservice.paySelect(boxValue);
+			model.addAttribute("result", info);
+			model.addAttribute("name", info.get(0).getUserName());
+			model.addAttribute("addr", info.get(0).getPayAddr());
+			model.addAttribute("tel", info.get(0).getPayTel());
+			int total = 0;
+			for(int i=0; i<info.size(); i++) {
+				total += info.get(i).getPayTotal();
+			}
+			model.addAttribute("pTotal", total);
 		}
 }
 

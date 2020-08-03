@@ -15,9 +15,9 @@ public class payServiceImpl implements payService {
 	@Autowired
 	private payDao paydao;
 	
+	//장바구니페이지 >> 결제 페이지 화면전환(장바구니 DB 불러옴)
 	@Override
 	public List<PayVO> paySelect(List<Integer> bId) {
-		System.out.println("서비스임플"+ bId);
 		return paydao.paySelect(bId);		
 	}
 }

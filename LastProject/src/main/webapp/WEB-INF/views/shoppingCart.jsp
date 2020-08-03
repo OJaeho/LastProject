@@ -192,10 +192,11 @@
 													<div class="product_item--price">${list.bState}</div>
 													<input type="hidden" value="${list.bId }"/>
 													<form action="deleteShoppingCart.user">
-														<input type="hidden" value="${list.bId}" name="bId" id="bId" />
+														<input type="hidden" value="${list.bId}" name="bId" id="cartBid" />
 														<input type="image" src="./resources/images/delete_product.png"	id="cancleCart" value="취소" class="order_btn cancleCart"> 
-														<input type="checkbox">
+														<input type="checkbox" class="totalcheck" checked="checked">
 													</form>
+													<input type="hidden" value="${list.bQuantity*list.bPrice}">
 												</div>
 											</td>
 										</tr>
@@ -206,8 +207,9 @@
 
 						<div class="order_calculator--3j3-AVwhfY">
 							<strong class="product_price_total--3usHUQ97oy">총 주문금액</strong> <span
-								class="txt_point--bAwRwaaTcp"> <span
-								class="price--JIZ5vfiqW7">${total}</span> 원
+								class="txt_point--bAwRwaaTcp">
+								 
+								<span class="price--JIZ5vfiqW7"><input type="text" id="totalspan" value="${total}"></span>
 							</span>
 
 							<div align="right" class="m-b-20"></div>
