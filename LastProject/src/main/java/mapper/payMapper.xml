@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="payMapper">
+
+<!-- 	결제 페이지 넘어갈때 select -->
+	<select id="paySelect" parameterType="hashmap" resultType="pay">	
+		select b.bQuantity as pQuantity, p.pPrice as pPrice, b.btitle as pTitle, b.bstate as pState, b.boption as pOption, s.sname as psName, s.stel as psTel, p.pimg1 as pImg,
+			   b.bQuantity*p.pprice as pTotal, u.mpoint as pPoint, u.Memail as pEmail, u.mtel as pUtel, u.Maddr as pAddr, u.mname as pUname
+		from buy b inner join product p on b.pid = p.pid inner join store s on s.sid = p.sid inner join users u on b.username = u.username
+		where b.bid= #{list}
+	</select>
+
+</mapper>

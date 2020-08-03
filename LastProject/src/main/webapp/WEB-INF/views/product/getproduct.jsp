@@ -147,7 +147,7 @@
 								<div class="block2-txt flex-w flex-t p-t-14">
 									<div class="block2-txt-child1 flex-col-l ">
 										<a
-											href="product-detail.user?pName=${list.pName}&pPrice=${list.pPrice}"
+											href="product-detail.user?pName=${list.pName}&pPrice=${list.pPrice}&pId=${list.pId}"
 											class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 											${list.pName} </a> <span class="stext-105 cl3">
 											${list.pPrice}원 </span>

@@ -126,9 +126,9 @@
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
 
-					<!-- Logo desktop -->
-					<a href="folliumtest.user" class="logo"> <img
-						src="./resources/images/market_logo.png" alt="IMG-LOGO">
+					<!-- Logo desktop --> 
+					<a href="folliumtest.user" class="logo"> <img style="width:200px; height: 60px;"
+						src="./resources/images/logo.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->

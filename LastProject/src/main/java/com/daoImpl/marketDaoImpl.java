@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 import com.dao.marketDao;
 import com.vo.IssueVO;
 import com.vo.MarketVO;
+import com.vo.NoticeVO;
 import com.vo.PagingVO;
+import com.vo.QnaVO;
 import com.vo.TourVO;
 
 	@Repository("marketDao") 
@@ -92,6 +94,21 @@ import com.vo.TourVO;
 		public MarketVO selectMkName(int mkId) {
 			
 			return mybatis.selectOne("MarketDAO.selectMkName", mkId);
+		}
+		
+		
+		// 홈화면 공지/이슈/qna 가져오기
+		@Override
+		public List<NoticeVO> selectnotice(NoticeVO nvo) {
+			return mybatis.selectList("MarketDAO.selectnotice", nvo);
+		}
+		@Override
+		public List<IssueVO> selectissue(IssueVO ivo) {
+			return mybatis.selectList("MarketDAO.selectissue", ivo);
+		}
+		@Override
+		public List<QnaVO> selectqna(QnaVO qvo) {
+			return mybatis.selectList("MarketDAO.selectqna", qvo);
 		}
 		
 

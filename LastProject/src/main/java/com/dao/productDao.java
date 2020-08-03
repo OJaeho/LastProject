@@ -44,7 +44,10 @@ public interface productDao {
 	public void InsertReview(ReviewVO rvo);
 
 	// 리뷰 가져오기
-	public List<ReviewVO> SelectReview(ReviewVO rvo);
+	public List<ReviewVO> SelectReview(ProductVO rvo);
+	
+	// 리뷰 카운트 제한
+		public int getReviewCnt(ReviewVO vo);
 
 	// 상점 등록하기
 	public void InsertStore(StoreVO svo);

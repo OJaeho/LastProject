@@ -116,23 +116,23 @@ public class productController {
 
 	// 상품 디테일 페이지 이동
 	@RequestMapping(value = "/product-detail.user")
-	public String detailproduct(Model model, ProductVO vo, String bId, ReviewVO rvo,HttpSession session, HttpServletRequest request) {
-		System.out.println(vo.getpName()+"DDDDDD");
-		String pName = request.getParameter("pName");
-		vo.setpName(pName);
+	public String detailproduct(Model model, ProductVO vo, String payId, ReviewVO rvo,HttpSession session) {
 		int mkId = (int) session.getAttribute("mkId");
 		vo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
 		List<ProductVO> productinfo = service.ProductInfo(vo);
 		List<ProductVO> productoption = service.ProductOption(vo);
-		List<ReviewVO> review = service.SelectReview(rvo);
+		List<ReviewVO> review = service.SelectReview(vo);
+		int getReviewCnt = service.getReviewCnt(rvo);
+		
+		model.addAttribute("getReviewCnt", getReviewCnt);
 		model.addAttribute("productget", productinfo);
 		model.addAttribute("optionget", productoption);
 		model.addAttribute("reviewget", review);
-		if (bId != null) {
-			model.addAttribute("bId", bId);
+		if (payId != null) {
+			model.addAttribute("payId", payId);
 		} else {
-			model.addAttribute("bId", "");
+			model.addAttribute("payId", "");
 		}
 		return "product/product-detail";
 	}
@@ -178,10 +178,12 @@ public class productController {
 
 	// 리뷰 달기
 	@RequestMapping(value = "/insertreview.user")
-	public void InsertReview(ReviewVO rvo, Model model,HttpSession session) {
+	public String InsertReview(ReviewVO rvo, Model model,HttpSession session) {
 		model.addAttribute("list", con.selectFooter());
+		int mkId = (int) session.getAttribute("mkId");
+		rvo.setMkId(mkId);
 		service.InsertReview(rvo);
-//		return "redirect: /product/product-detail.user";
+		return "redirect:/getproduct.user";
 	}
 
 	// 상점등록 페이지 이동

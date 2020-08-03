@@ -95,11 +95,17 @@ public class productServiceImpl implements productService {
 
 	// 리뷰 가져오기
 	@Override
-	public List<ReviewVO> SelectReview(ReviewVO rvo) {
+	public List<ReviewVO> SelectReview(ProductVO rvo) {
 		System.out.println("service SelectReview");
 		return productDao.SelectReview(rvo);
 	}
 	
+	// 리뷰 카운트 제한
+	@Override
+	public int getReviewCnt(ReviewVO vo){
+		System.out.println("service SelectRgetReviewCnteview");
+		return productDao.getReviewCnt(vo);
+	}
 	// 상점 등록하기
 	@Override
 	public void InsertStore(StoreVO svo) {
