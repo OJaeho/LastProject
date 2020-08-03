@@ -43,8 +43,8 @@ public class cartDaoImpl implements cartDao {
 	}
 	//장바구니 리스트 삭제
 	@Override
-	public void deleteShoppingCart(int bId1) {
-		mybatis.delete("buyMapper.deleteShoppingCart", bId1);
+	public int deleteShoppingCart(int bId) {
+		return mybatis.delete("buyMapper.deleteShoppingCart", bId);
 	}
 	//상품 디테일 창에서 장바구니 삭제
 	@Override
@@ -52,4 +52,8 @@ public class cartDaoImpl implements cartDao {
 		return mybatis.delete("buyMapper.deleteDetailCart",bId);
 		
 	}
+
+	
+	
+	
 }

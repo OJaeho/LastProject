@@ -2,6 +2,7 @@ package com.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -79,12 +81,12 @@ public class cartController {
 	}
 	
 	//장바구니 페이지 상품 삭제
-	@RequestMapping("/deleteShoppingCart.user")
-	public String deleteCart(String bId, HttpServletRequest request,Model model){
+	@ResponseBody
+	@RequestMapping(value = "/deleteShoppingCart.user")
+	public int deleteCart(int bId, Model model){
 		model.addAttribute("list", con.selectFooter());
-		int bId1 = Integer.parseInt(bId);
-		cartservice.deleteShoppingCart(bId1);
-		return "redirect:/shopping.checking";
+		int result = cartservice.deleteShoppingCart(bId);
+		return result;
 	}
 	
 	//상품디테일창 장바구니 영역에서 삭제
@@ -106,6 +108,8 @@ public class cartController {
 			e.printStackTrace();
 		}return "redirect:/product-detail.user?pPrice="+pPrice+"&pName="+pName1;
 	}
+	
+	
 	
 }
 

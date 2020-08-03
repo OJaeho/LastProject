@@ -176,7 +176,7 @@
 											<table style="width: 482px; margin: auto;">
 												<tr style="text-align: center;">
 													<td style="width: 100px;"><input
-														class="btn btn-success" type="submit" value="바로 구매하기"
+														class="btn btn-success" type="button" value="바로 구매하기"
 														style=""
 														onclick="javascript: form.action='/manage/update';" /></td>
 													<td><a href="shopping.checking"><input id="cartBtn"

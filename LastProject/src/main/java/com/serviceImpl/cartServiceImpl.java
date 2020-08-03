@@ -44,8 +44,8 @@ public class cartServiceImpl implements cartService {
 	
 	//장바구니 리스트 삭제
 	@Override
-	public void deleteShoppingCart(int bId1) {
-		cartdao.deleteShoppingCart(bId1);
+	public int deleteShoppingCart(int bId) {
+		return cartdao.deleteShoppingCart(bId);
 	}
 	
 	//상품 디테일 창에서 장바구니 삭제
@@ -54,5 +54,7 @@ public class cartServiceImpl implements cartService {
 		return cartdao.deleteDetailCart(bId);
 		
 	}
+	
+	
 
 }
