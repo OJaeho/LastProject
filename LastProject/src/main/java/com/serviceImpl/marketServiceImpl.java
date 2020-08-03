@@ -9,6 +9,8 @@ import com.daoImpl.marketDaoImpl;
 import com.service.marketService;
 import com.vo.IssueVO;
 import com.vo.MarketVO;
+import com.vo.NoticeVO;
+import com.vo.QnaVO;
 
 @Service("marketService")
 public class marketServiceImpl implements marketService {
@@ -95,6 +97,20 @@ public class marketServiceImpl implements marketService {
 	public MarketVO selectMkName(int mkId) {
 		
 		return marketDao.selectMkName(mkId);
+	}
+	
+	// 홈화면 공지/이슈/qna 가져오기
+	@Override
+	public List<NoticeVO> selectnotice(NoticeVO nvo) {
+		return marketDao.selectnotice(nvo);
+	}
+	@Override
+	public List<IssueVO> selectissue(IssueVO ivo) {
+		return marketDao.selectissue(ivo);
+	}
+	@Override
+	public List<QnaVO> selectqna(QnaVO qvo) {
+		return marketDao.selectqna(qvo);
 	}
 	
 	

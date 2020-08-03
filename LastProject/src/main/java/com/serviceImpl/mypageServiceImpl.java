@@ -13,12 +13,12 @@ import com.service.mypageService;
 public class mypageServiceImpl implements mypageService {
 	private int totalRecCount;		// 전체 레코드 수	
 	private int pageTotalCount;		// 전체 페이지 수
-	private int countPerPage = 3;	// 한페이지당 레코드 수
+	private int countPerPage = 5;	// 한페이지당 레코드 수
 	
 	@Autowired
 	mypageDao mypageDao;
 	@Override
-	public List<HashMap> payList(String pNum,String id) {
+	public List<HashMap<String, Object>> payList(String pNum,String id) {
 		int pageNum=1;
 		if(pNum != null) pageNum = Integer.parseInt(pNum);
 		

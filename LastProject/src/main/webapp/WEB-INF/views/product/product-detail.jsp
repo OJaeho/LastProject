@@ -176,7 +176,7 @@
 											<table style="width: 482px; margin: auto;">
 												<tr style="text-align: center;">
 													<td style="width: 100px;"><input
-														class="btn btn-success" type="button" value="바로 구매하기"
+														class="btn btn-success" type="submit" value="바로 구매하기"
 														style=""
 														onclick="javascript: form.action='/manage/update';" /></td>
 													<td><a href="shopping.checking"><input id="cartBtn"
@@ -305,7 +305,7 @@
 												</div>
 
 
-												<c:if test="${not empty bId}">
+												<c:if test="${not empty payId and getReviewCnt eq 0}">
 
 													<!-- Add review -->
 
@@ -314,6 +314,8 @@
 													<p class="stext-102 cl6">당신의 응원에 많은 소상공인이 힘을 냅니다 *</p>
 													<form action="insertreview.user" class="w-full"
 														method="get">
+														<input type="hidden" value=${payId} name="payId">
+														<input type="hidden" value=${item.pId} name="pId">
 														<div class="flex-w flex-m p-t-50 p-b-23">
 															<span class="stext-102 cl3 m-r-16"> ID 입력 </span> <input
 																type="text" name="rWriter" placeholder="여기에 입력해주세요.">

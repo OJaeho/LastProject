@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
+
 select {
 width: 70px;
 padding: .8em .5em;
@@ -34,10 +36,11 @@ div {
     box-sizing: border-box;
 }
 
-body, button, input, select, table, textarea {
-    font-family: 'Noto Sans','맑은 고딕','Malgun Gothic',Arial,Helvetica,sans-serif,Lucida,Grande,'Microsoft YaHei','Hiragino Sans GB',SimSun,Meiryo;
-    font-size: 13px;
+html, body, button, input, select, table, textarea, div, li, h1, h2, h3, h4, h5, a,
+span {
+	font-family : 'Nanum Gothic';
 }
+
 
 .joinfont {
     font-family: 'Noto Sans','맑은 고딕','Malgun Gothic',Arial,Helvetica,sans-serif,Lucida,Grande,'Microsoft YaHei','Hiragino Sans GB',SimSun,Meiryo;
@@ -864,3 +867,18 @@ body{
     position: absolute;
     right: 65px;
 }
+
+.intro_font_bold{
+	font-weight: bold;
+}
+
+.intro_content_font{
+	color: #6a6a6ad1;
+    font-size: 15px;
+}
+
+.mypage_content_font{
+    color: #6f6f6fd1;
+    font-size: 15px;
+}
+
