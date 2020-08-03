@@ -163,10 +163,10 @@
 					<form action='index2.user' method="get">
 						<ul class="list_info">
 						<li>
-						<select name="mkName" class="mkName" style="width: 200px; height: 50px;">
+						<select name="mkId" class="mkName" style="width: 200px; height: 50px;">
 						 <option value="selected">선 택</option>
 						  	<c:forEach var="item" items="${list}" >
-					    		<option value="${item.mkName}">${item.mkName}</option>
+					    		<option value="${item.mkId}">${item.mkName}</option>
 						  	</c:forEach>
 						</select>
 						<input name="select_item" id="submit" type="submit" value="GO"	style="width: 100px; height: 50px;">

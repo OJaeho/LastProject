@@ -56,7 +56,12 @@ import com.vo.QnaVO;
 		public int selectUserMarket(String userName) {
 			HashMap m=new HashMap();
 			m.put("userName", userName);
-			return mybatis.selectOne("QnA.selectUserMarket",m);
+			//시장 아이디 일경우에는  return 값이 있지만 시장이 아닌 사용자일 경우는 정해진 시장 id가 없기에 null값이다. 
+			//null 값일 경우 0으로 return int형은 null return 이 존재하지 않는다.
+			if (mybatis.selectOne("QnA.selectUserMarket",m) == null) {
+				return 0;
+			}
+			return mybatis.selectOne("QnA.selectUserMarket",m) ;
 		}
 		//답변 등록
 		@Override
