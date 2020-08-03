@@ -11,20 +11,24 @@ import com.dao.cartDao;
 import com.dao.mypageDao;
 import com.vo.BuyVO;
 
-@Repository("cartdao")
+@Repository("mypagedao")
 public class mypageDaoImpl implements mypageDao {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
 	@Override
-	public List<HashMap> getPayList(int firstRow, int endRow, String id) {
-		return null;
+	public List<HashMap<String, Object>> getPayList(int firstRow, int endRow, String id) {
+		HashMap m = new HashMap();
+		m.put("first", firstRow);
+		m.put("end", endRow);
+		m.put("id", id);
+		return mybatis.selectList("mypageMapper.selectPayList",m);
 	}
 
 	@Override
 	public int getTotalCount(HashMap map) {
-		return 0;
+		return mybatis.selectOne("mypageMapper.getTotal",map);
 	}
 	
 }
