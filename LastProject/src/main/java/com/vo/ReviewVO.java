@@ -8,7 +8,7 @@ public class ReviewVO {
 	private String rTitle;
 	private String rDate;
 	private String delYn;
-	private String rWriter;
+	private String userName;
 	private int mkId;
 	private int pId;
 	
@@ -31,11 +31,12 @@ public class ReviewVO {
 	public void setMkId(int mkId) {
 		this.mkId = mkId;
 	}
-	public String getrWriter() {
-		return rWriter;
+	
+	public String getUserName() {
+		return userName;
 	}
-	public void setrWriter(String rWriter) {
-		this.rWriter = rWriter;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public float getrRating() {
 		return rRating;
