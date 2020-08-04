@@ -14,7 +14,10 @@
 
 <!-- 리뷰리스트 -->
 <select id="selectReviewList" parameterType="hashmap" resultType="hashmap">
-select hello.* from (select rownum rm,r.rid,r.payid,r.rcontent,r.rdate,r.delyn,r.mkid,r.rrating,r.pid,r.username,s.sname from review r , product p, store s where r.pid=p.pid and p.sid=s.sid and r.username=#{id} and r.delyn='N') hello 
+select hello.* from (select rownum
+
+]
+ rm,r.rid,r.payid,r.rcontent,r.rdate,r.delyn,r.mkid,r.rrating,r.pid,r.username,s.sname from review r , product p, store s where r.pid=p.pid and p.sid=s.sid and r.username=#{id} and r.delyn='N') hello 
 where rm between #{first} and #{end} 
 </select>
 
