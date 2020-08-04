@@ -47,8 +47,8 @@ categoryname{
 }
 
 .storeimg{
-	width:270px;
-	height:270px;
+	width:250px;
+	height:200px;
 }
 #storeinfo{
 	width:270px;
@@ -61,7 +61,11 @@ categoryname{
 .container{
 	padding: 10px 10px 10px 10px;
 }
-.first>.second>#storeallview{
-	position:relative;
-	height: auto;
+#storeallview{
+	position:relative !important;
+	height: auto  !important;
+}
+
+.product-Tel-font{
+	font-size: 13px;
 }

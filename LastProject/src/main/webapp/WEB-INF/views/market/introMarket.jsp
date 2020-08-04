@@ -80,11 +80,11 @@
 
 	<!-- Content page -->
 
-	<section class="bg0 p-t-75 p-b-120">
+	<section class="bg0 p-t-75 txt-center">
 		<div class="container">
 			<div class="row p-b-148">
-				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+				<div class="">
+					<div id="mangwon">
 						<h3 class="cl2 p-b-16 theme_color news-underbar"
 						style="font-size: 27px;font-weight: bold;">시장소개</h3>
 						<div style="margin-left: auto; margin-right: auto; margin: 10px;">
@@ -95,8 +95,7 @@
 										class="gallery_area _image_view_container type5 align_l v_align_m black_bg sma   txt_none">
 
 										<div class="gallery_img">
-											<a href=""><img alt="" src="${intro.mkImg1}" alt="이미지"
-												width="1000" height="800"></a>
+											<a href=""><img src="${intro.mkImg1}" alt="이미지"></a>
 										</div>
 										<div class="mask_bg" style="opacity: 0;"></div>
 									</div>
@@ -126,10 +125,11 @@
 								<div class="component_box _component" data-index="4">
 									<div class="txt_box">
 										<div class="txt_component color2 big align_c t_space">
-											<p class="intro_content_font">${intro.mkIntro}</p>
+											<p class="intro_content_font txt-center">${intro.mkIntro}</p>
 										</div>
 									</div>
 								</div>
+								<hr>
 								<!-- 여백 -->
 								<div class="component_box _component" data-index="5">
 									<div class="division_line">
@@ -143,11 +143,9 @@
 									</div>
 								</div>
 								<!-- 이미지2 삽입할곳 -->
-								<div class="component_box component_margin _component"
-									data-index="7">
+								<div class="component_box component_margin _component" data-index="7">
 									<div class="gallery_img">
-										<a href=""><img alt="" src="${intro.mkImg2}" alt="이미지"
-											width="1000" height="800"></a>
+										<a href=""><img alt="" src="${intro.mkImg2}" alt="이미지" style="width: 100%; height: auto;"></a>
 									</div>
 									<div class="mask_bg" style="opacity: 0;"></div>
 								</div>
@@ -170,9 +168,9 @@
 
 								<!-- 시장 소개넣은곳(mkCount) -->
 								<div class="" data-index="10">
-									<div class="txt_box">s
+									<div class="txt_box">
 										<div class="txt_component color2 big align_c t_space ">
-											<p class="intro_content_font">음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
+											<p class="intro_content_font txt-center">음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
 												있고,</p>
 										</div>
 									</div>
@@ -191,7 +189,7 @@
 											<h3 class="intro_font_bold">시장이 생긴 날짜는</h3>
 										</div>
 											<div class="txt_component color2 big align_c t_space ">											
-											<p class="intro_content_font">${intro.mkDate} 입니다.</p>
+											<p class="intro_content_font txt-center">${intro.mkDate} 입니다.</p>
 										</div></div>
 									</div>
 								</div>
@@ -237,7 +235,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 
 	<!-- footer -->

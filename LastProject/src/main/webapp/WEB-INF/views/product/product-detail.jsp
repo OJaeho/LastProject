@@ -57,8 +57,9 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 
 <!--===============================================================================================-->
 </head>

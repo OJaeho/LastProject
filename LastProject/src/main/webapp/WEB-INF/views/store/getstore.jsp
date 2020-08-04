@@ -54,28 +54,36 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/product.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
 
 </head>
 <body class="animsition">
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
-	<!-- Title page -->
+	<!-- 타이틀페이지 -->
+   <section class="bg-img1 txt-center p-lr-15" id="title_section" style="background-image: url('images/bg-01.jpg');">
+	<h2 class="tour-title theme_color type_block">
+	<span class="notice_title_bullet them_background"></span>
+	<img src="https://modo-phinf.pstatic.net/20171104_110/15097368212131akdH_JPEG/mosaI0btd3.jpeg?type=f320_320">
+	</h2>
+   </section>  
 	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120">
-		<div class="container" style="position: relative; height: auto;">
-			<!-- category -->
-			<div class="storeview">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<c:forEach items="${categoryget}" var="cate">
-						<form action="showstore.user" method="get">
-							<div class="button">
-								<input type="submit" class="btn btn-link" style="color: green;"
-									name="cName" value="${cate.cName}">
-							</div>
-						</form>
-					</c:forEach>
+	<div class="container">
+		<!-- Product -->
+		
+		<!-- category -->
+		<div class="flex-w flex-sb-m">
+			<div class="flex-w flex-l-m filter-tope-group m-tb-10" style="padding-left: 3em;">
+				<c:forEach items="${categoryget}" var="cate">
+					<form action="showstore.user" method="get">
+						<div class="button">
+							<input type="submit" class="btn btn-link" style="color: green;"
+								name="cName" value="${cate.cName}">
+						</div>
+					</form>
+				</c:forEach>
 				</div>
 
 				<!-- 점포 -->
@@ -91,7 +99,7 @@
 								<div>
 									<div>
 										<a href="store-detail.user?sName=${store.sName}" style="color: green;">
-											${store.sName} </a><br /> <span>${store.sTel}</span>
+											${store.sName} </a><br /> <span class="product-Tel-font">${store.sTel}</span>
 									</div>
 								</div>
 							</div>
