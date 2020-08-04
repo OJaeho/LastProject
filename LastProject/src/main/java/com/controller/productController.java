@@ -1,14 +1,13 @@
 package com.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -116,7 +115,7 @@ public class productController {
 
 	// 상품 디테일 페이지 이동
 	@RequestMapping(value = "/product-detail.user")
-	public String detailproduct(Model model, ProductVO vo, String payId, ReviewVO rvo,HttpSession session) {
+	public String detailproduct(Model model, ProductVO vo, String payId, ReviewVO rvo,HttpSession session,HttpServletRequest request) {
 		int mkId = (int) session.getAttribute("mkId");
 		vo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
@@ -129,6 +128,7 @@ public class productController {
 		model.addAttribute("productget", productinfo);
 		model.addAttribute("optionget", productoption);
 		model.addAttribute("reviewget", review);
+		model.addAttribute("Id",request.getRemoteUser());
 		if (payId != null) {
 			model.addAttribute("payId", payId);
 		} else {
@@ -178,12 +178,14 @@ public class productController {
 
 	// 리뷰 달기
 	@RequestMapping(value = "/insertreview.user")
-	public String InsertReview(ReviewVO rvo, Model model,HttpSession session) {
+	public String InsertReview(ReviewVO rvo,ProductVO pvo, Model model,HttpSession session,HttpServletRequest request) throws Exception {
 		model.addAttribute("list", con.selectFooter());
 		int mkId = (int) session.getAttribute("mkId");
 		rvo.setMkId(mkId);
+		rvo.setUserName(request.getRemoteUser());//현재 로그인한 사람이 리뷰를 작성한것이니
 		service.InsertReview(rvo);
-		return "redirect:/getproduct.user";
+//		String pName=URLEncoder.encode(pvo.getpName(), "UTF-8");//한글이어서 utf-8로 인코딩 필요
+		return "redirect:/product-detail.user?pName="+URLEncoder.encode(pvo.getpName(), "UTF-8")+"&pPrice="+pvo.getpPrice()+"&pId="+pvo.getpId();
 	}
 
 	// 상점등록 페이지 이동

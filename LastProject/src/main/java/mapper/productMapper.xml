@@ -107,8 +107,8 @@
 	<!-- 리뷰 정보 넣기 -->
 	<insert id="insertReview" parameterType="review">
 		insert into
-		review(rid,rdate,rcontent,rwriter,rrating,payid,delyn,mkid,pid)
-		values(seq_rid.nextval,sysdate,#{rContent},#{rWriter},#{rRating},#{payId},
+		review(rid,rdate,rcontent,username,rrating,payid,delyn,mkid,pid)
+		values(seq_rid.nextval,sysdate,#{rContent},#{userName},#{rRating},#{payId},
 		'N',#{mkId},#{pId})
 	</insert>
 
