@@ -18,9 +18,7 @@ public class LoginController {
 	@RequestMapping(value = "/login/loginForm.user", method = RequestMethod.GET)
 	public String loginFor(Locale locale, Model model,HttpSession session) {
 		logger.info("Welcome Login Form!");
-		
 		session.getAttribute("mkId");
-		System.out.println("여기는 로그인 콘트롤럴 1 "+session.getAttribute("mkId"));
 		return "login/loginForm";
 	}
 	
@@ -30,4 +28,5 @@ public class LoginController {
 		
 		return "login/accessDenied";
 	}
+	
 }

@@ -1,7 +1,7 @@
 package com.controller;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.service.productService;
+import com.vo.BuyVO;
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
@@ -34,69 +35,96 @@ public class productController {
 	private marketController con;
 
 	// 상품 리스트 가져오기
-	@RequestMapping(value = "/getproduct.user")
-	public String SelectProduct(ProductVO vo, Model model,HttpSession session) {
-		model.addAttribute("list", con.selectFooter());
-		int mkId = (int) session.getAttribute("mkId");
-		vo.setMkId(mkId);
-		
-		List<ProductVO> product = service.SelectProduct(vo);
-		List<CategoryVO> category = service.StoreCategory();
-		// 카테고리 정보 가져오기
-		model.addAttribute("categoryget", category);
-		// 상품 정보 가져오기
-		model.addAttribute("productget", product);
-		return "product/getproduct";
-	}
+		@RequestMapping(value = "/getproduct.user")
+		public String SelectProduct(ProductVO vo,BuyVO bvo, Model model,HttpSession session,HttpServletRequest req) {
+			model.addAttribute("list", con.selectFooter());
+			int mkId = (int) session.getAttribute("mkId");
+			vo.setMkId(mkId);
+			String username = req.getRemoteUser();
+			bvo.setUserName(username);
+			bvo.setMkId(mkId);
+			List<ProductVO> product = service.SelectProduct(vo);
+			List<CategoryVO> category = service.StoreCategory();
+			List<HashMap<String, Object>> cart = service.selectcart(bvo);
+			
+			//for jang var=jang ====> ${jang.PIMG1 }
+			//cart.get(cart.size()).get("PIMG1");
+			
+			// 카트 배너
+			model.addAttribute("cartget", cart);
+			// 카테고리 정보 가져오기
+			model.addAttribute("categoryget", category);
+			// 상품 정보 가져오기
+			model.addAttribute("productget", product);
+			return "product/getproduct";
+		}
 
 	// 상품 검색
 	@RequestMapping(value = "/searchproduct.user")
-	public String SearchProduct(ProductVO vo, Model model,HttpSession session) {
+	public String SearchProduct(ProductVO vo,BuyVO bvo, Model model,HttpSession session,HttpServletRequest req) {
 		int mkId = (int) session.getAttribute("mkId");
 		vo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
 		List<ProductVO> product = service.SearchProduct(vo);
 		List<CategoryVO> category = service.StoreCategory();
+		String username = req.getRemoteUser();
+		bvo.setUserName(username);
+		bvo.setMkId(mkId);
+		List<HashMap<String, Object>> cart = service.selectcart(bvo);
 		// 상품 정보 가져오기
 		model.addAttribute("productget", product);
 		// 카테고리 정보 가져오기
 		model.addAttribute("categoryget", category);
+		// 카트 배너
+		model.addAttribute("cartget", cart);
 		return "product/getproduct";
 	}
 
 	// 상품 가격 낮은순
 	@RequestMapping(value = "/lowitem.user")
-	public String lowitem(ProductVO vo, Model model,HttpSession session) {
+	public String lowitem(ProductVO vo,BuyVO bvo, Model model,HttpSession session,HttpServletRequest req) {
 		int mkId = (int) session.getAttribute("mkId");
 		vo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
 		List<ProductVO> product = service.LowItem(vo);
 		List<CategoryVO> category = service.StoreCategory();
+		String username = req.getRemoteUser();
+		bvo.setUserName(username);
+		bvo.setMkId(mkId);
+		List<HashMap<String, Object>> cart = service.selectcart(bvo);
 		// 상품 정보 가져오기
 		model.addAttribute("productget", product);
 		// 카테고리 정보 가져오기
 		model.addAttribute("categoryget", category);
+		// 카트 배너
+		model.addAttribute("cartget", cart);
 		return "product/getproduct";
 	}
 
 	// 상품 가격 높은순
 	@RequestMapping(value = "/highitem.user")
-	public String highitem(ProductVO vo, Model model,HttpSession session) {
+	public String highitem(ProductVO vo,BuyVO bvo, Model model,HttpSession session,HttpServletRequest req) {
 		int mkId = (int) session.getAttribute("mkId");
 		vo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
 		List<ProductVO> product = service.HighItem(vo);
 		List<CategoryVO> category = service.StoreCategory();
+		String username = req.getRemoteUser();
+		bvo.setUserName(username);
+		bvo.setMkId(mkId);
+		List<HashMap<String, Object>> cart = service.selectcart(bvo);
 		// 상품 정보 가져오기
 		model.addAttribute("productget", product);
 		// 카테고리 정보 가져오기
 		model.addAttribute("categoryget", category);
+		// 카트 배너
+		model.addAttribute("cartget", cart);
 		return "product/getproduct";
 	}
 
 	// 상품 카테고리 통해 검색
 	@RequestMapping(value = "/categoryitem.user")
-	public String SearchCategory(CategoryVO cvo, ProductVO vo, Model model,HttpSession session) {
+	public String SearchCategory(CategoryVO cvo,BuyVO bvo, ProductVO vo, Model model,HttpSession session,HttpServletRequest req) {
 		int mkId = (int) session.getAttribute("mkId");
 		vo.setMkId(mkId);
 		cvo.setMkId(mkId);
@@ -104,12 +132,18 @@ public class productController {
 		List<ProductVO> product = service.SearchProduct(vo);
 		List<CategoryVO> category = service.StoreCategory();
 		List<ProductVO> cateitem = service.SearchCategory(cvo);
+		String username = req.getRemoteUser();
+		bvo.setUserName(username);
+		bvo.setMkId(mkId);
+		List<HashMap<String, Object>> cart = service.selectcart(bvo);
 		// 상품 정보 가져오기
 		model.addAttribute("productget", product);
 		// 카테고리 정보 가져오기
 		model.addAttribute("categoryget", category);
 		// 카테고리 선택된 상품 정보 가져오기
 		model.addAttribute("productget", cateitem);
+		// 카트 배너
+		model.addAttribute("cartget", cart);
 		return "product/getproduct";
 	}
 
@@ -153,8 +187,7 @@ public class productController {
 	public String detailstore(String sName, Model model, StoreVO vo,HttpSession session) {
 		model.addAttribute("list", con.selectFooter());
 		int mkId = (int) session.getAttribute("mkId");
-		vo.setmkId(mkId);
-		
+		vo.setMkId(mkId);
 		List<StoreVO> storeinfo = service.StoreInfo(vo);
 		model.addAttribute("storeget", storeinfo);
 		return "store/store-detail";
@@ -192,7 +225,7 @@ public class productController {
 	@RequestMapping(value = "/insertstore.market", method = RequestMethod.GET)
 	public String InsertStorepage(StoreVO vo,CategoryVO cvo, Model model,HttpSession session) {
 		int mkId = (int) session.getAttribute("mkId");
-		vo.setmkId(mkId);
+		vo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
 		List<CategoryVO> category = service.SelectMarket(cvo);
 		model.addAttribute("categoryget", category);
@@ -206,7 +239,7 @@ public class productController {
 		int cId = service.findcid(cName);
 		// 시장의 key값을 세션에서 가져옴
 		int mkId = (int) session.getAttribute("mkId");
-		svo.setmkId(mkId);
+		svo.setMkId(mkId);
 		svo.setcId(cId);
 		service.InsertStore(svo);
 		return "redirect:/storelist.user";
@@ -216,7 +249,7 @@ public class productController {
 	@RequestMapping(value = "/insertproduct.market", method = RequestMethod.GET)
 	public String InsertProductpage(ProductVO vo,StoreVO svo, Model model,HttpSession session) {
 		int mkId = (int) session.getAttribute("mkId");
-		svo.setmkId(mkId);
+		svo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
 		List<StoreVO> storeinfo = service.StoreInfo(svo);
 		model.addAttribute("storeget", storeinfo);

@@ -3,11 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+	
 <%@page import="com.vo.ProductVO"%>
 <%@page import="com.vo.CategoryVO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<link href="https://fonts.googleapis.com/css?family=Fredoka One" rel="stylesheet">
 <title>Product</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -53,28 +55,43 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css" href="./resources/css/product.css">
+<link rel="stylesheet" type="text/css"
+	href="./resources/css/product.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
-
+<style type="text/css">
+#floatMenu {
+	float:right;
+	position: absolute;
+	width: 200px;
+	height: auto;
+	left: 1650px;
+	top: 400px;
+	background-color: white;
+	border:solid 1px yellow;
+	color: #black;
+}
+</style>
 </head>
 <body class="animsition">
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- 타이틀페이지 -->
-   <section class="bg-img1 txt-center p-lr-15" id="title_section" style="background-image: url('images/bg-01.jpg');">
-	<h2 class="tour-title theme_color type_block">
-	<span class="notice_title_bullet them_background"></span>
-	<img src="https://modo-phinf.pstatic.net/20171104_110/15097368212131akdH_JPEG/mosaI0btd3.jpeg?type=f320_320">
-	</h2>
-   </section>  
+	<section class="bg-img1 txt-center p-lr-15" id="title_section"
+		style="background-image: url('images/bg-01.jpg');">
+		<h2 class="tour-title theme_color type_block">
+			<span class="notice_title_bullet them_background"></span> <img
+				src="https://modo-phinf.pstatic.net/20171104_110/15097368212131akdH_JPEG/mosaI0btd3.jpeg?type=f320_320">
+		</h2>
+	</section>
 	<!-- Content page -->
-	<div class="container">
+	<div class="container" style="width: 2000px;">
 		<!-- Product -->
-		
+
 		<!-- category -->
 		<div class="flex-w flex-sb-m">
-			<div class="flex-w flex-l-m filter-tope-group m-tb-10" style="padding-left: 3em;">
+			<div class="flex-w flex-l-m filter-tope-group m-tb-10"
+				style="padding-left: 3em;">
 				<c:forEach items="${categoryget}" var="cate">
 					<form action="categoryitem.user" method="get">
 						<div class="button">
@@ -110,27 +127,48 @@
 
 			<!-- Search product -->
 			<div class="dis-none panel-search w-full p-t-10 p-b-15">
-				<div class="border-pro dis-flex p-l-15" style="width: 20rem; height: 5rem;
-}">
-					<form action="searchproduct.user" method="get" value="검색" >
+				<div class="border-pro dis-flex p-l-15"
+					style="width: 20rem; height: 5rem;">
+					<form action="searchproduct.user" method="get" value="검색">
 						<input class="pro-text cl2 size-114 plh2 p-r-15" type="text"
-							name="keyword" placeholder="키워드를 입력하시오."> 
-						<input class="btn-addr" type="hidden" value="검색">
+							name="keyword" placeholder="키워드를 입력하시오."> <input
+							class="btn-addr" type="hidden" value="검색">
 					</form>
 				</div>
 			</div>
 		</div>
-
+		<div id="floatMenu" >
+		<ul>
+		<img src="./resources/images/logo.png" style="width: 200px;">
+		</ul>
+		<ul style="text-align: center;">
+		<img src="./resources/images/cart.PNG" style="width: 50px;height:50px;">
+		</ul><br/>
+		<table style="width: auto;">
+		
+		<c:forEach items="${cartget}" var="list">
+		<input type="hidden" >
+		<tr style="border: solid 1px lightgrey; ">
+		<td><img src="${list.PIMG1}" style="width: 40px;height:40px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"></td>
+		<td style="font-family: 'Fredoka One';">${list.BTITLE} ${list.BOPTION} ${list.BQUANTITY}EA</td>
+		</tr>
+		</c:forEach>
+		</table>
+		<ul>
+		<br/>
+		<a href="shopping.checking" style="color: green;">장바구니로 이동
+		</ul>
+		</div>
 
 		<!-- 상품 -->
 		<div class="row isotope-grid">
 
 			<c:choose>
 				<c:when test="${empty productget}">
-				<div>
-					<img class='readyimg' src="./resources/images/ready.jpg"
-						alt="IMG-PRODUCT">
-				</div>
+					<div>
+						<img class='readyimg' src="./resources/images/ready.jpg"
+							alt="IMG-PRODUCT">
+					</div>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${productget}" var="list">
@@ -169,13 +207,15 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+
 	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">

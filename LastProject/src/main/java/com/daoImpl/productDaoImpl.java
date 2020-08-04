@@ -1,5 +1,6 @@
 package com.daoImpl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dao.productDao;
+import com.vo.BuyVO;
 import com.vo.CategoryVO;
 import com.vo.MarketVO;
 import com.vo.ProductVO;
@@ -141,5 +143,12 @@ public class productDaoImpl implements productDao {
 	public int findsid(String sName) {
 		System.out.println("===> ProductMapper findsid 호출");
 		return mybatis.selectOne("product.findsid", sName);
+	}
+	
+	// 장바구니 배너
+	@Override
+	public List<HashMap<String, Object>> selectcart(BuyVO bvo) {
+		System.out.println("===> ProductMapper selectcart 호출");
+		return mybatis.selectList("product.selectcart", bvo);
 	}
 }

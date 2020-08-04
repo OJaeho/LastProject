@@ -155,5 +155,10 @@
 		select
 		sid from store where sname=#{sName} and delyn='N'
 	</select>
+	
+	<!-- 장바구니 배너 -->
+	<select id="selectcart" parameterType="buy" resultType="hashmap">
+		select * from product p,buy b where b.username=#{userName}  and b.pid=p.pid
+	</select>
 
 </mapper>
