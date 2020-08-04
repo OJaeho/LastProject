@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.dao.cartDao;
 import com.dao.mypageDao;
 import com.vo.BuyVO;
+import com.vo.ReviewVO;
 
 @Repository("mypagedao")
 public class mypageDaoImpl implements mypageDao {
@@ -29,6 +30,20 @@ public class mypageDaoImpl implements mypageDao {
 	@Override
 	public int getTotalCount(HashMap map) {
 		return mybatis.selectOne("mypageMapper.getTotal",map);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> getReviewList(int firstRow, int endRow, String id) {
+		HashMap m = new HashMap();
+		m.put("first", firstRow);
+		m.put("end", endRow);
+		m.put("id", id);
+		return mybatis.selectList("mypageMapper.selectReviewList",m);
+	}
+
+	@Override
+	public int deleteReview(ReviewVO rvo) {
+		return mybatis.update("mypageMapper.deleteReview",rvo);
 	}
 	
 }

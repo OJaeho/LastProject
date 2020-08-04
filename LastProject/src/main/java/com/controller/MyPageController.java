@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.service.mypageService;
+import com.vo.ReviewVO;
 
 @Controller
 public class MyPageController {
@@ -70,11 +71,37 @@ public class MyPageController {
 		model.addAttribute("list", con.selectFooter()); //footer처리
 		HashMap map = new HashMap();
 		map.put("table", "pay"); //내가 출력할 리스트 행갯수 출력을 위해 조건을 hashmap에 저장
-		map.putIfAbsent("condition1",id );
+		map.put("condition1","username" );
+		map.put("value1", id); 
 		model.addAttribute("totalpNum", service.getTotalCount(map));// qna 총 페이지 수
 		model.addAttribute("payList", service.payList(pageNum,id));
 		
 		return "mypage/PayList";
 		
+	}
+	//리뷰 리스트
+	@RequestMapping("/reviewList.user")
+	public String reviewList(String pNum,HttpServletRequest request,Model model) {
+		String pageNum = "1";
+		if (pNum != null) {
+			pageNum = pNum;
+		}
+		//현재 로그인 된 아이디
+		String id= request.getRemoteUser();
+		HashMap map = new HashMap();
+		map.put("table", "review"); //내가 출력할 리스트 행갯수 출력을 위해 조건을 hashmap에 저장
+		map.put("condition1","username" );
+		map.put("value1", id);
+		model.addAttribute("totalpNum", service.getTotalCount(map));// qna 총 페이지 수
+		model.addAttribute("reviewget", service.reviewList(pageNum,id));
+		
+		return "mypage/ReviewList";
+	}
+	
+	@RequestMapping("/deleteReview.user")
+	public String deleteReview(ReviewVO rvo) {
+		service.deleteReview(rvo);
+		
+		return "redirect:/reviewList.user";
 	}
 }
