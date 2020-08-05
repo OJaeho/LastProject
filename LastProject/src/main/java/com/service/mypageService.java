@@ -3,6 +3,8 @@ package com.service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+
 import com.vo.ReviewVO;
 
 public interface mypageService {
@@ -12,4 +14,6 @@ public interface mypageService {
 	int getTotalCount(HashMap map); //테이블의 전체 글 갯수 가져오기
 	List<HashMap<String, Object>> reviewList(String pNum, String id);//id조건 리뷰 리스트 가져오기
 	int deleteReview(ReviewVO rvo);//review delyn "Y" 처리
+	public JSONObject userFoodRank(String id); //user별/주문많이한 음식
+	public JSONObject userMoneyChart(String id); //user별/기간별 돈사용한 시간
 }

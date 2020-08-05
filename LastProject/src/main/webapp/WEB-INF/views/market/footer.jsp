@@ -164,8 +164,10 @@
 						<ul class="list_info">
 						<li>
 						<select name="mkId" class="mkName" style="width: 200px; height: 50px;">
-						 <option value="selected">선 택</option>
 						  	<c:forEach var="item" items="${list}" >
+						  		<c:if test="${item.mkId eq sessionScope.mkId}">
+						  		<option  value="${item.mkId}" selected="selected">${item.mkName}</option>
+						  		</c:if>
 					    		<option value="${item.mkId}">${item.mkName}</option>
 						  	</c:forEach>
 						</select>

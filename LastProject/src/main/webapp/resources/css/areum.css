@@ -37,7 +37,7 @@ div {
 }
 
 html, body, button, input, select, table, textarea, div, li, h1, h2, h3, h4, h5, a,
-span {
+span, div > h4, section, div > h2 {
 	font-family : 'Nanum Gothic';
 }
 
@@ -930,4 +930,48 @@ div > p #mangwon{
     float: left;
     width: 65%;
     text-align: center;
+}
+
+.cart-main-font{
+	text-align: center;
+    font-weight: 800;
+    letter-spacing: 7px;
+}
+
+#orderTotal td{
+	height: 58px;
+    line-height: 20px;
+    text-align: right;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+#orderTotal {
+    line-height: 1.5;
+}
+
+.cart-right{
+	position: relative;
+    right: 0;
+    top: 0;
+    float: right;
+}
+
+#cart-name > a {
+	color: black !important;
+    font-weight: 700 !important;
+}
+
+.cart-li-border-left{
+	border-left: 1px solid #eee;
+    border-radius: 0;
+}
+
+.cart-li-border-right{
+	border-right: 1px solid #eee;
+    border-radius: 0;
+}
+
+.cart-title-border{
+	border-bottom: 1px solid #eee;
 }

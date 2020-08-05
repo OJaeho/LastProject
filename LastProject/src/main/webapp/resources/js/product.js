@@ -21,9 +21,9 @@ $(function() {
 	
 	$(document).on("click","#deleteBtn",function(){
       event.preventDefault();
-      var bId = $("#bId").val();
+      var bId = $(this).parent().next().children().val();
       var dkanrjsk =  $(this).parent().parent();
-      var bro = parseInt($(this).parent().prev().children().val());
+      var bro = parseInt($(this).parent().prev().prev().children().val());
       var total = parseInt($('#paytotal').val());
       var check1 = confirm("취소하시겠습니까??");
       if(check1){
@@ -37,9 +37,8 @@ $(function() {
                contentType : 'application/json;charset=UTF-8',
                dataType : "text",
                success : function(result){
-                  dkanrjsk.remove();
-                  $('#paytotal').val(0);
                   $('#paytotal').val(total-bro);
+                  dkanrjsk.remove();
                },
                error : function(error){
                   alert("왜실패?");
@@ -88,18 +87,18 @@ $(function() {
 	            alert("상품이 장바구니에 추가되었습니다");
 	            var html = '';
 	            for (key in result) {
-	               html += '<tr>';
-	               html += '<td class="listedName"><input type="hidden" id="bId" value="'+result[key].bId+'"+/></td>';
-	               html += '<td class="listedName"><input type="text" value="'+result[key].bOption+'"+/></td>';
-	               html += '<td><input type="text" id="bQuantity" value="'+result[key].bQuantity+'"+/></td>';
-	               html += '<td><input type="text" value="'+result[key].bQuantity*pPrice+'"/></td>';
+	               html += '<tr style="width: 100%;">';
+	               html += '<td style="width: 20%;" class="listedName"><input type="text" value="'+result[key].bOption+'"+/></td>';
+	               html += '<td style="width: 20%;"><input type="text" id="bQuantity" value="'+result[key].bQuantity+'"+/></td>';
+	               html += '<td style="width: 20%;"><input type="text" value="'+result[key].bQuantity*pPrice+'"/></td>';
 	               paytotal += result[key].bQuantity*pPrice;
-	                html +='<td style="width: auto;"><button class="btn_delete" id="deleteBtn">삭제</button></td>';
-	               $("#paytotal").val(paytotal);
+	               html += '<td style="width: 20%;"><input type="text" value="'+result[key].bState+'"/></td>';
+	               html +='<td style="width: 20%; padding-right:100px;"><button class="btn_delete" id="deleteBtn">[x]</button></td>';
+	               html += '<td style="width: 0%;" class="listedName"><input type="hidden" id="bId" value="'+result[key].bId+'"+/></td>';
 	               html += '</tr>';
 	               $("#dynamicTbody").empty();
 	               $("#dynamicTbody").append(html);
-	         }
+	         }$("#paytotal").val(paytotal+"원");
 	         },error : function(request,status,error){
 	            alert(" error = " + error); // 실패 시 처리
 	            console.log(error.responseText);

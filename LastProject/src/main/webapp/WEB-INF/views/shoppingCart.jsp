@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
+<title>Market 3</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png"
@@ -50,11 +51,13 @@
 	padding-top: 58px;
 }
 </style>
+
 </head>
 
 <body class="animsition">
 	<!-- header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
+	
 	<!-- Cart -->
 	<div class="wrap-header-cart js-panel-cart">
 		<div class="s-full js-hide-cart"></div>
@@ -126,55 +129,66 @@
 	<section class="bg0 p-t-52 p-b-20">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-lg-9 p-b-80">
+				<div class="col-md-8 col-lg-9 p-b-80" style="margin: 0 auto;">
 					<div class="p-r-45 p-r-0-lg">
 
-						<h4 style="margin-top: 40px;"
-							class="ltext-109 cl2 p-b-20 theme_color">장바구니</h4>
-						<span class="notice_title_bullet them_background"></span>
+						<h2 style="margin-top: 40px;"
+							class="cl2 p-b-20 theme_color cart-main-font cart-title-border">SHOPPING CART</h2>
+						
 						<div class="container">
 							<div class="row" id="tour">
 								<ul class="nav nav-tabs" style="margin-left: 20%;">
 									<li role="presentation" style="font-size: x-large;"
-										class="navLi"><a href="shopping.checking">전체상품 보기</a></li>
-									<li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+										class="navLi">
+										<a href="shopping.checking">전체상품 보기</a>
+									</li>
 									<li role="presentation" style="font-size: x-large;"
 										class="navLi"><a href="shopping.checking?bState=픽업">포장예약상품
-											보기</a></li>
-									<li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+											보기</a>
+									</li>
 									<li role="presentation" style="font-size: x-large;"
 										class="navLi"><a href="shopping.checking?bState=배송">배송상품
-											보기</a></li>
+											보기</a>
+									</li>
 								</ul>
 							</div>
 						</div>
 
-						<div class="flex-w flex-sb-m p-b-52">
+						<div >
 							<table class="table-cart-01">
 								<thead>
 									<tr>
+										<th scope="col" class="table_cell"></th>
 										<th scope="col" class="table_cell">상품정보</th>
-										<th scope="col" class="table_cell">가격</th>
 										<th scope="col" class="table_cell">수량</th>
 										<th scope="col" class="table_cell">옵션</th>
 										<th scope="col" class="table_cell">주문</th>
+										<th scope="col" class="table_cell">가격</th>
+										<th scope="col" class="table_cell">선택</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach items="${list}" var="list">
 										<tr class="table_row">
 											<td class="cart_table_line-02">
-												<div class="product_desc_wrap--pGO3mDnHCR">
-													<div class="product_description--aMGcm-GMeU">
-														<span class="product_thumb--39N9M1GjTm"> <img
-															src="${list.bImg }" class="product_img--mmk3PpY1tk">
-														</span>  <a href="#"class="test">${list.bTitle}</a>
+												<div class="product_item_wrap">
+													<div class="product_item--price">
+											<input type="hidden" value="${list.bId }"/>
+													<form action="deleteShoppingCart.user">
+														<input type="hidden" value="${list.bId}" name="bId" id="cartBid" />
+														<input type="checkbox" class="totalcheck" checked="checked">
+													</form>
+													<input type="hidden" value="${list.bQuantity*list.bPrice}">
 													</div>
 												</div>
 											</td>
-											<td class="cart_table_line-01">
-												<div class="product_item_wrap">
-													<div class="product_item--price">${list.bPrice}</div>
+											<td class="cart_table_line-02">
+												<div class="product_desc_wrap--pGO3mDnHCR">
+													<div class="product_description--aMGcm-GMeU" id="cart-name">
+														<span class="product_thumb--39N9M1GjTm"> <img
+															src="${list.bImg }" class="product_img--mmk3PpY1tk">
+														</span>  <a href="#" class="test">${list.bTitle}</a>
+													</div>
 												</div>
 											</td>
 											<td class="cart_table_line-01">
@@ -191,87 +205,100 @@
 												<div class="product_item_wrap">
 													<div class="product_item--price">${list.bState}</div>
 													<input type="hidden" value="${list.bId }"/>
-													<form action="deleteShoppingCart.user">
-														<input type="hidden" value="${list.bId}" name="bId" id="cartBid" />
-														<input type="image" src="./resources/images/delete_product.png"	id="cancleCart" value="취소" class="order_btn cancleCart"> 
-														<input type="checkbox" class="totalcheck" checked="checked">
-													</form>
-													<input type="hidden" value="${list.bQuantity*list.bPrice}">
 												</div>
+											</td>
+											<td class="cart_table_line-01">
+												<div class="product_item_wrap">
+												<fmt:formatNumber value="${list.bPrice}" type="number" var="bPrice"/>
+													<div class="product_item--price">${bPrice}</div>
+												</div>
+											</td>
+											<td class="cart_table_line-01">
+											<div class="product_item_wrap">
+												<div class="product_item--price">
+												<form action="deleteShoppingCart.user">
+													<input type="hidden" value="${list.bId}" name="bId" id="cartBid" />
+													<input type="button" src="./resources/images/delete_product.png" id="cancleCart" value="삭제" class="cancleCart join-btn"> 
+												</form>
+												</div>
+											</div>
+												<input type="hidden" value="${list.bId }"/>
 											</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
-
-						<div class="order_calculator--3j3-AVwhfY">
-							<strong class="product_price_total--3usHUQ97oy">총 주문금액</strong> <span
-								class="txt_point--bAwRwaaTcp">
-								 
-								<span class="price--JIZ5vfiqW7"><input type="text" id="totalspan" value="${total}"></span>
-							</span>
-
+						<!-- 총 주문금액  -->
+						<div id="orderTotal">
+							<table style="width: 100%; border: 0; border-spacing: 0;">
+								<tbody>
+								<tr>
+									<td style="padding-bottom: 10px;">
+									총 주문금액 : 
+									<span class="price--JIZ5vfiqW7">
+									<strong>
+									<fmt:formatNumber value="${total}" type="number" var="numberType"/>
+									<span style="font-weight: 900;
+												font-size: 15px;
+												margin: 0 0 0 auto;
+												text-align: right;">
+									${numberType}원
+									</span>
+									</strong>
+									</span>
+									</td>
+								</tr>
+								</tbody>
+							</table>
 							<div align="right" class="m-b-20"></div>
 						</div>
+						
 						<!-- 장바구니 페이지 버튼 -->
-						<div class="flex-w flex-t p-t-16" style="margin-left: 69%">
-							<form action="payment.user">
+						<div class="flex-w flex-t p-t-16 cart-right">
+							<form action="payment.user" style="padding: 0 5px;">
 								<input type="hidden" id="boxValue" name="boxValue">
-								<input type="submit" id="payBtn" style="background-color: black; color: white" value="결제" class="aa flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+								<input type="submit" id="payBtn" value="결제" class="join-btn flex-c-m cl0 size-121 bg3 p-lr-15 trans-04 pointer">
 								<br/>
 							</form>
-							<br />
-							<br /> <a href="getproduct.user"><button
-									style="background-color: black; color: white;"
-									class="aa flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-									쇼핑 계속하기</button></a>
+							 <a href="getproduct.user">
+							 <button class="join-btn flex-c-m cl0 size-121 bg3 p-lr-15 trans-04 pointer">
+									쇼핑 계속하기
+							</button>
+							</a>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-md-4 col-lg-3 p-b-80">
-					<div class="side-menu">
-						<div class="bor17 of-hidden pos-relative">
-							<input class="stext-103 cl2 plh4 size-116 p-l-28 p-r-55"
-								type="text" name="search" placeholder="Search">
-
-							<button
-								class="flex-c-m size-122 ab-t-r fs-18 cl4 hov-cl1 trans-04">
-								<i class="zmdi zmdi-search"></i>
-							</button>
-						</div>
 
 						<!-- 퀵메뉴(자동스크롤바 영역) -->
-						<div class="p-t-55" id="quickPanel">
-							<h4 class="mtext-112 cl2 p-b-33">즐겨찾기</h4>
-							<table id="quickMenu" style="width: 100%;">
-								<tr>
-									<td style="height: 30px; font-size: xx-large;"><a href="#"
-										class="recommendation bor18">최근구매이력 </a>
-									<td />
-								</tr>
-								<tr>
-									<td style="height: 30px; font-size: xx-large;"><a href="#"
-										class="recommendation bor18">마이페이지</a>
-									<td />
-								</tr>
-								<tr>
-									<td style="height: 30px; font-size: xx-large;"><a href="#"
-										class="recommendation bor18">장바구니 </a>
-									<td />
-								</tr>
-								<tr>
-									<td style="height: 30px; font-size: xx-large;"><a href="#"
-										class="recommendation bor18 ">주간 인기 상품</a>
-									<td />
-								</tr>
-							</table>
-						</div>
+<!-- 						<div class="p-t-55" id="quickPanel"> -->
+<!-- 							<h4 class="mtext-112 cl2 p-b-33">즐겨찾기</h4> -->
+<!-- 							<table id="quickMenu" style="width: 100%;"> -->
+<!-- 								<tr> -->
+<!-- 									<td style="height: 30px; font-size: xx-large;"><a href="#" -->
+<!-- 										class="recommendation bor18">최근구매이력 </a> -->
+<!-- 									<td /> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td style="height: 30px; font-size: xx-large;"><a href="#" -->
+<!-- 										class="recommendation bor18">마이페이지</a> -->
+<!-- 									<td /> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td style="height: 30px; font-size: xx-large;"><a href="#" -->
+<!-- 										class="recommendation bor18">장바구니 </a> -->
+<!-- 									<td /> -->
+<!-- 								</tr> -->
+<!-- 								<tr> -->
+<!-- 									<td style="height: 30px; font-size: xx-large;"><a href="#" -->
+<!-- 										class="recommendation bor18 ">주간 인기 상품</a> -->
+<!-- 									<td /> -->
+<!-- 								</tr> -->
+<!-- 							</table> -->
+<!-- 						</div> -->
 					</div>
 				</div>
-			</div>
-		</div>
 	</section>
 	<!-- Back to top -->
 	<div class="btn-back-to-top" id="myBtn">

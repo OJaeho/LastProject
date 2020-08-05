@@ -4,10 +4,13 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.service.mypageService;
 import com.vo.ReviewVO;
@@ -98,10 +101,33 @@ public class MyPageController {
 		return "mypage/ReviewList";
 	}
 	
+	//리뷰 삭제
 	@RequestMapping("/deleteReview.user")
 	public String deleteReview(ReviewVO rvo) {
 		service.deleteReview(rvo);
 		
 		return "redirect:/reviewList.user";
 	}
+	//차트 페이지로 이동
+	@RequestMapping("/moveUChart.user")
+	public String moveUChart() {
+		
+		return "mypage/Uchart";
+	}
+	
+	
+	//userFoodRank json
+	@ResponseBody
+	@RequestMapping("/userFoodRank.user")
+	    public JSONObject Food_Rang_list(HttpServletRequest request) {
+		 return service.userFoodRank(request.getRemoteUser());
+	    }
+	
+	//userMoneyChart json
+		@ResponseBody
+		@RequestMapping("/userMoneyChart.user")
+		    public JSONObject user_Money_chcart(HttpServletRequest request) {
+			 return service.userMoneyChart(request.getRemoteUser());
+		    }
+
 }
