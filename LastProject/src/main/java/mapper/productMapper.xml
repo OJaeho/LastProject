@@ -65,7 +65,7 @@
 	<!-- 선택된 상품 옵션 가져오기 -->
 	<select id="productOption" parameterType="product"
 		resultType="product">
-		select pprice,poption1 from product where mkid=#{mkId} and delyn='N'
+		select pprice,poption1,pcount from product where mkid=#{mkId} and delyn='N'
 		<if test="pName != null and pName != '' ">
 			and pname=#{pName}
 		</if>

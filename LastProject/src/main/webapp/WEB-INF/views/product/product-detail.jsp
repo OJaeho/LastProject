@@ -2,13 +2,16 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@page import="com.vo.ProductVO"%>
 <%@page import="com.vo.CategoryVO"%>
 <%@page import="com.vo.StoreVO"%>
 <%@page import="com.vo.UsersVO"%>
 <%@page import="com.vo.ReviewVO"%>
-<% request.setCharacterEncoding("utf-8"); %>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -57,7 +60,8 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css" href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css"
+	href="./resources/css/product-detail.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 
@@ -102,9 +106,18 @@
 											<select id="size">
 												<option disabled>---------옵션선택---------</option>
 												<c:forEach items="${optionget}" var="item2">
-													<option id="price" value="${item2.pPrice}"
-														value2="${item2.pOption1}">[ ${item2.pOption1} -
-														${item2.pPrice} ]</option>
+													<c:choose>
+														<c:when test="${item2.pCount eq 0}">
+															<option disabled id="price" value="${item2.pPrice}"
+																value2="${item2.pOption1}">[ ${item2.pOption1}
+																- ${item2.pPrice} ] 재고수량:${item2.pCount}</option>
+														</c:when>
+														<c:otherwise>
+															<option id="price" value="${item2.pPrice}"
+																value2="${item2.pOption1}">[ ${item2.pOption1}
+																- ${item2.pPrice} ] 재고수량:${item2.pCount}</option>
+														</c:otherwise>
+													</c:choose>
 												</c:forEach>
 											</select>
 
@@ -150,26 +163,29 @@
 										<hr />
 										<label style="width: 30px; height: 20px; color: green;">preview</label>
 										<form name="subcart">
-											<table style="width: auto; border: 1px solid green;">
-												<thead style="width: auto;">
-													<tr style="width: auto;">
-														<td style="width: auto;">옵션</td>
-														<td style="width: auto;">수량</td>
-														<td style="width: auto;">가격</td>
-														<td style="width: auto;">수령</td>
-														<td style="width: auto;"></td>
+											<table style="width: 500px; border: 1px solid green;">
+												<thead style="width: 100%;">
+													<tr style="width: 100%;">
+														<td style="width: 20%;">옵션</td>
+														<td style="width: 20%;">수량</td>
+														<td style="width: 20%;">가격</td>
+														<td style="width: 20%;">수령</td>
+														<td style="width: 20%;"></td>
+														<td style="width: 0%;"></td>
 													</tr>
 												</thead>
 												<tbody id="dynamicTbody" style="width: auto;">
 												</tbody>
 
-												<tfoot style="width: auto;">
+												<tfoot style="width: 100%;">
 													<tr>
-														<td>총액 :</td>
-														<td></td>
-														<td><input type="text" id="paytotal"></td>
-														<td></td>
-														<td></td>
+														<td style="width: 80%;">총액 :</td>
+														<td style="width: 0%;"><input type="text"
+															id="paytotal"></td>
+														<td style="width: 0%;"></td>
+														<td style="width: 0%;"></td>
+														<td style="width: 0%;"></td>
+														<td style="width: 0%;"></td>
 													</tr>
 												</tfoot>
 											</table>
@@ -180,8 +196,9 @@
 														class="btn btn-success" type="submit" value="바로 구매하기"
 														style=""
 														onclick="javascript: form.action='/manage/update';" /></td>
-													<td><a href="shopping.checking"><input id="cartBtn"
-															class="btn btn-success" type="button" value="장바구니 가기" /></a></td>
+													<td><a href="shopping.checking"><input
+															id="cartBtn" class="btn btn-success" type="button"
+															value="장바구니 가기" /></a></td>
 												</tr>
 											</table>
 
@@ -317,12 +334,12 @@
 														method="get">
 														<input type="hidden" name="pPrice" value=${item.pPrice }>
 														<input type="hidden" name="pName" value=${item.pName }>
-														<input type="hidden" value=${payId} name="payId">
-														<input type="hidden" value=${item.pId} name="pId">
+														<input type="hidden" value=${payId } name="payId">
+														<input type="hidden" value=${item.pId } name="pId">
 														<div class="flex-w flex-m p-t-50 p-b-23">
 															<span class="stext-102 cl3 m-r-16"> ID </span> <input
-																type="text"  value=${Id } disabled >
-															<span class="stext-102 cl3 m-r-16"> Your Rating </span> <span
+																type="text" value=${Id } disabled> <span
+																class="stext-102 cl3 m-r-16"> Your Rating </span> <span
 																class="wrap-rating fs-18 cl11 pointer"> <i
 																class="item-rating pointer zmdi zmdi-star-outline"></i>
 																<i class="item-rating pointer zmdi zmdi-star-outline"></i>

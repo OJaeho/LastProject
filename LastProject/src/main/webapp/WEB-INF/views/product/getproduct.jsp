@@ -10,6 +10,7 @@
 <html lang="ko">
 <head>
 <link href="https://fonts.googleapis.com/css?family=Fredoka One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Black Han Sans" rel="stylesheet">
 <title>Product</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -152,8 +153,8 @@
 		<c:forEach items="${cartget}" var="list">
 		<input type="hidden" >
 		<tr style="border: solid 1px lightgrey; ">
-		<td><img src="${list.PIMG1}" style="width: 40px;height:40px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"></td>
-		<td style="font-family: 'Fredoka One';">${list.BTITLE} ${list.BOPTION} ${list.BQUANTITY}EA</td>
+		<td><img src="${list.PIMG1}" style="width: 50px;height:50px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"></td>
+		<td style="font-family: Fredoka One, 'Black Han Sans', serif;">${list.BTITLE} ${list.BOPTION} ${list.BQUANTITY}EA</td>
 		</tr>
 		</c:forEach>
 		</table>
