@@ -10,6 +10,9 @@ public interface payService {
 	public List<PayVO> paySelect(List<Integer> bId);
 	
 	//결제하기 버튼
-	public int insertPay(PayVO vo,String userId) throws Exception;
+	public int insertPay(PayVO vo,String userId,int groupId) throws Exception;
+	
+	//groupId
+	public int getGroupId();
 }
  

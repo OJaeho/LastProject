@@ -65,6 +65,7 @@ public class payController {
 			HttpServletRequest request
 		) {
 		String userId = request.getRemoteUser();	
+		int groupId=payservice.getGroupId();
 		for(int i=0; i<paypId1.size(); i++) {
 			vo.setpId(paypId1.get(i));
 			vo.setPayState(payState1.get(i));
@@ -78,7 +79,7 @@ public class payController {
 			vo.setPayContent(payPcontent.get(i));
 			vo.setbId(payBid.get(i));
 			try {
-				payservice.insertPay(vo, userId);
+				payservice.insertPay(vo, userId,groupId);
 				System.out.println(i + "완료");
 			} catch (Exception e) {
 				System.out.println(e.toString());

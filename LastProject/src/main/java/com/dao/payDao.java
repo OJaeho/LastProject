@@ -17,13 +17,16 @@ public interface payDao {
 	public void updateProductCount(PayVO vo);
 	
 	//결제하기 버튼 눌렀을때 pay table에 insert
-	public void insertPay(PayVO vo,String userId);
+	public void insertPay(PayVO vo,String userId,int groupId);
 	
 	//buy테이블 데이터 삭제(장바구니)
 	public void deleteCartList(PayVO vo);
 	
 	//user 테이블 spoint 증가
 	public int pointIncrease(PayVO vo);
+	
+	//groupId 가져오기
+	public int getGroupId();
 
 
 	

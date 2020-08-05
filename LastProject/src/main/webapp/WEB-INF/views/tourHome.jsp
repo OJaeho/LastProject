@@ -91,12 +91,12 @@
 				<div style="display: block; text-align: center;" class="pageBtn">
 				<input type="hidden" value="${paging.nowPage}" id="pno"/>
 					<c:if test="${paging.startPage != 1 and empty param.searchType }">
-						<a href="tourHome.do?nowPage=${paging.startPage - 1 }">&lt;</a>
+						<a href="tourHome.user?nowPage=${paging.startPage - 1 }">&lt;</a>
 					</c:if>
 					<c:if
 						test="${paging.startPage != 1 and not empty param.searchType }">
 						<a
-							href="tourHome.do?nowPage=${paging.startPage - 1 }&searchType=${param.searchType }&value=${param.value }">&lt;</a>
+							href="tourHome.user?nowPage=${paging.startPage - 1 }&searchType=${param.searchType }&value=${param.value }">&lt;</a>
 					</c:if>
 					<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
 						var="p">
@@ -105,23 +105,23 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != paging.nowPage  and empty param.searchType}">
-								<a href="tourHome.do?nowPage=${p }">${p }</a>
+								<a href="tourHome.user?nowPage=${p }">${p }</a>
 							</c:when>
 							<c:when
 								test="${p != paging.nowPage and not empty param.searchType}">
 								<a
-									href="tourHome.do?nowPage=${p }&searchType=${param.searchType }&value=${param.value }">${p }</a>
+									href="tourHome.user?nowPage=${p }&searchType=${param.searchType }&value=${param.value }">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
 					<c:if
 						test="${paging.endPage != paging.lastPage and empty param.searchType}">
-						<a href="tourHome.do?nowPage=${paging.endPage+1 }">&gt;</a>
+						<a href="tourHome.user?nowPage=${paging.endPage+1 }">&gt;</a>
 					</c:if>
 					<c:if
 						test="${paging.endPage != paging.lastPage and not empty param.searchType}">
 						<a
-							href="tourHome.do?nowPage=${paging.endPage+1 }&searchType=${param.searchType }&value=${param.value }">&gt;</a>
+							href="tourHome.user?nowPage=${paging.endPage+1 }&searchType=${param.searchType }&value=${param.value }">&gt;</a>
 						</c:if>
 				</div>
 			</div>

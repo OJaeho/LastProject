@@ -20,8 +20,8 @@
 	</update>
 <!--  	결제 버튼 눌렀을때 pay table에 insert -->
 	<insert id="insertPay" parameterType="hashMap">
-		insert into pay(payid, pid, paycount, username, payaddr, paytel, paydate, paycontent, paytotal, paystate, paytype, customer)
-		 values(SEQ_PAYID.nextval, #{vo.pId}, #{vo.payCount}, #{user}, #{vo.payAddr}, #{vo.payTel}, sysdate, #{vo.payContent}, #{vo.payTotal}, #{vo.payState}, '준비중', #{vo.userName})
+		insert into pay(payid, pid, paycount, username, payaddr, paytel, paydate, paycontent, paytotal, paystate, paytype, customer,groupid)
+		 values(SEQ_PAYID.nextval, #{vo.pId}, #{vo.payCount}, #{user}, #{vo.payAddr}, #{vo.payTel}, sysdate, #{vo.payContent}, #{vo.payTotal}, #{vo.payState}, '준비중', #{vo.userName},#{groupId})
 	</insert>
 <!-- 	장바구니테이블에서 리스트 삭제 -->
 	<delete id="deleteCartList" parameterType="pay">
@@ -31,6 +31,9 @@
 	<update id="pointIncrease" parameterType="pay">
 		update store set spoint= spoint + #{payTotal} where sname=#{payStoreName}
 	</update>
-	
+<!-- groupId 가져오기	 -->
+	<select id="selectGroupId" resultType="int">
+	select seq_groupId.nextval from dual
+	</select>
 	
 </mapper>

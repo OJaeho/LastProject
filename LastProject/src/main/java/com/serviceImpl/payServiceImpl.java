@@ -27,14 +27,14 @@ public class payServiceImpl implements payService {
 
 	
 	@Transactional
-	public int insertPay(PayVO vo,String userId){
+	public int insertPay(PayVO vo,String userId,int groupId){
 		try {
 			//1. user mpoint 차감
 			paydao.pointDeduction(vo,userId);
 			//2. 상품테이블 재고변경
 			paydao.updateProductCount(vo);
 			//3. pay테이블에 판매내역 insert
-			paydao.insertPay(vo, userId);
+			paydao.insertPay(vo, userId,groupId);
 			//4. 장바구니 데이터 삭제
 			paydao.deleteCartList(vo);
 			//5. store point update
@@ -45,6 +45,12 @@ public class payServiceImpl implements payService {
 			throw new RuntimeErrorException(e);
 		}
 			
+	}
+
+
+	@Override
+	public int getGroupId() {
+		return paydao.getGroupId();
 	}
 	
 	

@@ -54,10 +54,12 @@ public class payDaoImpl implements payDao {
 
 	
 	@Override
-	public void insertPay(PayVO vo,String userId) {
+	public void insertPay(PayVO vo,String userId, int groupId) {
 		HashMap map = new HashMap();
 		map.put("vo", vo);
 		map.put("user", userId);
+		System.out.println("화아아아아아아악인이이이이인"+groupId);
+		map.put("groupId",groupId);//seq_groupId 가져오기
 		System.out.println("판매 리스트 올라가기 끝");
 		mybatis.insert("payMapper.insertPay",map);
 	}
@@ -67,6 +69,10 @@ public class payDaoImpl implements payDao {
 		System.out.println("상점포인트 오르는거 끝");
 		return mybatis.update("payMapper.pointIncrease",vo);
 		
+	}
+	@Override
+	public int getGroupId() {
+		return mybatis.selectOne("payMapper.selectGroupId");
 	}
 }
  
