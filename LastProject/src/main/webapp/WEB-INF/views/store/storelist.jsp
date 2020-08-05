@@ -69,7 +69,7 @@
 		업종별 상점목록
 		</h2>
 	</section>
-<div class="fc_content content _content_body">
+<div class="fc_content store-content _content_body">
         <div class="fcdeck_container">
           <div class="fcdeck_ct">
             <div class="card on" data-cid="b2si8b8p" data-anchor="bc45de87c950a2537e18b032b42cca6e">
@@ -80,7 +80,7 @@
 	              <div class="btn_wrap ">    
 		              <ul class="btn_theme">            
 		              <li class="them_background">        
-			              <a class="btn btn_ic36" href="flickcard://dlmyb1sc">          
+			              <a class="btn btn_ic36" href="showstore.user?cName=음식%2F식품">          
 			              <div class="in">            
 			              <span class="btn_text">음식/식품</span>
 			              <span class="ic"><span class="ic_v"></span></span>          
@@ -88,7 +88,7 @@
 			              </a>      
 			              </li>            
 			              <li class="them_background">        
-			              <a class="btn btn_ic36" href="flickcard://6ug4igyx">          
+			              <a class="btn btn_ic36" href="showstore.user?cName=수산%2F횟집">          
 			              <div class="in">            
 			              <span class="btn_text">수산/횟집</span>
 			              <span class="ic"><span class="ic_v"></span></span>          
@@ -96,7 +96,7 @@
 			              </a>      
 			              </li>            
 			              <li class="them_background">        
-			              <a class="btn btn_ic36" href="flickcard://95iaq1an">          
+			              <a class="btn btn_ic36" href="showstore.user?cName=축산물">          
 			              <div class="in">            
 			              <span class="btn_text">축산물</span>
 			              <span class="ic"><span class="ic_v"></span></span>          
@@ -116,7 +116,7 @@
               <div class="btn_wrap ">    
 	              <ul class="btn_theme">            
 	              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=농산물%2F반찬">          
 		              <div class="in">            
 		              <span class="btn_text">농산물/반찬</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -124,7 +124,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=제과%2F제빵%2F떡">          
 		              <div class="in">            
 		              <span class="btn_text">제과/제빵/떡</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -132,7 +132,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=마트%2F과일">          
 		              <div class="in">            
 		              <span class="btn_text">마트/과일</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -151,7 +151,7 @@
               <div class="btn_wrap ">    
 	              <ul class="btn_theme">            
 	              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=방앗간">          
 		              <div class="in">            
 		              <span class="btn_text">방앗간</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -159,7 +159,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=건강원">          
 		              <div class="in">            
 		              <span class="btn_text">건강원</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -167,7 +167,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=화장품">          
 		              <div class="in">            
 		              <span class="btn_text">화장품</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -186,7 +186,7 @@
               <div class="btn_wrap ">    
 	              <ul class="btn_theme">            
 	              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=의류">          
 		              <div class="in">            
 		              <span class="btn_text">의류</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -194,7 +194,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=분식">          
 		              <div class="in">            
 		              <span class="btn_text">분식</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -202,7 +202,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=이불%2F가방%2F신발">          
 		              <div class="in">            
 		              <span class="btn_text">이불/가방/신발</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -221,7 +221,7 @@
               <div class="btn_wrap ">    
 	              <ul class="btn_theme">            
 	              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=건어물%2F젓갈">          
 		              <div class="in">            
 		              <span class="btn_text">건어물/젓갈</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -229,7 +229,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=꽃집%2F귀금속">          
 		              <div class="in">            
 		              <span class="btn_text">꽃집/귀금속</span>
 		              <span class="ic"><span class="ic_v"></span></span>          
@@ -237,7 +237,7 @@
 		              </a>      
 		              </li>            
 		              <li class="them_background">        
-		              <a class="btn btn_ic36" href="#">          
+		              <a class="btn btn_ic36" href="showstore.user?cName=기타">          
 		              <div class="in">            
 		              <span class="btn_text">기타</span>
 		              <span class="ic"><span class="ic_v"></span></span>          

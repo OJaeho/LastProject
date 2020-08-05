@@ -83,14 +83,14 @@
       </div>
 		<p>
       <div class="link-1">
-        <a href="#">
+        <a href="PayList.user">
           <span class="thin link-1-color">Or</span><span class="thick link-1-color">der</span>
         </a>  
       </div>
       	<p>
       <div class="link-1">
-        <a href="#">
-          <span class="thin link-1-color">deli</span><span class="thick link-1-color">very</span>
+        <a href="reviewList.user">
+          <span class="thin link-1-color">re</span><span class="thick link-1-color">view</span>
         </a>  
       </div>
       
