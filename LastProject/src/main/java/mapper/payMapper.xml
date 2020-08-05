@@ -5,9 +5,32 @@
 
 <!-- 	결제 페이지 넘어갈때 select -->
 	<select id="paySelect" parameterType="hashmap" resultType="pay">	
-		select b.bState as payState, b.bQuantity as payCount, u.mname as userName, u.Maddr as payAddr, u.mtel as payTel, b.bQuantity*p.pprice as payTotal,
-			   p.pimg1 as payImg, s.sname as payStoreName, b.bTitle||b.bOption as payContent, b.bTitle as payTitle, b.bPrice as payPrice	
+		select b.bid as bId, b.bState as payState, b.bQuantity as payCount, u.mname as userName, u.Maddr as payAddr, u.mtel as payTel, b.bQuantity*p.pprice as payTotal, p.pid as pId,
+			   p.pimg1 as payImg, s.sname as payStoreName, b.bTitle||b.bOption as payContent, b.bTitle as payTitle, b.bPrice as payPrice, u.mpoint as userPoint	
 		from buy b inner join product p on b.pid = p.pid inner join store s on s.sid = p.sid inner join users u on b.username = u.username
 		where b.bid= #{list}
 	</select>
+<!-- 	유저 mpoint 차감 -->
+	<update id="pointDeduction" parameterType="hashmap">
+		update users set mpoint = mpoint-#{vo.payTotal} where username=#{user}
+	</update>
+<!-- 	상품 테이블 재고 수량 수정 -->
+	<update id="updateProductCount" parameterType="pay">
+		update product set pcount = pcount-#{payCount} where pid=#{pId}
+	</update>
+<!--  	결제 버튼 눌렀을때 pay table에 insert -->
+	<insert id="insertPay" parameterType="hashMap">
+		insert into pay(payid, pid, paycount, username, payaddr, paytel, paydate, paycontent, paytotal, paystate, paytype, customer)
+		 values(SEQ_PAYID.nextval, #{vo.pId}, #{vo.payCount}, #{user}, #{vo.payAddr}, #{vo.payTel}, sysdate, #{vo.payContent}, #{vo.payTotal}, #{vo.payState}, '준비중', #{vo.userName})
+	</insert>
+<!-- 	장바구니테이블에서 리스트 삭제 -->
+	<delete id="deleteCartList" parameterType="pay">
+		delete from buy where bid=#{bId} 
+	</delete>
+<!-- 	store 테이블 spoint 증가 -->
+	<update id="pointIncrease" parameterType="pay">
+		update store set spoint= spoint + #{payTotal} where sname=#{payStoreName}
+	</update>
+	
+	
 </mapper>

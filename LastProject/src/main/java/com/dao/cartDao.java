@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 
 import com.vo.BuyVO;
+import com.vo.PayVO;
 
 public interface cartDao {
 	//장바구니 목록에 있는 상품인지 확인 (중복처리 위해서)
@@ -22,5 +23,4 @@ public interface cartDao {
 	
 	//상품 디테일 창에서 장바구니 삭제
 	public int deleteDetailCart(int bId);
-	
 }

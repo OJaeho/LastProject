@@ -16,9 +16,22 @@ public class PayVO {
 	private String payStoreName; //상품판매된 점포이름
 	private String payTitle;//상품 이름만
 	private int payPrice;   //상품 단일가격
+	private int userPoint; //고객 보유포인트
+	private int bId;
 	
 	
-	
+	public int getbId() {
+		return bId;
+	}
+	public void setbId(int bId) {
+		this.bId = bId;
+	}
+	public int getUserPoint() {
+		return userPoint;
+	}
+	public void setUserPoint(int userPoint) {
+		this.userPoint = userPoint;
+	}
 	public String getPayTitle() {
 		return payTitle;
 	}
@@ -90,7 +103,7 @@ public class PayVO {
 	}
 	public String getPayState() {
 		return payState;
-	}
+	} 
 	public void setPayState(String payState) {
 		this.payState = payState;
 	}
