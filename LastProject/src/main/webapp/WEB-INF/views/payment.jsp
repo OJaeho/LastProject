@@ -104,13 +104,16 @@
 														style="position: absolute; width: 1000px; height: 1px; top: 0; left: 50px; background-color: #f0f0f0;"></span>
 														<div class="상품정보">
 															<a href="product-detail.user?pName=${list.payTitle}&pPrice=${list.payPrice}"><img src="${list.payImg}" style="width: 150px; height: 150px;">
-															<input type="text" value="${list.payTitle}"></a>
+															<input type="text" class="ptitle" id="ptitle" value="${list.payTitle}">
+															<input type="hidden" class="pid" value="${list.pId}"></a>
+															<input type="hidden" value="${list.payContent}" class="pContent">
+															<input type="hidden" value="${list.bId}" class="payBid">
 														</div></td>
-													<td rowspan="1"><a href="#"><input type="text" value="${list.payStoreName}"></a> <!-- 판매자 정보 삽입 url 연결 필요없으면 span이나 p로 변경해서 텍스트만 삽입 --></a>
+													<td rowspan="1"><a href="#"><input type="text" class="payStoreName" id="paysName" value="${list.payStoreName}"></a> <!-- 판매자 정보 삽입 url 연결 필요없으면 span이나 p로 변경해서 텍스트만 삽입 --></a>
 													</td>
-													<td><input type="text" value="${list.payCount}"/></td>
-													<td rowspan="1"><input type="text" value="${list.payTotal}"></td>
-													<td><input type="text" id="state" value="${list.payState}"/></td>
+													<td><input type="text" class="count" value="${list.payCount}"/></td>
+													<td rowspan="1"><input type="text" value="${list.payTotal}" class="sm_total"></td>
+													<td><input type="text" class="paystate" value="${list.payState}"/></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -145,15 +148,41 @@
 											<h4>총 합계</h4>
 											<strong style="float: left; margin: 0 18px 0 -10px; padding: 5px 0 0 10px; width: 100px; line-height: 20px; color: #4b4b4b;">총합계</strong> 
 											<input type="text" value="${pTotal}"style="border: 1px solid;" id="payMentTotal"/>
+											<h4>보유 포인트</h4>
+											<input type="text" value="${userPoint}"style="border: 1px solid;" id="payUserPoint"/>
+											<h4>결제하실 금액</h4>
+											<input type="text" value="${userPoint-pTotal}"style="border: 1px solid;" id="resultPay"/>
 											<div id="ride">
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<button style="width: 198px; height: 56px;">
-								<span>결제하기</span>
-							</button>
+							<form action="payComplate.user" id="frmpay">
+								<!--상품 주문방식 -->
+								<input type="hidden" name="payState1" id="payState1"/>
+								<!--상품ID -->
+								<input type="hidden" name="paypId1" id="paypId1"/>
+								<!--상품 개별수량 -->
+								<input type="hidden" name="payCount1" id="payCount1" />
+								<!--주문자 이름 -->
+								<input type="hidden" name="payUserName1" id="payUserName1"/>
+								<!--주문자 전화번호 -->
+								<input type="hidden" name="payUserTel1" id="payUserTel1" />
+								<!--배송지 주소 -->
+								<input type="hidden" name="payUserAddr1" id="payUserAddr1"/>
+								<!-- 상품 소계(상품개별수량*상품가격)  -->
+								<input type="hidden" name="payTotal1" id="payTotal1"/>
+								<!-- 판매 점포 이름-->
+								<input type="hidden" name="paystorename1" id="paystorename1"/>
+								<!--상품이름 -->
+								<input type="hidden" name="paytitle1" id="paytitle1"/>
+								<!-- 상품이름+옵션 -->
+								<input type="hidden" name="payPcontent" id="payContent"/>
+								<!-- BID -->
+								<input type="hidden" name="payBid" id="payBid"/>
+								<input type="submit" id="test" value="결제하기" style="width: 198px; height: 56px;">
+							</form>	
 						</div>
 					</div>
 				</div>

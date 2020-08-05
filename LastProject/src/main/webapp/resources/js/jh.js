@@ -298,13 +298,64 @@ $(document).on('change', '.totalcheck',function(){
 	}	
 })
 //-----------------------------------------
-//payment 페이지 총합계 + 배송비
-//	var pay = $('#payMentTotal').val()
-//	var pick = $('#state').val();
-//	if(pick == '배송'){
-//		if(pay > 30000){
-//			alert("무료배송");
-//		}
-//		
-//	}	
+//결제창에서 결제하기 버튼
+	
+	$('input[id=test]').click(function(){
+		event.preventDefault();
+		var con = confirm("결제 하시겠습니까?");
+		var state = [];
+		var pid = [];
+		var count = [];
+		var sm_total=[];
+		var title = [];
+		var content = [];
+		var store = [];
+		var paybid = [];
+		if(con){
+			$('.paystate').each(function(){
+				state.push($(this).val());
+			})
+			$('#payState1').val(state);
+	//------------------------------------		
+			$('.pid').each(function(){
+				pid.push($(this).val());
+			})
+			$('#paypId1').val(pid);
+	//------------------------------------------
+			$('.count').each(function(){
+				count.push($(this).val());
+			})
+			$('#payCount1').val(count);
+	//----------------------------------------
+			$('#payUserName1').val($('#name1').val());
+			$('#payUserTel1').val($('#tel1').val());
+			$('#payUserAddr1').val($('#addr1').val());
+	//-----------------------------------------------
+			$('.sm_total').each(function(){
+				sm_total.push($(this).val());
+			})
+			$('#payTotal1').val(sm_total);
+	//------------------------------------------------
+			$('.payStoreName').each(function(){
+				store.push($(this).val());
+			})
+			 $('#paystorename1').val(store);
+	//-----------------------------------------------------
+			$('.ptitle').each(function(){
+				title.push($(this).val());
+			})
+			$('#paytitle1').val(title);
+	//----------------------------------------------
+			$('.pContent').each(function(){
+				content.push($(this).val());
+			})
+			$('#payContent').val(content);
+	//---------------------------------------------------
+			$('.payBid').each(function(){
+				paybid.push($(this).val());
+			})
+			$('#payBid').val(paybid);
+			$('#frmpay').submit();
+		}	
+	})	
 });
