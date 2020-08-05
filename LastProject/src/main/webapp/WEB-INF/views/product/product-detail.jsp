@@ -8,7 +8,7 @@
 <%@page import="com.vo.StoreVO"%>
 <%@page import="com.vo.UsersVO"%>
 <%@page import="com.vo.ReviewVO"%>
-
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -57,8 +57,9 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 
 <!--===============================================================================================-->
 </head>
@@ -281,7 +282,7 @@
 													</div>
 
 													<c:forEach items="${reviewget}" var="review">
-														<c:if test="${review.rWriter ne null}">
+														<c:if test="${review.userName ne null}">
 															<div
 																class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
 																<img src="./resources/images/profile.jpg" alt="AVATAR">
@@ -289,7 +290,7 @@
 															<div class="size-207">
 																<div class="flex-w flex-sb-m p-b-17">
 																	<span class="mtext-107 cl2 p-r-20">
-																		${review.rWriter} </span> <span class="fs-18 cl11"> <c:forEach
+																		${review.userName} </span> <span class="fs-18 cl11"> <c:forEach
 																			var="i" begin="1" end="${review.rRating}" step="1">
 																			<i class="zmdi zmdi-star"></i>
 																		</c:forEach>
@@ -314,11 +315,13 @@
 													<p class="stext-102 cl6">당신의 응원에 많은 소상공인이 힘을 냅니다 *</p>
 													<form action="insertreview.user" class="w-full"
 														method="get">
+														<input type="hidden" name="pPrice" value=${item.pPrice }>
+														<input type="hidden" name="pName" value=${item.pName }>
 														<input type="hidden" value=${payId} name="payId">
 														<input type="hidden" value=${item.pId} name="pId">
 														<div class="flex-w flex-m p-t-50 p-b-23">
-															<span class="stext-102 cl3 m-r-16"> ID 입력 </span> <input
-																type="text" name="rWriter" placeholder="여기에 입력해주세요.">
+															<span class="stext-102 cl3 m-r-16"> ID </span> <input
+																type="text"  value=${Id } disabled >
 															<span class="stext-102 cl3 m-r-16"> Your Rating </span> <span
 																class="wrap-rating fs-18 cl11 pointer"> <i
 																class="item-rating pointer zmdi zmdi-star-outline"></i>

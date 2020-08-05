@@ -1,13 +1,13 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
+import com.vo.BuyVO;
 import com.vo.CategoryVO;
-import com.vo.MarketVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
-import com.vo.UsersVO;
 
 public interface productDao {
 	// 상품 정보 가져오기
@@ -63,4 +63,7 @@ public interface productDao {
 
 	// 상점이름 통해 상점id찾기
 	public int findsid(String sName);
+	
+	// 배너 장바구니
+	public List<HashMap<String, Object>> selectcart(BuyVO bvo);
 }

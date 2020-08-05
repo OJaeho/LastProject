@@ -4,6 +4,7 @@ public class StoreVO {
 	private int sId;
 	private int mkId;
 	private int cId;
+	private int sPoint;
 	private String sName;
 	private String sDetail;
 	private String sProduct;
@@ -16,17 +17,25 @@ public class StoreVO {
 	private String sLong;
 	private String sLat;
 	private String delYn;
+	
+	
+	public int getMkId() {
+		return mkId;
+	}
+	public void setMkId(int mkId) {
+		this.mkId = mkId;
+	}
+	public int getsPoint() {
+		return sPoint;
+	}
+	public void setsPoint(int sPoint) {
+		this.sPoint = sPoint;
+	}
 	public int getsId() {
 		return sId;
 	}
 	public void setsId(int sId) {
 		this.sId = sId;
-	}
-	public int getmKId() {
-		return mkId;
-	}
-	public void setmkId(int mkId) {
-		this.mkId = mkId;
 	}
 	public int getcId() {
 		return cId;

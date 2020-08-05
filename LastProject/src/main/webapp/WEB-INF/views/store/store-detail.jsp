@@ -54,8 +54,7 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/product-detail.css">
 
 <!--===============================================================================================-->
 </head>
@@ -75,9 +74,9 @@
 							<br />
 							<div class="wrap-slick3 flex-sb flex-w"
 								style="width: 1350px; margin: auto;">
-								<img src="${store.sImg1}"
-									style="width: 500px; height: 400px; margin: auto;">
-								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+								<img src="${store.sImg1}" style="width: 500px; height: 400px;">
+								<div class="wrap-slick3-arrows flex-sb-m flex-w" style="margin: auto;">
+								</div>
 							</div>
 						</div>
 					</div>

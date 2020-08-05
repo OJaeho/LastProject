@@ -3,15 +3,31 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mypageMapper">
 
+<!-- 주문내역리스트 -->
 <select id="selectPayList" parameterType="hashmap" resultType="hashmap">
  <![CDATA[
  SELECT *
- FROM (select  rownum rm,a .* from (select pay.payid,pay.pid,pay.paycount,pay.payaddr,pay.paytel,pay.paydate,pay.paycontent,pay.paytotal,pay.paystate,s.sname from pay pay , store s, product p where pay.username=#{id} and pay.pid =p.pid and  s.sid=p.sid  order by pay.paydate desc) a ) pay
+ FROM (select  rownum rm,a .* from (select pay.payid,pay.pid,pay.paycount,pay.payaddr,pay.paytel,pay.paydate,pay.paycontent,pay.paytotal,pay.paystate,s.sname,p.pprice,p.pname from pay pay , store s, product p where pay.username=#{id} and pay.pid =p.pid and  s.sid=p.sid  order by pay.paydate desc) a ) pay
  where pay.rm between  #{first} and #{end} 
 ]]>
 </select>
 
-<select id="getTotal" parameterType="hashmap" resultType='int'>
-select count(*) from ${table} where username=#{condition1}
+<!-- 리뷰리스트 -->
+<select id="selectReviewList" parameterType="hashmap" resultType="hashmap">
+select hello.* from (select rownum
+
+]
+ rm,r.rid,r.payid,r.rcontent,r.rdate,r.delyn,r.mkid,r.rrating,r.pid,r.username,s.sname from review r , product p, store s where r.pid=p.pid and p.sid=s.sid and r.username=#{id} and r.delyn='N') hello 
+where rm between #{first} and #{end} 
 </select>
+
+<!-- 전체페이지 수 -->
+<select id="getTotal" parameterType="hashmap" resultType='int'>
+select count(*) from ${table} where ${condition1}=#{value1}
+</select>
+
+<!-- 리뷰삭제 -->
+<update id="deleteReview" parameterType="review" >
+update review set delyn='Y' where rId=#{rId}
+</update>
 </mapper>

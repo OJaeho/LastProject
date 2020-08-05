@@ -7,13 +7,41 @@
 <html lang="UTF-8">
 
 <head>
+<link href="https://fonts.googleapis.com/css?family=Lobster"
+	rel="stylesheet">
+<!-- google font -->
 <title>Home</title>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
 <style type="text/css">
+/*로그인팝업  */
+.btnn {<!--모든 버튼에대한 css설정 --> text-decoration:none;
+	font-size: 50px;
+	color: white;
+	padding: 10px 20px 10px 20px;
+	margin: 20px;
+	display: inline-block;
+	border-radius: 10px;
+	transition: all 0.1s;
+	text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
+	font-family: 'Lobster', cursive;
+	
+	
+}
+
+.btnn:active {
+	transform: translateY(3px);
+}
+
+.btnn.red {
+	background-color: green;
+	border-bottom: 5px solid darkgreen;
+}
+
+.btnn.red:active {
+	border-bottom: 2px solid #c1370e;
+}
+/*로그인팝업  */
 .log_out {
 	font-family: Poppins-Regular;
 	font-size: 14px;
@@ -30,6 +58,28 @@
 	background-color: transparent;
 }
 </style>
+
+<script type="text/javascript">
+	function myFunction() {
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	// Close the dropdown menu if the user clicks outside of it
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+</script>
+
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -102,22 +152,34 @@
 					<div class="left-top-bar">전통시장의 정을 온라인으로 느껴보세요!</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
-							회원가입 </a>
+
 						<sec:authorize access="isAuthenticated()">
+
+							<div class="flex-c-m h-full p-r-24">
+								<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
+									<img
+										style="width: 50px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"
+										src="./resources/images/profile.jpg">
+								</div>
+							</div>
+
 							<form:form action="${pageContext.request.contextPath}/logout"
-								method="POST">
-								<input type="submit" value="로그아웃" class="log_out" />
+								method="POST" class="flex-c-m trans-04 p-lr-25">
+								<input type="submit" value="로그아웃"
+									style="background-color: transparent; color: white;" />
 							</form:form>
+
 						</sec:authorize>
 						<sec:authorize access="isAnonymous()">
+							<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
+								회원가입 </a>
 							<a href="logincheck.checking" class="flex-c-m trans-04 p-lr-25">로그인
 							</a>
 						</sec:authorize>
 
 						<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25">
-							마이페이지 </a> 
-							<!--  <a href="marketDetail.master" class="flex-c-m trans-04 p-lr-25"> ENGLISH
+							마이페이지 </a>
+						<!--  <a href="marketDetail.master" class="flex-c-m trans-04 p-lr-25"> ENGLISH
 						</a>-->
 					</div>
 				</div>
@@ -126,8 +188,9 @@
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
 
-					<!-- Logo desktop --> 
-					<a href="folliumtest.user" class="logo"> <img style="width:200px; height: 60px;"
+					<!-- Logo desktop -->
+					<a href="folliumtest.user" class="logo"> <img
+						style="width: 200px; height: 60px;"
 						src="./resources/images/logo.png" alt="IMG-LOGO">
 					</a>
 
@@ -143,7 +206,8 @@
 								</ul></li>
 
 							<li><a href="tourHome.user">거리마다</a>
-								<li class="label1" data-label1="hot"><a href="getproduct.user">우리 것이</a></li>
+							<li class="label1" data-label1="hot"><a
+								href="getproduct.user">우리 것이</a></li>
 							<li><a href="#">있어요</a>
 								<ul class="sub-menu">
 									<li><a href="getNoticeList.user">공지사항</a></li>
@@ -166,14 +230,22 @@
 					class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
 					<img src="./resources/images/icons/icon-close2.png" alt="CLOSE">
 				</button>
-
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search"
-						placeholder="Search...">
-				</form>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<a class="btnn red"	href="insertMarket.master">시장등록</a>
+				</sec:authorize>
+				<sec:authorize access="hasRole('ROLE_MARKET')">
+				<a class="btnn red"	href="insertstore.market">상점등록</a>
+				<a class="btnn red"	href="insertTour.user">관광지등록</a>
+				<a class="btnn red"	href="insertNotice.market">공지등록</a>
+				<a class="btnn red"	href="insertIssue.market">이슈등록</a>
+				</sec:authorize>
+				<sec:authorize access="hasRole('ROLE_SELLER')">
+				<a class="btnn red" href="insertproduct.market" >상품등록</a> 
+				
+				</sec:authorize>
+				
+			
 			</div>
 		</div>
 

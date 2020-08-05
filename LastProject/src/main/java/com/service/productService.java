@@ -1,9 +1,10 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.List;
 
+import com.vo.BuyVO;
 import com.vo.CategoryVO;
-import com.vo.MarketVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
@@ -62,4 +63,7 @@ public interface productService {
 
 	// 상점명 통해 상점id찾기
 	public int findsid(String sName);
+	
+	// 배너 장바구니
+	public List<HashMap<String, Object>> selectcart(BuyVO bvo);
 }

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800');
 
-select {
+td > select {
 width: 70px;
 padding: .8em .5em;
 border: 1px solid #ccc;
@@ -684,6 +684,13 @@ body{
     box-sizing: border-box;
 }
 
+.store-content {
+    width: 1280px;
+    margin: 0 auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .main_area .inner {
     position: relative;
 }
@@ -882,3 +889,45 @@ body{
     font-size: 15px;
 }
 
+.p-l30{
+	padding-left: 30%;
+}
+
+div > p #mangwon{
+	text-align: center;
+}
+
+.layout_wide{
+	overflow: hidden;
+}
+
+.layout_wide:before, .layout_wide:after {
+	content: '';
+	display: table;
+}
+
+.layout_wide:after {
+	clear: both;
+}
+
+#product-content{
+	position: relative;
+	z-index: 1;
+}
+
+.product-detail{
+	width: 100%;
+	margin: auto;
+}
+
+.product-detail .detailArea {
+    padding-bottom: 50px;
+    *zoom: 1;
+    border-bottom: 1px solid #ccc;
+}
+
+.product-detail .imgArea {
+    float: left;
+    width: 65%;
+    text-align: center;
+}
