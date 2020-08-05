@@ -7,9 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.dao.cartDao;
 import com.dao.mypageDao;
-import com.vo.BuyVO;
+import com.vo.ChartVO;
 import com.vo.ReviewVO;
 
 @Repository("mypagedao")
@@ -44,6 +43,17 @@ public class mypageDaoImpl implements mypageDao {
 	@Override
 	public int deleteReview(ReviewVO rvo) {
 		return mybatis.update("mypageMapper.deleteReview",rvo);
+	}
+
+	// user 별 만히 시킨 음식 랭킹
+	@Override
+	public List<ChartVO> userFoodRank(String id) {
+		return mybatis.selectList("mypageMapper.foodRank", id);
+	}
+
+	@Override
+	public List<ChartVO> userMoneyChart(String id) {
+		return mybatis.selectList("mypageMapper.moneyChart", id);
 	}
 	
 }
