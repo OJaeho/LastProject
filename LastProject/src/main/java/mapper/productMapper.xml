@@ -158,7 +158,10 @@
 	
 	<!-- 장바구니 배너 -->
 	<select id="selectcart" parameterType="buy" resultType="hashmap">
-		select * from product p,buy b where b.username=#{userName}  and b.pid=p.pid
+		select * from product p,buy b where   b.pid=p.pid  
+		<if test="userName != null and userName != '' ">
+		and b.username=#{userName}
+		</if>
 	</select>
 
 </mapper>

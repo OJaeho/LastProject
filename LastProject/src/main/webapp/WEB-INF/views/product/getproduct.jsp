@@ -67,7 +67,7 @@
 	width: 200px;
 	height: auto;
 	left: 1650px;
-	top: 400px;
+	top: 300px;
 	background-color: white;
 	border:solid 1px yellow;
 	color: #black;
@@ -137,6 +137,8 @@
 				</div>
 			</div>
 		</div>
+		
+		<sec:authorize access="hasRole('ROLE_USER')">
 		<div id="floatMenu" >
 		<ul>
 		<img src="./resources/images/logo.png" style="width: 200px;">
@@ -145,6 +147,7 @@
 		<img src="./resources/images/cart.PNG" style="width: 50px;height:50px;">
 		</ul><br/>
 		<table style="width: auto;">
+		
 		
 		<c:forEach items="${cartget}" var="list">
 		<input type="hidden" >
@@ -159,7 +162,7 @@
 		<a href="shopping.checking" style="color: green;">장바구니로 이동
 		</ul>
 		</div>
-
+		</sec:authorize>
 		<!-- 상품 -->
 		<div class="row isotope-grid">
 
