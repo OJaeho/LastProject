@@ -64,6 +64,7 @@ public class payController {
 			@RequestParam List<Integer> payBid,
 			HttpServletRequest request
 		) {
+			
 		String userId = request.getRemoteUser();	
 		int groupId=payservice.getGroupId();
 		for(int i=0; i<paypId1.size(); i++) {

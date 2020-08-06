@@ -134,9 +134,9 @@ $(function() {
 								}
 
 								// 우편번호와 주소 정보를 해당 필드에 넣는다.
-								document.getElementById("addr2").value = addr;
+								document.getElementById("addr1").value = addr;
 								// 커서를 상세주소 필드로 이동한다.
-								document.getElementById("addr2").focus();
+								document.getElementById("addr1").focus();
 							}
 						}).open();
 			});
@@ -328,18 +328,20 @@ function numberWithCommas(x) {
 		var paybid = [];
 		if(con){
 			$('.paystate').each(function(){
-				state.push($(this).val());
-				alert(state);
+				state.push($(this).text());
+				
 			})
 			$('#payState1').val(state);
 	//------------------------------------		
 			$('.pid').each(function(){
 				pid.push($(this).val());
+				
 			})
 			$('#paypId1').val(pid);
 	//------------------------------------------
 			$('.count').each(function(){
-				count.push($(this).val());
+				count.push(parseInt($(this).text()));
+				
 			})
 			$('#payCount1').val(count);
 	//----------------------------------------
@@ -348,29 +350,34 @@ function numberWithCommas(x) {
 			$('#payUserAddr1').val($('#addr1').val());
 	//-----------------------------------------------
 			$('.sm_total').each(function(){
-				sm_total.push($(this).val());
+				sm_total.push(parseInt($(this).text()));
 			})
 			$('#payTotal1').val(sm_total);
 	//------------------------------------------------
 			$('.payStoreName').each(function(){
-				store.push($(this).val());
+				store.push($(this).text());
+				
 			})
 			 $('#paystorename1').val(store);
 	//-----------------------------------------------------
 			$('.ptitle').each(function(){
 				title.push($(this).val());
+				
 			})
 			$('#paytitle1').val(title);
 	//----------------------------------------------
 			$('.pContent').each(function(){
 				content.push($(this).val());
+				
 			})
 			$('#payContent').val(content);
 	//---------------------------------------------------
 			$('.payBid').each(function(){
 				paybid.push($(this).val());
+				
 			})
 			$('#payBid').val(paybid);
+			
 			$('#frmpay').submit();
 		}	
 	})

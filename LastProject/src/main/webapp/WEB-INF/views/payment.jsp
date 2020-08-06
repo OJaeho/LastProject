@@ -9,6 +9,7 @@
 <title>Market 3</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/market.css" />
 <!--===============================================================================================-->
@@ -96,9 +97,9 @@
 															<img src="${list.payImg}" class="product_img--mmk3PpY1tk">
 														</span>
 														<a href="product-detail.user?pName=${list.payTitle}&pPrice=${list.payPrice}">
-															${list.payTitle}
-															<input type="hidden" class="pid" value="${list.pId}">
 														</a>
+															<input type="hidden" class="ptitle" value="${list.payTitle}">
+															<input type="hidden" class="pid" value="${list.pId}">
 															<input type="hidden" value="${list.payContent}" class="pContent">
 															<input type="hidden" value="${list.bId}" class="payBid">
 													</div>
@@ -107,24 +108,24 @@
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap">
 													<div class="product_item--price">
-														<a href="#">${list.payStoreName}</a>
+														<a href="#"><span class="payStoreName">${list.payStoreName}</span>></a>
 													</div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap">
-													<div class="product_item--price">${list.payCount}</div>
+													<div class="product_item--price"><span class="count">${list.payCount}</span></div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap">
 												<fmt:formatNumber value="${list.payTotal}" type="number" var="payTotal"/>
-													<div class="product_item--price">${payTotal}</div>
+													<div class="product_item--price"><span class="sm_total">${list.payTotal}</span></div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap">
-													<div class="product_item--price">${list.payState}</div>
+													<div class="product_item--price"><span class="paystate">${list.payState}</span></div>
 												</div>
 											</td>
 										</tr>
@@ -217,7 +218,7 @@
 																	font-size: 15px;
 																	border-radius: 2px;
 																	padding: 5px;" id="addr1" class="inputTypeText" 
-																	placeholder="" size="40"/>
+																	placeholder="상세 주소까지 기입" size="40" id="addr1" />
 												<input class="btn btn-addr" id="findpostcode1" type="button" value="우편번호">
 												</td>
 											</tr>
@@ -227,7 +228,7 @@
 												<input type="text" style="border: 1px solid #eee;
 																		font-size: 15px;
 																		border-radius: 2px;
-																		padding: 5px;" id="tel1"/>
+																		padding: 5px;" id="tel1" placeholder=" '-' 제외"/>
 												</td>
 											</tr>
 										</tbody>
@@ -412,6 +413,7 @@
       });
    </script>
    <!--===============================================================================================-->
+   
    <script src="./resources/js/main.js"></script>
    <script src="./resources/js/jh.js"></script>
    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
