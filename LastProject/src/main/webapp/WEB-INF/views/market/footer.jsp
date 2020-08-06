@@ -168,7 +168,9 @@
 						  		<c:if test="${item.mkId eq sessionScope.mkId}">
 						  		<option  value="${item.mkId}" selected="selected">${item.mkName}</option>
 						  		</c:if>
+						  		<c:if test="${item.mkId ne sessionScope.mkId}">
 					    		<option value="${item.mkId}">${item.mkName}</option>
+						  		</c:if>
 						  	</c:forEach>
 						</select>
 						<input name="select_item" id="submit" type="submit" value="GO"	style="width: 100px; height: 50px;">
