@@ -71,15 +71,13 @@ google.load('visualization','1',{
 });
 //로딩이 완료되면 drawChart 함수를 호출
     google.setOnLoadCallback(drawChart); //라이브러리를 불러오는 작업이 완료되었으면 drawChart작업을 실행하라는 뜻.
+    google.setOnLoadCallback(drawChart2); //차트2
     function drawChart() {
         var jsonData = $.ajax({ //비동기적 방식으로 호출한다는 의미이다.
             url : "userFoodRank.user",
 
             //chart01에서는 json의 주소를 직접 적었지만 이 페이지에서는 컨트롤러로 이동해 맵핑해서 제이슨을 동적으로
             //직접만들어 그 만든 json을 직접 보낸다.
-            
-            
-            
             
             //chart01에서 쓰던 방식 url : "${path}/json/sampleData.json",
             //json에 sampleData.json파일을 불러온다.
@@ -111,26 +109,17 @@ google.load('visualization','1',{
                 
                 //데이터를 가지고 (타이틀, 높이, 너비) 차트를 그린다.
                 chart.draw(data, {
-                    title : "상품구매 통계",
+                    title : "많이 구매한 상품 순위",
                     curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
                     width : 600,
                     height : 400
                 });
     }
-
-    google.setOnLoadCallback(drawChart2); //라이브러리를 불러오는 작업이 완료되었으면 drawChart작업을 실행하라는 뜻.
+//     차트2
     function drawChart2() {
         var jsonData = $.ajax({ //비동기적 방식으로 호출한다는 의미이다.
             url : "userMoneyChart.user",
 
-            //chart01에서는 json의 주소를 직접 적었지만 이 페이지에서는 컨트롤러로 이동해 맵핑해서 제이슨을 동적으로
-            //직접만들어 그 만든 json을 직접 보낸다.
-            
-            
-            //chart01에서 쓰던 방식 url : "${path}/json/sampleData.json",
-            //json에 sampleData.json파일을 불러온다.
-            //확장자가 json이면 url 맵핑을 꼭 해주어야 한다. 안해주면 자바파일인줄 알고 404에러가 발생한다.
-            //그렇기 때문에 servlet-context파일에서 리소스를 맵핑해준다.
             dataType : "json",
             async : false
         }).responseText; //제이슨파일을 text파일로 읽어들인다는 뜻
@@ -138,74 +127,22 @@ google.load('visualization','1',{
         //데이터테이블 생성
         var data
         = new google.visualization.DataTable(jsonData);
-   
-        var chart = new google.visualization.ChartWrapper({
-            chartType   : 'LineChart',
-            containerId : 'lineChartArea', //라인 차트 생성할 영역
-            options     : {
-                            isStacked   : 'percent',
-                            focusTarget : 'category',
-                            height          : 500,
-                            width              : '100%',
-                            legend          : { position: "top", textStyle: {fontSize: 13}},
-                            pointSize        : 5,
-                            tooltip          : {textStyle : {fontSize:12}, showColorCode : true,trigger: 'both'},
-                            hAxis              : {format: chartDateformat, gridlines:{count:chartLineCount,units: {
-                                                                years : {format: ['yyyy년']},
-                                                                months: {format: ['MM월']},
-                                                                days  : {format: ['dd일']},
-                                                                hours : {format: ['HH시']}}
-                                                              },textStyle: {fontSize:12}},
-              vAxis              : {minValue: 100,viewWindow:{min:0},gridlines:{count:-1},textStyle:{fontSize:12}},
-              animation        : {startup: true,duration: 1000,easing: 'in' },
-              annotations    : {pattern: chartDateformat,
-                              textStyle: {
-                              fontSize: 15,
-                              bold: true,
-                              italic: true,
-                              color: '#871b47',
-                              auraColor: '#d799ae',
-                              opacity: 0.8,
-                              pattern: chartDateformat
-                            }
-                          }
-            }
-          });
-
-          var control = new google.visualization.ControlWrapper({
-            controlType: 'ChartRangeFilter',
-            containerId: 'controlsArea',  //control bar를 생성할 영역
-            options: {
-                ui:{
-                      chartType: 'LineChart',
-                      chartOptions: {
-                      chartArea: {'width': '60%','height' : 80},
-                        hAxis: {'baselineColor': 'none', format: chartDateformat, textStyle: {fontSize:12},
-                          gridlines:{count:controlLineCount,units: {
-                                years : {format: ['yyyy년']},
-                                months: {format: ['MM월']},
-                                days  : {format: ['dd일']},
-                                hours : {format: ['HH시']}}
-                          }}
-                      }
-                },
-                  filterColumnIndex: 0
-              }
-          });
-
-          var date_formatter = new google.visualization.DateFormat({ pattern: chartDateformat});
-          date_formatter.format(data, 0);
-
-          var dashboard = new google.visualization.Dashboard(document.getElementById('Line_Controls_Chart'));
-          window.addEventListener('resize', function() { dashboard.draw(data); }, false); //화면 크기에 따라 그래프 크기 변경
-          dashboard.bind([control], [chart]);
-          dashboard.draw(data);
-
-      }
-
- 
+    
+        var chart
+         = new google.visualization.LineChart(
+                document.getElementById('chart_div2')); //선 그래프 
+                
+                chart.draw(data, {
+                    title : "월별 지출액 비교",
+                    curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
+                    width : 600,
+                    height : 400
+                });
+    }
+// 차트2 끝
 </script>
 <script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+
 </head>
 <body>
 <!-- Header -->
@@ -233,24 +170,13 @@ google.load('visualization','1',{
     <div id="chart_div"></div>
     <!-- 차트가 그려지는 영역 -->
     <!-- 차트 새로고침 버튼 -->
-    <button id="btn" type="button" onclick="drawChart()">새로고침</button>
+<!--     <button id="btn" type="button" onclick="drawChart()">새로고침</button> -->
+<!-- 	차트2 출력 -->
 	<div id="chart_div2"></div>
-	
-<!-- 	차트2 -->
-	  <div id="Line_Controls_Chart">
-      <!-- 라인 차트 생성할 영역 -->
-          <div id="lineChartArea" style="padding:0px 20px 0px 0px;"></div>
-      <!-- 컨트롤바를 생성할 영역 -->
-          <div id="controlsArea" style="padding:0px 20px 0px 0px;"></div>
-        </div>
-
-
 </div>
 	</section>
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
-
-
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->

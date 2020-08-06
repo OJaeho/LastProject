@@ -1,6 +1,9 @@
 package com.serviceImpl;
 
-import java.sql.Date;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.dao.mypageDao;
 import com.service.mypageService;
 import com.vo.ChartVO;
+import com.vo.MypageVO;
 import com.vo.ReviewVO;
 
 @Service("mypageService")
@@ -24,7 +28,7 @@ public class mypageServiceImpl implements mypageService {
 	mypageDao mypageDao;
 
 	@Override
-	public List<HashMap<String, Object>> payList(String pNum, String id) {
+	public List<HashMap<String, Object>> payList(String pNum, String id,MypageVO vo){
 		int pageNum = 1;
 		if (pNum != null)
 			pageNum = Integer.parseInt(pNum);
@@ -33,7 +37,7 @@ public class mypageServiceImpl implements mypageService {
 		int endRow = pageNum * countPerPage;
 
 		// 페이지 당 검색해 온 레코드를 return
-		return mypageDao.getPayList(firstRow, endRow, id);
+		return mypageDao.getPayList(firstRow, endRow, id,vo);
 	}
 
 	@Override
@@ -117,7 +121,7 @@ public class mypageServiceImpl implements mypageService {
 
 	// 월별 구매 금액
 	@Override
-	public JSONObject userMoneyChart(String id) {
+	public JSONObject userMoneyChart(String id) throws Exception {
 		List<ChartVO> items = mypageDao.userMoneyChart(id);
 
 		// 리턴할 json 객체
@@ -131,8 +135,8 @@ public class mypageServiceImpl implements mypageService {
 		// json 배열 객체, 배열에 저장할때는 JSONArray()를 사용
 		JSONArray title = new JSONArray();
 		col1.put("label", "날짜"); // col1에 자료를 저장 ("필드이름","자료형")
-		col1.put("type", "datetime");
-		col2.put("label", "총액");
+		col1.put("type", "string");
+		col2.put("label", "월별지출액");
 		col2.put("type", "number");
 
 		// 테이블행에 컬럼 추가
@@ -145,9 +149,8 @@ public class mypageServiceImpl implements mypageService {
 		// ,{"label" : "금액", "type" : "number"}]}
 		JSONArray body = new JSONArray(); // json 배열을 사용하기 위해 객체를 생성
 		for (ChartVO total : items) { // items에 저장된 값을 dto로 반복문을 돌려서 하나씩 저장한다.
-
 			JSONObject term = new JSONObject(); // json오브젝트 객체를 생성
-			term.put("v", Date.valueOf(total.getTerm())); // name변수에 dto에 저장된 상품의 이름을 v라고 저장한다.
+			term.put("v",total.getTerm()); // name변수에 dto에 저장된 상품의 이름을 v라고 저장한다.
 
 			JSONObject sumtotal = new JSONObject(); // json오브젝트 객체를 생성
 			sumtotal.put("v", total.getSumTotal()); // name변수에 dto에 저장된 금액을 v라고 저장한다.
@@ -159,7 +162,7 @@ public class mypageServiceImpl implements mypageService {
 			JSONObject cell = new JSONObject();
 			cell.put("c", row); // cell 2개를 합쳐서 "c"라는 이름으로 추가
 			body.add(cell); // 레코드 1개 추가
-
+			
 		}
 		data.put("rows", body); // data에 body를 저장하고 이름을 rows라고 한다.
 		return data; // 이 데이터가 넘어가면 json형식으로 넘어가게되서 json이 만들어지게 된다.

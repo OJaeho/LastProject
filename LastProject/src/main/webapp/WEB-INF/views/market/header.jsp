@@ -167,6 +167,8 @@
 								method="POST" class="flex-c-m trans-04 p-lr-25">
 								<input type="submit" value="로그아웃"
 									style="background-color: transparent; color: white;" />
+								<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
+								<%=request.getRemoteUser() %>님 환영합니다.</a>
 							</form:form>
 
 						</sec:authorize>

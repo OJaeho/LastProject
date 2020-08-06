@@ -14,5 +14,16 @@ $(document).ready(function(){
 			$("#foliumtest").submit();
 		}
 	});
+	
+	
+	$("#dateSearch").click(function(){
+		if($('#starting').val()==""){
+			alert("시작일을 선택해 주세요");
+		}else if($('#ending').val()==""){
+			alert("종료일을 선택해 주세요");
+		}else{
+			$("#payDateSearch").submit();
+		}
+	});
 
 });

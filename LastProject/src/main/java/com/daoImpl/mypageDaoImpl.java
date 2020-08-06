@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dao.mypageDao;
 import com.vo.ChartVO;
+import com.vo.MypageVO;
 import com.vo.ReviewVO;
 
 @Repository("mypagedao")
@@ -18,11 +19,14 @@ public class mypageDaoImpl implements mypageDao {
 	private SqlSessionTemplate mybatis;
 
 	@Override
-	public List<HashMap<String, Object>> getPayList(int firstRow, int endRow, String id) {
+	public List<HashMap<String, Object>> getPayList(int firstRow, int endRow, String id ,MypageVO vo) {
 		HashMap m = new HashMap();
 		m.put("first", firstRow);
 		m.put("end", endRow);
 		m.put("id", id);
+		System.out.println(vo.getStart()+":시작일");
+		m.put("vo", vo);
+		
 		return mybatis.selectList("mypageMapper.selectPayList",m);
 	}
 

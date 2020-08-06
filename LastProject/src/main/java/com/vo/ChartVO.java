@@ -5,8 +5,28 @@ public class ChartVO {
 	private String pName;
 	private int cntUser;
 	private int sumTotal;
+	private int year;
+	private int month;
+	private String termDate;
+	public String getTermDate() {
+		return termDate;
+	}
+	public void setTermDate(String termDate) {
+		this.termDate = termDate;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
+	public int getMonth() {
+		return month;
+	}
+	public void setMonth(int month) {
+		this.month = month;
+	}
 	private String term;
-	
 	public int getSumTotal() {
 		return sumTotal;
 	}
