@@ -240,7 +240,8 @@
 									<span class="price--JIZ5vfiqW7">
 									<strong>
 									<fmt:formatNumber value="${total}" type="number" var="numberType"/>
-									<span style="font-weight: 900;
+									<input type="hidden" value="${total}" id="smto">
+									<span id="totalspan" style="font-weight: 900;
 												font-size: 15px;
 												margin: 0 0 0 auto;
 												text-align: right;">

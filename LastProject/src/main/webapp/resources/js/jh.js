@@ -288,15 +288,30 @@ $(function() {
 
 $(document).on('change', '.totalcheck',function(){ 
 	if ($(this).is(':checked') == false){
+		alert("일단 됨");
 		var small_total = parseInt($(this).parent().next().val());
-		var big_total = parseInt($('#totalspan').val());
-		$('#totalspan').val(big_total-small_total);
+		alert(small_total);
+		var big_total = parseInt($('#smto').val());
+		alert(big_total);
+		var result = big_total-small_total;
+		$('#smto').val(result);
+		alert($('#smto').val());
+		result = numberWithCommas(result);
+		$('#totalspan').text(result+"원");
 	}else{
 		var small_total = parseInt($(this).parent().next().val());
-		var big_total = parseInt($('#totalspan').val());
-		$('#totalspan').val(big_total+small_total);
+		var big_total = parseInt($('#smto').val());
+		var result = big_total+small_total;
+		$('#smto').val(result);
+		result = numberWithCommas(result);
+		$('#totalspan').text(result+"원");
 	}	
 })
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 //-----------------------------------------
 //결제창에서 결제하기 버튼
 	
@@ -357,5 +372,7 @@ $(document).on('change', '.totalcheck',function(){
 			$('#payBid').val(paybid);
 			$('#frmpay').submit();
 		}	
-	})	
+	})
+
+
 });

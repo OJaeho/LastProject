@@ -67,8 +67,7 @@
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
 		<h2 class="tour-title theme_color type_block">
-		<span class="notice_title_bullet them_background"></span>
-		시장 오시는 길
+			<span class="notice_title_bullet them_background"></span> 시장 오시는 길
 		</h2>
 	</section>
 
@@ -79,8 +78,10 @@
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
 					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
-					<h3 class="cl2 p-b-16 theme_color news-underbar"
-						style="font-size: 27px;font-weight: bold;">오시는 길</h3>
+						<h3 class="cl2 p-b-16 theme_color news-underbar"
+							style="font-size: 27px; font-weight: bold; padding-top: 20px;">오시는 길</h3>
+							<a style="padding-left: 90%" href="https://map.kakao.com/link/search/${intro.mkaddr}"	target="_blank"><img style="width: 45px; height: 45px;" src="./resources/images/icons/unnamed.png" class="scale" />
+							</a>
 						<div>
 							<div class="">
 								<!-- 오시는길 이미지3 삽입할곳 -->
@@ -109,14 +110,16 @@
 											summary="표 입력">
 											<tbody>
 												<tr>
-													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">시장
-														주소</td>
-													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkAddr}</td>
+													<td class="intro_content_font" rowspan="1" colspan="1"
+														data-row="0" data-column="0">시장 주소</td>
+													<td class="intro_content_font" rowspan="1" colspan="1"
+														data-row="0" data-column="0">${intro.mkaddr}</td>
 												</tr>
 												<tr>
-													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">전화
-														번호</td>
-													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTel}</td>
+													<td class="intro_content_font" rowspan="1" colspan="1"
+														data-row="0" data-column="0">전화 번호</td>
+													<td class="intro_content_font" rowspan="1" colspan="1"
+														data-row="0" data-column="0">${intro.mkTel}</td>
 												</tr>
 											</tbody>
 										</table>
