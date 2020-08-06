@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>사용자 마이페이지</title>
+<title>리뷰 관리</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -81,7 +81,7 @@
 			<div class="inner Content container">
 				<div class="title">
 					<h2 class="notice_title theme_color type_block">
-						<span class="notice_title_bullet them_background"></span> 사용자 마이페이지
+						<span class="notice_title_bullet them_background"></span> 리뷰관리
 					</h2>
 				</div>
 				<br>
@@ -89,10 +89,6 @@
 			<div class="board">
 				<span> </span>
 			</div>
-<div>
-<a href="PayList.user">리뷰 리스트</a>
-<hr/>
-</div>
 			<div class="Content ec-base-table container">
 				<div class="row">
 					<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">

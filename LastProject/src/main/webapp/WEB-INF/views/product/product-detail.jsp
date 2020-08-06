@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <%@page import="com.vo.ProductVO"%>
 <%@page import="com.vo.CategoryVO"%>
 <%@page import="com.vo.StoreVO"%>
@@ -60,8 +59,7 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product-detail.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/product-detail.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 
@@ -75,20 +73,19 @@
 	<section class="sec-product-detail bg0 p-t-65 p-b-60">
 		<div class="container">
 
-
 			<!-- DB에 선택된 상품정보 가져오기  -->
 			<c:forEach items="${productget}" var="item">
-				<div class="row" style="width: 1200px;">
+				<div class="row" style="margin: 0 auto;">
 					<div class="col-md-6 col-lg-7 p-b-30" style="width: 1200px;">
 						<div class="p-l-25 p-r-30 p-lr-0-lg" style="width: 1200px;">
 							<hr />
 							<br />
 							<div class="wrap-slick3 flex-sb flex-w"
 								style="width: 1350px; margin: auto;">
-								<img src="${item.pImg1}" style="width: 500px; height: 400px;">
+								<img src="${item.pImg1}" style="width: auto; height: 400px;">
 								<div class="col-md-6 col-lg-5 p-b-30" style="margin: auto;">
 									<div class="p-r-50 p-t-5 p-lr-0-lg">
-										<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+										<h4 class="cl2 js-name-detail p-b-14">
 											[${item.sName}]<br />${item.pName}</h4>
 										<input type="hidden" value="${item.pName}" id="itemname" /> <input
 											type="hidden" value="${item.pDetail}" id="bContent" /> <input
@@ -128,7 +125,7 @@
 										<!-- 수량버튼 -->
 										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
 											<div
-												class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												class="btn-num-product-down cl8 hov-btn4 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
@@ -136,7 +133,7 @@
 												type="number" id="numm" value="1">
 
 											<div
-												class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												class="btn-num-product-up cl8 hov-btn4 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
 											<input type="hidden" id="hiddennum" />
@@ -160,45 +157,40 @@
 										<input type="button" name="addsubcart" id="addProduct"
 											style="width: auto; background-color: lightgrey; color: green;"
 											value="장바구니 담기" />
-										<hr />
-										<label style="width: 30px; height: 20px; color: green;">preview</label>
 										<form name="subcart">
-											<table style="width: 500px; border: 1px solid green;">
-												<thead style="width: 100%;">
-													<tr style="width: 100%;">
-														<td style="width: 20%;">옵션</td>
-														<td style="width: 20%;">수량</td>
-														<td style="width: 20%;">가격</td>
-														<td style="width: 20%;">수령</td>
-														<td style="width: 20%;"></td>
-														<td style="width: 0%;"></td>
+											<table style="border-top: 1px solid #eee" >
+												<thead>
+													<tr>
+														<th>옵션</th>
+														<th>수량</th>
+														<th>가격</th>
+														<th>수령</th>
 													</tr>
 												</thead>
 												<tbody id="dynamicTbody" style="width: auto;">
 												</tbody>
-
-												<tfoot style="width: 100%;">
+												<tfoot>
 													<tr>
-														<td style="width: 80%;">총액 :</td>
-														<td style="width: 0%;"><input type="text"
-															id="paytotal"></td>
-														<td style="width: 0%;"></td>
-														<td style="width: 0%;"></td>
-														<td style="width: 0%;"></td>
-														<td style="width: 0%;"></td>
+														<td>총액 :</td>
+														<td>
+														<input type="text" id="paytotal">
+														</td>
 													</tr>
 												</tfoot>
 											</table>
 											<hr />
 											<table style="width: 482px; margin: auto;">
 												<tr style="text-align: center;">
-													<td style="width: 100px;"><input
-														class="btn btn-success" type="submit" value="바로 구매하기"
-														style=""
-														onclick="javascript: form.action='/manage/update';" /></td>
-													<td><a href="shopping.checking"><input
-															id="cartBtn" class="btn btn-success" type="button"
-															value="장바구니 가기" /></a></td>
+													<td style="width: 100px;">
+														<input class="btn btn-success" type="submit" 
+														value="바로 구매하기" style="" onclick="javascript: form.action='/manage/update';" />
+													</td>
+													<td>
+														<a href="shopping.checking">
+														<input id="cartBtn" class="btn btn-success" 
+														type="button" value="장바구니 가기" />
+														</a>
+													</td>
 												</tr>
 											</table>
 

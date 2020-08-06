@@ -72,7 +72,7 @@
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">사용자 마이페이지</h2>
+		<h2 class="ltext-105 cl0 txt-center">구매 목록</h2>
 	</section>
 	<!-- header끝 -->
 	<!-- Content page -->
@@ -89,12 +89,60 @@
 			<div class="board">
 				<span> </span>
 			</div>
-<div>
-<a href="PayList.user">주문 내역 관리</a>
-<hr/>
-</div>
+			
+<!-- 			Tab Pane 시작 -->
+	<div class="container">
+							<div class="row" id="tour">
+								<ul class="nav nav-tabs" style="margin-left: 20%;">
+									<li role="presentation" style="font-size: x-large;"
+										class="navLi">
+										<a href="PayList.user?">전체상품 보기</a>
+									</li>
+									<li role="presentation" style="font-size: x-large;"
+										class="navLi"><a href="PayList.user?payState=픽업">픽업상품
+											보기</a>
+									</li>
+									<li role="presentation" style="font-size: x-large;"
+										class="navLi"><a href="PayList.user?payState=배송">배송상품
+											보기</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<br/>
+<!-- 						날짜 기준 -->
+						<div>
+				<form action="PayList.user" id="payDateSearch" >
+					<h4 style='display:inline;' >기간: </h2>
+					<input type="hidden" name="payState" value=${payStateView }>
+					<input type="date" id="starting" name="start"  style='display:inline; border-style:solid; border-color:green'>
+					&nbsp; &nbsp; &nbsp; &nbsp;~&nbsp; &nbsp; &nbsp; &nbsp;
+					<input type="date" id="ending" name="end"  style='display:inline; border-style:solid; border-color:green'>
+					<input type="button" id="dateSearch" value="기간 검색"
+							style="
+							display: inline;
+						    height: 40px;
+						    padding: 0px 10px 10px 10px;
+						    font-size: 15px;
+						    line-height: 40px;
+						    letter-spacing: 1px;
+						    color: #fff;
+						    font-weight: bold;
+						    border: 1px solid #ddd0;
+						    -webkit-border-radius: 2px;
+						    border-radius: 5px;
+						    background: #2ee27f;
+						    -webkit-box-sizing: border-box;
+						    box-sizing: border-box;
+						    cursor: pointer;
+							">		
+					</form>		
+						</div>
+						<hr/>
+						
+<!-- 		tab Pane 부분 끝	 -->
+		<!--구매내역 본문 시작 -->
 			<div class="Content ec-base-table container">
-
 				<div class="page_list">
 							<c:forEach items="${payList}" var="pays">
 							<h4>${pays.SNAME }|${pays.PAYSTATE }</h4>
@@ -374,6 +422,7 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
+	<script src="./resources/js/nh2.js"></script>
 
 </body>
 </html>
