@@ -95,7 +95,7 @@
 						  		<option  value="${item.mkId}">${item.mkName}</option>
 				</c:if>
 		  	</c:forEach>
-		</select>
+		</select>  
 		<input name="select_item" id="submitFolium" type="button" value="GO"	class="btn-maps" style="height:40px;margin-bottom: 3px;">
 		</li>						
 		</ul>					
