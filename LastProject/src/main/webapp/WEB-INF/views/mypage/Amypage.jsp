@@ -78,6 +78,7 @@
 <h3><a href="insertMarket.master">시장등록</a></h3>
 <br>
 <h3><a href="marketDetail.master">시장정보수정및삭제</a></h3>
+<h3><a href="makeFolium.master">Main 지도 업데이트하기</a></h3>
 
    </div>
   </section>
