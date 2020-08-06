@@ -110,7 +110,7 @@
 														<c:when test="${item2.pCount eq 0}">
 															<option disabled id="price" value="${item2.pPrice}"
 																value2="${item2.pOption1}">[ ${item2.pOption1}
-																- ${item2.pPrice} ] 재고수량:${item2.pCount}</option>
+																- ${item2.pPrice} ] 재고수량:${item2.pCount} [품절]</option>
 														</c:when>
 														<c:otherwise>
 															<option id="price" value="${item2.pPrice}"

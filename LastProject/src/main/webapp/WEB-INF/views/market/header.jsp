@@ -181,6 +181,9 @@
 							마이페이지 </a>
 						<!--  <a href="marketDetail.master" class="flex-c-m trans-04 p-lr-25"> ENGLISH
 						</a>-->
+						
+					<a href="shopping.checking" class="flex-c-m trans-04 p-lr-25">
+							장바구니 </a>
 					</div>
 				</div>
 			</div>
@@ -241,7 +244,7 @@
 				<a class="btnn red"	href="insertIssue.market">이슈등록</a>
 				</sec:authorize>
 				<sec:authorize access="hasRole('ROLE_SELLER')">
-				<a class="btnn red" href="insertproduct.market" >상품등록</a> 
+				<a class="btnn red" href="insertproduct.seller" >상품등록</a> 
 				
 				</sec:authorize>
 				

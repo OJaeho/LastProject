@@ -88,7 +88,12 @@
 		<select name="mkId" id="id_Select" class="select_item" style="width:200px;height:40px;text-align: center; ">
 		 <option value="selected">선 택</option>
 		  	<c:forEach var="item" items="${list}" >
-	    		<option value="${item.mkId}">${item.mkName}</option>
+	    		<c:if test="${item.mkId eq 1009}">
+				<option  value="${item.mkId}" selected="selected">${item.mkName}</option>
+				</c:if>
+				<c:if test="${item.mkId ne 1009}">
+						  		<option  value="${item.mkId}">${item.mkName}</option>
+				</c:if>
 		  	</c:forEach>
 		</select>
 		<input name="select_item" id="submitFolium" type="button" value="GO"	class="btn-maps" style="height:40px;margin-bottom: 3px;">

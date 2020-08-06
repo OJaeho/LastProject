@@ -60,7 +60,7 @@
 	<!-- header 끝 -->
 
 	<div style="text-align: -webkit-center;">
-		<form action="pInsert.market" method="get" id="frm">
+		<form action="pInsert.seller" method="get" id="frm">
 			<table class="table_type2 type_background" style="width: 600px;">
 				<tbody class="inner" data-role="lead_form">
 					<tr>
