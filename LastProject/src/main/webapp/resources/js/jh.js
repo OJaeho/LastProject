@@ -314,6 +314,7 @@ $(document).on('change', '.totalcheck',function(){
 		if(con){
 			$('.paystate').each(function(){
 				state.push($(this).val());
+				alert(state);
 			})
 			$('#payState1').val(state);
 	//------------------------------------		
