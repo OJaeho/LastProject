@@ -87,14 +87,14 @@ $(function() {
 	            alert("상품이 장바구니에 추가되었습니다");
 	            var html = '';
 	            for (key in result) {
-	               html += '<tr style="width: 100%;">';
-	               html += '<td style="width: 20%;" class="listedName"><input type="text" value="'+result[key].bOption+'"+/></td>';
-	               html += '<td style="width: 20%;"><input type="text" id="bQuantity" value="'+result[key].bQuantity+'"+/></td>';
-	               html += '<td style="width: 20%;"><input type="text" value="'+result[key].bQuantity*pPrice+'"/></td>';
+	               html += '<tr>';
+	               html += '<td class="listedName"><input type="text" value="'+result[key].bOption+'"+/></td>';
+	               html += '<td><input type="text" id="bQuantity" value="'+result[key].bQuantity+'"+/></td>';
+	               html += '<td><input type="text" value="'+result[key].bQuantity*pPrice+'"/></td>';
 	               paytotal += result[key].bQuantity*pPrice;
-	               html += '<td style="width: 20%;"><input type="text" value="'+result[key].bState+'"/></td>';
-	               html +='<td style="width: 20%; padding-right:100px;"><button class="btn_delete" id="deleteBtn">[x]</button></td>';
-	               html += '<td style="width: 0%;" class="listedName"><input type="hidden" id="bId" value="'+result[key].bId+'"+/></td>';
+	               html += '<td><input type="text" value="'+result[key].bState+'"/></td>';
+	               html +='<td><button class="btn_delete" id="deleteBtn">[x]</button></td>';
+	               html += '<td class="listedName"><input type="hidden" id="bId" value="'+result[key].bId+'"+/></td>';
 	               html += '</tr>';
 	               $("#dynamicTbody").empty();
 	               $("#dynamicTbody").append(html);
