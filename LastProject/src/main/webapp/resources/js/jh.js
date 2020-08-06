@@ -329,6 +329,7 @@ function numberWithCommas(x) {
 		if(con){
 			$('.paystate').each(function(){
 				state.push($(this).val());
+				alert(state);
 			})
 			$('#payState1').val(state);
 	//------------------------------------		

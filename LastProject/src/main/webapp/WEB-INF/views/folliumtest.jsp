@@ -71,7 +71,7 @@
 <!-- map 영역 -->
 <div class="row" style="text-align: center; ">
 	<div class="left" style="text-align: center;">
-		<div class="card" id="map_05cb59dcb3404d0499dd8162a238459d" style="">
+		<div class="card" id="map_05cb59dcb3404d0499dd8162a238459d" style="margin: 0; outline: none; box-shadow: -4px 7px 8px 0px #9b9b9b7d;">
 		</div>
 	</div>
 </div>
@@ -95,7 +95,7 @@
 						  		<option  value="${item.mkId}">${item.mkName}</option>
 				</c:if>
 		  	</c:forEach>
-		</select>
+		</select>  
 		<input name="select_item" id="submitFolium" type="button" value="GO"	class="btn-maps" style="height:40px;margin-bottom: 3px;">
 		</li>						
 		</ul>					
