@@ -20,7 +20,7 @@
    </insert>
    
    <select id="getTotalCount" resultType="int" parameterType="hashmap">
-	select count(*) from notice 
+	select count(*) from notice where mkId = ${mkId}
 	</select>
 	
 	<select id="getNotice" resultType="notice" parameterType="notice">

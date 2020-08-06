@@ -15,7 +15,7 @@ import com.dao.*;
 public class noticeServiceImpl implements noticeService {
 	private int totalRecCount;		// 전체 레코드 수	
 	private int pageTotalCount;		// 전체 페이지 수
-	private int countPerPage = 5;	// 한페이지당 레코드 수
+	private int countPerPage = 10;	// 한페이지당 레코드 수
 	
 	
 	@Autowired

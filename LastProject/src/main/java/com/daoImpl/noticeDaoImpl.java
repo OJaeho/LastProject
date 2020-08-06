@@ -53,7 +53,9 @@ import com.vo.NoticeVO;
 			System.out.println("===> QnA getTotalCount 호출");
 			HashMap m=new HashMap();
 			m.put("mkId", mkId);
-			return mybatis.selectOne("QnA.getTotalCount",m);
+			System.out.println(mybatis.selectOne("Notice.getTotalCount",m)+"dlrjekdhfkshe");
+			return mybatis.selectOne("Notice.getTotalCount",m);
+			
 		}
 		
 	}

@@ -257,7 +257,7 @@ public class productController {
 	}
 
 	// 상품 등록하기
-	@RequestMapping(value = "/pInsert.market", method = RequestMethod.GET)
+	@RequestMapping(value = "/pInsert.seller", method = RequestMethod.GET)
 	public String InsertProduct(String sName, @ModelAttribute ProductVO pvo, Model model, HttpSession session,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if (pvo.getpOption1() != null && pvo.getPriceOption() != null) {
@@ -278,7 +278,7 @@ public class productController {
 					service.InsertProduct(pvo);
 					
 				} // while
-				return "folliumtest";
+				return "redirect:/getproduct.user";
 			} // if
 		}
 		return "redirect:/insertproduct.market";
