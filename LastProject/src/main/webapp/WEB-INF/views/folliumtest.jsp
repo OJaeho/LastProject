@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<head>  
+<head> 
+<link href="https://fonts.googleapis.com/css?family=Gamja Flower" rel="stylesheet"> 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script>
@@ -13,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"  />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
@@ -52,44 +54,48 @@
                     text-align: center;
                  }
             </style>
-        
 </head>
-<body>    
+<body style="">    
 <!-- header 영역 -->
-<div class="header">
-	<img src="./resources/images/maps2.png" style="width: 15%">
+<div class="header" style=" text-align: center;">
+	<img src="./resources/images/logocart.png" style="width: 20%;margin: auto;padding-right: 3%;">
+</div>
+<div class="animate__animated animate__backInDown" style="width:auto; padding: 30px; text-align: center;padding-right: 3%;">
+	<img src="./resources/images/logo.png"style="width: 10%; "><label style="font-family: Gamja Flower;font-size: 30px;">는 전통시장의 활성화를 목적으로 만들어진 플랫폼입니다.</label><br/>
+	<img src="./resources/images/logo.png"style="width: 15%; "><label style="font-family: Gamja Flower;font-size: 30px;">에서 장도 보고 많은 서비스를 즐겨보세요.</label><br/>
+	<img src="./resources/images/logo.png"style="width: 13%; "><label style="font-family: Gamja Flower;font-size: 30px;">는 <a style="color: red;font-family: Gamja Flower">전국의 소상공인분들을 응원합니다!</a></label><br/>
 </div>
 
+
+
 <!-- map 영역 -->
-<div class="row">
-	<div class="left">
-		<div class="card" id="map_05cb59dcb3404d0499dd8162a238459d">
+<div class="row" style="text-align: center; ">
+	<div class="left" style="text-align: center;">
+		<div class="card" id="map_05cb59dcb3404d0499dd8162a238459d" style="">
 		</div>
 	</div>
 </div>
 <!-- select 영역 -->
-<div class="footer">
-<div class="right" style="position: absolute; left: 50%; transform: translateX(-50%); ">
-	<div class="card">
-	<h3 class="uio_title theme_color" id="title" style="padding-left: 15%; font-size: 20px; font-weight: bold; text-align: left;">
+<div class="right" style="padding-bottom:5%;padding-right:3%; position: absolute; left: 50%; transform: translateX(-50%);text-align: center; ">
+	<div class="card" style="text-align: center;">
+	<h3 class="uio_title theme_color" id="title" style="width:auto; font-family: Gamja Flower; font-size: 30px; font-weight: bold; text-align: center;">
       <span class="uio_title_bullet theme_background"></span>
               원하는 시장을 선택해 보세요
     </h3>
-	<form action="index2.user" id="foliumtest" method="get">
-		<ul class="list_info">
-		<li style="padding-right: 100px;">
-		<select name="mkId" id="id_Select" class="select_item" style="width:250px;height:50px;">
+	<form action="index2.user" id="foliumtest" method="get" style="text-align: center;float: right;">
+		<ul class="list_info" style="text-align: center; margin: auto; padding-right: 80px;">
+		<li style="text-align: center;">
+		<select name="mkId" id="id_Select" class="select_item" style="width:200px;height:40px;text-align: center; ">
 		 <option value="selected">선 택</option>
 		  	<c:forEach var="item" items="${list}" >
 	    		<option value="${item.mkId}">${item.mkName}</option>
 		  	</c:forEach>
 		</select>
-		<input name="select_item" id="submitFolium" type="button" value="GO"	class="btn-maps">
+		<input name="select_item" id="submitFolium" type="button" value="GO"	class="btn-maps" style="height:40px;margin-bottom: 3px;">
 		</li>						
 		</ul>					
 	</form>
 	</div>
-</div>
 </div>
 </body>
 <script type="text/javascript" src="resources/js/nh2.js"></script>
