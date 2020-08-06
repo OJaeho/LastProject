@@ -154,7 +154,7 @@
 							</div>
 						</div>
 
-						<div >
+						<div>
 							<table class="table-cart-01">
 								<thead>
 									<tr>
@@ -185,9 +185,10 @@
 											<td class="cart_table_line-02">
 												<div class="product_desc_wrap--pGO3mDnHCR">
 													<div class="product_description--aMGcm-GMeU" id="cart-name">
-														<span class="product_thumb--39N9M1GjTm"> <img
-															src="${list.bImg }" class="product_img--mmk3PpY1tk">
-														</span>  <a href="#" class="test">${list.bTitle}</a>
+														<span class="product_thumb--39N9M1GjTm"> 
+														<img src="${list.bImg }" class="product_img--mmk3PpY1tk">
+														</span>  
+														<a href="#" class="test">${list.bTitle}</a>
 													</div>
 												</div>
 											</td>

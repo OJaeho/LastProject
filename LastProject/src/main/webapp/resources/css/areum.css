@@ -975,3 +975,15 @@ div > p #mangwon{
 .cart-title-border{
 	border-bottom: 1px solid #eee;
 }
+
+.orderArea .title, #orderForm .title {
+    margin: 40px 0 10px 10px;
+    text-align: left;
+}
+#orderForm table {
+    line-height: 1.5;
+}
+
+#orderArea .title {
+    padding-top: 30px;
+}
