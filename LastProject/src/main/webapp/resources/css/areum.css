@@ -36,8 +36,8 @@ div {
     box-sizing: border-box;
 }
 
-html, body, button, input, select, table, textarea, div, li, h1, h2, h3, h4, h5, a,
-span, div > h4, section, div > h2 {
+html, body, button, input, select, table, textarea, div, ul, li, h1, h2, h3, h4, h5, a,
+span, div > h4, section, div > h2{
 	font-family : 'Nanum Gothic';
 }
 
@@ -1077,4 +1077,10 @@ caption {
 	color: #494949;
     font-size: larger;
     font-weight: 800;
+}
+
+.index-tab-01 {
+    position: relative;
+    left: 0px;
+    top: 0px;
 }

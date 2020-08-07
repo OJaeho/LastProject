@@ -69,7 +69,7 @@
 
       <!-- Main Content -->
 
-	<h2 style="text-align: center" class="mypage_content_font p-b-40">My Page</h2>
+	<h2 style="text-align: center" class="cl2 p-b-20 theme_color cart-main-font cart-title-border">MY PAGE</h2>
 
 		<!-- MyPage List -->
 	<div class="wrapper tabled">
@@ -90,13 +90,13 @@
       	<p>
       <div class="link-1">
         <a href="reviewList.user">
-          <span class="thin link-1-color">re</span><span class="thick link-1-color">view</span>
+          <span class="thin link-1-color">rev</span><span class="thick link-1-color">iew</span>
         </a>  
       </div>
       	<p>
       <div class="link-1">
         <a href="moveUChart.user">
-          <span class="thin link-1-color">C</span><span class="thick link-1-color">hart</span>
+          <span class="thin link-1-color">Ch</span><span class="thick link-1-color">art</span>
         </a>  
       </div>
       

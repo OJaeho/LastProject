@@ -52,57 +52,60 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
-
-
-
-
-
 
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- Bootstrap -->
-<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!--===============================================================================================-->
+<style type="text/css">
+.pay-btn{
+    display: inline;
+    height: 40px;
+    padding: 0 10px 0px 10px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #ddd0;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background: #2ee27f;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+</style>
 
 </head>
 <body class="animsition">
 
 	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
-	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">구매 목록</h2>
-	</section>
-	<!-- header끝 -->
-	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120">
-		<div class="container">
-			<div class="inner Content container">
-				<div class="title">
-					<h2 class="notice_title theme_color type_block">
-						<span class="notice_title_bullet them_background"></span> 사용자 마이페이지
-					</h2>
-				</div>
-				<br>
-			</div>
-			<div class="board">
-				<span> </span>
-			</div>
-			
+<!-- Title page -->
+   <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
+   	<h2 style="margin-top: 40px;"
+	class="cl2 p-b-20 theme_color cart-main-font cart-title-border">ORDER LIST</h2>
+   </section> 
+<!-- header끝 -->
+   <!-- Content page -->   
+<div class="joinMain">
+<div class="mArticle">
 <!-- 			Tab Pane 시작 -->
-	<div class="container">
-							<div class="row" id="tour">
-								<ul class="nav nav-tabs" style="margin-left: 20%;">
-									<li role="presentation" style="font-size: x-large;"
+			<div class="container">
+							<div class="row">
+								<ul class="nav nav-tabs" style="margin: 0 auto;">
+									<li role="presentation" style="font-size: 15px;"
 										class="navLi">
 										<a href="PayList.user?">전체상품 보기</a>
 									</li>
-									<li role="presentation" style="font-size: x-large;"
+									<li role="presentation" style="font-size: 15px;"
 										class="navLi"><a href="PayList.user?payState=픽업">픽업상품
 											보기</a>
 									</li>
-									<li role="presentation" style="font-size: x-large;"
+									<li role="presentation" style="font-size: 15px;"
 										class="navLi"><a href="PayList.user?payState=배송">배송상품
 											보기</a>
 									</li>
@@ -111,64 +114,43 @@
 						</div>
 						<br/>
 <!-- 						날짜 기준 -->
-						<div>
+			<div style="margin: 0 auto; text-align: center;">
 				<form action="PayList.user" id="payDateSearch" >
-					<h4 style='display:inline;' >기간: </h2>
 					<input type="hidden" name="payState" value=${payStateView }>
-					<input type="date" id="starting" name="start"  style='display:inline; border-style:solid; border-color:green'>
-					&nbsp; &nbsp; &nbsp; &nbsp;~&nbsp; &nbsp; &nbsp; &nbsp;
-					<input type="date" id="ending" name="end"  style='display:inline; border-style:solid; border-color:green'>
-					<input type="button" id="dateSearch" value="기간 검색"
-							style="
-							display: inline;
-						    height: 40px;
-						    padding: 0px 10px 10px 10px;
-						    font-size: 15px;
-						    line-height: 40px;
-						    letter-spacing: 1px;
-						    color: #fff;
-						    font-weight: bold;
-						    border: 1px solid #ddd0;
-						    -webkit-border-radius: 2px;
-						    border-radius: 5px;
-						    background: #2ee27f;
-						    -webkit-box-sizing: border-box;
-						    box-sizing: border-box;
-						    cursor: pointer;
-							">		
-					</form>		
-						</div>
+					<input type="date" id="starting" name="start" style='display: inline; border: 1px solid #ccc; border-radius: 2px;'>
+					~
+					<input type="date" id="ending" name="end"  style='display: inline; border: 1px solid #ccc; border-radius: 2px;'>
+					<input type="button" id="dateSearch" value="OK" class="pay-btn">		
+				</form>		
+			</div>
 						<hr/>
 						
 <!-- 		tab Pane 부분 끝	 -->
 		<!--구매내역 본문 시작 -->
 			<div class="Content ec-base-table container">
-				<div class="page_list">
+				<div style="position: relative;">
 							<c:forEach items="${payList}" var="pays">
-							<h4>${pays.SNAME }|${pays.PAYSTATE }</h4>
-							<h2>${pays.PAYTYPE }</h2>
+							<h4>${pays.SNAME } | ${pays.PAYSTATE }</h4>
+							<h4>${pays.PAYTYPE }</h4>
 							<span>${pays.PAYDATE}</span><br/>
 							<span>${pays.PAYCONTENT}</span><br/>
-							<input type="button" value="리뷰쓰기" onClick="location.href='product-detail.user?pName=${pays.PNAME}&pPrice=${pays.PPRICE}&pId=${pays.PID}&payId=${pays.PAYID}'"  style='display:inline;' >
-							<input type="button" value="가게보기" onClick="location.href='#'"  style='display:inline;' >
-							<input type="button" value="주문 상세" onClick="location.href='#'"  style='display:inline;' >
+							<input class="join-btn" type="button" value="리뷰쓰기" onClick="location.href='product-detail.user?pName=${pays.PNAME}&pPrice=${pays.PPRICE}&pId=${pays.PID}&payId=${pays.PAYID}'"  style='display:inline;' >
+							<input class="join-btn" type="button" value="가게보기" onClick="location.href='#'"  style='display:inline;' >
 							<hr/>
 							</c:forEach>
-					<hr />
 				</div>
-				<br />
 <!-- 				페이지 처리 -->
 				<div class="text-center-page">
 					<ul class="pagination div-center">
 						<c:forEach var="i" begin="1" end="${totalpNum }">
-							<li><a href="PayList.user?pNum=${i }">${i }</a></li>
+							<li><a href="PayList.user?pNum=${i }&payState=${payStateView }&start=${param.start}&end=${param.end}">${i }</a></li>
 						</c:forEach>
 					</ul>
 				</div>
 <!-- 				페이지 처리 끝 -->
 			</div>
 		</div>
-	</section>
+	</div>
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 

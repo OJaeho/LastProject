@@ -52,7 +52,9 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<!-- <link rel="stylesheet" type="text/css" href="./resources/css/hover.css"> -->
 <!--===============================================================================================-->
+
 </head>
 <body class="animsition">
 
@@ -69,25 +71,36 @@
 		<div class="wrap-slick1">
 			<div class="slick1">
 				<div class="item-slick1"
-					style="background-image: url(./resources/images/a3.png); width: 1000px; height: 600px; padding-top: 50px;">
+					style="background-image: url(./resources/images/5_dr.png); width: 1000px; height: 600px; padding-top: 50px;">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false"
 								data-appear="fadeInDown" data-delay="0">
-								<span class="ltext-101 cl2 respon2" style="color: darkblue">
+								<span class="cl2 respon2" style="color: #FFF; font-weight: 800;">
 									핫플레이스로 떠오르는 전통시장 </span>
+<!-- 								<div class="animated-title"> -->
+<!-- 								  <div class="text-top"> -->
+<!-- 								    <div> -->
+<!-- 								      <span>Welcome</span> -->
+<!-- 								      <span>Market</span> -->
+<!-- 								    </div> -->
+<!-- 								  </div> -->
+<!-- 								  <div class="text-bottom"> -->
+<!-- 								    <div>SSAK 3!</div> -->
+<!-- 								  </div> -->
+<!-- 								</div> -->
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="fadeInUp" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1"
-									style="color: blue">08:00 ~ 20:00</h2>
+								<h2 class="cl2 p-t-19 p-b-43 respon1"
+									style="color: #FFF; font-weight: 800;">08:00 ~ 20:00</h2>
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="zoomIn" data-delay="1600">
 								<a href="product.html" style="color: white"
-									class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+									class="flex-c-m cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 									오늘도 활기찬 망원시장 </a>
 							</div>
 						</div>
@@ -278,10 +291,6 @@
 				</table>
 				<a href="getQnAList.user" style="padding-left: 450px;">더보기</a>
 			</div>
-		</div>
-
-		<div style="padding-top: 150px; text-align: center;">
-			<img src="./resources/images/champ.PNG">
 		</div>
 
 	</section>
