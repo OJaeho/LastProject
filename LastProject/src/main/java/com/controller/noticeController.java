@@ -42,7 +42,7 @@ public class noticeController {
 	
 	//공지 등록화면으로 이동
     @RequestMapping("/insertNotice.market")
-    public String insertNotice() throws Exception {    
+    public String insertNotice() throws Exception {
        return "notice/InsertNotice";
     }
     

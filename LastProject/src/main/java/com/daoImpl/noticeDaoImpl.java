@@ -18,29 +18,24 @@ import com.vo.NoticeVO;
 		private SqlSessionTemplate mybatis;
 
 		public int insertNotice(NoticeVO vo) {
-			System.out.println("===> Mybatis insertNotice() 호출");
 			return (int)mybatis.insert("Notice.insertNotice", vo);
 		}
 
 		public void updateNotice(NoticeVO vo) {
-			System.out.println("===> Mybatis updateNotice() 호출");
 			mybatis.update("Notice.updateNotice", vo);
 		}
 
 		public void deleteNotice(NoticeVO vo) {
-			System.out.println("===> Mybatis deleteNotice() 호출");
 			mybatis.delete("Notice.deleteNotice", vo);
 		}
 
 		public NoticeVO getNotice(NoticeVO vo) {
-			System.out.println("===> Mybatis getNotice() 호출");
 			return (NoticeVO) mybatis.selectOne("Notice.getNotice", vo);
 		}
 
 
 		@Override
 		public List<NoticeVO> getNoticeList(int firstRow,int endRow,int mkId) {
-			System.out.println("===> Mybatis getQnAList() 호출");
 			HashMap m=new HashMap();
 			m.put("first",firstRow);
 			m.put("end", endRow);

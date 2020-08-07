@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.dao.mypageDao;
 import com.vo.ChartVO;
 import com.vo.MypageVO;
+import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
@@ -31,8 +32,13 @@ public class mypageDaoImpl implements mypageDao {
 		if (vo.getPayState() == null) {
 			vo.setPayState("전체");
 		}
+		System.out.println(vo.getPayState()+":페잉스테이트");
 		m.put("vo", vo);
-
+		if (vo.getStart() !=null) {
+			m.put("dating", "있음");
+		}else {
+			m.put("dating", "없음");
+		}
 		return mybatis.selectList("mypageMapper.selectPayList", m);
 	}
 
@@ -73,7 +79,17 @@ public class mypageDaoImpl implements mypageDao {
 
 	@Override
 	public StoreVO getStoreById(String id) {
-		return mybatis.selectOne("getStoreById", id);
+		return mybatis.selectOne("mypageMapper.getStoreById", id);
+	}
+
+	//Store 별 판매 물품 조회
+	@Override
+	public List<ProductVO> productList(int firstRow, int endRow, HashMap m) {
+		m.put("first", firstRow);
+		m.put("end", endRow);
+		
+
+		return mybatis.selectList("mypageMapper.getProduct",m);
 	}
 
 }

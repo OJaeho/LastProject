@@ -6,6 +6,7 @@ import java.util.List;
 import org.json.simple.JSONObject;
 
 import com.vo.MypageVO;
+import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
@@ -20,4 +21,5 @@ public interface mypageService {
 	public JSONObject userMoneyChart(String id) throws Exception; //user별/기간별 돈사용한 시간
 	//seller 마이 페이지
 	public StoreVO getStoreById(String id);
+	public List<ProductVO> productList(String pNum, HashMap m);
 }

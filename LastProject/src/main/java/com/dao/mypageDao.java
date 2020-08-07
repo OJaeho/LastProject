@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.vo.ChartVO;
 import com.vo.MypageVO;
+import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
@@ -19,4 +20,5 @@ public interface mypageDao {
 	public List<ChartVO> userMoneyChart(String id);
 	//seller 마이 페이지
 	public StoreVO getStoreById(String id);
-}
+	public List<ProductVO> productList(int firstRow,int endRow ,HashMap m);
+	}

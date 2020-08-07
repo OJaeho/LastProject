@@ -151,7 +151,24 @@ public class MyPageController {
 	
 	//---------------------------------------------------------
 	@RequestMapping("SellList.seller")
-	public String SellList() {
+	public String SellList(String pNum,String sId,HttpServletRequest request,Model model) {
+		//판매 목록 출력하기 <페이징 처리 함>
+		String pageNum = "1";
+		if (pNum != null) {
+			pageNum = pNum;
+		}
+		// 현재 로그인 된 아이디
+		String id = request.getRemoteUser();
+		HashMap map = new HashMap();
+		map.put("table", "Product"); // 내가 출력할 리스트 행갯수 출력을 위해 조건을 hashmap에 저장
+		map.put("condition1", "username");
+		map.put("value1", id);
+		model.addAttribute("totalpNum", service.getTotalCount(map));// qna 총 페이지 수
+		HashMap m = new HashMap();
+		m.put("sId",sId);
+		m.put("condition","일단");
+		model.addAttribute("productList", service.productList(pageNum,m));
+		model.addAttribute("list", con.selectFooter()); // footer처리
 		
 		return "SellList";
 	}

@@ -85,10 +85,9 @@
         	//var ncontent = encodeURI(this.nContentv.value,"UTF-8");
         	var ntitle =this.nTitlev.value;
         	var ncontent =this.nContentv.value;
-        	this.alert(ntitle + ":"+ ncontent)
         	 var id = "urlTest02";
              //var url = "strURL::deptAdd;
-        	 var url ="http://localhost:8080/LastProject/registNotice.user?nTitle="+ntitle+"&nContent="+ncontent;
+        	 var url ="http://192.168.0.62:8080/LastProject/registNotice.user?nTitle="+ntitle+"&nContent="+ncontent;
              var reqDs = "";
              var respDs = "";
              var args = "";

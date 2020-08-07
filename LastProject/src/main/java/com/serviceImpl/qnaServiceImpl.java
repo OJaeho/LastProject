@@ -15,7 +15,7 @@ import com.vo.QnaVO;
 public class qnaServiceImpl implements qnaService {
 	private int totalRecCount;		// 전체 레코드 수	
 	private int pageTotalCount;		// 전체 페이지 수
-	private int countPerPage = 3;	// 한페이지당 레코드 수
+	private int countPerPage = 10;	// 한페이지당 레코드 수
 	
 	@Autowired
 	private qnaDaoImpl qnaDao;

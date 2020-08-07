@@ -16,6 +16,7 @@ import com.dao.mypageDao;
 import com.service.mypageService;
 import com.vo.ChartVO;
 import com.vo.MypageVO;
+import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
@@ -173,6 +174,20 @@ public class mypageServiceImpl implements mypageService {
 	@Override
 	public StoreVO getStoreById(String id) {
 		return mypageDao.getStoreById(id);
+	}
+
+	//상품마다 존재하는 판매 물품 리스트 가져오기
+	@Override
+	public List<ProductVO> productList(String pNum,HashMap m) {
+		int pageNum = 1;
+		if (pNum != null)
+			pageNum = Integer.parseInt(pNum);
+
+		int firstRow = (pageNum - 1) * countPerPage + 1;
+		int endRow = pageNum * countPerPage;
+
+		// 페이지 당 검색해 온 레코드를 return
+		return mypageDao.productList(firstRow, endRow,m);
 	}
 
 }
