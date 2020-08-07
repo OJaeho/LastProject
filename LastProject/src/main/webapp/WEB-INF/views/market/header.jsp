@@ -161,7 +161,7 @@
 										style="width: 40px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"
 										src="./resources/images/profile.jpg">
 								</div>
-								<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
+								<a style="color: white;" class="flex-c-m trans-04 p-lr-25">
 								<%=request.getRemoteUser() %>님 환영합니다.</a>
 								<input type="submit" value="로그아웃" class="flex-c-m trans-04 p-lr-25"
 									style="background-color: transparent; color: white;" />
