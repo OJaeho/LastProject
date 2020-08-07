@@ -160,6 +160,7 @@
 		</table>
 		<ul>
 		<br/>
+		<a href="shopping.checking" style="color: green;">장바구니 가기</a>
 		</ul>
 		</div>
 		</sec:authorize>

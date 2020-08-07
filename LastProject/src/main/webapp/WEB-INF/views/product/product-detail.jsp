@@ -154,9 +154,6 @@
 										<!-- 수령방법 끝 -->
 
 
-										<input type="button" name="addsubcart" id="addProduct"
-											style="width: auto; background-color: lightgrey; color: green;"
-											value="장바구니 담기" />
 										<form name="subcart">
 											<table style="border-top: 1px solid #eee" >
 												<thead>
@@ -180,10 +177,10 @@
 											</table>
 											<hr />
 											<table style="width: 482px; margin: auto;">
-												<tr style="text-align: center;">
-													<td style="width: 100px;">
-														<input class="btn btn-success" type="submit" 
-														value="바로 구매하기" style="" onclick="javascript: form.action='/manage/update';" />
+												<tr style="text-align: left;">
+													<td style="">
+														<input type="button" name="addsubcart" id="addProduct" class="btn btn-success" 
+														value="장바구니 담기" style=""  />
 													</td>
 													<td>
 														<a href="shopping.checking">

@@ -315,9 +315,8 @@ function numberWithCommas(x) {
 //-----------------------------------------
 //결제창에서 결제하기 버튼
 	
-	$('input[id=test]').click(function(){
-		event.preventDefault();
-		var con = confirm("결제 하시겠습니까?");
+	$('input[id=test]').click(function(e){
+		
 		var state = [];
 		var pid = [];
 		var count = [];
@@ -326,60 +325,70 @@ function numberWithCommas(x) {
 		var content = [];
 		var store = [];
 		var paybid = [];
-		if(con){
-			$('.paystate').each(function(){
-				state.push($(this).text());
+		
+		
+		
+		if($('#userPoint').val() - $('#pTotal').val() <0){
+			alert("포인트가 부족합니다.");
+			e.preventDefault();
+		}
+		else if($('#addr1').val() == "" || $('#name1').val() == "" || $('#tel1').val() == ""){
+			alert("필수 입력사항을 기재해주세요.");
+			e.preventDefault();
+		}
+		else if($('#addr1').val() != "" && $('#name1').val() != "" && $('#tel1').val() != ""){
+			var con = confirm("결제 하시겠습니까?");
+			if(con){
 				
-			})
-			$('#payState1').val(state);
-	//------------------------------------		
-			$('.pid').each(function(){
-				pid.push($(this).val());
-				
-			})
-			$('#paypId1').val(pid);
-	//------------------------------------------
-			$('.count').each(function(){
-				count.push(parseInt($(this).text()));
-				
-			})
-			$('#payCount1').val(count);
-	//----------------------------------------
-			$('#payUserName1').val($('#name1').val());
-			$('#payUserTel1').val($('#tel1').val());
-			$('#payUserAddr1').val($('#addr1').val());
-	//-----------------------------------------------
-			$('.sm_total').each(function(){
-				sm_total.push(parseInt($(this).text()));
-			})
-			$('#payTotal1').val(sm_total);
-	//------------------------------------------------
-			$('.payStoreName').each(function(){
-				store.push($(this).text());
-				
-			})
-			 $('#paystorename1').val(store);
-	//-----------------------------------------------------
-			$('.ptitle').each(function(){
-				title.push($(this).val());
-				
-			})
-			$('#paytitle1').val(title);
-	//----------------------------------------------
-			$('.pContent').each(function(){
-				content.push($(this).val());
-				
-			})
-			$('#payContent').val(content);
-	//---------------------------------------------------
-			$('.payBid').each(function(){
-				paybid.push($(this).val());
-				
-			})
-			$('#payBid').val(paybid);
-			
-			$('#frmpay').submit();
-		}	
+				$('.paystate').each(function(){
+					state.push($(this).text());
+				})
+				$('#payState1').val(state);
+		//------------------------------------		
+				$('.pid').each(function(){
+					pid.push($(this).val());
+				})
+				$('#paypId1').val(pid);
+		//------------------------------------------
+				$('.count').each(function(){
+					count.push(parseInt($(this).text()));
+				})
+				$('#payCount1').val(count);
+		//----------------------------------------
+				$('#payUserName1').val($('#name1').val());
+				$('#payUserTel1').val($('#tel1').val());
+				$('#payUserAddr1').val($('#addr1').val());
+		//-----------------------------------------------
+				$('.sm_total').each(function(){
+					sm_total.push(parseInt($(this).text()));
+				})
+				$('#payTotal1').val(sm_total);
+		//------------------------------------------------
+				$('.payStoreName').each(function(){
+					store.push($(this).text());
+				})
+				 $('#paystorename1').val(store);
+		//-----------------------------------------------------
+				$('.ptitle').each(function(){
+					title.push($(this).val());
+				})
+				$('#paytitle1').val(title);
+		//----------------------------------------------
+				$('.pContent').each(function(){
+					content.push($(this).val());
+				})
+				$('#payContent').val(content);
+		//---------------------------------------------------
+				$('.payBid').each(function(){
+					paybid.push($(this).val());
+				})
+				$('#payBid').val(paybid);
+				$('#frmpay').submit();
+			}
+		else if(!con){
+			e.preventDefault();
+		}
+		}
 	})
 
 
