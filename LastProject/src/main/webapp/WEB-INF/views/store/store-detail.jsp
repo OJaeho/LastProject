@@ -55,7 +55,7 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/product-detail.css">
-
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -67,22 +67,22 @@
 		<div class="container">
 
 			<c:forEach items="${storeget}" var="store">
-				<div class="row" style="width: 1200px;">
-					<div class="col-md-6 col-lg-7 p-b-30" style="width: 1200px;">
-						<div class="p-l-25 p-r-30 p-lr-0-lg" style="width: 1200px;">
+				<div class="row" style="margin: 0 auto;">
+					<div class="col-md-6 col-lg-7 p-b-30" style="margin: 0 auto;">
+						<div class="p-l-25 p-r-30 p-lr-0-lg" style="margin: 0 auto;">
 							<hr />
 							<br />
 							<div class="wrap-slick3 flex-sb flex-w"
-								style="width: 1350px; margin: auto;">
-								<img src="${store.sImg1}" style="width: 500px; height: 400px;">
-								<div class="wrap-slick3-arrows flex-sb-m flex-w" style="margin: auto;">
+								style="margin: auto;">
+								<img src="${store.sImg1}" style="width:100%; max-width: 600px; height: auto;">
+								<div class="wrap-slick3-arrows flex-sb-m flex-w" style="margin: 0 auto;">
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="bor10 m-t-50 p-t-43 p-b-40" style="border-color: green;">
+				<div class="bor10 m-t-50 p-t-43 p-b-40" style="border-color: #009a45; border-radius: 3px;">
 					<!-- Tab01 -->
 					<div class="tab01">
 						<!-- Nav tabs -->
@@ -102,35 +102,35 @@
 							<!-- 상점 소개탭 -->
 							<div class="tab-pane fade show active" id="description"
 								role="tabpanel">
-								<div class="row" style="width: 1087px; margin: auto;">
+								<div class="row" style="margin: auto;">
 									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
 										style="margin: auto;">${store.sDetail}</div>
 								</div>
 							</div>
 							<!-- 상점 정보탭 -->
 							<div class="tab-pane fade" id="information" role="tabpanel">
-								<div class="row" style="width: 1087px; margin: auto;">
-									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-										<table border="2"
-											style="margin: auto; width: 600px; border-color: lightgrey;">
+								<div class="row" style="margin: auto;">
+									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto" style="word-break: keep-all">
+										<table border="1" style="margin: 0 auto; border: 1px solid #cccccc63;">
 											<tbody>
 												<tr>
-													<td style="width: 25%; color: green;" data-row="0"
-														data-column="0">전화번호&nbsp;</td>
-													<td style="width: 75%;" data-row="0" data-column="1">${store.sTel}&nbsp;</td>
+													<td style="width: 25%; color: #009a45; font-weight: 800; text-align: center; padding: 5px;" 
+													data-row="0" data-column="0">전화번호&nbsp;</td>
+													<td style="width: 75%; padding: 5px;" 
+													data-row="0" data-column="1">${store.sTel}&nbsp;</td>
 												</tr>
 												<tr>
-													<td style="width: 25%; color: green;" data-row="1"
-														data-column="0">영업시간 & 휴 일&nbsp;</td>
-													<td style="width: 75%;" data-row="1" data-column="1">${store.sTime}&nbsp;</td>
+													<td style="width: 25%; color: #009a45; font-weight: 800; text-align: center; padding: 5px;" 
+													data-row="1" data-column="0">영업시간 & 휴 일&nbsp;</td>
+													<td style="width: 75%; padding: 5px;" 
+													data-row="1" data-column="1">${store.sTime}&nbsp;</td>
 												</tr>
 												<tr>
-													<td style="width: 25%; color: green;" rowspan="1"
+													<td style="width: 25%; color: #009a45; font-weight: 800; text-align: center; padding: 5px;" rowspan="1"
 														data-row="2" data-column="0">&nbsp;주 소</td>
-													<td style="width: 75%;" rowspan="1" data-row="2"
+													<td style="width: 75%; padding: 5px;" rowspan="1" data-row="2"
 														data-column="1">${store.sAddr}&nbsp;</td>
 												</tr>
-
 											</tbody>
 										</table>
 									</div>
@@ -139,10 +139,10 @@
 
 							<!-- 상점 위치탭 -->
 							<div class="tab-pane fade" id="reviews" role="tabpanel">
-								<div class="row" style="width: 1168px; margin: auto;">
+								<div class="row" style="margin: 0 auto;">
 									<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto"
-										style="width: 1168px; margin: auto;">
-										<img src="${store.sImg3}" style="width: 582px; margin: auto;">
+										style="margin: 0 auto;">
+										<img src="${store.sImg3}" style="width: 100%; max-width: 582px; height:auto; margin: 0 auto;">
 									</div>
 								</div>
 							</div>

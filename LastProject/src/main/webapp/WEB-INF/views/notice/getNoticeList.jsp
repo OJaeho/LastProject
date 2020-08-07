@@ -56,6 +56,18 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
+<style type="text/css">
+
+#notice-list a{
+	color: black;
+}
+
+#notice-list a:hover{
+	color: #4fef97;
+}
+
+</style>
+
 </head>
 <body class="animsition">
 
@@ -87,18 +99,20 @@
 					<table class="table table-bordered table-hover">
 						<thead>
 							<tr>
-								<th scope="col">글번호</th>
-								<th scope="col">제목</th>
-								<th scope="col">작성자</th>
-								<th scope="col">작성일자</th>
+								<th scope="col" style="text-align: center;">글번호</th>
+								<th scope="col" style="text-align: center;">제목</th>
+								<th scope="col" style="text-align: center;">작성자</th>
+								<th scope="col" style="text-align: center;">작성일자</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach items="${getNoticeList }" var="notice">
 								<tr class="noticetr">
 									<td>${notice.nId }</td>
-									<td><a href="getNotice.user?nId=${notice.nId}">
-											${notice.nTitle }</a></td>
+									<td id="notice-list">
+									<a href="getNotice.user?nId=${notice.nId}">
+									${notice.nTitle }</a>
+									</td>
 									<td>${notice.userName}</td>
 									<td>${notice.nDate }</td>
 								</tr>

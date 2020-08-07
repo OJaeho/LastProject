@@ -54,6 +54,17 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
+<style type="text/css">
+
+#notice-list a{
+	color: black;
+}
+
+#notice-list a:hover{
+	color: #4fef97;
+}
+
+</style>
 </head>
 <body class="animsition">
 
@@ -97,8 +108,10 @@
 								<tr class="QnA">
 									<td>${qna.qId }</td>
 									<td>${qna.qCate }</td>
-									<td><a href="getQnA.user?qId=${qna.qId }">
-											${qna.qTitle }</a></td>
+									<td id="notice-list">
+									<a href="getQnA.user?qId=${qna.qId }">
+									${qna.qTitle }</a>
+									</td>
 									<td>${qna.userName }</td>
 									<td>${qna.qDate }</td>
 								</tr>
