@@ -11,6 +11,7 @@ import com.dao.mypageDao;
 import com.vo.ChartVO;
 import com.vo.MypageVO;
 import com.vo.ReviewVO;
+import com.vo.StoreVO;
 
 @Repository("mypagedao")
 public class mypageDaoImpl implements mypageDao {
@@ -19,20 +20,29 @@ public class mypageDaoImpl implements mypageDao {
 	private SqlSessionTemplate mybatis;
 
 	@Override
-	public List<HashMap<String, Object>> getPayList(int firstRow, int endRow, String id ,MypageVO vo) {
+	public List<HashMap<String, Object>> getPayList(int firstRow, int endRow, String id, MypageVO vo) {
 		HashMap m = new HashMap();
+		System.out.println(firstRow +"시작");
+		System.out.println(endRow + "종료 페이지");
 		m.put("first", firstRow);
 		m.put("end", endRow);
 		m.put("id", id);
-		System.out.println(vo.getStart()+":시작일");
+
+		if (vo.getPayState() == null) {
+			vo.setPayState("전체");
+		}
 		m.put("vo", vo);
-		
-		return mybatis.selectList("mypageMapper.selectPayList",m);
+
+		return mybatis.selectList("mypageMapper.selectPayList", m);
 	}
 
 	@Override
 	public int getTotalCount(HashMap map) {
-		return mybatis.selectOne("mypageMapper.getTotal",map);
+		if (map.get("vo") == null) {
+			return mybatis.selectOne("mypageMapper.getBasicTotal", map);
+		} else {
+			return mybatis.selectOne("mypageMapper.getTotal", map);
+		}
 	}
 
 	@Override
@@ -41,12 +51,13 @@ public class mypageDaoImpl implements mypageDao {
 		m.put("first", firstRow);
 		m.put("end", endRow);
 		m.put("id", id);
-		return mybatis.selectList("mypageMapper.selectReviewList",m);
+
+		return mybatis.selectList("mypageMapper.selectReviewList", m);
 	}
 
 	@Override
 	public int deleteReview(ReviewVO rvo) {
-		return mybatis.update("mypageMapper.deleteReview",rvo);
+		return mybatis.update("mypageMapper.deleteReview", rvo);
 	}
 
 	// user 별 만히 시킨 음식 랭킹
@@ -59,5 +70,10 @@ public class mypageDaoImpl implements mypageDao {
 	public List<ChartVO> userMoneyChart(String id) {
 		return mybatis.selectList("mypageMapper.moneyChart", id);
 	}
-	
+
+	@Override
+	public StoreVO getStoreById(String id) {
+		return mybatis.selectOne("getStoreById", id);
+	}
+
 }

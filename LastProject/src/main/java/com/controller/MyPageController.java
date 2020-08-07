@@ -5,10 +5,16 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
+import org.python.core.PyFunction;
+import org.python.core.PyInteger;
+import org.python.core.PyObject;
+import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.service.mypageService;
@@ -22,7 +28,10 @@ public class MyPageController {
 
 	@Autowired
 	private mypageService service;
-
+	
+	@Autowired
+	private static PythonInterpreter interpreter;
+	
 	// 권한별 마이페이지 이동
 	@RequestMapping("/mypage.checking")
 	public String preMypage(HttpServletRequest request) {
@@ -37,6 +46,8 @@ public class MyPageController {
 		}
 
 	}
+	  
+	
 
 	// 시스템 관리자 마이페이지
 	@RequestMapping("/Amypage.master")
@@ -52,7 +63,8 @@ public class MyPageController {
 
 	// 판매자 마이페이지
 	@RequestMapping("/Smypage.seller")
-	public String Smypage() {
+	public String Smypage(HttpServletRequest request,Model model) {
+		model.addAttribute("store", service.getStoreById(request.getRemoteUser()));
 		return "mypage/Smypage";
 	}
 
@@ -88,6 +100,7 @@ public class MyPageController {
 
 	}
 
+  
 	// 리뷰 리스트
 	@RequestMapping("/reviewList.user")
 	public String reviewList(String pNum, HttpServletRequest request, Model model) {
@@ -134,6 +147,13 @@ public class MyPageController {
 	@RequestMapping("/userMoneyChart.user")
 	public JSONObject user_Money_chcart(HttpServletRequest request) throws Exception {
 		return service.userMoneyChart(request.getRemoteUser());
+	}
+	
+	//---------------------------------------------------------
+	@RequestMapping("SellList.seller")
+	public String SellList() {
+		
+		return "SellList";
 	}
 
 }

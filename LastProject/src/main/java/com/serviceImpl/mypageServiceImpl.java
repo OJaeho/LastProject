@@ -17,6 +17,7 @@ import com.service.mypageService;
 import com.vo.ChartVO;
 import com.vo.MypageVO;
 import com.vo.ReviewVO;
+import com.vo.StoreVO;
 
 @Service("mypageService")
 public class mypageServiceImpl implements mypageService {
@@ -166,6 +167,12 @@ public class mypageServiceImpl implements mypageService {
 		}
 		data.put("rows", body); // data에 body를 저장하고 이름을 rows라고 한다.
 		return data; // 이 데이터가 넘어가면 json형식으로 넘어가게되서 json이 만들어지게 된다.
+	}
+//------------------------------------------------seller
+	//username으로 상점정보가져오기
+	@Override
+	public StoreVO getStoreById(String id) {
+		return mypageDao.getStoreById(id);
 	}
 
 }

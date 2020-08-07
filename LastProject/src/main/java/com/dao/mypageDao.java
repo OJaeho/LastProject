@@ -6,6 +6,7 @@ import java.util.List;
 import com.vo.ChartVO;
 import com.vo.MypageVO;
 import com.vo.ReviewVO;
+import com.vo.StoreVO;
 
 public interface mypageDao {
 	
@@ -16,4 +17,6 @@ public interface mypageDao {
 	int deleteReview(ReviewVO rvo);//review delyn "Y" 처리
 	public List<ChartVO> userFoodRank(String id);//user별/주문많이한 음식
 	public List<ChartVO> userMoneyChart(String id);
+	//seller 마이 페이지
+	public StoreVO getStoreById(String id);
 }

@@ -6,18 +6,16 @@
 <!-- 주문내역리스트 -->
 <select id="selectPayList" parameterType="hashmap" resultType="hashmap">
  SELECT *
- FROM (select  rownum rm,a .* from (select pay.payid,pay.pid,pay.paycount,pay.payaddr,pay.groupid,pay.paytel,pay.paydate,pay.paycontent,pay.paytype,pay.paytotal,pay.paystate,s.sname,p.pprice,p.pname from pay pay , store s, product p where pay.username=#{id} and pay.pid =p.pid and  s.sid=p.sid  
-<if test="vo.start != isNotNull">
+ FROM (select  rownum rm, a.* from (select pay.payid,pay.pid,pay.paycount,pay.payaddr,pay.groupid,pay.paytel,pay.paydate,pay.paycontent,pay.paytype,pay.paytotal,pay.paystate,s.sname,p.pprice,p.pname from pay pay , store s, product p where pay.username=#{id} and pay.pid =p.pid and  s.sid=p.sid  
+<if test="vo.start != null">
  <![CDATA[ and pay.paydate >= to_date(#{vo.start},'YYYY-MM-DD') and pay.paydate<=to_date(#{vo.end},'YYYY-MM-DD-HH24:MI:SS')
 ]]>
 </if>
-<!-- vo.payState.equals("배송") or vo.payState.equals("픽업") -->
-<if test='vo.payState != null '>
+<if test='vo.payState.equals("배송") || vo.payState.equals("픽업")'>
 			and pay.paystate = #{vo.payState}
 </if>
  order by pay.paydate desc) a ) pay
- where pay.rm between  #{first} and #{end} 
-
+ where pay.rm between  11 and 20 
 </select>
 
 <!-- 리뷰리스트 -->
@@ -28,15 +26,13 @@ where rm between #{first} and #{end}
 
 <!-- 전체페이지 수 -->
 <select id="getTotal" parameterType="hashmap" resultType='int'>
-select count(*) from ${table} where ${condition1}=#{value1}
-<if test="vo.payState != null ">
-			and pay.paystate = #{vo.payState}
-</if>
-<if test="vo.start != null">
- <![CDATA[ and pay.paydate >= to_date(#{vo.start},'YYYY-MM-DD') and pay.paydate<=to_date(#{vo.end},'YYYY-MM-DD-HH24:MI:SS')
-]]>
-</if>
-
+select count(*) from ${table}
+<where>
+${condition1}=#{value1}
+<if test="vo.payState != null">and pay.paystate = #{vo.payState}</if>
+<if test="vo.start != null"><![CDATA[ and pay.paydate >= to_date(#{vo.start},'YYYY-MM-DD') and pay.paydate<=to_date(#{vo.end},'YYYY-MM-DD-HH24:MI:SS')
+]]></if>
+</where>
 </select>
 
 <!-- 리뷰삭제 -->
@@ -55,8 +51,21 @@ where rownum <=3
 ]]>
 </select>
 
+<!-- 지출금액차트 -->
 <select id="moneyChart" parameterType="string" resultType="com.vo.ChartVO">
 select term,sum(paytotal) sumtotal from (select to_char(paydate,'YYYY/MM') term, paytotal from pay where username=#{id}) one group by one.term order by one.term 
+</select>
+
+<!-- username으로 상점정보 가져오기 -->
+<select id="getStoreById" parameterType="string" resultType="store">
+select * from store where username=#{id}
+
+</select>
+<select id="getBasicTotal" parameterType="hashmap" resultType='int'>
+select count(*) from ${table}
+<where>
+${condition1}=#{value1}
+</where>
 </select>
 
 </mapper>

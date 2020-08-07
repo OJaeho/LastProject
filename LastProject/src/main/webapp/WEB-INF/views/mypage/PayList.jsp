@@ -161,7 +161,7 @@
 				<div class="text-center-page">
 					<ul class="pagination div-center">
 						<c:forEach var="i" begin="1" end="${totalpNum }">
-							<li><a href="PayList.user?pNum=${i }">${i }</a></li>
+							<li><a href="PayList.user?pNum=${i }&payState=${payStateView }&start=${param.start}&end=${param.end}">${i }</a></li>
 						</c:forEach>
 					</ul>
 				</div>
