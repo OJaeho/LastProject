@@ -83,7 +83,7 @@
 				<div class="col-md-12 col-lg-12">
 					<h3 class="mtext-111 cl2 p-b-16">시장이슈 등록</h3>
 					<div class="col-sm-6 col-md-12">
-						<a href="#" class="image"> <img
+						<a href="#" class="image"> <img style="width: 100%;max-width :500px;height : auto;"
 							src="./resources/images/market_issue.png" alt="issue_image"
 							class="issue_image">
 						</a>

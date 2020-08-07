@@ -439,7 +439,8 @@
 				</div>
 			</div>
 		</div>
-
+<!-- footer -->
+	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 
 		<!-- script	 -->

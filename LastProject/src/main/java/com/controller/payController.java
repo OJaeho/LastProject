@@ -1,6 +1,5 @@
 package com.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.service.marketService;
 import com.service.payService;
@@ -33,7 +32,8 @@ public class payController {
 
 	// 장바구니 창에서 결제하기 버튼 눌렀을때 (페이지 전환)
 	@RequestMapping("/payment.user")
-	public void payment(PayVO vo, @RequestParam List<Integer> boxValue, Model model) {
+	public void payment(PayVO vo, @RequestParam List<Integer> boxValue, Model model)
+ {
 		model.addAttribute("list", con.selectFooter());
 		List<PayVO> info = payservice.paySelect(boxValue);
 		model.addAttribute("result", info);
@@ -62,7 +62,7 @@ public class payController {
 			@RequestParam List<String> paytitle1,
 			@RequestParam List<String> payPcontent,
 			@RequestParam List<Integer> payBid,
-			HttpServletRequest request
+			HttpServletRequest request,RedirectAttributes redirectAttributes
 		) {
 			
 		String userId = request.getRemoteUser();	
@@ -81,11 +81,14 @@ public class payController {
 			vo.setbId(payBid.get(i));
 			try {
 				payservice.insertPay(vo, userId,groupId);
+				redirectAttributes.addAttribute("GroupId", groupId);
 				System.out.println(i + "완료");
 			} catch (Exception e) {
 				System.out.println(e.toString());
 			}
+			
+			
 		}
-		return "redirect:/getproduct.user";
+		return "redirect:/getpayview.user";
 	}
 }
