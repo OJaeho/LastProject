@@ -154,24 +154,20 @@
 					<div class="right-top-bar flex-w h-full">
 
 						<sec:authorize access="isAuthenticated()">
-
-							<div class="flex-c-m h-full p-r-24">
-								<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
+							<form:form action="${pageContext.request.contextPath}/logout"
+								method="POST" class="flex-c-m trans-04 p-lr-25" >
+								<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search" style="">
 									<img
-										style="width: 50px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"
+										style="width: 40px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"
 										src="./resources/images/profile.jpg">
 								</div>
-							</div>
-
-							<form:form action="${pageContext.request.contextPath}/logout"
-								method="POST" class="flex-c-m trans-04 p-lr-25">
-								<input type="submit" value="로그아웃"
-									style="background-color: transparent; color: white;" />
 								<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
 								<%=request.getRemoteUser() %>님 환영합니다.</a>
+								<input type="submit" value="로그아웃" class="flex-c-m trans-04 p-lr-25"
+									style="background-color: transparent; color: white;" />
 							</form:form>
-
 						</sec:authorize>
+						
 						<sec:authorize access="isAnonymous()">
 							<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
 								회원가입 </a>
@@ -181,8 +177,6 @@
 
 						<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25">
 							마이페이지 </a>
-						<!--  <a href="marketDetail.master" class="flex-c-m trans-04 p-lr-25"> ENGLISH
-						</a>-->
 						
 					<a href="shopping.checking" class="flex-c-m trans-04 p-lr-25">
 							장바구니 </a>
