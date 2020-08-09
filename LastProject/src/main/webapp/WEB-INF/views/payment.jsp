@@ -108,7 +108,7 @@
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap">
 													<div class="product_item--price">
-														<a href="#"><span class="payStoreName">${list.payStoreName}</span>></a>
+														<a href="#"><span class="payStoreName">${list.payStoreName}</span></a>
 													</div>
 												</div>
 											</td>

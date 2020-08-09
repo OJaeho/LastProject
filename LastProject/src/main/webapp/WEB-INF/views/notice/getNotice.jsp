@@ -88,11 +88,11 @@
 		<thead>
 			<tr>
 			<th scope="col">no</th>
-			
 			<th scope="col">title</th>
 			<th scope="col">writer</th>
 			<th scope="col">date</th>
 			</tr>
+		</thead>
 		<tbody>
 			<tr>
 			<td>${notice.nId }</td>
@@ -101,7 +101,6 @@
 			<td>${notoce.nDate }</td>
 			</tr>
 		</tbody>
-		</thead>
 		</table>		
 		</div>
 	</div>
