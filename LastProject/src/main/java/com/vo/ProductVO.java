@@ -18,7 +18,14 @@ public class ProductVO {
 	private String sName;
 	private int mkId;
 	private String priceOption;
+	private int no;
 	
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
 	public String getPriceOption() {
 		return priceOption;
 	}

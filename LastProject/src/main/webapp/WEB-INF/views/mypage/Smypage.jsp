@@ -77,13 +77,13 @@
     <div class="middled">
 
       <div class="link-1">
-        <a href="SellList.seller?sId=${store.sId }">
+        <a href="#">
           <span class="thin link-1-color">Pro</span><span class="thick link-1-color">file</span>
         </a>  
       </div>
 		<p>
       <div class="link-1">
-        <a href="SellList.seller">
+        <a href="SellList.seller?sId=${store.sId }">
           <span class="thin link-1-color">Pro</span><span class="thick link-1-color">duct</span>
         </a>  
       </div>

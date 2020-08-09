@@ -17,79 +17,93 @@ import com.vo.StoreVO;
 @Repository("mypagedao")
 public class mypageDaoImpl implements mypageDao {
 
-	@Autowired
-	private SqlSessionTemplate mybatis;
+   @Autowired
+   private SqlSessionTemplate mybatis;
 
-	@Override
-	public List<HashMap<String, Object>> getPayList(int firstRow, int endRow, String id, MypageVO vo) {
-		HashMap m = new HashMap();
-		System.out.println(firstRow +"시작");
-		System.out.println(endRow + "종료 페이지");
-		m.put("first", firstRow);
-		m.put("end", endRow);
-		m.put("id", id);
+   @Override
+   public List<HashMap<String, Object>> getPayList(int firstRow, int endRow, String id, MypageVO vo) {
+      HashMap m = new HashMap();
+      System.out.println(firstRow +"시작");
+      System.out.println(endRow + "종료 페이지");
+      m.put("first", firstRow);
+      m.put("end", endRow);
+      m.put("id", id);
 
-		if (vo.getPayState() == null) {
-			vo.setPayState("전체");
-		}
-		System.out.println(vo.getPayState()+":페잉스테이트");
-		m.put("vo", vo);
-		if (vo.getStart() !=null) {
-			m.put("dating", "있음");
-		}else {
-			m.put("dating", "없음");
-		}
-		return mybatis.selectList("mypageMapper.selectPayList", m);
-	}
+      if (vo.getPayState() == null) {
+         vo.setPayState("전체");
+      }
+      System.out.println(vo.getPayState()+":페잉스테이트");
+      m.put("vo", vo);
+      if (vo.getStart() !=null) {
+         m.put("dating", "있음");
+      }else {
+         m.put("dating", "없음");
+      }
+      return mybatis.selectList("mypageMapper.selectPayList", m);
+   }
 
-	@Override
-	public int getTotalCount(HashMap map) {
-		if (map.get("vo") == null) {
-			return mybatis.selectOne("mypageMapper.getBasicTotal", map);
-		} else {
-			return mybatis.selectOne("mypageMapper.getTotal", map);
-		}
-	}
+   @Override
+   public int getTotalCount(HashMap map) {
+      if (map.get("vo") == null) {
+         return mybatis.selectOne("mypageMapper.getBasicTotal", map);
+      } else {
+         return mybatis.selectOne("mypageMapper.getTotal", map);
+      }
+   }
 
-	@Override
-	public List<HashMap<String, Object>> getReviewList(int firstRow, int endRow, String id) {
-		HashMap m = new HashMap();
-		m.put("first", firstRow);
-		m.put("end", endRow);
-		m.put("id", id);
+   @Override
+   public List<HashMap<String, Object>> getReviewList(int firstRow, int endRow, String id) {
+      HashMap m = new HashMap();
+      m.put("first", firstRow);
+      m.put("end", endRow);
+      m.put("id", id);
 
-		return mybatis.selectList("mypageMapper.selectReviewList", m);
-	}
+      return mybatis.selectList("mypageMapper.selectReviewList", m);
+   }
 
-	@Override
-	public int deleteReview(ReviewVO rvo) {
-		return mybatis.update("mypageMapper.deleteReview", rvo);
-	}
+   @Override
+   public int deleteReview(ReviewVO rvo) {
+      return mybatis.update("mypageMapper.deleteReview", rvo);
+   }
 
-	// user 별 만히 시킨 음식 랭킹
-	@Override
-	public List<ChartVO> userFoodRank(String id) {
-		return mybatis.selectList("mypageMapper.foodRank", id);
-	}
+   // user 별 만히 시킨 음식 랭킹
+   @Override
+   public List<ChartVO> userFoodRank(String id) {
+      return mybatis.selectList("mypageMapper.foodRank", id);
+   }
 
-	@Override
-	public List<ChartVO> userMoneyChart(String id) {
-		return mybatis.selectList("mypageMapper.moneyChart", id);
-	}
+   @Override
+   public List<ChartVO> userMoneyChart(String id) {
+      return mybatis.selectList("mypageMapper.moneyChart", id);
+   }
 
-	@Override
-	public StoreVO getStoreById(String id) {
-		return mybatis.selectOne("mypageMapper.getStoreById", id);
-	}
+   @Override
+   public StoreVO getStoreById(String id) {
+      return mybatis.selectOne("mypageMapper.getStoreById", id);
+   }
 
-	//Store 별 판매 물품 조회
-	@Override
-	public List<ProductVO> productList(int firstRow, int endRow, HashMap m) {
-		m.put("first", firstRow);
-		m.put("end", endRow);
-		
 
-		return mybatis.selectList("mypageMapper.getProduct",m);
-	}
+   @Override
+   public ProductVO getProductById(String pId) {
+      return mybatis.selectOne("mypageMapper.productById",pId); 
+   }
+   @Override
+   public int deleteProduct(String pId) {
+      return mybatis.update("mypageMapper.deleteProduct",pId);
+   }
+//품절된 상품 리스트 
+@Override
+public List<HashMap> getCntZeroProduct(String sId) {
+	return mybatis.selectList("mypageMapper.getCntZeroProduct",sId);
+	
+}
+
+@Override
+public List<ProductVO> productList(String sId, String no) {
+	HashMap<String, String> m = new HashMap<String, String>();
+	m.put("sId", sId);
+	m.put("no", no);
+	return mybatis.selectList("mypageMapper.getProduct",m);
+}
 
 }

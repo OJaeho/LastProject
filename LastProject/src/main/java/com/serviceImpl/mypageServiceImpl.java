@@ -176,18 +176,34 @@ public class mypageServiceImpl implements mypageService {
 		return mypageDao.getStoreById(id);
 	}
 
-	//상품마다 존재하는 판매 물품 리스트 가져오기
+	
+	
+	//품절된 목록 가져오기
 	@Override
-	public List<ProductVO> productList(String pNum,HashMap m) {
-		int pageNum = 1;
-		if (pNum != null)
-			pageNum = Integer.parseInt(pNum);
-
-		int firstRow = (pageNum - 1) * countPerPage + 1;
-		int endRow = pageNum * countPerPage;
-
-		// 페이지 당 검색해 온 레코드를 return
-		return mypageDao.productList(firstRow, endRow,m);
+	public List<HashMap> getCntZeroProduct(String sId) {
+		
+		return mypageDao.getCntZeroProduct(sId);
+	}
+	
+	//무한 스크롤 productList 가져오기
+	@Override
+	public JSONObject getProductListTypeJson(String sId, String no) {
+		List<ProductVO> items=mypageDao.productList(sId, no);
+		JSONObject all = new JSONObject(); 
+		// 리턴할 json 객체
+		JSONArray data = new JSONArray(); // {}
+		for (ProductVO total : items) {
+			JSONObject imsi = new JSONObject();
+			imsi.put("no", total.getNo());
+			imsi.put("pId", total.getpId());
+			imsi.put("pName", total.getpName());
+			imsi.put("pCount", total.getpCount());
+			imsi.put("pPrice", total.getpPrice());
+			imsi.put("pOption1", total.getpOption1());
+			data.add(imsi);
+		}
+		all.put("data", data);
+		return all;
 	}
 
 }

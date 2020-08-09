@@ -21,5 +21,6 @@ public interface mypageService {
 	public JSONObject userMoneyChart(String id) throws Exception; //user별/기간별 돈사용한 시간
 	//seller 마이 페이지
 	public StoreVO getStoreById(String id);
-	public List<ProductVO> productList(String pNum, HashMap m);
+	public List<HashMap> getCntZeroProduct(String sId);
+	public JSONObject getProductListTypeJson(String sId,String no); //무한스크롤 ProductVO
 }

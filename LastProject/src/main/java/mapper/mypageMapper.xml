@@ -68,8 +68,23 @@ ${condition1}=#{value1}
 
 <!-- 상점별 판매물품 가져오기 -->
 <select id="getProduct" parameterType="hashmap" resultType="product">
-select hello.* from (select rownum rm ,pro.* from product pro where sid=#{sId}) hello 
-where rm between #{start} and #{end};
+select hello.* from (select rownum no ,pro.* from product pro where sid=#{sId} and  pro.delyn='N' ) hello 
+where no > #{no}
 </select>
 
+<!-- 상품 Id로 상품 정보 가져가기 -->
+<select id="productById" parameterType="String" resultType="product">
+select * from product where pid=#{pId}
+</select>
+<!-- 상품 수정하기 -->
+
+<!-- 상품삭제하기 -->
+<update id="deleteProduct" parameterType="String">
+update product set delyn='Y' where pid=#{pId}
+</update>
+
+<!-- 품절된 상품 리스트 -->
+<select id="getCntZeroProduct" parameterType="string" resultType="hashmap">
+select * from product where pCOunt = 0 and sid=#{sId}
+</select>
 </mapper>
