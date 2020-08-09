@@ -71,13 +71,13 @@
 		<div class="wrap-slick1">
 			<div class="slick1">
 				<div class="item-slick1"
-					style="background-image: url(./resources/images/5_dr.png); width: 1000px; height: 600px; padding-top: 50px;">
+					style="background-image: url(./resources/images/ssak3main.png); width: 1000px; height: 600px; padding-top: 50px;">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false"
 								data-appear="fadeInDown" data-delay="0">
 								<span class="cl2 respon2" style="color: #FFF; font-weight: 800;">
-									핫플레이스로 떠오르는 전통시장 </span>
+									 </span>
 <!-- 								<div class="animated-title"> -->
 <!-- 								  <div class="text-top"> -->
 <!-- 								    <div> -->
@@ -94,21 +94,21 @@
 							<div class="layer-slick1 animated visible-false"
 								data-appear="fadeInUp" data-delay="800">
 								<h2 class="cl2 p-t-19 p-b-43 respon1"
-									style="color: #FFF; font-weight: 800;">08:00 ~ 20:00</h2>
+									style="color: #FFF; font-weight: 800;"></h2>
 							</div>
 
-							<div class="layer-slick1 animated visible-false"
+							<div class="layer-slick1 animated visible-false" style="padding-top: 50px; padding-left: 20px;
 								data-appear="zoomIn" data-delay="1600">
 								<a href="product.html" style="color: white"
 									class="flex-c-m cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
-									오늘도 활기찬 망원시장 </a>
+									Click! </a>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="item-slick1"
-					style="background-image: url(./resources/images/a11.png); width: 1000px; height: 600px; padding-top: 50px;">
+					style="background-image: url(./resources/images/5_dr.png); width: 1000px; height: 600px; padding-top: 50px;">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false"
@@ -124,7 +124,7 @@
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
-								data-appear="slideInUp" data-delay="1600">
+								data-appear="slideInUp" data-delay="1600" style="padding-top: 50px; padding-left: 20px;">
 								<a href="product.html" style="color: white"
 									class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
 									전통시장 속으로 </a>
@@ -176,9 +176,9 @@
 						<a href="storelist.user"
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l" style="margin: auto;">
-								<span class="block1-name ltext-102 trans-04 p-b-8"> 상점 보러<img
-									src="./resources/images/ga.png"
-									style="width: 150px; height: 100px;">
+								<span class="block1-name ltext-102 trans-04 p-b-8"> 상점
+								<img src="./resources/images/ssack3_start.png" 
+								style="height: auto; max-width: 150px; width: 100%;">
 								</span>
 							</div>
 
@@ -193,9 +193,9 @@
 						<a href="getproduct.user"
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l" style="margin: auto;">
-								<span class="block1-name ltext-102 trans-04 p-b-8"> 상품 보러<img
-									src="./resources/images/ga.png"
-									style="width: 150px; height: 100px;">
+								<span class="block1-name ltext-102 trans-04 p-b-8"> 상품
+								<img	src="./resources/images/ssack3_start.png"
+									style="height: auto; max-width: 150px; width: 100%;">
 								</span>
 							</div>
 
@@ -211,8 +211,8 @@
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l" style="margin: auto;">
 								<span class="block1-name ltext-102 trans-04 p-b-8"> 관광지
-									보러<img src="./resources/images/ga.png"
-									style="width: 150px; height: 100px;">
+								<img src="./resources/images/ssack3_start.png"
+									style="height: auto; max-width: 150px; width: 100%;">
 								</span>
 							</div>
 						</a>

@@ -55,7 +55,11 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
-
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="./resources/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="./resources/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="./resources/css/component.css" />
+		<script src="./resources/js/modernizr.custom.js"></script>
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -96,20 +100,27 @@
 <!-- 			Tab Pane 시작 -->
 			<div class="container">
 							<div class="row">
-								<ul class="nav nav-tabs" style="margin: 0 auto;">
-									<li role="presentation" style="font-size: 15px;"
-										class="navLi">
-										<a href="PayList.user?">전체상품 보기</a>
-									</li>
-									<li role="presentation" style="font-size: 15px;"
-										class="navLi"><a href="PayList.user?payState=픽업">픽업상품
-											보기</a>
-									</li>
-									<li role="presentation" style="font-size: 15px;"
-										class="navLi"><a href="PayList.user?payState=배송">배송상품
-											보기</a>
-									</li>
-								</ul>
+			<section class="color-7">
+				<nav class="cl-effect-21">
+					<a href="PayList.user?">전체상품</a>
+					<a href="PayList.user?payState=픽업">픽업상품</a>
+					<a href="PayList.user?payState=배송">배송상품</a>
+				</nav>
+			</section>
+<!-- 								<ul class="nav nav-tabs" style="margin: 0 auto;"> -->
+<!-- 									<li role="presentation" style="font-size: 15px;" -->
+<!-- 										class="navLi"> -->
+<!-- 										<a href="PayList.user?">전체상품 보기</a> -->
+<!-- 									</li> -->
+<!-- 									<li role="presentation" style="font-size: 15px;" -->
+<!-- 										class="navLi"><a href="PayList.user?payState=픽업">픽업상품 -->
+<!-- 											보기</a> -->
+<!-- 									</li> -->
+<!-- 									<li role="presentation" style="font-size: 15px;" -->
+<!-- 										class="navLi"><a href="PayList.user?payState=배송">배송상품 -->
+<!-- 											보기</a> -->
+<!-- 									</li> -->
+<!-- 								</ul> -->
 							</div>
 						</div>
 						<br/>

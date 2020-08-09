@@ -56,8 +56,7 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css"
-	href="./resources/css/product.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/product.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
@@ -69,8 +68,8 @@
 	height: auto;
 	left: 1650px;
 	top: 300px;
-	background-color: white;
-	border:solid 1px yellow;
+	background-color: #ffffff00;
+	border:solid 1px #ffffff00;
 	color: #black;
 }
 </style>
@@ -142,26 +141,22 @@
 		<sec:authorize access="hasRole('ROLE_USER')">
 		<div id="floatMenu" >
 		<ul>
-		<img src="./resources/images/logo.png" style="width: 200px;">
+		<a href="shopping.checking" style="color: green;">
+		<img src="./resources/images/cartbanner2.png" style="width: 200px;">
+		</a>
 		</ul>
-		<ul style="text-align: center;">
-		<img src="./resources/images/cart.PNG" style="width: 50px;height:50px;">
-		</ul><br/>
 		<table style="width: auto;">
 		
 		
 		<c:forEach items="${cartget}" var="list">
 		<input type="hidden" >
-		<tr style="border: solid 1px lightgrey; ">
-		<td><img src="${list.PIMG1}" style="width: 50px;height:50px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"></td>
-		<td style="font-family: Fredoka One, 'Black Han Sans', serif;">${list.BTITLE} ${list.BOPTION} ${list.BQUANTITY}EA</td>
+		<tr style="word-break: keep-all;">
+		<td style="padding: 10%;">
+		<img src="${list.PIMG1}" style="width: 40px; height: auto; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"></td>
+		<td style="font-family: Fredoka One, 'Black Han Sans', serif; font-size: 16px; color: black;">${list.BTITLE} ${list.BOPTION} ${list.BQUANTITY}EA</td>
 		</tr>
 		</c:forEach>
 		</table>
-		<ul>
-		<br/>
-		<a href="shopping.checking" style="color: green;">장바구니 가기</a>
-		</ul>
 		</div>
 		</sec:authorize>
 		<!-- 상품 -->
