@@ -18,8 +18,15 @@ public class PayVO {
 	private int payPrice;   //상품 단일가격
 	private int userPoint; //고객 보유포인트
 	private int bId;
+	private int groupId;
+	 
 	
-	
+	public int getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
+	}
 	public int getbId() {
 		return bId;
 	}
