@@ -17,8 +17,15 @@ public class StoreVO {
 	private String sLong;
 	private String sLat;
 	private String delYn;
+	private String userName;
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public int getMkId() {
 		return mkId;
 	}

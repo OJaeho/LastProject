@@ -24,6 +24,9 @@
  		<typeAlias alias="store" type="com.vo.StoreVO" />
  		<typeAlias alias="paging" type="com.vo.PagingVO" />
  		<typeAlias alias="pay" type="com.vo.PayVO" />
+ 		<typeAlias alias="updatemarket" type="com.vo.UpdateMarketVO" />
+ 		<typeAlias alias="updatestore" type="com.vo.UpdateStoreVO" />
+ 		
  	</typeAliases>
  	
 

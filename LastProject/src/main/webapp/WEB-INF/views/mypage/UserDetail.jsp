@@ -76,75 +76,59 @@
 		});
 	});
 </script>
-<script type="text/javascript">
-	$(function() {
-		alert("듣고있 나여?");
-		$('#updateMarket').click(function() {
-			alert('정보가 수정되었습니다.');
-		});
 
-		$('#deleteMarket').click(function() {
-			alert(${message});
-		});
-	});
-</script>
 
 <!-- post검색--------------------------------------------------------------------------------------------------------------------------  -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-	function sample5_execDaumPostcode() {
-		new daum.Postcode(
-				{
-					oncomplete : function(data) {
-						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-						// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-						var mkaddr = ''; // 주소 변수
-						var mkextraAddr = ''; // 참고항목 변수
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
 
-						//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-							mkaddr = data.roadAddress;
-						} else { // 사용자가 지번 주소를 선택했을 경우(J)
-							mkaddr = data.jibunAddress;
-						}
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
 
-						// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-						if (data.userSelectedType === 'R') {
-							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
-							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-							if (data.bname !== ''
-									&& /[동|로|가]$/g.test(data.bname)) {
-								mkextraAddr += data.bname;
-							}
-							// 건물명이 있고, 공동주택일 경우 추가한다.
-							if (data.buildingName !== ''
-									&& data.apartment === 'Y') {
-								mkextraAddr += (mkextraAddr !== '' ? ', '
-										+ data.buildingName : data.buildingName);
-							}
-							// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-							if (mkextraAddr !== '') {
-								mkextraAddr = ' (' + mkextraAddr + ')';
-							}
-							// 조합된 참고항목을 해당 필드에 넣는다.
-							document.getElementById("sample5_extraAddress").value = mkextraAddr;
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
 
-						} else {
-							document.getElementById("sample5_extraAddress").value = '';
-						}
-
-						// 우편번호와 주소 정보를 해당 필드에 넣는다.
-						document.getElementById('sample5_postcode').value = data.zonecode;
-						document.getElementById("sample5_address").value = mkaddr;
-						// 커서를 상세주소 필드로 이동한다.
-						document.getElementById("sample5_detailAddress")
-								.focus();
-					}
-				}).open();
-	}
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
 </script>
 <!-- include summernote css/js-->
 <link
@@ -176,116 +160,80 @@
 		
 		<!-- 시장정보 페이지 시작 -->
 		<div class="mArticle">
-			<h2 class="myth theme_color joinfont">시장 정보</h2>
+			<h2 class="myth theme_color joinfont">고객 정보</h2>
 			<form method="get" name="form">
-				<input type="hidden" name="mkId" value="${market.mkId}"> 
-				<input type="hidden" name="delYn" value="${market.delYn}">
-				<input type="hidden" name="userName" value="${market.userName}"> 
-				<div>
-					<strong class="tf_required">시장명</strong>
-					<div class="divlist">
-						<input type="text" name="mkName" id="mkName"
-							class="lab_placeholder" value="${market.mkName}" required="">
-						<span id="idCheckResult" style="width: 150px; color: red"></span>
-					</div>
-				</div>
-				<div>
-					<strong class="tf_required">시장대표</strong>
-					<div class="divlist">
-						<input type="text" name="mkOwner" id="mkOwner"
-							class="lab_placeholder" value="${market.mkOwner}" required="">						
-					</div>
-				</div>
-				<div>
-					<strong class="tf_required">시장주소</strong>
-					<div class="divlist">
-						<input type="text" name="mkAddr" id="mkAddr"
-							class="lab_placeholder" value="${market.mkAddr}" required="">
-											</div>
-				</div>
-				<div>
-					<strong class="tf_required">시장전화번호</strong>
-					<div class="divlist">
-						<input  value="${market.mkTel}" 
-							class="lab_placeholder" type="text" name="mkTel" id="mkTel" required="">
-						<span id="telCheckResult" style="width: 150px; color: red"></span>
-					</div>
-				</div>
-
-				<div>
-					<strong class="tf_required">상점 보유수</strong>
-					<div class="divlist">
-						<input type="text" name="mkCount" id="mkCount"
-							class="lab_placeholder" value="${market.mkCount}" required=""> 
-					</div>
-				</div>
-
-				<div>
-					<strong class="tf_required">시장이미지</strong>
-					<div class="divlist">
-						<input type="text" name="mkImg1" id="mkImg1"
-							class="lab_placeholder"
-							value="${market.mkImg1}" required=""> 						
-					</div>
-					<div class="divlist">
-						<input type="text" name="mkImg2" id="mkImg2"
-							class="lab_placeholder"
-							value="${market.mkImg2}" required=""> 	
-											</div>
-				</div>
-				<div>
-					<strong class="tf_required">오시는길 이미지</strong>
-					<div class="divlist">
-						<input type="text" name="mkJido" id="mkJido"
-							class="lab_placeholder"
-							value="${market.mkJido}" required=""> 	
-						
-					</div>
-				</div>
-				<div>
-					<strong class="tf_required">지역구분</strong>
-					<div class="divlist">
-						<input type="text" name="mkLocal" id="mkLocal"
-							class="lab_placeholder"
-							value="${market.mkLocal}" required=""> 
-				</div>
-				<div>
-					<strong class="tf_required">시장 위도</strong>
-					<div class="divlist">
-						<input type="text" name="mkLat" id="mkLat" class="lab_placeholder"
-							value="${market.mkLat}" required=""> 
-					</div>
-				</div>
-				<div>
-					<strong class="tf_required">시장 경도</strong>
-					<div class="divlist">
-						<input type="text" name="mkLong" id="mkLong" class="lab_placeholder"s
-							value="${market.mkLong}" required=""> 
-					</div>
-				</div>
-				<div>
-					<strong class="tf_required">시장 오픈일자</strong>
-					<div class="divlist">
-						<div class="divlist">
-							<input type="text" name="mkDate" id="mkDate"
-								class="lab_placeholder" value="${market.mkDate}" required=""> 
-						</div>
-					</div>
-				</div>
-				<div>
-					<strong class="tf_required">시장소개</strong>
-						<textarea id="mkIntro" name="mkIntro" id="mkIntro"
-							> ${market.mkIntro}</textarea>
-					</div>
-				</div>
-				<!-- 마켓 정보입력 끝-->
+				<div class="divlist2">
+		    <c:forEach items="${userinfoget}" var="user">
+		    <div>
+		    <strong class="tf_required">ID</strong>
+		    <div class="divlist">
+		    <input type="text" name="userName" id="userName" class="lab_placeholder" 
+		     required="" value="${user.userName}"readonly >
+		   	<span id="idCheckResult" style="width: 150px; color: red"></span>
+		    </div>
+		    </div>
+		    
+		    <div class="divlist">
+		    <strong class="tf_required">*비밀번호</strong>
+		    <input type="password" name="Password" class="lab_placeholder"
+		    placeholder="비밀번호"  id="Password" >
+		    </div>
+		     
+		    <div>
+		    <strong class="tf_required">이름</strong>
+		    <div class="divlist">
+		    <input type="text" name="mName" id="mName" class="lab_placeholder" 
+		    placeholder="이름을 입력해 주세요" required="" value="${user.mName} ">
+		   	<span id="idCheckResult" style="width: 150px; color: red"></span>    
+		    </div>		    
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">전화번호</strong>
+		    <div class="divlist">
+		    <input placeholder="전화번호 (-)없이 입력"  class="lab_placeholder"
+		    type="text" name="mTel" id="mTel" value="${user.mTel}">
+         	<span id="telCheckResult" style="width: 150px; color: red"></span>		    
+		    </div>
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">*주소</strong>
+		    <div class="divlist">
+		    <input type="text" name='mPost' id="sample6_postcode" 
+		    class="lab_placeholder" placeholder="우편번호">
+		    <div class="divlist2">
+     		<input type="button" onclick="sample6_execDaumPostcode()" 
+     		class="btn_area join-btn" value="우편번호 찾기">
+     		</div>
+     		<input type="text" name="addr" id="sample6_address" 
+     		class="lab_placeholder" placeholder="주소"><br>
+     		<input type="text" name="detailAddr" id="sample6_detailAddress" 
+     		class="lab_placeholder" placeholder="상세주소">
+     		<div class="divlist">
+     		<input type="text" id="sample6_extraAddress" 
+     		class="lab_placeholder" placeholder="참고항목">
+     		</div>
+		    </div>
+		    </div>
+		    
+		    <div>
+		    <strong class="tf_required">이메일</strong>
+		    <div class="divlist">
+		    <input type="text" name="mEmail" id="mEmail" class="lab_placeholder" 
+		      value="${user.mEmail}">
+		    </div>		    
+		    </div>
+		    </c:forEach>
+		    <hr/>
+		   </div>
 				<hr />
 				<div>
 					<div class="divlist">
-						<input type="submit" value="정보수정" class="updateMarket" name="updateMarket"
-							onclick="javascript: form.action='updateMarket.master';" /> 
-						<input type="submit" value="정보삭제" class="deleteMarket" name="deleteMarket"
-							onclick="javascript: form.action='deleteMarket.master';" />
+						<input type="submit" value="정보수정" class="updateuser" id="updateuser"
+							 /> 
+						<input type="submit" value="정보삭제" class="deleteuser" id="deleteuser"
+							onclick="javascript: form.action='deleteuser.market';" />
 					</div>
 				</div>
 			</form>
@@ -312,11 +260,10 @@
 
 	<!--===============================================================================================-->
 	<!-- <script type="text/javascript" src="resources/js/jquery-1.7.1.js"></script> -->
-	<script type="text/javascript" src="resources/js/nh.js"></script>
+	<script type="text/javascript" src="resources/js/dj.js"></script>
 	<!-- <script src='resources/js/jquery.validate.min.js' type="text/javascript"></script> -->
 	<script
 		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="resources/js/js_userinput.js"></script>
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/select2/select2.min.js"></script>
 	<script>

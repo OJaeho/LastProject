@@ -17,18 +17,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.service.memberService;
 import com.service.productService;
 import com.vo.BuyVO;
 import com.vo.CategoryVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
+import com.vo.UsersVO;
 
 @Controller
 public class productController {
 
 	@Autowired
 	private productService service;
+	@Autowired
+	private memberService maService;
 
 	// 풋터 '전국시장' 셀렉트함수 호출
 	@Autowired
@@ -234,16 +238,18 @@ public class productController {
 
 	// 상점 등록하기
 	@RequestMapping(value = "/storeinsert.market", method = RequestMethod.GET)
-	public String InsertStore(String cName, StoreVO svo, Model model, HttpSession session) {
+	public String InsertStore(String cName,UsersVO uvo, StoreVO svo, Model model, HttpSession session) {
 		model.addAttribute("list", con.selectFooter());
 		int cId = service.findcid(cName);
 		// 시장의 key값을 세션에서 가져옴
 		int mkId = (int) session.getAttribute("mkId");
+		maService.insertSeller(uvo);
 		svo.setMkId(mkId);
 		svo.setcId(cId);
 		service.InsertStore(svo);
 		return "redirect:/storelist.user";
 	}
+
 
 	// 상품등록 페이지 이동
 	@RequestMapping(value = "/insertproduct.market", method = RequestMethod.GET)

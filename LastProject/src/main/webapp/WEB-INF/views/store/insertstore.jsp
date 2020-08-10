@@ -58,10 +58,18 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <!--===============================================================================================-->
-
-
-
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#summernote').summernote({
+			height : 300, // 에디터 높이
+			minHeight : null, // 최소 높이
+			maxHeight : null, // 최대 높이
+			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+			lang : "ko-KR", // 한글 설정
+			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder
+		});
+	});
+</script>
 <!-- post검색--------------------------------------------------------------------------------------------------------------------------  -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -118,8 +126,60 @@
 					}
 				}).open();
 	}
-</script>
 
+	function sample5_execDaumPostcode() {
+		new daum.Postcode(
+				{
+					oncomplete : function(data) {
+						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+						// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+						var mkaddr = ''; // 주소 변수
+						var mkextraAddr = ''; // 참고항목 변수
+
+						//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+							mkaddr = data.roadAddress;
+						} else { // 사용자가 지번 주소를 선택했을 경우(J)
+							mkaddr = data.jibunAddress;
+						}
+
+						// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+						if (data.userSelectedType === 'R') {
+							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+							if (data.bname !== ''
+									&& /[동|로|가]$/g.test(data.bname)) {
+								mkextraAddr += data.bname;
+							}
+							// 건물명이 있고, 공동주택일 경우 추가한다.
+							if (data.buildingName !== ''
+									&& data.apartment === 'Y') {
+								mkextraAddr += (mkextraAddr !== '' ? ', '
+										+ data.buildingName : data.buildingName);
+							}
+							// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+							if (mkextraAddr !== '') {
+								mkextraAddr = ' (' + mkextraAddr + ')';
+							}
+							// 조합된 참고항목을 해당 필드에 넣는다.
+							document.getElementById("sample5_extraAddress").value = mkextraAddr;
+
+						} else {
+							document.getElementById("sample5_extraAddress").value = '';
+						}
+
+						// 우편번호와 주소 정보를 해당 필드에 넣는다.
+						document.getElementById('sample5_postcode').value = data.zonecode;
+						document.getElementById("sample5_address").value = mkaddr;
+						// 커서를 상세주소 필드로 이동한다.
+						document.getElementById("sample5_detailAddress")
+								.focus();
+					}
+				}).open();
+	}
+</script>
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- Bootstrap -->
 <link
@@ -340,6 +400,96 @@
 							<!-- 회원가입 정보입력 시작 -->
 							<div>
 								<form method="get" action="storeinsert.market" id="frm">
+								
+								<h2 class="myth theme_color joinfont">판매자 정보입력</h2>
+									<div class="divlist">
+										<div>
+											<strong class="tf_required">ID</strong>
+											<div class="divlist">
+												<input type="text" name="userName" id="userName"
+													class="lab_placeholder" placeholder="아이디를 입력해 주세요"
+													required=""> <span id="idCheckResult"
+													style="width: 150px; color: red"></span>
+											</div>
+										</div>
+
+										<div class="divlist">
+											<strong class="tf_required">비밀번호</strong> <input
+												type="password" name="Password" class="lab_placeholder"
+												placeholder="비밀번호" required="" id="Password">
+										</div>
+										<div class="divlist">
+											<input type="password" name="Password2"
+												class="lab_placeholder" placeholder="비밀번호" required=""
+												id="Password2">
+										</div>
+
+										<div>
+											<strong class="tf_required">이름</strong>
+											<div class="divlist">
+												<input type="text" name="mName" id="mName"
+													class="lab_placeholder" placeholder="이름을 입력해 주세요"
+													required=""> <span id="idCheckResult"
+													style="width: 150px; color: red"></span>
+											</div>
+										</div>
+
+										<div>
+											<strong class="tf_required">전화번호</strong>
+											<div class="divlist">
+												<input placeholder="전화번호 (-)없이 입력" required=""
+													class="lab_placeholder" type="text" name="mTel" id="mTel">
+												<span id="telCheckResult" style="width: 150px; color: red"></span>
+											</div>
+										</div>
+
+										<div>
+											<strong class="tf_required">주소</strong>
+											<div class="divlist">
+												<input type="text" name='mPost' id="sample5_postcode"
+													class="lab_placeholder" placeholder="우편번호">
+												<div class="divlist2">
+													<input type="button" onclick="sample5_execDaumPostcode()"
+														class="btn_area join-btn" value="우편번호 찾기">
+												</div>
+												<input type="text" name="addr" id="sample5_address"
+													class="lab_placeholder" placeholder="주소"><br>
+												<input type="text" name="detailAddr"
+													id="sample5_detailAddress" class="lab_placeholder"
+													placeholder="상세주소">
+												<div class="divlist">
+													<input type="text" id="sample5_extraAddress"
+														class="lab_placeholder" placeholder="참고항목">
+												</div>
+											</div>
+										</div>
+
+										<div>
+											<strong class="tf_required">이메일</strong>
+											<div class="divlist">
+												<input type="text" name="mEmail" id="mEmail"
+													class="lab_placeholder" placeholder="이메일 주소 입력" required="">
+											</div>
+										</div>
+
+										<div>
+											<strong class="tf_required">생년월일/성별</strong>
+											<div class="divlist">
+												<input type="date" name="mBirth" id="mBirth"
+													class="lab_placeholder">
+											</div>
+											<div class="divlist checkbox icheck-success">
+												<label> <input type="radio" id="Female"
+													name="mGender" value="Female" checked>여자
+												</label> <label> <input type="radio" id="mGender"
+													name="mGender" value="Male">남자
+												</label>
+											</div>
+										</div>
+										<hr />
+									</div>
+									<!-- 회원가입 정보입력 끝-->
+								
 									<h2 class="myth theme_color joinfont">점포정보입력</h2>
 									<div class="divlist2">
 										<div>
