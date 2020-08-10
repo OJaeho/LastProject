@@ -77,13 +77,13 @@
     <div class="middled">
 
       <div class="link-1">
-        <a href="#">
-          <span class="thin link-1-color">Pro</span><span class="thick link-1-color">file</span>
+        <a href="membergetpage.market">
+          <span class="thin link-1-color">Member</span><span class="thick link-1-color">list</span>
         </a>  
       </div>
 		<p>
       <div class="link-1">
-        <a href="PayList.user">
+        <a href="marketDetail.master">
           <span class="thin link-1-color">Or</span><span class="thick link-1-color">der</span>
         </a>  
       </div>

@@ -244,7 +244,7 @@ public class marketController {
 		
 		model.addAttribute("message",message);
 			
-		return "market/marketDetail";
+		return "redirect:/folliumtest.user";
 		}
 		
 

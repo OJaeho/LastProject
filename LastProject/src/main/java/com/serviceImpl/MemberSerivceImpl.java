@@ -18,6 +18,11 @@ public class MemberSerivceImpl implements memberService {
 	public void insertMember(UsersVO vo) {
 		dao.insertMember(vo);
 	}
+	
+	@Override
+	public void insertSeller(UsersVO vo) {
+		dao.insertSeller(vo);
+	}
 
 	@Override
 	public UsersVO idCheck_Login(UsersVO vo) {

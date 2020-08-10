@@ -133,8 +133,8 @@
 	<!-- 상점 등록하기 -->
 	<insert id="insertStore" parameterType="store">
 		insert into
-		store(sid,cid,mkid,sname,stime,sdetail,stel,saddr,simg1,simg3,delyn)
-		values(seq_sid.nextval,#{cId},#{mkId},#{sName},#{sTime},#{sDetail},#{sTel},#{sAddr},#{sImg1},#{sImg3},'N')
+		store(sid,cid,mkid,sname,stime,sdetail,stel,saddr,simg1,simg3,delyn,username)
+		values(seq_sid.nextval,#{cId},#{mkId},#{sName},#{sTime},#{sDetail},#{sTel},#{sAddr},#{sImg1},#{sImg3},'N',#{userName})
 	</insert>
 
 	<!-- 상품 등록하기 -->
