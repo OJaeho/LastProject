@@ -3,8 +3,11 @@ package com.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+
 import com.vo.ChartVO;
 import com.vo.MypageVO;
+import com.vo.PayVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
@@ -24,4 +27,7 @@ public interface mypageDao {
    public ProductVO getProductById(String pId); //상품 Id로 상품가져오기
    public int deleteProduct(String pId);//상품 삭제
    public List<HashMap> getCntZeroProduct(String sId);
+   public List<HashMap> getRecentOrderList(String sId);
+   public List<HashMap> getSaleListTypeJson(String sId,String no);
+   public int readyOrder(PayVO vo);
 }

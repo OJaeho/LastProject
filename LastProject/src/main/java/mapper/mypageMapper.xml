@@ -87,4 +87,19 @@ update product set delyn='Y' where pid=#{pId}
 <select id="getCntZeroProduct" parameterType="string" resultType="hashmap">
 select * from product where pCOunt = 0 and sid=#{sId}
 </select>
+
+<!-- 최신 준비중 리스트 -->
+<select id="getRecentOrderList" parameterType="string" resultType="hashmap">
+select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype='준비중' and sid=#{sId}
+</select>
+
+<!-- 준비중 외의 SaleList -->
+<select id="getSaleList" parameterType="hashmap" resultType="hashmap">
+ <![CDATA[select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype <>'준비중' and sid=#{sId} and no> #{no}]]>
+</select>
+
+<!-- 준비완료 업데이트 -->
+<update id="readyOrder" parameterType="com.vo.PayVO">
+update pay set paytype='준비완료' where payid=${payId} 
+</update>
 </mapper>

@@ -15,6 +15,7 @@ import com.dao.mypageDao;
 import com.service.mypageService;
 import com.vo.ChartVO;
 import com.vo.MypageVO;
+import com.vo.PayVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
@@ -212,6 +213,41 @@ public class mypageServiceImpl implements mypageService {
 		}
 		all.put("data", data);
 		return all;
+	}
+
+	@Override
+	public List<HashMap> getRecentOrderList(String sid) {
+		return mypageDao.getRecentOrderList(sid);
+	}
+
+	//판매내역 준비중 아닌거
+	@Override 
+	public JSONObject getSaleListTypeJson(String sId, String no) {
+		List<HashMap> items = mypageDao.getSaleListTypeJson(sId, no);
+		JSONObject all = new JSONObject();
+		// 리턴할 json 객체
+		System.out.println(items.get(0).get("NO")+"HEllo");
+		JSONArray data = new JSONArray(); // {}
+		for (HashMap total : items) {
+			JSONObject imsi = new JSONObject();
+			imsi.put("NO", total.get("NO"));
+			imsi.put("USERNAME", total.get("USERNAME"));
+			imsi.put("PAYCONTENT", total.get("PAYCONTENT"));
+			imsi.put("PAYCOUNT", total.get("PAYCOUNT"));
+			imsi.put("PAYTOTAL", total.get("PAYTOTAL"));
+			imsi.put("PAYSTATE", total.get("PAYSTATE"));
+			imsi.put("PAYTYPE", total.get("PAYTYPE"));
+			imsi.put("GROUPID", total.get("GROUPID"));
+			imsi.put("PAYDATE", total.get("PAYDATE"));
+			data.add(imsi);
+		}
+		all.put("data", data);
+		return all;
+	}
+
+	@Override
+	public int readyOrder(PayVO vo) {
+		return mypageDao.readyOrder(vo);
 	}
 
 }

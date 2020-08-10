@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.dao.mypageDao;
 import com.vo.ChartVO;
 import com.vo.MypageVO;
+import com.vo.PayVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
@@ -98,6 +99,25 @@ public List<ProductVO> productList(String sId, String no) {
 	m.put("sId", sId);
 	m.put("no", no);
 	return mybatis.selectList("mypageMapper.getProduct",m);
+}
+
+@Override
+public List<HashMap> getRecentOrderList(String sId) {
+	
+	return mybatis.selectList("mypageMapper.getRecentOrderList",sId);
+}
+
+@Override
+public List<HashMap> getSaleListTypeJson(String sId, String no) {
+	HashMap m = new HashMap();
+	m.put("no",no);
+	m.put("sId",sId);
+	return mybatis.selectList("mypageMapper.getSaleList",m);
+}
+
+@Override
+public int readyOrder(PayVO vo) {
+	return mybatis.update("mypageMapper.readyOrder",vo) ;
 }
 
 }

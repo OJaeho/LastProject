@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.daoImpl.mypageDaoImpl;
 import com.service.mypageService;
 import com.vo.MypageVO;
+import com.vo.PayVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
@@ -144,7 +145,7 @@ public class MyPageController {
    }
    
    //---------------------------------------------------------
-   @RequestMapping("SellList.seller")
+   @RequestMapping("ProductList.seller")
    public String SellList(String sId,HttpServletRequest request,Model model) {
 	   //판매 목록 출력하기 <페이징 처리 함>
       String pageNum = "1";
@@ -153,14 +154,7 @@ public class MyPageController {
       HashMap m = new HashMap();
      //품절된 상품 목록
       model.addAttribute("cntZeroProduct",service.getCntZeroProduct(sId) );
-      
-      
-    //판매중인 상품 목록
-//      m.put("sId",sId);
-//      m.put("condition","일단");
-//      model.addAttribute("productList", service.productList(pageNum,m));
-      //판매 중이지만 품절된 상품 목록
-//      model.addAttribute("list", con.selectFooter()); // footer처리
+      model.addAttribute("list", con.selectFooter()); // footer처리
       
       return "mypage/SellList";
    }
@@ -187,10 +181,7 @@ public class MyPageController {
    @RequestMapping("DeleteSell.seller")
    public String DeleteSell(String pId,Model model,HttpServletRequest request) {
       mypageDao.deleteProduct(pId);
-      
       model.addAttribute("list", con.selectFooter()); // footer처리
-      
-      
       //sId 구하기
       StoreVO imsivo= service.getStoreById(request.getRemoteUser());
       return "redirect:/SellList.seller?sId="+imsivo.getsId();
@@ -203,5 +194,36 @@ public class MyPageController {
       StoreVO imsivo= service.getStoreById(request.getRemoteUser());//sId 구하기
 	   return service.getProductListTypeJson(String.valueOf(imsivo.getsId()),no);
    }
-
+   
+   //판매내역 페이지로 이동
+   @RequestMapping("/moveSaleList.seller")
+   public String moveSaleList(HttpServletRequest request,Model model) {
+	   StoreVO imsivo= service.getStoreById(request.getRemoteUser());
+	   //준비중인 판매내역 가져오기
+	   model.addAttribute("RecentOrderList",service.getRecentOrderList(String.valueOf(imsivo.getsId())));
+	   
+	   model.addAttribute("list", con.selectFooter()); // footer처리
+	   model.addAttribute("sId", imsivo.getsId());//sid 보내기
+	   return "mypage/SaleList";
+   }
+   
+// 판매중 외의 내역 가져오기 무한
+   @ResponseBody
+   @RequestMapping("/saleListJson.seller")
+   public JSONObject getSaleListTypeJson(String no,HttpServletRequest request) throws Exception {
+      System.out.println("아아 여기는 콘트롤러 콘트롤러");
+	   StoreVO imsivo= service.getStoreById(request.getRemoteUser());//sId 구하기
+	   return service.getSaleListTypeJson(String.valueOf(imsivo.getsId()),no);
+   }
+  //판매중 -> 판매완료
+   @ResponseBody
+   @RequestMapping("/ReadyOrder.seller")
+   public String readyOrder(PayVO vo) {
+	   service.readyOrder(vo);
+	   return "주문 준비가 완료되었습니다";
+   }
+   
+   
+   
+   
 }

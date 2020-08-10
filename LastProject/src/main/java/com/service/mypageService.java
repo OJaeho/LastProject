@@ -6,6 +6,7 @@ import java.util.List;
 import org.json.simple.JSONObject;
 
 import com.vo.MypageVO;
+import com.vo.PayVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
@@ -23,4 +24,7 @@ public interface mypageService {
 	public StoreVO getStoreById(String id);
 	public List<HashMap> getCntZeroProduct(String sId);
 	public JSONObject getProductListTypeJson(String sId,String no); //무한스크롤 ProductVO
+	public List<HashMap> getRecentOrderList(String sId);
+	public JSONObject getSaleListTypeJson(String sId,String no)throws Exception;
+	public int readyOrder(PayVO vo);
 }
