@@ -26,6 +26,12 @@
 	  values(#{userName},'ROLE_SELLER','N')
 	  </insert>
 	  
+	  <insert id="insertSeller" parameterType="users">
+	  insert into
+	  authorities (username,authority,delyn)
+	  values(#{userName},'ROLE_SELLER','N')
+	  </insert>
+	  
 <!-- 	  로그인시 아이디 확인 -->
 	  <select id="selectIdLogin" parameterType="users" resultType="users">
 	  

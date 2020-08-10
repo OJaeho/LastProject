@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+
+	<select id="selectmember" resultType="users">
+		select
+		nvl(username,'입력정보없음') as userName,nvl(mname,'입력정보없음') as
+		mName,nvl(mtel,'입력정보없음') as mTel,nvl(maddr,'입력정보없음') as
+		addr,nvl(TO_CHAR(mbirth, 'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth
+		,nvl(memail,'입력정보없음') as mEmail from users
+	</select>
+
+
+	<select id="searchmember" parameterType="string"
+		resultType="users">
+		select nvl(username,'입력정보없음') as
+		userName,nvl(mname,'입력정보없음') as mName,nvl(mtel,'입력정보없음') as
+		mTel,nvl(maddr,'입력정보없음') as addr,nvl(TO_CHAR(mbirth,
+		'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth ,nvl(memail,'입력정보없음') as
+		mEmail from users
+		where username like '%'||#{keyword}||'%' or mname
+		like '%'||#{keyword}||'%'
+	</select>
+
+	<select id="marketsearch" resultType="users">
+		select
+		nvl(u.username,'입력정보없음') as
+		userName,nvl(u.mname,'입력정보없음') as mName,
+		nvl(u.mtel,'입력정보없음') as
+		mTel,nvl(u.maddr,'입력정보없음') as addr,
+		nvl(TO_CHAR(u.mbirth,'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth ,
+		nvl(u.memail,'입력정보없음') as mEmail
+		from users u , authorities a
+		where
+		u.username = a.username and a.authority='ROLE_MARKET'
+	</select>
+
+	<select id="sellersearch" resultType="users">
+		select
+		nvl(u.username,'입력정보없음') as
+		userName,nvl(u.mname,'입력정보없음') as mName,
+		nvl(u.mtel,'입력정보없음') as
+		mTel,nvl(u.maddr,'입력정보없음') as addr,
+		nvl(TO_CHAR(u.mbirth,'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth ,
+		nvl(u.memail,'입력정보없음') as mEmail
+		from users u , authorities a
+		where
+		u.username = a.username and a.authority='ROLE_SELLER'
+	</select>
+
+	<select id="usersearch" resultType="users">
+		select
+		nvl(u.username,'입력정보없음') as
+		userName,nvl(u.mname,'입력정보없음') as mName,
+		nvl(u.mtel,'입력정보없음') as
+		mTel,nvl(u.maddr,'입력정보없음') as addr,
+		nvl(TO_CHAR(u.mbirth,'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth ,
+		nvl(u.memail,'입력정보없음') as mEmail
+		from users u , authorities a
+		where
+		u.username = a.username and a.authority='ROLE_USER'
+	</select>
+
+
+	<select id="getauth" parameterType="string" resultType="Object">
+		select
+		authority
+		from authorities
+		where username = #{userName}
+	</select>
+
+</mapper>
