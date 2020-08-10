@@ -11,7 +11,7 @@ import com.vo.StoreVO;
 
 public interface mypageDao {
    
-   List<HashMap<String, Object>> getPayList(int firstRow, int endRow,String id,MypageVO vo); //구매목록
+   List<HashMap<Object,Object>> getPayList(String id,MypageVO vo); //구매목록
    //글 전체 갯수 가져오기
    int getTotalCount(HashMap map); //테이블의 전체 글 갯수 가져오기
    List<HashMap<String, Object>> getReviewList(int firstRow,int endRow ,String id);

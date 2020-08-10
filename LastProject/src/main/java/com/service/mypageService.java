@@ -12,7 +12,7 @@ import com.vo.StoreVO;
 
 public interface mypageService {
 	
-	List<HashMap<String, Object>> payList(String pNum,String id,MypageVO vo); //구매목록
+	public JSONObject payList(String id,MypageVO vo); //구매목록
 	//글 전체 갯수 가져오기
 	int getTotalCount(HashMap map); //테이블의 전체 글 갯수 가져오기
 	List<HashMap<String, Object>> reviewList(String pNum, String id);//id조건 리뷰 리스트 가져오기

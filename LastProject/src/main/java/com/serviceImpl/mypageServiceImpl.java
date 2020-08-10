@@ -1,6 +1,5 @@
 package com.serviceImpl;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,16 +29,27 @@ public class mypageServiceImpl implements mypageService {
 	mypageDao mypageDao;
 
 	@Override
-	public List<HashMap<String, Object>> payList(String pNum, String id,MypageVO vo){
-		int pageNum = 1;
-		if (pNum != null)
-			pageNum = Integer.parseInt(pNum);
-
-		int firstRow = (pageNum - 1) * countPerPage + 1;
-		int endRow = pageNum * countPerPage;
-
-		// 페이지 당 검색해 온 레코드를 return
-		return mypageDao.getPayList(firstRow, endRow, id,vo);
+	public JSONObject payList(String id, MypageVO vo) {
+		List<HashMap<Object,Object>> items = mypageDao.getPayList(id, vo);
+		JSONObject all = new JSONObject();
+		// 리턴할 json 객체
+		JSONArray data = new JSONArray(); // {}
+		System.out.println(items.get(0).get("PAYDATE")+"HELLLLLLO");
+		for (HashMap total : items) {
+			JSONObject imsi = new JSONObject();
+			imsi.put("NO", total.get("NO"));
+			imsi.put("SNAME", total.get("SNAME"));
+			imsi.put("PAYSTATE", total.get("PAYSTATE"));
+			imsi.put("PAYDATE", total.get("PAYDATE"));
+			imsi.put("PAYCONTENT", total.get("PAYCONTENT"));
+			imsi.put("PNAME", total.get("PNAME"));
+			imsi.put("PPRICE", total.get("PPRICE"));
+			imsi.put("PAYID", total.get("PAYID"));
+			imsi.put("PAYTYPE", total.get("PAYTYPE"));
+			data.add(imsi);
+		}
+		all.put("data", data);
+		return all;
 	}
 
 	@Override
@@ -133,7 +143,6 @@ public class mypageServiceImpl implements mypageService {
 		JSONObject col1 = new JSONObject();
 		JSONObject col2 = new JSONObject();
 
-
 		// json 배열 객체, 배열에 저장할때는 JSONArray()를 사용
 		JSONArray title = new JSONArray();
 		col1.put("label", "날짜"); // col1에 자료를 저장 ("필드이름","자료형")
@@ -152,7 +161,7 @@ public class mypageServiceImpl implements mypageService {
 		JSONArray body = new JSONArray(); // json 배열을 사용하기 위해 객체를 생성
 		for (ChartVO total : items) { // items에 저장된 값을 dto로 반복문을 돌려서 하나씩 저장한다.
 			JSONObject term = new JSONObject(); // json오브젝트 객체를 생성
-			term.put("v",total.getTerm()); // name변수에 dto에 저장된 상품의 이름을 v라고 저장한다.
+			term.put("v", total.getTerm()); // name변수에 dto에 저장된 상품의 이름을 v라고 저장한다.
 
 			JSONObject sumtotal = new JSONObject(); // json오브젝트 객체를 생성
 			sumtotal.put("v", total.getSumTotal()); // name변수에 dto에 저장된 금액을 v라고 저장한다.
@@ -164,32 +173,31 @@ public class mypageServiceImpl implements mypageService {
 			JSONObject cell = new JSONObject();
 			cell.put("c", row); // cell 2개를 합쳐서 "c"라는 이름으로 추가
 			body.add(cell); // 레코드 1개 추가
-			
+
 		}
 		data.put("rows", body); // data에 body를 저장하고 이름을 rows라고 한다.
 		return data; // 이 데이터가 넘어가면 json형식으로 넘어가게되서 json이 만들어지게 된다.
 	}
+
 //------------------------------------------------seller
-	//username으로 상점정보가져오기
+	// username으로 상점정보가져오기
 	@Override
 	public StoreVO getStoreById(String id) {
 		return mypageDao.getStoreById(id);
 	}
 
-	
-	
-	//품절된 목록 가져오기
+	// 품절된 목록 가져오기
 	@Override
 	public List<HashMap> getCntZeroProduct(String sId) {
-		
+
 		return mypageDao.getCntZeroProduct(sId);
 	}
-	
-	//무한 스크롤 productList 가져오기
+
+	// 무한 스크롤 productList 가져오기
 	@Override
 	public JSONObject getProductListTypeJson(String sId, String no) {
-		List<ProductVO> items=mypageDao.productList(sId, no);
-		JSONObject all = new JSONObject(); 
+		List<ProductVO> items = mypageDao.productList(sId, no);
+		JSONObject all = new JSONObject();
 		// 리턴할 json 객체
 		JSONArray data = new JSONArray(); // {}
 		for (ProductVO total : items) {

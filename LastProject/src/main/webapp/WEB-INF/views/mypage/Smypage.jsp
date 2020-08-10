@@ -95,7 +95,7 @@
       </div>
       	<p>
       <div class="link-1">
-        <a href="moveUChart.user">
+        <a href="marketDetail.master">
           <span class="thin link-1-color">C</span><span class="thick link-1-color">hart</span>
         </a>  
       </div>

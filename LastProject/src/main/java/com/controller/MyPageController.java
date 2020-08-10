@@ -74,26 +74,24 @@ public class MyPageController {
    // 구매 목록 페이지
    @RequestMapping("/PayList.user")
    public String payList(MypageVO vo,HttpServletRequest request, Model model) {
-      String pageNum = "1";
-      if (vo.getpNum() != null) {
-         pageNum = (String)vo.getpNum();
-      }
-      // 현재 로그인 된 아이디
-      String id = request.getRemoteUser();
+      
       // 현재 로그인된 아이디의 구매목록 불러오기
       model.addAttribute("list", con.selectFooter()); // footer처리
-      HashMap map = new HashMap();
-      map.put("table", "pay"); // 내가 출력할 리스트 행갯수 출력을 위해 조건을 hashmap에 저장
-      map.put("condition1", "username");
-      map.put("value1", id);
-      map.put("vo",vo);
-      model.addAttribute("totalpNum", service.getTotalCount(map));// qna 총 페이지 수
-      model.addAttribute("payList", service.payList(pageNum, id,vo));
       model.addAttribute("payStateView", vo.getPayState());
       model.addAttribute("startView",vo.getStart());
       model.addAttribute("endView",vo.getEnd());
       return "mypage/PayList";
 
+   }
+   //구매리스트 무한 스크롤
+   @ResponseBody
+   @RequestMapping("/payListInfinity.user")
+   public JSONObject PayListInfinity(MypageVO vo,HttpServletRequest request) {
+	   System.out.println(vo.getStart()+ ": 시작");
+	   System.out.println(vo.getEnd()+": 종료");
+	   // 현재 로그인 된 아이디
+	  String id = request.getRemoteUser();
+      return service.payList(id,vo);
    }
 
   

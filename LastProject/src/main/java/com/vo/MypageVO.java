@@ -2,15 +2,17 @@ package com.vo;
 
 public class MypageVO {
 
-	private String pNum;
+	private int no;
 	private String payState;
 	private String start;
 	private String end;
-	public String getpNum() {
-		return pNum;
+	
+	
+	public int getNo() {
+		return no;
 	}
-	public void setpNum(String pNum) {
-		this.pNum = pNum;
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public String getPayState() {
 		return payState;
@@ -28,7 +30,7 @@ public class MypageVO {
 		return end;
 	}
 	public void setEnd(String end) {
-		this.end = end+"-23:59:00";
+		this.end = end;
 	}
 
 }

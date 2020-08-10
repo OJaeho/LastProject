@@ -107,27 +107,13 @@
 					<a href="PayList.user?payState=배송">배송상품</a>
 				</nav>
 			</section>
-<!-- 								<ul class="nav nav-tabs" style="margin: 0 auto;"> -->
-<!-- 									<li role="presentation" style="font-size: 15px;" -->
-<!-- 										class="navLi"> -->
-<!-- 										<a href="PayList.user?">전체상품 보기</a> -->
-<!-- 									</li> -->
-<!-- 									<li role="presentation" style="font-size: 15px;" -->
-<!-- 										class="navLi"><a href="PayList.user?payState=픽업">픽업상품 -->
-<!-- 											보기</a> -->
-<!-- 									</li> -->
-<!-- 									<li role="presentation" style="font-size: 15px;" -->
-<!-- 										class="navLi"><a href="PayList.user?payState=배송">배송상품 -->
-<!-- 											보기</a> -->
-<!-- 									</li> -->
-<!-- 								</ul> -->
 							</div>
 						</div>
 						<br/>
 <!-- 						날짜 기준 -->
 			<div style="margin: 0 auto; text-align: center;">
 				<form action="PayList.user" id="payDateSearch" >
-					<input type="hidden" name="payState" value=${payStateView }>
+					<input type="hidden" id="payState" name="payState" value=${payStateView }>
 					<input type="date" id="starting" name="start" style='display: inline; border: 1px solid #ccc; border-radius: 2px;'>
 					~
 					<input type="date" id="ending" name="end"  style='display: inline; border: 1px solid #ccc; border-radius: 2px;'>
@@ -139,163 +125,31 @@
 <!-- 		tab Pane 부분 끝	 -->
 		<!--구매내역 본문 시작 -->
 			<div class="Content ec-base-table container">
-				<div style="position: relative;">
-							<c:forEach items="${payList}" var="pays">
-							<h4>${pays.SNAME } | ${pays.PAYSTATE }</h4>
-							<h4>${pays.PAYTYPE }</h4>
-							<span>${pays.PAYDATE}</span><br/>
-							<span>${pays.PAYCONTENT}</span><br/>
-							<input class="join-btn" type="button" value="리뷰쓰기" onClick="location.href='product-detail.user?pName=${pays.PNAME}&pPrice=${pays.PPRICE}&pId=${pays.PID}&payId=${pays.PAYID}'"  style='display:inline;' >
-							<input class="join-btn" type="button" value="가게보기" onClick="location.href='#'"  style='display:inline;' >
-							<hr/>
-							</c:forEach>
+				<div id="payList_div" style="position: relative;">
+							
+						
+						
 				</div>
-<!-- 				페이지 처리 -->
-				<div class="text-center-page">
-					<ul class="pagination div-center">
-						<c:forEach var="i" begin="1" end="${totalpNum }">
-							<li><a href="PayList.user?pNum=${i }&payState=${payStateView }&start=${param.start}&end=${param.end}">${i }</a></li>
-						</c:forEach>
-					</ul>
-				</div>
-<!-- 				페이지 처리 끝 -->
 			</div>
 		</div>
 	</div>
-	<!-- footer -->
-	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
-
-
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/animsition/js/animsition.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/bootstrap/js/popper.js"></script>
-	<script src="./resources/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/select2/select2.min.js"></script>
-	<script>
-		$(".js-select2").each(function() {
-			$(this).select2({
-				minimumResultsForSearch : 20,
-				dropdownParent : $(this).next('.dropDownSelect2')
-			});
-		})
-	</script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/daterangepicker/moment.min.js"></script>
-	<script src="./resources/vendor/daterangepicker/daterangepicker.js"></script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/slick/slick.min.js"></script>
-	<script src="./resources/js/slick-custom.js"></script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/parallax100/parallax100.js"></script>
-	<script>
-		$('.parallax100').parallax100();
-	</script>
-	<!--===============================================================================================-->
-	<script
-		src="./resources/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
-	<script>
-		$('.gallery-lb').each(function() { // the containers for all your galleries
-			$(this).magnificPopup({
-				delegate : 'a', // the selector for gallery item
-				type : 'image',
-				gallery : {
-					enabled : true
-				},
-				mainClass : 'mfp-fade'
-			});
-		});
-	</script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/isotope/isotope.pkgd.min.js"></script>
-	<!--===============================================================================================-->
-	<script src="./resources/vendor/sweetalert/sweetalert.min.js"></script>
-	<script>
-		$('.js-addwish-b2').on('click', function(e) {
-			e.preventDefault();
-		});
-
-		$('.js-addwish-b2').each(
-				function() {
-					var nameProduct = $(this).parent().parent().find(
-							'.js-name-b2').html();
-					$(this).on('click', function() {
-						swal(nameProduct, "is added to wishlist !", "success");
-
-						$(this).addClass('js-addedwish-b2');
-						$(this).off('click');
-					});
-				});
-
-		$('.js-addwish-detail').each(
-				function() {
-					var nameProduct = $(this).parent().parent().parent().find(
-							'.js-name-detail').html();
-
-					$(this).on('click', function() {
-						swal(nameProduct, "is added to wishlist !", "success");
-
-						$(this).addClass('js-addedwish-detail');
-						$(this).off('click');
-					});
-				});
-
-		/*---------------------------------------------*/
-
-		$('.js-addcart-detail').each(
-				function() {
-					var nameProduct = $(this).parent().parent().parent()
-							.parent().find('.js-name-detail').html();
-					$(this).on('click', function() {
-						swal(nameProduct, "is added to cart !", "success");
-					});
-				});
-	</script>
-	<!--===============================================================================================-->
-	<script
-		src="./resources/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script>
-		$('.js-pscroll').each(function() {
-			$(this).css('position', 'relative');
-			$(this).css('overflow', 'hidden');
-			var ps = new PerfectScrollbar(this, {
-				wheelSpeed : 1,
-				scrollingThreshold : 1000,
-				wheelPropagation : false,
-			});
-
-			$(window).on('resize', function() {
-				ps.update();
-			})
-		});
-	</script>
-	<!--===============================================================================================-->
-	<script src="./resources/js/main.js"></script>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
 
 
 			<!-- 본문 끝 -->
 		</div>
+		<c:if test="${startView  ne null}">
+		<input type="hidden" value=${startView } id="startView">
+		<input type="hidden" value='${endView }-23:59:00' id="endView">
+		</c:if>
+		<c:if test="${startView  eq null}">
+		<input type="hidden" value="null" id="startView">
+		<input type="hidden" value="null" id="endView">
+		</c:if>
+		
 	</section>
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 	<!-- script	 -->
-
 
 	<!-- 유효성 체크  -->
 	<!--===============================================================================================-->
@@ -416,6 +270,7 @@
 	<!--===============================================================================================-->
 	<script src="./resources/js/main.js"></script>
 	<script src="./resources/js/nh2.js"></script>
-
+		<!-- 무한 스크롤 -->
+<script type="text/javascript" src="resources/js/infinityPay.js"></script> 
 </body>
 </html>

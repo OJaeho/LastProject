@@ -5,13 +5,13 @@
 
 <!-- 주문내역리스트 -->
 <select id="selectPayList" parameterType="hashmap" resultType="hashmap">
- SELECT *
- FROM (select  rownum rm, a.* from (select pay.payid,pay.pid,pay.paycount,pay.payaddr,pay.groupid,pay.paytel,pay.paydate,pay.paycontent,pay.paytype,pay.paytotal,pay.paystate,s.sname,p.pprice,p.pname from pay pay , store s, product p where pay.username=#{id} and pay.pid =p.pid and  s.sid=p.sid  
+ SELECT * FROM (select  rownum no, a.* from (select pay.payid,pay.pid,pay.paycount,pay.payaddr,pay.groupid,pay.paytel,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate ,pay.paycontent,pay.paytype,pay.paytotal,pay.paystate,s.sname,p.pprice,p.pname from pay pay , store s, product p where pay.username=#{id} and pay.pid =p.pid and  s.sid=p.sid  
 <if test='dating.equals("있음")'>
  <![CDATA[ and pay.paydate >= to_date(#{vo.start},'YYYY-MM-DD') and pay.paydate<=to_date(#{vo.end},'YYYY-MM-DD-HH24:MI:SS')
-]]></if><if test='vo.payState.equals("배송") || vo.payState.equals("픽업")'> and pay.paystate = #{vo.payState}</if>
+]]></if>
+<if test='vo.payState.equals("배송") || vo.payState.equals("픽업")'> and pay.paystate = #{vo.payState}</if>
 order by pay.paydate desc) a ) pay
-where pay.rm between  #{first} and #{end}
+where pay.no > ${vo.no}
 </select>
 
 <!-- 리뷰리스트 -->
