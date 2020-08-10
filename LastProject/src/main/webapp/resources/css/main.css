@@ -529,24 +529,24 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 
-/*---------------------------------------------*/
-.icon-header-noti::after {
-  content: attr(data-notify);
-  font-family: Poppins-Regular;
-  font-size: 12px;
-  color: #fff;
-  line-height: 15px;
-  text-align: center;
+/*--------------------------------------------- */
+/* .icon-header-noti::after { */
+/*   content: attr(data-notify); */
+/*   font-family: Poppins-Regular; */
+/*   font-size: 12px; */
+/*   color: #fff; */
+/*   line-height: 15px; */
+/*   text-align: center; */
 
-  display: block;
-  position: absolute;
-  top: -7px;
-  right: 0;
-  min-width: 15px;
-  height: 15px;
-  padding: 0 3px;
-  background-color: #717fe0;
-}
+/*   display: block; */
+/*   position: absolute; */
+/*   top: -7px; */
+/*   right: 0; */
+/*   min-width: 15px; */
+/*   height: 15px; */
+/*   padding: 0 3px; */
+/*   background-color: #717fe0; */
+/* } */
 
 /*---------------------------------------------*/
 .wrap-header-mobile .wrap-icon-header {
@@ -777,7 +777,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .main-menu-m {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #717fe0;
+  background-color: #46e37f;
 }
 
 .main-menu-m > li > a {
@@ -2869,7 +2869,7 @@ input.num-product::-webkit-inner-spin-button {
   min-width: 32px;
   border-radius: 7px;
   padding: 0 4px;
-  background-color: #f74877;
+  background-color: #ff0000;
 }
 
 .label1.rs1::after {

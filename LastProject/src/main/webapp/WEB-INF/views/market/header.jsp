@@ -183,6 +183,9 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			
 			<!-- Topbar end -->
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
@@ -219,6 +222,7 @@
 				</nav>
 			</div>
 		</div>
+	</header>
 		<!-- Header END -->
 
 		<!-- Modal Search -->
@@ -243,12 +247,106 @@
 				<a class="btnn red" href="insertproduct.seller" >상품등록</a> 
 				
 				</sec:authorize>
-				
+			</div>
+		</div>
+		
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="folliumtest.user"><img src="./resources/images/logo.png" alt="IMG-LOGO"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+				<sec:authorize access="isAuthenticated()">
+					<form:form action="${pageContext.request.contextPath}/logout"
+					method="POST">
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart">
+							<input type="submit" value="Logout" class="cl2 theme_color cart-main-font cart-title-border"
+							style="font-size: 13px; font-weight: 800; letter-spacing: 7px; color: #009a45 !important; 
+							font-family: 'Nanum Gothic'; background: #fff0; padding: 10px 0 10px 0;">
+						</div>
+					</form:form>
+				</sec:authorize>
 			
+			
+				<sec:authorize access="isAnonymous()">
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
+					<a href="logincheck.checking" style="color: black;"><i class="zmdi zmdi-face"></i></a>
+				</div>
+				</sec:authorize>
+				
+				<div class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+				<a href="mypage.checking" style="color: black;"><i class="zmdi zmdi-library"></i></a>
+				</div>
+				
+				<div class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
+				<a href="shopping.checking" style="color: black;"><i class="zmdi zmdi-shopping-cart"></i></a>
+				</div>
+				
+			</div>
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
 			</div>
 		</div>
 
 
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="main-menu-m">
+				<li>
+					<a href="#">우리 시장에는</a>
+					<ul class="sub-menu-m">
+						<li><a href="introMarket.user">시장 소개</a></li>
+						<li><a href="waytoMarket.user">오시는 길</a></li>
+						<li><a href="storelist.user">업종별 상점</a></li>
+						<li><a href="marketIssue.user">시장 이슈</a></li>
+					</ul>
+					<span class="arrow-main-menu-m">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</span>
+				</li>
+
+				<li>
+					<a href="tourHome.user">거리마다</a>
+				</li>
+
+				<li>
+					<a href="getproduct.user" class="label1 rs1" data-label1="hot">우리 것이</a>
+				</li>
+
+				<li>
+					<a href="#">있어요</a>
+					<ul class="sub-menu-m">
+						<li><a href="getNoticeList.user">공지사항</a></li>
+						<li><a href="getQnAList.user">Q & A</a></li>
+					</ul>
+					<span class="arrow-main-menu-m">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="images/icons/icon-close2.png" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+				</form>
+			</div>
+		</div>
 	</header>
 
 </body>

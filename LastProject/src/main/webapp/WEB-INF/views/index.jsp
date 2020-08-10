@@ -64,31 +64,20 @@
 	<br />
 	<br />
 	<br />
-	<br />
 
 	<!-- Slider -->
 	<section class="section-slide">
 		<div class="wrap-slick1">
 			<div class="slick1">
 				<div class="item-slick1"
-					style="background-image: url(./resources/images/ssak3main.png); width: 1000px; height: 600px; padding-top: 50px;">
+					style="background-image: url(./resources/images/ssak3main.png); 
+					width: 1000px; height: 600px; padding-top: 50px;">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false"
 								data-appear="fadeInDown" data-delay="0">
 								<span class="cl2 respon2" style="color: #FFF; font-weight: 800;">
 									 </span>
-<!-- 								<div class="animated-title"> -->
-<!-- 								  <div class="text-top"> -->
-<!-- 								    <div> -->
-<!-- 								      <span>Welcome</span> -->
-<!-- 								      <span>Market</span> -->
-<!-- 								    </div> -->
-<!-- 								  </div> -->
-<!-- 								  <div class="text-bottom"> -->
-<!-- 								    <div>SSAK 3!</div> -->
-<!-- 								  </div> -->
-<!-- 								</div> -->
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
@@ -164,136 +153,144 @@
 		</div>
 
 		<!-- Banner -->
-		<div class="sec-banner bg0"
-			style="padding-bottom: 110px; margin: auto;">
-			<div class="flex-w flex-c-m" style="margin: auto;">
+	<div class="sec-banner bg0 p-t-80 p-b-50">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<div class="flex-w flex-c-m" style="margin: auto;">
 
-
-				<div class="size-202 m-lr-auto respon4" style="margin: auto;">
 					<!-- Block1 -->
-					<div class="block1 wrap-pic-w" style="margin: auto;">
-
-						<a href="storelist.user"
+						<div class="block1 wrap-pic-w" >
+							<span class="block1-name trans-04 p-b-8"> 상점
+							<img src="./resources/images/ssack3_start.png" 
+							style="height: auto; max-width: 150px; width: 100%;">
+							</span>
+							<a href="storelist.user"
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l" style="margin: auto;">
-								<span class="block1-name ltext-102 trans-04 p-b-8"> 상점
-								<img src="./resources/images/ssack3_start.png" 
-								style="height: auto; max-width: 150px; width: 100%;">
-								</span>
-							</div>
-
-						</a>
+							</a>
+						</div>
 					</div>
 				</div>
+				
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<div class="flex-w flex-c-m" style="margin: auto;">
 
-				<div class="size-202 m-lr-auto respon4" style="margin: auto;">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w" style="margin: auto;">
-
-						<a href="getproduct.user"
+					<!-- Block2 -->
+						<div class="block1 wrap-pic-w" >
+							<span class="block1-name trans-04 p-b-8"> 상품
+							<img src="./resources/images/ssack3_start.png" 
+							style="height: auto; max-width: 150px; width: 100%;">
+							</span>
+							<a href="getproduct.user"
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l" style="margin: auto;">
-								<span class="block1-name ltext-102 trans-04 p-b-8"> 상품
-								<img	src="./resources/images/ssack3_start.png"
-									style="height: auto; max-width: 150px; width: 100%;">
-								</span>
-							</div>
-
-						</a>
+							</a>
+						</div>
 					</div>
 				</div>
+				
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<div class="flex-w flex-c-m" style="margin: auto;">
 
-				<div class="size-202 m-lr-auto respon4" style="margin: auto;">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w" style="margin: auto;">
-
-						<a href="tourHome.user"
+					<!-- Block3 -->
+						<div class="block1 wrap-pic-w" >
+							<span class="block1-name trans-04 p-b-8"> 관광지
+							<img src="./resources/images/ssack3_start.png" 
+							style="height: auto; max-width: 150px; width: 100%;">
+							</span>
+							<a href="tourHome.user"
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l" style="margin: auto;">
-								<span class="block1-name ltext-102 trans-04 p-b-8"> 관광지
-								<img src="./resources/images/ssack3_start.png"
-									style="height: auto; max-width: 150px; width: 100%;">
-								</span>
-							</div>
-						</a>
+							</a>
+						</div>
 					</div>
 				</div>
-
-			</div>
-			<hr />
-		</div>
-		<hr />
-
-		<br />
-		<br />
-		<br />
-
-		<div
-			style="width: 2000px; height: 300px; margin: auto; padding-left: 50px; padding-right: 50px;">
-
-			<div
-				style="width: 30%; height: 100%; padding-top: 30px; padding-left: 50px; float: left;">
-				<table class="table table-striped table-bordered table-hover"
-					style="width: 500px;">
-					<thead style="background-color: green; color: white;">
-						<tr>
-							<th>공지사항</th>
-						</tr>
-					</thead>
-					<tbody >
-						<c:forEach items="${noticeget}" var="notice">
-							<tr><th style='width:100;overflow:hidden;text-overflow:ellipsis' >
-								${notice.nTitle}</th>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				<a href="getNoticeList.user" style="padding-left: 450px;">더보기</a>
-			</div>
-
-
-			<div
-				style="width: 30%; height: 100%; padding-top: 30px; padding-left: 50px; float: left;">
-				<table class="table table-striped table-bordered table-hover"
-					style="width: 500px;">
-					<thead style="background-color: green; color: white;">
-						<tr>
-							<th>시장이슈</th>
-						</tr>
-					</thead>
-					<tbody >
-						<c:forEach items="${issueget}" var="notice">
-							<tr><th style='width:100;overflow:hidden;text-overflow:ellipsis' >
-								${notice.isTitle}</th>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				<a href="marketIssue.user" style="padding-left: 450px;">더보기</a>
-			</div>
-
-			<div
-				style="width: 30%; height: 100%; padding-top: 30px; padding-left: 50px; float: left;">
-				<table class="table table-striped table-bordered table-hover"
-					style="width: 500px;">
-					<thead style="background-color: green; color: white;">
-						<tr>
-							<th>Q & A</th>
-						</tr>
-					</thead>
-					<tbody >
-						<c:forEach items="${qnaget}" var="notice">
-							<tr><th style='width:100;overflow:hidden;text-overflow:ellipsis' >
-								${notice.qTitle}</th>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				<a href="getQnAList.user" style="padding-left: 450px;">더보기</a>
 			</div>
 		</div>
+	</div>
 
-	</section>
+
+
+	<div class="sec-banner bg0 p-t-80 p-b-50">
+		<div class="container">
+			<div class="row">
+			
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<div class="flex-w flex-c-m" style="margin: auto;">
+
+					<!-- Block1 -->
+						<div class="wrap-pic-w" style="margin-right: 100px;">
+							<table class="table table-striped table-bordered table-hover"
+								style="width: 500px;">
+								<thead style="background-color: green; color: white;">
+									<tr>
+										<th>공지사항</th>
+									</tr>
+								</thead>
+								<tbody >
+									<c:forEach items="${noticeget}" var="notice">
+										<tr><th style='width:100;overflow:hidden;text-overflow:ellipsis' >
+											${notice.nTitle}</th>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<a href="getNoticeList.user" style="padding-left: 450px;" class="btn_area">더보기</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<div class="flex-w flex-c-m" style="margin: auto;">
+
+					<!-- Block2 -->
+						<div class="wrap-pic-w" >
+							<table class="table table-striped table-bordered table-hover"
+								style="width: 500px;">
+								<thead style="background-color: green; color: white;">
+									<tr>
+										<th>시장이슈</th>
+									</tr>
+								</thead>
+								<tbody >
+									<c:forEach items="${issueget}" var="notice">
+										<tr><th style='width:100;overflow:hidden;text-overflow:ellipsis' >
+											${notice.isTitle}</th>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<a href="marketIssue.user" style="padding-left: 450px;">더보기</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+					<div class="flex-w flex-c-m" style="margin: auto;">
+
+					<!-- Block3 -->
+						<div class="wrap-pic-w" style="margin-left: 100px;">
+							<table class="table table-striped table-bordered table-hover"
+								style="width: 500px;">
+								<thead style="background-color: green; color: white;">
+									<tr>
+										<th>Q & A</th>
+									</tr>
+								</thead>
+								<tbody >
+									<c:forEach items="${qnaget}" var="notice">
+										<tr><th style='width:100;overflow:hidden;text-overflow:ellipsis' >
+											${notice.qTitle}</th>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+							<a href="getQnAList.user" style="padding-left: 450px;">더보기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
 
 
