@@ -88,8 +88,8 @@
 
 							<div class="layer-slick1 animated visible-false" style="padding-top: 50px; padding-left: 20px;
 								data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" style="color: white"
-									class="flex-c-m cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<a href="product.html" style="color: black;"
+									class="flex-c-m cl0 size-101 bor1 hov-btn1 p-lr-15 trans-04 bg0">
 									Click! </a>
 							</div>
 						</div>
@@ -102,20 +102,20 @@
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false"
 								data-appear="rollIn" data-delay="0">
-								<span class="ltext-101 cl2 respon2" style="color: lightgrey">
+								<span class="cl2 respon2" style="color: lightgrey">
 									먹방의 시대 </span>
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="lightSpeedIn" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1"
+								<h2 class="cl2 p-t-19 p-b-43 respon1"
 									style="color: white">즐거운 먹부림</h2>
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="slideInUp" data-delay="1600" style="padding-top: 50px; padding-left: 20px;">
-								<a href="product.html" style="color: white"
-									class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<a href="product.html" style="color: black;"
+									class="flex-c-m bg0 cl0 size-101 bor1 hov-btn1 p-lr-15 trans-04">
 									전통시장 속으로 </a>
 							</div>
 						</div>
@@ -134,14 +134,14 @@
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="rotateInUpRight" data-delay="800">
-								<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1"
+								<h2 class="cl2 p-t-19 p-b-43 respon1"
 									style="color: maroon;">야! 너두 올수있어</h2>
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="rotateIn" data-delay="1600">
-								<a href="product.html" style="color: white"
-									class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								<a href="product.html" style="color: black;"
+									class="flex-c-m cl0 bg0 size-101 bor1 hov-btn1 p-lr-15 trans-04">
 									마켓싹쓰리 </a>
 							</div>
 						</div>

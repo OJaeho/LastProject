@@ -79,7 +79,7 @@
 							LIST</h2>
 
 						<!-- order Content -->
-						<div id="orderForm" class="boardList xans-order-form">
+						<div id="orderForm" class="boardList xans-order-form" style="font-size: 20px;">
 							<table class="table-cart-01">
 								<thead>
 									<tr>
@@ -92,27 +92,31 @@
 								<tbody>
 								<c:forEach items="${getorderitem}" var="list">
 									<tr class="table_row">
-											<td class="cart_table_line-01" style="padding: 0;">
-												<div class="product_item_wrap">
+											<td class="cart_table_line-01" style="padding: 0; border-left: 0px; border-right: 0px;">
+												<div class="product_item_wrap" style="padding: 10px;">
 													<div class="product_item--price">
-														<div class="product_item--price"><span class="payStoreName">${list.payContent}</span>
+														<div class="product_item--price" style="font-size: 15px;">
+														<span class="payStoreName">${list.payContent}</span>
 													</div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
-												<div class="product_item_wrap">
-													<div class="product_item--price"><span class="count">${list.payCount}</span></div>
+												<div class="product_item_wrap" style="padding: 10px;">
+													<div class="product_item--price" style="font-size: 15px;">
+													<span class="count">${list.payCount}</span></div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
-												<div class="product_item_wrap">
+												<div class="product_item_wrap" style="padding: 10px;">
 												<fmt:formatNumber value="${list.payTotal}" type="number" var="payTotal"/>
-													<div class="product_item--price"><span class="sm_total">${list.payTotal}</span></div>
+													<div class="product_item--price" style="font-size: 15px;">
+													<span class="sm_total">${list.payTotal}</span></div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
-												<div class="product_item_wrap">
-													<div class="product_item--price"><span class="paystate">${list.payState}</span></div>
+												<div class="product_item_wrap" style="padding: 10px;">
+													<div class="product_item--price" style="font-size: 15px;">
+													<span class="paystate">${list.payState}</span></div>
 												</div>
 											</td>
 										</tr>

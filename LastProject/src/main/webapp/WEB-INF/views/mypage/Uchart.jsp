@@ -53,6 +53,9 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <!--===============================================================================================-->
 
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
@@ -114,6 +117,7 @@ google.load('visualization','1',{
                     width : 600,
                     height : 400
                 });
+
     }
 //     차트2
     function drawChart2() {
@@ -149,7 +153,8 @@ google.load('visualization','1',{
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">사용자 마이페이지</h2>
+   	<h2 style="margin-top: 40px;"
+	class="cl2 p-b-20 theme_color cart-main-font cart-title-border">MY CHART</h2>
 	</section>
 	<!-- header끝 -->
 	<!-- Content page -->
