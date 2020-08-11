@@ -32,7 +32,7 @@ public class payviewDaoImpl implements payviewDao {
 	}
 
 	public int getorderprice(PayVO pvo) {
-		// TODO Auto-generated method stub
+		System.out.println(pvo.getGroupId()+"야아아호ㅗㅇ오");
 		return mybatis.selectOne("payviewMapper.getorderprice", pvo);
 	}
 	

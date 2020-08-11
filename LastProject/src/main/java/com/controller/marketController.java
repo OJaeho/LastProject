@@ -42,9 +42,8 @@ public class marketController {
 
 	// 1. 메인메뉴 전국시장지도 보여주는 호출하는 함수
 	@RequestMapping("/folliumtest.user")
-	public String folliumtest(Model model) {
+	public String folliumtest(Model model,HttpSession session) {
 		List<MarketVO> list = service.selectMarket();
-		System.out.println(list.get(0) + "+++++++++++++++++++++++++++");
 		model.addAttribute("list", list);
 		return "folliumtest";
 

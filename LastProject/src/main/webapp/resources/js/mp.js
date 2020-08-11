@@ -12,7 +12,7 @@ $(document).ready(function(){
 			contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 			data: "payId="+payId,
 			success : function(resultData){
-				alert(resultData); 
+				alert(payId+"번 상품 준비가 완료되었습니다."); 
 			} 
 		});  
        

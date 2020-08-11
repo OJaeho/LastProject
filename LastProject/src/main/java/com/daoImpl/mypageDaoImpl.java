@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dao.mypageDao;
 import com.vo.ChartVO;
+import com.vo.MarketVO;
 import com.vo.MypageVO;
 import com.vo.PayVO;
 import com.vo.ProductVO;
@@ -118,6 +119,19 @@ public List<HashMap> getSaleListTypeJson(String sId, String no) {
 @Override
 public int readyOrder(PayVO vo) {
 	return mybatis.update("mypageMapper.readyOrder",vo) ;
+}
+//Market mypage
+@Override
+public MarketVO getMarketById(String id) {
+	return mybatis.selectOne("mypageMapper.getMarketById",id);
+}
+
+@Override
+public List<HashMap> getStoreListJson(String mkId, String no) {
+	HashMap m = new HashMap();
+	m.put("mkId",mkId);
+	m.put("no",no);
+	return mybatis.selectList("mypageMapper.StoreList",m);
 }
 
 }

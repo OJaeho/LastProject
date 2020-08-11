@@ -25,10 +25,9 @@ let isEnd = false;
         // 방명록 리스트를 가져올 때 시작 번호
         // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
         // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
-        let startNo = $("#list_Sale tr").last().data("no") || 0;
-        alert(startNo);
+        let startNo = $("#store_list tr").last().data("no") || 0;
         $.ajax({
-            url:"saleListJson.seller?no="+startNo ,
+            url:"storeListJson.market?no="+startNo ,
             type: "GET",
             dataType: "json",
             success: function(result){
@@ -48,23 +47,19 @@ let isEnd = false;
     let renderList = function(mode, vo){
         // 리스트 html을 정의
         let html = "<tr data-no='"+ vo.NO +"'>" +
-        "<td>"+ vo.GROUPID +"</td>" +
-        	"<td>"+ vo.USERNAME +"</td>" +
-            "<td>"+ vo.PAYCONTENT +"</td>" +
-            "<td>"+ vo.PAYCOUNT +  "</td>" +
-            "<td>"+vo.PAYTOTAL+"</td>" +
-            "<td>"+vo.PAYDATE+"</td>" +
-            "<td>"+vo.PAYSTATE+"</td>" +
-            "<td>"+vo.PAYTYPE+"</td>" +
-            "<td><input type='button' value='상세 보기' onClick=location.href='getpayview.user?GroupId="+vo.GROUPID+"'>"+
-            "</td>"+
+        "<td>"+ vo.SID +"</td>" +
+        	"<td>"+ vo.SNAME +"</td>" +
+            "<td>"+ vo.SADDR +"</td>" +
+            "<td>"+ vo.STEL +  "</td>" +
+            "<td>"+vo.STIME+"</td>" +
+            "<td>"+vo.SPOINT+"</td>" +
             "</tr>"
         
         if( mode ){
-            $("#list_Sale").prepend(html);
+            $("#store_list").prepend(html);
         }
         else{
-            $("#list_Sale").append(html);
+            $("#store_list").append(html);
         }
     }
 
