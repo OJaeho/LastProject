@@ -136,7 +136,6 @@
 
 
 			<!-- 본문 끝 -->
-		</div>
 		<c:if test="${startView  ne null}">
 		<input type="hidden" value=${startView } id="startView">
 		<input type="hidden" value='${endView }-23:59:00' id="endView">
@@ -146,7 +145,6 @@
 		<input type="hidden" value="null" id="endView">
 		</c:if>
 		
-	</section>
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 	<!-- script	 -->

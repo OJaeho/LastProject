@@ -46,13 +46,17 @@ let isEnd = false;
     
     let renderList = function(mode, vo){
         // 리스트 html을 정의
-        let html = "<h4 data-no='"+ vo.NO +"'>"+vo.SNAME +"|"+ vo.PAYSTATE +"</h4>"+
+        let html = "<h3 data-no='"+ vo.NO +"'>"+vo.SNAME +" | "+ vo.PAYSTATE +"</h3>"+
 			"<h4>"+vo.PAYTYPE +"</h4>"+
 			"<span>"+vo.PAYDATE+"</span><br/>"+
 			"<span>"+vo.PAYCONTENT+"</span><br/>"+
 			"<input class='join-btn' type='button' value='리뷰쓰기' onClick=location.href='product-detail.user?pName="+vo.PNAME+"&pPrice="+vo.PPRICE+"&pId="+vo.PID+"&payId="+vo.PAYID+"'  style='display:inline;' >"+
-			"<input class='join-btn' type='button' value='가게보기' onClick=location.href='#'  style='display:inline;' >"+
+			"&nbsp;"+"<input class='join-btn' type='button' value='가게보기' onClick=location.href='#'  style='display:inline;' >"+
 			"<hr/>"
+			$("h3").css("font-size", "22px");
+        	$("h3").css("line-height", "1.7");
+        	$("h4").css("font-size", "17px");
+        	$("h4").css("font-weight", "600");
         	
         if( mode ){
             $("#payList_div").prepend(html);
