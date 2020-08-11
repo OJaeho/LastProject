@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+	<%@ taglib prefix="c"
+	uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>사용자 마이페이지</title>
+   <title>${maketName }의 상점  리스트</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->   
@@ -47,13 +51,12 @@
    rel="stylesheet" type="text/css" />
 </head>
 <body class="animsition">
-   
-   <!-- Header -->
+ <!-- Header -->
      <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
       <h2>
-       	<img src="./resources/images/logo.png" style="width: 40rem;">
+          <img src="./resources/images/logo.png" style="width: 40rem;">
       </h2>
    </section>   
 <!-- header끝 -->
@@ -67,44 +70,30 @@
          <div class="col-md-12"></div>
       </div>
 
-      <!-- Main Content -->
 
-	<h2 style="text-align: center" class="mypage_content_font p-b-40">${mkName }'s My Page</h2>
+<h3>${mkName } 점포 목록</h3><br/>
+   <div class="page_list">
+               <table class="table table-bordered table-hover">
+                  <thead>
+                     <tr>
+                      <th class="mythlist">ID</th>
+                        <th class="mythlist">점포명</th>
+                        <th class="mythlist">점포 주소</th>
+                        <th class="mythlist">전화번호</th>
+                        <th class="mythlist">영업일</th>
+                         <th class="mythlist">포인트</th>
+                     </tr>
+                  </thead>
+                  <tbody id="store_list">
+                   
+                  </tbody>
+               </table>
+               <hr />
+            </div>
 
-		<!-- MyPage List -->
-	<div class="wrapper tabled">
-	  <div class="stage" id="page1">
-    <div class="middled">
+            </div>
 
-      <div class="link-1">
-        <a href="#">
-          <span class="thin link-1-color">pro</span><span class="thick link-1-color">file</span>
-        </a>  
-      </div>
-		<p>
-      <div class="link-1">
-        <a href="#">
-          <span class="thin link-1-color">Post </span><span class="thick link-1-color">Management</span>
-        </a>  
-      </div>
-      	<p>
-      <div class="link-1">
-        <a href="moveStoreList.market">
-          <span class="thin link-1-color">Store</span><span class="thick link-1-color">List</span>
-        </a>  
-      </div>
-      	<p>
-      <div class="link-1">
-        <a href="moveUChart.user">
-          <span class="thin link-1-color">C</span><span class="thick link-1-color">hart</span>
-        </a>  
-      </div>
-      
-     </div>
-    </div>
-
-   </div>
-  </section>
+ </section>
  <jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 <!-- script    -->
@@ -127,6 +116,10 @@
 <script
    src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script type="text/javascript" src="resources/js/js_userinput.js"></script>
+<!-- 무한 스크롤 -->
+<script type="text/javascript" src="resources/js/infinityStore.js"></script> 
+<!-- 업데이트 js -->
+<!-- <script type="text/javascript" src="resources/js/mp.js"></script>  -->
 <!--===============================================================================================-->   
    <script src="./resources/vendor/select2/select2.min.js"></script>
    <script>

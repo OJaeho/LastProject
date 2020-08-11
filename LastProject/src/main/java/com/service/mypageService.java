@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 
+import com.vo.MarketVO;
 import com.vo.MypageVO;
 import com.vo.PayVO;
-import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 
@@ -27,4 +27,7 @@ public interface mypageService {
 	public List<HashMap> getRecentOrderList(String sId);
 	public JSONObject getSaleListTypeJson(String sId,String no)throws Exception;
 	public int readyOrder(PayVO vo);
+	//Market 마이페이지
+	public MarketVO getMarketById(String id);//해당 아이디의 마켓 정보 가져오기
+	public JSONObject getStoreListJson(String mkId,String no)throws Exception;//storeList 가져오기
 }

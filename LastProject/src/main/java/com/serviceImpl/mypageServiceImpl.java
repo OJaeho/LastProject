@@ -1,8 +1,5 @@
 package com.serviceImpl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -14,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.dao.mypageDao;
 import com.service.mypageService;
 import com.vo.ChartVO;
+import com.vo.MarketVO;
 import com.vo.MypageVO;
 import com.vo.PayVO;
 import com.vo.ProductVO;
@@ -35,7 +33,6 @@ public class mypageServiceImpl implements mypageService {
 		JSONObject all = new JSONObject();
 		// 리턴할 json 객체
 		JSONArray data = new JSONArray(); // {}
-		System.out.println(items.get(0).get("PAYDATE")+"HELLLLLLO");
 		for (HashMap total : items) {
 			JSONObject imsi = new JSONObject();
 			imsi.put("NO", total.get("NO"));
@@ -47,6 +44,7 @@ public class mypageServiceImpl implements mypageService {
 			imsi.put("PPRICE", total.get("PPRICE"));
 			imsi.put("PAYID", total.get("PAYID"));
 			imsi.put("PAYTYPE", total.get("PAYTYPE"));
+			imsi.put("PID", total.get("PID"));
 			data.add(imsi);
 		}
 		all.put("data", data);
@@ -244,10 +242,39 @@ public class mypageServiceImpl implements mypageService {
 		all.put("data", data);
 		return all;
 	}
-
+	//준비완료 버튼 눌렀을 시 준비중->준비완료
 	@Override
 	public int readyOrder(PayVO vo) {
 		return mypageDao.readyOrder(vo);
+	}
+	//Market mypage ->>>>>>>>>>>>>>>>>>>>
+	//id로 market 정보  가져오기
+	@Override
+	public MarketVO getMarketById(String id) {
+		return mypageDao.getMarketById(id);
+	}
+
+	@Override
+	public JSONObject getStoreListJson(String mkId, String no) throws Exception {
+		List<HashMap> items = mypageDao.getStoreListJson(mkId,no);
+		JSONObject all = new JSONObject();
+		// 리턴할 json 객체
+		System.out.println(items.get(0).get("NO")+"HEllo");
+		JSONArray data = new JSONArray(); // {}
+		for (HashMap total : items) {
+			JSONObject imsi = new JSONObject();
+			imsi.put("NO", total.get("NO"));
+			imsi.put("SID", total.get("SID"));
+			imsi.put("SNAME", total.get("SNAME"));
+			imsi.put("SADDR", total.get("SADDR"));
+			imsi.put("STEL", total.get("STEL"));
+			imsi.put("STIME", total.get("STIME"));
+			imsi.put("SPOINT", total.get("SPOINT"));
+			
+			data.add(imsi);
+		}
+		all.put("data", data);
+		return all;
 	}
 
 }

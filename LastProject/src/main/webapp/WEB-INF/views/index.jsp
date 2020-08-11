@@ -88,7 +88,7 @@
 
 							<div class="layer-slick1 animated visible-false" style="padding-top: 50px; padding-left: 20px;
 								data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" style="color: black;"
+								<a href="getproduct.user" style="color: black;"
 									class="flex-c-m cl0 size-101 bor1 hov-btn1 p-lr-15 trans-04 bg0">
 									Click! </a>
 							</div>
@@ -100,23 +100,23 @@
 					style="background-image: url(./resources/images/5_dr.png); width: 1000px; height: 600px; padding-top: 50px;">
 					<div class="container h-full">
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
-							<div class="layer-slick1 animated visible-false"
-								data-appear="rollIn" data-delay="0">
-								<span class="cl2 respon2" style="color: lightgrey">
-									먹방의 시대 </span>
+							<div class="layer-slick1 animated visible-false">
+<!-- 								data-appear="rollIn" data-delay="0"> -->
+<!-- 								<span class="cl2 respon2" style="color: lightgrey"> -->
+<!-- 									먹방의 시대 </span> -->
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="lightSpeedIn" data-delay="800">
-								<h2 class="cl2 p-t-19 p-b-43 respon1"
-									style="color: white">즐거운 먹부림</h2>
+<!-- 								<h2 class="cl2 p-t-19 p-b-43 respon1" -->
+<!-- 									style="color: white">즐거운 먹부림</h2> -->
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="slideInUp" data-delay="1600" style="padding-top: 50px; padding-left: 20px;">
-								<a href="product.html" style="color: black;"
-									class="flex-c-m bg0 cl0 size-101 bor1 hov-btn1 p-lr-15 trans-04">
-									전통시장 속으로 </a>
+<!-- 								<a href="product.html" style="color: black;" -->
+<!-- 									class="flex-c-m bg0 cl0 size-101 bor1 hov-btn1 p-lr-15 trans-04"> -->
+<!-- 									전통시장 속으로 </a> -->
 							</div>
 						</div>
 					</div>
@@ -128,21 +128,21 @@
 						<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
 							<div class="layer-slick1 animated visible-false"
 								data-appear="rotateInDownLeft" data-delay="0">
-								<span class="ltext-101 cl2 respon2" style="color: red">
-									전국 전통시장 다 모였다! </span>
+<!-- 								<span class="ltext-101 cl2 respon2" style="color: red"> -->
+<!-- 									전국 전통시장 다 모였다! </span> -->
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="rotateInUpRight" data-delay="800">
-								<h2 class="cl2 p-t-19 p-b-43 respon1"
-									style="color: maroon;">야! 너두 올수있어</h2>
+<!-- 								<h2 class="cl2 p-t-19 p-b-43 respon1" -->
+<!-- 									style="color: maroon;">야! 너두 올수있어</h2> -->
 							</div>
 
 							<div class="layer-slick1 animated visible-false"
 								data-appear="rotateIn" data-delay="1600">
-								<a href="product.html" style="color: black;"
-									class="flex-c-m cl0 bg0 size-101 bor1 hov-btn1 p-lr-15 trans-04">
-									마켓싹쓰리 </a>
+<!-- 								<a href="product.html" style="color: black;" -->
+<!-- 									class="flex-c-m cl0 bg0 size-101 bor1 hov-btn1 p-lr-15 trans-04"> -->
+<!-- 									마켓싹쓰리 </a> -->
 							</div>
 						</div>
 					</div>

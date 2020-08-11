@@ -3,6 +3,7 @@ package com.controller;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.daoImpl.mypageDaoImpl;
 import com.service.mypageService;
+import com.vo.MarketVO;
 import com.vo.MypageVO;
 import com.vo.PayVO;
 import com.vo.ReviewVO;
@@ -54,7 +56,10 @@ public class MyPageController {
 
    // 마켓 관리자 마이페이지
    @RequestMapping("/Mmypage.market")
-   public String Mmypage() {
+   public String Mmypage(Model model,HttpServletRequest request,HttpSession session) {
+	   //로그인한 시장 id의 시장 정보 가져오기
+	   String mkName=service.getMarketById(String.valueOf(request.getRemoteUser())).getMkName();
+	   model.addAttribute("mkName", mkName);
       return "mypage/Mmypage";
    }
 
@@ -62,7 +67,6 @@ public class MyPageController {
    @RequestMapping("/Smypage.seller")
    public String Smypage(HttpServletRequest request,Model model) {
       model.addAttribute("store", service.getStoreById(request.getRemoteUser()));
-      System.out.println(service.getStoreById(request.getRemoteUser()).getsId()+"1차 확인");
       return "mypage/Smypage";
    }
 
@@ -88,8 +92,6 @@ public class MyPageController {
    @ResponseBody
    @RequestMapping("/payListInfinity.user")
    public JSONObject PayListInfinity(MypageVO vo,HttpServletRequest request) {
-	   System.out.println(vo.getStart()+ ": 시작");
-	   System.out.println(vo.getEnd()+": 종료");
 	   // 현재 로그인 된 아이디
 	  String id = request.getRemoteUser();
       return service.payList(id,vo);
@@ -211,7 +213,6 @@ public class MyPageController {
    @ResponseBody
    @RequestMapping("/saleListJson.seller")
    public JSONObject getSaleListTypeJson(String no,HttpServletRequest request) throws Exception {
-      System.out.println("아아 여기는 콘트롤러 콘트롤러");
 	   StoreVO imsivo= service.getStoreById(request.getRemoteUser());//sId 구하기
 	   return service.getSaleListTypeJson(String.valueOf(imsivo.getsId()),no);
    }
@@ -223,7 +224,22 @@ public class MyPageController {
 	   return "주문 준비가 완료되었습니다";
    }
    
+   //Move marketList
+   @RequestMapping("/moveStoreList.market")
+   public String moveStoreList(Model model, HttpServletRequest request) {
+	   //username이  담당하는 시장 id 구하기
+	   String mkName=service.getMarketById(String.valueOf(request.getRemoteUser())).getMkName();
+	   
+	   model.addAttribute("mkName", mkName);
+	   return "mypage/StoreList";
+   }
    
-   
+   //StoreList 출력
+   @ResponseBody
+   @RequestMapping("/storeListJson.market")
+   public JSONObject getStoreListJson(String no,HttpServletRequest request) throws Exception {
+	   MarketVO imsivo= service.getMarketById(String.valueOf(request.getRemoteUser()));//mkId 구하기
+	   return service.getStoreListJson(String.valueOf(imsivo.getMkId()),no);
+   }
    
 }

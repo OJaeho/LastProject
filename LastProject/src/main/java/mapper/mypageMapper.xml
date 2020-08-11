@@ -11,7 +11,7 @@
 ]]></if>
 <if test='vo.payState.equals("배송") || vo.payState.equals("픽업")'> and pay.paystate = #{vo.payState}</if>
 order by pay.paydate desc) a ) pay
-where pay.no > ${vo.no}
+<![CDATA[where pay.no > ${vo.no}]]>
 </select>
 
 <!-- 리뷰리스트 -->
@@ -102,4 +102,14 @@ select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,
 <update id="readyOrder" parameterType="com.vo.PayVO">
 update pay set paytype='준비완료' where payid=${payId} 
 </update>
+
+<!-- username으로 마켓정보 가져오기 -->
+<select id="getMarketById" parameterType="string" resultType="market">
+select * from market where username = #{username}
+</select>
+
+<!-- storeList 가져오기 -->
+<select id="StoreList" parameterType="hashmap" resultType="hashmap">
+ <![CDATA[select * from (select rownum no,s.* from store s where s.mkid = #{mkId}) hello where hello.no > #{no} ]]>
+</select>
 </mapper>

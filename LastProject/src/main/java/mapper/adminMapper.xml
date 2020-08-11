@@ -31,9 +31,9 @@
 		mTel,nvl(u.maddr,'입력정보없음') as addr,
 		nvl(TO_CHAR(u.mbirth,'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth ,
 		nvl(u.memail,'입력정보없음') as mEmail
-		from users u , authorities a
+		from users u , (select username,count(authority) cnt from authorities group by username) a
 		where
-		u.username = a.username and a.authority='ROLE_MARKET' and u.delyn='N'
+		u.username = a.username and a.cnt=3 and u.delyn='N'
 	</select>
 
 	<select id="sellersearch" resultType="users">
@@ -44,9 +44,9 @@
 		mTel,nvl(u.maddr,'입력정보없음') as addr,
 		nvl(TO_CHAR(u.mbirth,'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth ,
 		nvl(u.memail,'입력정보없음') as mEmail
-		from users u , authorities a
+		from users u , (select username,count(authority) cnt from authorities group by username) a
 		where
-		u.username = a.username and a.authority='ROLE_SELLER' and u.delyn='N'
+		u.username = a.username and a.cnt=2 and u.delyn='N'
 	</select>
 
 	<select id="usersearch" resultType="users">
@@ -57,9 +57,9 @@
 		mTel,nvl(u.maddr,'입력정보없음') as addr,
 		nvl(TO_CHAR(u.mbirth,'YYYY"년"MM"월"DD"일"'),'입력정보없음') as mBirth ,
 		nvl(u.memail,'입력정보없음') as mEmail
-		from users u , authorities a
+		from users u , (select username,count(authority) cnt from authorities group by username) a
 		where
-		u.username = a.username and a.authority='ROLE_USER' and u.delyn='N'
+		u.username = a.username and a.cnt=1 and u.delyn='N'
 	</select>
 
 

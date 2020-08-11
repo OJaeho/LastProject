@@ -154,43 +154,42 @@
 										<!-- 수령방법 끝 -->
 
 
-										<form name="subcart">
-											<table style="border-top: 1px solid #eee" >
-												<thead>
-													<tr>
-														<th>옵션</th>
-														<th>수량</th>
-														<th>가격</th>
-														<th>수령</th>
-													</tr>
-												</thead>
+									<form name="subcart">
+										<div class="" id="list_top">
+											<table>
 												<tbody id="dynamicTbody" style="width: auto;">
 												</tbody>
-												<tfoot>
-													<tr>
-														<td>총액 :</td>
-														<td>
-														<input type="text" id="paytotal">
-														</td>
-													</tr>
+												<tfoot id="dynamicTfoot">
+												<tr>
+												<td colspan="3" style="padding: 10px 10px 0 10px;">
+													<strong>TOTAL : </strong>
+													<span class="total">
+													<strong>
+													<input type="text" name="paytotal" id="paytotal1" disabled
+													style="background: #fff;">
+													</strong> 
+													</span>
+												</td>
+												</tr>
 												</tfoot>
 											</table>
+										</div>
+										
 											<hr />
-											<table style="width: 482px; margin: auto;">
+											<table>
 												<tr style="text-align: left;">
-													<td style="">
+													<td style="padding: 5px;">
 														<input type="button" name="addsubcart" id="addProduct" class="btn btn-success" 
-														value="장바구니 담기" style=""  />
+														value="담기" style=""  />
 													</td>
 													<td>
 														<a href="shopping.checking">
 														<input id="cartBtn" class="btn btn-success" 
-														type="button" value="장바구니 가기" />
+														type="button" value="장바구니" />
 														</a>
 													</td>
 												</tr>
 											</table>
-
 										</form>
 									</div>
 								</div>
@@ -217,7 +216,7 @@
 
 								<!-- 구매전 주의사항탭 -->
 								<div class="tab-pane fade" id="information" role="tabpanel">
-									<div class="row" style="width: 1087px; margin: auto;">
+									<div class="row" style="margin: 0 auto; justify-content: center; padding: 10px 10px 10px 10px;">
 										<b>시장 장보기의 특성상 배송이 불가능한 지역의 배달은 불가하며, 상점의 상황에따라 주문취소가 발생할
 											수 있습니다.</b>
 									</div>
@@ -367,7 +366,8 @@
 			</c:forEach>
 			<div style="text-align: center;">
 				<img align="middle"
-					src="https://shop-phinf.pstatic.net/20200211_72/1581380892722e31C6_JPEG/FOOD_%C0%E5%BA%B8%B1%E2_INFO_%B8%C1%BF%F8%BD%C3%C0%E5_%C5%E4%BF%E4%C0%CF%BC%F6%C1%A4.jpg?type=w860">
+					src="https://shop-phinf.pstatic.net/20200211_72/1581380892722e31C6_JPEG/FOOD_%C0%E5%BA%B8%B1%E2_INFO_%B8%C1%BF%F8%BD%C3%C0%E5_%C5%E4%BF%E4%C0%CF%BC%F6%C1%A4.jpg?type=w860"
+					style="max-width: 100%; height: auto;">
 			</div>
 		</div>
 	</section>

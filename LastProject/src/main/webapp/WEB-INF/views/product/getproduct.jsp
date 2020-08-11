@@ -177,7 +177,9 @@
 							<div class="block2">
 								<div class="block2-pic hov-img0">
 								
-									 <a href="product-detail.user?pName=${list.pName}&pPrice=${list.pPrice}&pId=${list.pId}"><img src="${list.pImg1}" alt="IMG-PRODUCT" ></a> 
+									 <a href="product-detail.user?pName=${list.pName}&pPrice=${list.pPrice}&pId=${list.pId}">
+									 <img src="${list.pImg1}" alt="IMG-PRODUCT"
+									 style="width: 100%; max-width: 300px; height: auto;"></a> 
 								</div>
 
 								<div class="block2-txt flex-w flex-t p-t-14">

@@ -23,9 +23,9 @@ $(function() {
       event.preventDefault();
       var bId = $(this).parent().next().children().val();
       var dkanrjsk =  $(this).parent().parent();
-      var bro = parseInt($(this).parent().prev().prev().children().val());
-      var total = parseInt($('#paytotal').val());
-      var check1 = confirm("취소하시겠습니까??");
+      var bro = parseInt($("#bro").text());
+      var total = parseInt($('#paytotal1').val());
+      var check1 = confirm("취소하시겠습니까?");
       if(check1){
          $.ajax({
             async : true,
@@ -37,13 +37,14 @@ $(function() {
                contentType : 'application/json;charset=UTF-8',
                dataType : "text",
                success : function(result){
-                  $('#paytotal').val(total-bro);
+                  $('#paytotal1').val(total-bro);
                   dkanrjsk.remove();
                },
                error : function(error){
                   alert("왜실패?");
                   
                }
+               
          })
       }else{
          event.preventDefault();
@@ -54,7 +55,7 @@ $(function() {
 	$('#addProduct').click(function() {
 		   if($('input[name="chk_info"]:checked').val() == null){
 		         event.preventDefault();
-		         alert("주문방식을 선택해 주세요");
+		         alert("주문 방식을 선택해 주세요");
 		         return false;
 		      }else if($('#ok_login').length == 0){
 		         event.preventDefault();
@@ -86,24 +87,73 @@ $(function() {
 	         success : function(result){
 	            alert("상품이 장바구니에 추가되었습니다");
 	            var html = '';
+	            var tfoot = '';
 	            for (key in result) {
-	               html += '<tr>';
-	               html += '<td class="listedName"><input type="text" value="'+result[key].bOption+'"+/></td>';
-	               html += '<td><input type="text" id="bQuantity" value="'+result[key].bQuantity+'"+/></td>';
-	               html += '<td><input type="text" value="'+result[key].bQuantity*pPrice+'"/></td>';
-	               paytotal += result[key].bQuantity*pPrice;
-	               html += '<td><input type="text" value="'+result[key].bState+'"/></td>';
-	               html +='<td><button class="btn_delete" id="deleteBtn">[x]</button></td>';
-	               html += '<td class="listedName"><input type="hidden" id="bId" value="'+result[key].bId+'"+/></td>';
-	               html += '</tr>';
-	               $("#dynamicTbody").empty();
-	               $("#dynamicTbody").append(html);
-	         }$("#paytotal").val(paytotal+"원");
+	                  html += '<tr class="topList">';
+	                  html += '<td>';
+	                  html += '<p>'+'옵션 : '+result[key].bOption+'</p>';
+	                  html += " - "
+	                  html += '<span>'+result[key].bQuantity+'set / '+result[key].bState+'</span>';
+	                  html += '</td>';
+	                  html += '<td class="totalPay">';
+	                  html += '<span>';
+	                  html += '<strong id="bro">' + result[key].bQuantity*pPrice + '</strong>' + '원';
+	                  paytotal += result[key].bQuantity*pPrice;
+	                  html += '</span>';
+	                  html += '</td>';
+	                  html += '<td id="btnX">';
+	                  html += '<input type="image" src="./resources/images/delete_product.png" class="btn_delete" id="deleteBtn">';
+	                  html += '</td>';
+	                  html += '<td>'+'<input type="hidden" id="bId" value="'+result[key].bId+'"+/>'+'</td>';
+	                  html += '</tr>';
+//	                  tfoot += '<tr>';
+//	                  tfoot += '<td colspan="3">'
+//	                     tfoot += '<strong>'+"TOTAL "+'</strong>'
+//	                     +"(QUANTITY) : ";
+//	                  tfoot += '<span>';
+//	                  tfoot += '<strong>';
+//	                  tfoot += result[key].bQuantity*pPrice;
+//	                  tfoot += '</strong>';
+//	                  tfoot += '('+result[key].bQuantity+'set)';
+//	                  tfoot += '</span>';
+//	                  tfoot += '</td>';
+//	                  paytotal += result[key].bQuantity*pPrice;
+//	                  tfoot += "</tr>";
+//	               html += '<span>'+"옵션"+'</span>';
+//	               html += '</th>';
+//	               html += '<th>';
+//	               html += '<span>'+"수량"+'</span>';
+//	               html += '</th>';
+//	               html += '<th>';
+//	               html += '<span>'+"가격"+'</span>';
+//	               html += '</th>';
+//	               html += '<th>';
+//	               html += '<span>'+"수령"+'</span>';
+//	               html += '</th>';
+//	               html += '</tr>'
+//	               html += '<tr>';
+//	               html += '<td><input type="text" value="'+result[key].bOption+'"+/></td>'; // 옵션
+//	               html += '<td><input type="text" id="bQuantity" value="'+result[key].bQuantity+'"+/></td>'; // 수량
+//	               html += '<td><input type="text" value="'+result[key].bQuantity*pPrice+'"/></td>'; // 가격
+//	               paytotal += result[key].bQuantity*pPrice;
+//	               html += '<td><input type="text" value="'+result[key].bState+'"/></td>'; // type
+//	               html +='<td><button class="btn_delete" id="deleteBtn">[x]</button></td>'; // x 버튼
+//	               html += '<td><input type="hidden" id="bId" value="'+result[key].bId+'"+/></td>'; // x를 위한 것
+//	               html += '</tr>';
+	            	$("#dynamicTbody").empty();
+	            	$("#dynamicTbody").append(html);
+//	            	$("#dynamicTfoot").empty();
+//	            	$("#dynamicTfoot").append(tfoot);
+	            	$(".totalPay").css("padding", "20px 20px 20px 20px");
+	            	$(".topList").css("border-top", "1px solid #eee");
+	            	$(".topList").css("border-bottom", "1px solid #eee");
+	         }$("#paytotal1").val(paytotal+"원");
 	         },error : function(request,status,error){
 	            alert(" error = " + error); // 실패 시 처리
 	            console.log(error.responseText);
 	             }
 	      })
+	      
 	})
 	$("#findpostcode").click(
 			function execDaumPostcode() {

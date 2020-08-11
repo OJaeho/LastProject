@@ -56,7 +56,7 @@ let isEnd = false;
             "<td>"+vo.PAYDATE+"</td>" +
             "<td>"+vo.PAYSTATE+"</td>" +
             "<td>"+vo.PAYTYPE+"</td>" +
-            "<td><input type='button' value='상세 보기' onClick=location.href='getpayview.user?groupId="+vo.GROUPID+"'>"+
+            "<td><input type='button' value='상세 보기' onClick=location.href='getpayview.user?GroupId="+vo.GROUPID+"'>"+
             "</td>"+
             "</tr>"
         
