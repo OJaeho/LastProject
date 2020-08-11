@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -80,31 +84,31 @@
 			<div class="row">		
 				<div class="col-sm-6 col-lg-2 p-b-50">
 					<h3 class="stext-301 cl0 p-b-30">
-						우리시장엔
+						<spring:message code="header.our" arguments="${header}" text="default text" />
 					</h3>
 
 					<ul>
 						<li class="p-b-10">
 							<a href="introMarket.user" class="stext-107 cl7 hov-cl1 trans-04">
-								시장소개
+								<spring:message code="header.intromarket" arguments="${header}" text="default text" />
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="waytoMarket.user" class="stext-107 cl7 hov-cl1 trans-04">
-								오시는길
+								<spring:message code="header.way" arguments="${header}" text="default text" />
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="storelist.user" class="stext-107 cl7 hov-cl1 trans-04">
-								업종별상점
+								<spring:message code="header.storecategory" arguments="${header}" text="default text" />
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="marketIssue.user" class="stext-107 cl7 hov-cl1 trans-04">
-								시장이슈
+								<spring:message code="header.issue" arguments="${header}" text="default text" />
 							</a>
 						</li>
 					</ul>
@@ -112,19 +116,13 @@
 
 				<div class="col-sm-6 col-lg-2 p-b-50">
 					<h3 class="stext-301 cl0 p-b-30">
-						거리마다
+						<spring:message code="header.street" arguments="${header}" text="default text" />
 					</h3>
 
 					<ul>
 						<li class="p-b-10">
 							<a href="tourHome.user" class="stext-107 cl7 hov-cl1 trans-04">
-								놀거리(주변관광지)
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="insertTour.do" class="stext-107 cl7 hov-cl1 trans-04">
-								먹을거리(시장맛집) 
+								<spring:message code="header.tour" arguments="${header}" text="default text" />
 							</a>
 						</li>
 					</ul>
@@ -132,32 +130,32 @@
 				
 				<div class="col-sm-6 col-lg-2 p-b-50">
 					<h3 class="stext-301 cl0 p-b-30">
-						우리것이 있어요
+						<spring:message code="header.haveour" arguments="${header}" text="default text" />
 					</h3>
 
 					<ul>
 						<li class="p-b-10">
 							<a href="getproduct.user" class="stext-107 cl7 hov-cl1 trans-04">
-								우리 것(상품)
+								<spring:message code="header.product" arguments="${header}" text="default text" />
 							</a>
 						</li>
 
 						<li class="p-b-10">
 							<a href="getNoticeList.user" class="stext-107 cl7 hov-cl1 trans-04">
-								공지사항
+								<spring:message code="header.notice" arguments="${header}" text="default text" />
 							</a>
 						</li>
 						<li class="p-b-10">
 							<a href="getQnAList.user" class="stext-107 cl7 hov-cl1 trans-04">
-								Q&A
+								<spring:message code="header.qna" arguments="${header}" text="default text" />
 							</a>
 						</li>
 					</ul>
 				</div>
-
+ 
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h3 class="stext-301 cl0 p-b-30">
-						어느 시장으로 가볼까요?
+						<spring:message code="header.whatmarket" arguments="${header}" text="default text" />
 					</h3>
 
 					<form action='index2.user' method="get">

@@ -3,6 +3,8 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="UTF-8">
 
@@ -25,8 +27,6 @@
 	transition: all 0.1s;
 	text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
 	font-family: 'Lobster', cursive;
-	
-	
 }
 
 .btnn:active {
@@ -149,43 +149,64 @@
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">전통시장의 정을 온라인으로 느껴보세요!</div>
+					<p>
+						<a href="<c:url value="/i18n.do?lang=ko" />" style="color: white;">한국어</a>
+						<a href="<c:url value="/i18n.do?lang=en" />" style="color: white;">/
+							English</a>
+					</p>
+
+					<div class="left-top-bar">
+						<spring:message code="header.ment" arguments="${header}"
+							text="default text" />
+
+					</div>
 
 					<div class="right-top-bar flex-w h-full">
 
 						<sec:authorize access="isAuthenticated()">
 							<form:form action="${pageContext.request.contextPath}/logout"
-								method="POST" class="flex-c-m trans-04 p-lr-25" >
-								<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search" style="">
+								method="POST" class="flex-c-m trans-04 p-lr-25">
+								<div
+									class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search"
+									style="">
 									<img
 										style="width: 40px; border-radius: 30px; -moz-border-radius: 30px; -khtml-border-radius: 30px; -webkit-border-radius: 30px;"
 										src="./resources/images/profile.jpg">
 								</div>
 								<a style="color: white;" class="flex-c-m trans-04 p-lr-25">
-								<%=request.getRemoteUser() %>님 환영합니다.</a>
-								<input type="submit" value="로그아웃" class="flex-c-m trans-04 p-lr-25"
+									<%=request.getRemoteUser()%> <spring:message
+										code="header.welcome" arguments="${header}"
+										text="default text" />
+								</a>
+								<input type="submit"
+									value="<spring:message code="header.logout" arguments="${header}" text="default text" />"
+									class="flex-c-m trans-04 p-lr-25"
 									style="background-color: transparent; color: white;" />
 							</form:form>
 						</sec:authorize>
-						
+
 						<sec:authorize access="isAnonymous()">
 							<a href="memberRegist.user" class="flex-c-m trans-04 p-lr-25">
-								회원가입 </a>
-							<a href="logincheck.checking" class="flex-c-m trans-04 p-lr-25">로그인
+								<spring:message code="header.join" arguments="${header}"
+									text="default text" />
+							</a>
+							<a href="logincheck.checking" class="flex-c-m trans-04 p-lr-25"><spring:message
+									code="header.login" arguments="${header}" text="default text" />
 							</a>
 						</sec:authorize>
 
-						<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25">
-							마이페이지 </a>
-						
-					<a href="shopping.checking" class="flex-c-m trans-04 p-lr-25">
-							장바구니 </a>
+						<a href="mypage.checking" class="flex-c-m trans-04 p-lr-25"> <spring:message
+								code="header.mypage" arguments="${header}" text="default text" />
+						</a> <a href="shopping.checking" class="flex-c-m trans-04 p-lr-25">
+							<spring:message code="header.cart" arguments="${header}"
+								text="default text" />
+						</a>
 					</div>
 				</div>
 			</div>
-			
-			
-			
+
+
+
 			<!-- Topbar end -->
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop container">
@@ -199,21 +220,35 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li><a href="#">우리 시장엔</a>
+							<li><a href="#"><spring:message code="header.market"
+										arguments="${header}" text="default text" /></a>
 								<ul class="sub-menu">
-									<li><a href="introMarket.user">시장소개</a></li>
-									<li><a href="waytoMarket.user">오시는길</a></li>
-									<li><a href="storelist.user">업종별상점</a></li>
-									<li><a href="marketIssue.user">시장이슈</a></li>
+									<li><a href="introMarket.user"><spring:message
+												code="header.intromarket" arguments="${header}"
+												text="default text" /></a></li>
+									<li><a href="waytoMarket.user"><spring:message
+												code="header.way" arguments="${header}" text="default text" /></a></li>
+									<li><a href="storelist.user"><spring:message
+												code="header.storecategory" arguments="${header}"
+												text="default text" /></a></li>
+									<li><a href="marketIssue.user"><spring:message
+												code="header.issue" arguments="${header}"
+												text="default text" /></a></li>
 								</ul></li>
 
-							<li><a href="tourHome.user">거리마다</a>
+							<li><a href="tourHome.user"><spring:message
+										code="header.street" arguments="${header}" text="default text" /></a>
 							<li class="label1" data-label1="hot"><a
-								href="getproduct.user">우리 것이</a></li>
-							<li><a href="#">있어요</a>
+								href="getproduct.user"><spring:message code="header.our"
+										arguments="${header}" text="default text" /></a></li>
+							<li><a href="#"><spring:message code="header.have"
+										arguments="${header}" text="default text" /></a>
 								<ul class="sub-menu">
-									<li><a href="getNoticeList.user">공지사항</a></li>
-									<li><a href="getQnAList.user">Q&A</a></li>
+									<li><a href="getNoticeList.user"><spring:message
+												code="header.notice" arguments="${header}"
+												text="default text" /></a></li>
+									<li><a href="getQnAList.user"><spring:message
+												code="header.qna" arguments="${header}" text="default text" /></a></li>
 								</ul></li>
 						</ul>
 					</div>
@@ -223,130 +258,151 @@
 			</div>
 		</div>
 	</header>
-		<!-- Header END -->
+	<!-- Header END -->
 
-		<!-- Modal Search -->
-		<div
-			class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button
-					class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="./resources/images/icons/icon-close2.png" alt="CLOSE">
-				</button>
-				
-				<sec:authorize access="hasRole('ROLE_ADMIN')">
-				<a class="btnn red"	href="insertMarket.master">시장등록</a>
-				</sec:authorize>
-				<sec:authorize access="hasRole('ROLE_MARKET')">
-				<a class="btnn red"	href="insertstore.market">상점등록</a>
-				<a class="btnn red"	href="insertTour.user">관광지등록</a>
-				<a class="btnn red"	href="insertNotice.market">공지등록</a>
-				<a class="btnn red"	href="insertIssue.market">이슈등록</a>
-				</sec:authorize>
-				<sec:authorize access="hasRole('ROLE_SELLER')">
-				<a class="btnn red" href="insertproduct.seller" >상품등록</a> 
-				
-				</sec:authorize>
-			</div>
+	<!-- Modal Search -->
+	<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+		<div class="container-search-header">
+			<button
+				class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+				<img src="./resources/images/icons/icon-close2.png" alt="CLOSE">
+			</button>
+
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<a class="btnn red" href="insertMarket.master"><spring:message
+						code="header.insertmarket" arguments="${header}"
+						text="default text" /></a>
+			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_MARKET')">
+				<a class="btnn red" href="insertstore.market"><spring:message
+						code="header.insertstore" arguments="${header}"
+						text="default text" /></a>
+				<a class="btnn red" href="insertTour.user"><spring:message
+						code="header.inserttour" arguments="${header}" text="default text" /></a>
+				<a class="btnn red" href="insertNotice.market"><spring:message
+						code="header.insertnotice" arguments="${header}"
+						text="default text" /></a>
+				<a class="btnn red" href="insertIssue.market"><spring:message
+						code="header.insertissue" arguments="${header}"
+						text="default text" /></a>
+			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_SELLER')">
+				<a class="btnn red" href="insertproduct.seller"><spring:message
+						code="header.insertproduct" arguments="${header}"
+						text="default text" /></a>
+
+			</sec:authorize>
+		</div>
+	</div>
+
+	<!-- Header Mobile -->
+	<div class="wrap-header-mobile">
+	
+		<!-- Logo moblie -->
+		<div class="logo-mobile">
+			<a href="folliumtest.user"><img src="./resources/images/logo.png"
+				alt="IMG-LOGO"></a>
 		</div>
 		
-		<!-- Header Mobile -->
-		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
-			<div class="logo-mobile">
-				<a href="folliumtest.user"><img src="./resources/images/logo.png" alt="IMG-LOGO"></a>
+		<!-- Icon header -->
+		<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			<div
+				class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+				data-notify="0">
+				<p>
+			<a href="<c:url value="/i18n.do?lang=ko" />" style="color: green;font-size: 13px;">한국어</a>
+			<a href="<c:url value="/i18n.do?lang=en" />" style="color: green;font-size: 13px;">/
+				English</a>
+		</p>
 			</div>
-
-			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<sec:authorize access="isAuthenticated()">
-					<form:form action="${pageContext.request.contextPath}/logout"
+		
+			<sec:authorize access="isAuthenticated()">
+				<form:form action="${pageContext.request.contextPath}/logout"
 					method="POST">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart">
-							<input type="submit" value="Logout" class="cl2 theme_color cart-main-font cart-title-border"
-							style="font-size: 13px; font-weight: 800; letter-spacing: 7px; color: #009a45 !important; 
-							font-family: 'Nanum Gothic'; background: #fff0; padding: 10px 0 10px 0;">
-						</div>
-					</form:form>
-				</sec:authorize>
+					<div
+						class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart">
+						<input type="submit" value="Logout"
+							class="cl2 theme_color cart-main-font cart-title-border"
+							style="font-size: 13px; font-weight: 800; letter-spacing: 7px; color: #009a45 !important; font-family: 'Nanum Gothic'; background: #fff0; padding: 10px 0 10px 0;">
+					</div>
+				</form:form>
+			</sec:authorize>
+
 			
-			
-				<sec:authorize access="isAnonymous()">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="2">
-					<a href="logincheck.checking" style="color: black;"><i class="zmdi zmdi-face"></i></a>
+			<sec:authorize access="isAnonymous()">
+				<div
+					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
+					data-notify="2">
+					<a href="logincheck.checking" style="color: black;"><i
+						class="zmdi zmdi-face"></i></a>
 				</div>
-				</sec:authorize>
-				
-				<div class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-				<a href="mypage.checking" style="color: black;"><i class="zmdi zmdi-library"></i></a>
-				</div>
-				
-				<div class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti" data-notify="0">
-				<a href="shopping.checking" style="color: black;"><i class="zmdi zmdi-shopping-cart"></i></a>
-				</div>
-				
+			</sec:authorize>
+
+			<div
+				class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+				data-notify="0">
+				<a href="mypage.checking" style="color: black;"><i
+					class="zmdi zmdi-library"></i></a>
 			</div>
-			<!-- Button show menu -->
-			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
+
+			<div
+				class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
+				data-notify="0">
+				<a href="shopping.checking" style="color: black;"><i
+					class="zmdi zmdi-shopping-cart"></i></a>
 			</div>
+
 		</div>
-
-
-		<!-- Menu Mobile -->
-		<div class="menu-mobile">
-			<ul class="main-menu-m">
-				<li>
-					<a href="#">우리 시장에는</a>
-					<ul class="sub-menu-m">
-						<li><a href="introMarket.user">시장 소개</a></li>
-						<li><a href="waytoMarket.user">오시는 길</a></li>
-						<li><a href="storelist.user">업종별 상점</a></li>
-						<li><a href="marketIssue.user">시장 이슈</a></li>
-					</ul>
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
-				</li>
-
-				<li>
-					<a href="tourHome.user">거리마다</a>
-				</li>
-
-				<li>
-					<a href="getproduct.user" class="label1 rs1" data-label1="hot">우리 것이</a>
-				</li>
-
-				<li>
-					<a href="#">있어요</a>
-					<ul class="sub-menu-m">
-						<li><a href="getNoticeList.user">공지사항</a></li>
-						<li><a href="getQnAList.user">Q & A</a></li>
-					</ul>
-					<span class="arrow-main-menu-m">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</span>
-				</li>
-			</ul>
+		<!-- Button show menu -->
+		<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+			<span class="hamburger-box"> <span class="hamburger-inner"></span>
+			</span>
 		</div>
+	</div>
 
-		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="images/icons/icon-close2.png" alt="CLOSE">
-				</button>
 
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
-			</div>
-		</div>
+	<!-- Menu Mobile -->
+	<div class="menu-mobile">
+		
+		<ul class="main-menu-m">
+			<li><a href="#"><spring:message code="header.market"
+						arguments="${header}" text="default text" /></a>
+				<ul class="sub-menu-m">
+					<li><a href="introMarket.user"><spring:message
+								code="header.intromarket" arguments="${header}"
+								text="default text" /></a></li>
+					<li><a href="waytoMarket.user"><spring:message
+								code="header.way" arguments="${header}" text="default text" /></a></li>
+					<li><a href="storelist.user"><spring:message
+								code="header.storecategory" arguments="${header}"
+								text="default text" /></a></li>
+					<li><a href="marketIssue.user"><spring:message
+								code="header.issue" arguments="${header}" text="default text" /></a></li>
+				</ul> <span class="arrow-main-menu-m"> <i
+					class="fa fa-angle-right" aria-hidden="true"></i>
+			</span></li>
+
+			<li><a href="tourHome.user"><spring:message
+						code="header.street" arguments="${header}" text="default text" /></a></li>
+
+			<li><a href="getproduct.user" class="label1 rs1"
+				data-label1="hot"><spring:message code="header.our"
+						arguments="${header}" text="default text" /></a></li>
+
+			<li><a href="#"><spring:message code="header.have"
+						arguments="${header}" text="default text" /></a>
+				<ul class="sub-menu-m">
+					<li><a href="getNoticeList.user"><spring:message
+								code="header.notice" arguments="${header}" text="default text" /></a></li>
+					<li><a href="getQnAList.user"><spring:message
+								code="header.qna" arguments="${header}" text="default text" /></a></li>
+				</ul> <span class="arrow-main-menu-m"> <i
+					class="fa fa-angle-right" aria-hidden="true"></i>
+			</span></li>
+
+		</ul>
+	</div>
+
 	</header>
 
 </body>
