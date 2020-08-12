@@ -262,14 +262,16 @@
 													style="text-align: center;
 															padding: 30px;
 															border-bottom: 1px solid #eee">
-												<fmt:formatNumber value="${userPoint}" type="number" var="Pointuser"/>
+															<input type="hidden" id="userPoint" value="${userPoint}">
+															<input type="hidden" id="pTotal" value="${pTotal}">
+												<fmt:formatNumber value="${userPoint}" type="number"  var="Pointuser"/>
 												${Pointuser}
 												</td>
 												<td class=""
 													style="text-align: center;
 															padding: 30px;
 															border-bottom: 1px solid #eee">
-												<fmt:formatNumber value="${pTotal}" type="number" var="Totalpay"/>
+												<fmt:formatNumber value="${pTotal}" type="number"  var="Totalpay"/>
 												${Totalpay}원
 												</td>
 											</tr>										
