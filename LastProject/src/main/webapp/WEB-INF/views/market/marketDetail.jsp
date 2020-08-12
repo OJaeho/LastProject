@@ -63,19 +63,6 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <!--===============================================================================================-->
 
-<!-- summernote -->
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#summernote').summernote({
-			height : 300, // 에디터 높이
-			minHeight : null, // 최소 높이
-			maxHeight : null, // 최대 높이
-			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
-			lang : "ko-KR", // 한글 설정
-			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder
-		});
-	});
-</script>
 <script type="text/javascript">
 	$(function() {
 		alert("듣고있 나여?");
@@ -275,6 +262,8 @@
 				<div>
 					<strong class="tf_required">시장소개</strong>
 						<textarea id="mkIntro" name="mkIntro" id="mkIntro"
+						class="textarea_tour"
+						cols="40" rows="5" style="width:300px; height:250px; resize: vertical;"
 							> ${market.mkIntro}</textarea>
 					</div>
 				</div>

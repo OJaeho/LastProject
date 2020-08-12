@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>${maketName }의 상점  리스트</title>
+   <title>상점  리스트</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->   
@@ -56,7 +56,7 @@
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
       <h2>
-          <img src="./resources/images/logo.png" style="width: 40rem;">
+          <img src="./resources/images/logo.png" style="width: 100%; max-width: 300px; height: auto;">
       </h2>
    </section>   
 <!-- header끝 -->

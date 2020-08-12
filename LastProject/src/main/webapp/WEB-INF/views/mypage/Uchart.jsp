@@ -114,8 +114,8 @@ google.load('visualization','1',{
                 chart.draw(data, {
                     title : "많이 구매한 상품 순위",
                     curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
-                    width : 600,
-                    height : 400
+                    width : 1000,
+                    height : 800
                 });
 
     }
@@ -139,8 +139,8 @@ google.load('visualization','1',{
                 chart.draw(data, {
                     title : "월별 지출액 비교",
                     curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
-                    width : 600,
-                    height : 400
+                    width : 1000,
+                    height : 800
                 });
     }
 // 차트2 끝

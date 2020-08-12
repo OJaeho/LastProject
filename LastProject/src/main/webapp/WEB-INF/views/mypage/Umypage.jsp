@@ -48,7 +48,7 @@
 </head>
 <body class="animsition">
    
-   <!-- Header -->
+ <!-- Header -->
      <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
@@ -104,12 +104,11 @@
     </div>
 
    </div>
+   </div>
   </section>
  <jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 <!-- script    -->
-
-
 <!-- 유효성 체크  -->
 <!--===============================================================================================-->   
    <script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>

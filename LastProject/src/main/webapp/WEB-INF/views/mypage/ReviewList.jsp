@@ -52,6 +52,8 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
 
 
@@ -71,17 +73,18 @@
 	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">사용자 마이페이지</h2>
+	<section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
+	<h2 style="margin-top: 40px;"
+							class="cl2 theme_color cart-main-font">REVIEW</h2>
 	</section>
 	<!-- header끝 -->
 	<!-- Content page -->
-	<section class="bg0 p-t-75 p-b-120">
+	<section class="bg0 p-t-30 p-b-120">
 		<div class="container">
 			<div class="inner Content container">
 				<div class="title">
 					<h2 class="notice_title theme_color type_block">
-						<span class="notice_title_bullet them_background"></span> 리뷰관리
+						<span class="notice_title_bullet them_background"></span>
 					</h2>
 				</div>
 				<br>
@@ -92,7 +95,7 @@
 			<div class="Content ec-base-table container">
 				<div class="row">
 					<div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
-							<div class="p-b-30 m-lr-15-sm">
+							<div class="p-b-30 m-lr-15-sm p-t-30">
 									<div class="flex-w flex-t p-b-68">
 													<c:forEach items="${reviewget}" var="review">
 														<c:if test="${review.USERNAME ne null}">
@@ -112,8 +115,10 @@
 																	</span>
 																</div>
 																<p class="stext-102 cl6">${review.RCONTENT}</p>
-																<input type="button" value="삭제"  onClick="location.href='deleteReview.user?rId=${review.RID }'">
-																
+																<div style="padding-left: 90%;">
+																<input type="button" value="삭제"  onClick="location.href='deleteReview.user?rId=${review.RID }'"
+																class="join-btn">
+																</div>
 																<hr />
 															</div>
 														</c:if>
