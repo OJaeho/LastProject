@@ -56,6 +56,7 @@
             </style>
 </head>
 <body style="">    
+
 <!-- header 영역 -->
 <div class="header" style=" text-align: center;">
 	<img src="./resources/images/logocart.png" style="width: 20%;margin: auto;padding-right: 3%;">
