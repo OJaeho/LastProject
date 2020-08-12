@@ -252,7 +252,7 @@ public class productController {
 
 
 	// 상품등록 페이지 이동
-	@RequestMapping(value = "/insertproduct.market", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertproduct.seller", method = RequestMethod.GET)
 	public String InsertProductpage(ProductVO vo,StoreVO svo, Model model,HttpSession session) {
 		int mkId = (int) session.getAttribute("mkId");
 		svo.setMkId(mkId);

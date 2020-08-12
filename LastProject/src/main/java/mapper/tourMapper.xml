@@ -23,13 +23,13 @@
 	
 	<!-- 관광지 디테일 화면 -->
 	<select id="selectTourDetail" parameterType="tour" resultType="tour">
-		select * from tour where tid = #{tId} and delyn = 'N'
+		select * from tour where tid = #{tId} and delyn = 'N' order by tdate desc 
 	</select>
 	
 	
 	<!-- 신규 관광지 등록 -->
 	<insert id="insertTour" parameterType="tour">
-		insert into tour(tid, tname, timg1, taddr, tcontent, mkid, delyn) values(seq_tid.nextval, #{vo.tName}, #{vo.tImg1} ,#{vo.tAddr}, #{vo.tContent}, #{mkId}, 'N')
+		insert into tour(tid, tname, timg1, taddr, tcontent, mkid, delyn,tdate) values(seq_tid.nextval, #{vo.tName}, #{vo.tImg1} ,#{vo.tAddr}, #{vo.tContent}, #{mkId}, 'N', sysdate)
 	</insert>
 	
 	<!-- 관광지 삭제 -->

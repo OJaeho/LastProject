@@ -212,7 +212,7 @@
 				<nav class="limiter-menu-desktop container">
 
 					<!-- Logo desktop -->
-					<a href="folliumtest.user" class="logo"> <img
+					<a href="index2.user?mkId=${sessionScope.mkId }" class="logo"> <img
 						style="width: 200px; height: 60px;"
 						src="./resources/images/logo.png" alt="IMG-LOGO">
 					</a>

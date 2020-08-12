@@ -15,12 +15,12 @@
         <intercept-url pattern="/*.master" access="hasAnyRole('ADMIN')" />
         
         <form-login login-page="/login/loginForm.user"
-                    default-target-url="/folliumtest.user"
+                    default-target-url="/index2.user?mkId=1009"
                     authentication-failure-url="/login/loginForm.user?error"
                     username-parameter="id"
                     password-parameter="password" />
         <logout logout-url="/logout"
-                logout-success-url="/folliumtest.user" />
+                logout-success-url="/login/loginForm.user" />
                 
         <access-denied-handler error-page="/login/accessDenied.user" />
     </http>

@@ -36,7 +36,7 @@
 		<![CDATA[
 			SELECT issue.*
      		 FROM (select rownum rm, issue.* from issue where mkid=#{mkId} and delyn='N') issue
-     		 where rm between ${first} and ${end} order by mkid
+     		 where rm between ${first} and ${end} order by isdate desc
      		  
 		]]>    
 	</select>

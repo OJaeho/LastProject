@@ -27,7 +27,7 @@ let isEnd = false;
         // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
         let startNo = $("#payList_div div").last().data("no") || 0;
         $.ajax({
-            url:"payListInfinity.user?no=" + startNo +"&payState="+$('#payState').val()+"&start="+ $('#startView').val()+"&end="+$('#endView').val() ,
+            url:"payListInfinity.user?no="+startNo +"&payState="+$('#payState').val()+"&start="+ $('#startView').val()+"&end="+$('#endView').val() ,
             type: "GET",
             dataType: "json",
             success: function(result){
@@ -45,23 +45,47 @@ let isEnd = false;
     }
     
     let renderList = function(mode, vo){
-        // 리스트 html을 정의
-        let html = "<div><h3 data-no='"+ vo.NO +"'>"+vo.SNAME +" | "+ vo.PAYSTATE +"</h3>"+
-			"<h4>"+vo.PAYTYPE +"</h4>"+
-			"<span>"+vo.PAYDATE+"</span><br/>"+
-			"<span>"+vo.PAYCONTENT+"</span><br/>"+
-			"<input class='join-btn' type='button' value='리뷰쓰기' onClick=location.href='product-detail.user?pName="+vo.PNAME+"&pPrice="+vo.PPRICE+"&pId="+vo.PID+"&payId="+vo.PAYID+"'  style='display:inline;' >"+
-			"&nbsp;"+"<input class='join-btn' type='button' value='가게보기' onClick=location.href='#'  style='display:inline;' >"+
-			"</div><hr/>"
-			$("h3").css("font-size", "22px");
-        	$("h3").css("line-height", "1.7");
-        	$("h4").css("font-size", "17px");
-        	$("h4").css("font-weight", "600");
-        	
-        if( mode ){
-            $("#payList_div").prepend(html);
-        }
-        else{
-            $("#payList_div").append(html);
-        }
+    	if(vo.reviewCnt==0){
+        	// 리스트 html을 정의
+            let html = "<div data-no='"+ vo.NO +"'><h3>"+vo.SNAME +" | "+ vo.PAYSTATE +"</h3>"+
+    			"<h4>"+vo.PAYTYPE +"</h4>"+
+    			"<span>"+vo.PAYDATE+"</span><br/>"+
+    			"<span>"+vo.PAYCONTENT+"</span><br/>"+
+    			"<input class='join-btn' type='button' value='리뷰쓰기' onClick=location.href='product-detail.user?pName="+vo.PNAME+"&pPrice="+vo.PPRICE+"&pId="+vo.PID+"&payId="+vo.PAYID+"'  style='display:inline;' >"+
+    			"&nbsp;"+"<input class='join-btn' type='button' value='가게보기' onClick=location.href='#'  style='display:inline;' >"+
+    			"</div><hr/>"
+    			$("h3").css("font-size", "22px");
+            	$("h3").css("line-height", "1.7");
+            	$("h4").css("font-size", "17px");
+            	$("h4").css("font-weight", "600");
+            	
+            if( mode ){
+                $("#payList_div").prepend(html);
+            }
+            else{
+                $("#payList_div").append(html);
+            }
+        	}else{
+        		// 리스트 html을 정의
+                let html = "<div data-no='"+ vo.NO +"'><h3>"+vo.SNAME +" | "+ vo.PAYSTATE +"</h3>"+
+        			"<h4>"+vo.PAYTYPE +"</h4>"+
+        			"<span>"+vo.PAYDATE+"</span><br/>"+
+        			"<span>"+vo.PAYCONTENT+"</span><br/>"+
+        			"<input class='join-btn' type='button' value='리뷰작성완료' disabled='disabled' style='display:inline;' >"+
+        			"&nbsp;"+"<input class='join-btn' type='button' value='가게보기' onClick=location.href='#'  style='display:inline;' >"+
+        			"</div><hr/>"
+        			$("h3").css("font-size", "22px");
+                	$("h3").css("line-height", "1.7");
+                	$("h4").css("font-size", "17px");
+                	$("h4").css("font-weight", "600");
+                	
+                if( mode ){
+                    $("#payList_div").prepend(html);
+                }
+                else{
+                    $("#payList_div").append(html);
+                }
+        		
+        		
+        	}
     }

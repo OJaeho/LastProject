@@ -6,7 +6,7 @@
 	  <select id="getNoticeList" parameterType="hashmap" resultType="notice">
       <![CDATA[
       SELECT *
-      FROM (select rownum rm, notice.* from notice where mkId=${mkId}) notice
+      FROM (select rownum rm, notice.* from notice where mkId=${mkId} order by ndate desc) notice
       where rm between ${first} and ${end} 
       ]]>
    </select>

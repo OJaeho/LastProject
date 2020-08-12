@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.mypageDao;
+import com.daoImpl.productDaoImpl;
 import com.service.mypageService;
 import com.vo.ChartVO;
 import com.vo.MarketVO;
@@ -27,6 +28,9 @@ public class mypageServiceImpl implements mypageService {
 	@Autowired
 	mypageDao mypageDao;
 
+	@Autowired
+	productDaoImpl productDao;
+	
 	@Override
 	public JSONObject payList(String id, MypageVO vo) {
 		List<HashMap<Object,Object>> items = mypageDao.getPayList(id, vo);
@@ -35,6 +39,12 @@ public class mypageServiceImpl implements mypageService {
 		JSONArray data = new JSONArray(); // {}
 		for (HashMap total : items) {
 			JSONObject imsi = new JSONObject();
+			//리뷰 갯수 확인
+			ReviewVO rvo= new ReviewVO();
+			rvo.setPayId(Integer.parseInt(String.valueOf(total.get("PAYID"))));
+			int reviewCount=productDao.getReviewCnt(rvo);
+			System.out.println(reviewCount+" : 리리뷰갯수");
+			imsi.put("reviewCnt", reviewCount);
 			imsi.put("NO", total.get("NO"));
 			imsi.put("SNAME", total.get("SNAME"));
 			imsi.put("PAYSTATE", total.get("PAYSTATE"));

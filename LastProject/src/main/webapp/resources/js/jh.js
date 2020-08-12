@@ -288,14 +288,10 @@ $(function() {
 
 $(document).on('change', '.totalcheck',function(){ 
 	if ($(this).is(':checked') == false){
-		alert("일단 됨");
 		var small_total = parseInt($(this).parent().next().val());
-		alert(small_total);
 		var big_total = parseInt($('#smto').val());
-		alert(big_total);
 		var result = big_total-small_total;
 		$('#smto').val(result);
-		alert($('#smto').val());
 		result = numberWithCommas(result);
 		$('#totalspan').text(result+"원");
 	}else{

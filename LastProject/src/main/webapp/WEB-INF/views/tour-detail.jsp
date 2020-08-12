@@ -62,9 +62,6 @@
 		    		</td>
 	        	</tr>
 	        	<tr id="detail">
-	        		<td align="center">
-	        			<a href="https://korean.visitseoul.net/index" target="_blank">서울관광구청 홈페이지 바로가기</a>
-	        		</td>
 	        		<td align="center" style="padding: 3rem">
 	        			<a href="https://map.kakao.com/link/search/${result.tAddr}" target="_blank">
 	        				<img src="./resources/images/icons/unnamed.png"  class="scale"/>

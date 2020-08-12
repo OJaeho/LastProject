@@ -69,7 +69,7 @@ public class tourController {
 	
 	//신규 관광지 등록
 	@ResponseBody
-	@RequestMapping(value="/newTour.do", produces="application/json; charset=utf-8")
+	@RequestMapping(value="/newTour.market", produces="application/json; charset=utf-8")
 	public String InsertTour(TourVO vo, Model model, HttpSession session){
 		model.addAttribute("list", con.selectFooter());
 		int mkId = (int)session.getAttribute("mkId");
