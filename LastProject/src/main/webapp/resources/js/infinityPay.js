@@ -25,7 +25,7 @@ let isEnd = false;
         // 방명록 리스트를 가져올 때 시작 번호
         // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
         // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
-        let startNo = $("#payList_div h4").last().data("no") || 0;
+        let startNo = $("#payList_div div").last().data("no") || 0;
         $.ajax({
             url:"payListInfinity.user?no=" + startNo +"&payState="+$('#payState').val()+"&start="+ $('#startView').val()+"&end="+$('#endView').val() ,
             type: "GET",
@@ -46,13 +46,13 @@ let isEnd = false;
     
     let renderList = function(mode, vo){
         // 리스트 html을 정의
-        let html = "<h3 data-no='"+ vo.NO +"'>"+vo.SNAME +" | "+ vo.PAYSTATE +"</h3>"+
+        let html = "<div><h3 data-no='"+ vo.NO +"'>"+vo.SNAME +" | "+ vo.PAYSTATE +"</h3>"+
 			"<h4>"+vo.PAYTYPE +"</h4>"+
 			"<span>"+vo.PAYDATE+"</span><br/>"+
 			"<span>"+vo.PAYCONTENT+"</span><br/>"+
 			"<input class='join-btn' type='button' value='리뷰쓰기' onClick=location.href='product-detail.user?pName="+vo.PNAME+"&pPrice="+vo.PPRICE+"&pId="+vo.PID+"&payId="+vo.PAYID+"'  style='display:inline;' >"+
 			"&nbsp;"+"<input class='join-btn' type='button' value='가게보기' onClick=location.href='#'  style='display:inline;' >"+
-			"<hr/>"
+			"</div><hr/>"
 			$("h3").css("font-size", "22px");
         	$("h3").css("line-height", "1.7");
         	$("h4").css("font-size", "17px");

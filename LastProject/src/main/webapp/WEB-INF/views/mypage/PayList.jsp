@@ -102,7 +102,7 @@
 							<div class="row">
 			<section class="color-7">
 				<nav class="cl-effect-21">
-					<a href="PayList.user?">전체상품</a>
+					<a href="PayList.user">전체상품</a>
 					<a href="PayList.user?payState=픽업">픽업상품</a>
 					<a href="PayList.user?payState=배송">배송상품</a>
 				</nav>
