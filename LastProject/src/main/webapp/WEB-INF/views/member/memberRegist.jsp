@@ -302,7 +302,7 @@
 													name="mGender" value="Male"><spring:message
 									code="header.Male" arguments="${header}" text="default text" />
 												</label>
-											</div>
+											</div> 
 										</div>
 										<hr />
 										<div>
