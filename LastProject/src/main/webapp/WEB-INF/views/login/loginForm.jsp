@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>로그인 페이지</title>
+    <title>로그인페이지</title>
 </head>
 
 <body onload="document.f.id.focus();">
@@ -23,7 +24,12 @@
     						position: relative;
     						left: 50%;
     						transform: translateX(-48%);">
-					<h2 style="text-align: center; color: #009a45 !important;">로그인</h2>
+					<h2 style="text-align: center; color: #009a45 !important;"><spring:message
+									code="header.login" arguments="${header}" text="default text" /></h2>
+					<p>
+						<a href="<c:url value="/i17n.do?lang=ko" />" style="color: green;padding-left: 55%;font-size: 7px;">한국어</a>
+						<a href="<c:url value="/i17n.do?lang=en" />" style="color: green;font-size: 7px;">/ English</a>
+					</p>
 					<span style="
 					position: absolute;
    					left: 40%;
@@ -34,9 +40,11 @@
 					"></span>
 					<p>
 					</div>
+					<a href="logincheck.checking">
 					<div style="position: absolute; left: 50%; transform: translateX(-50%);">
 						<div style="padding-top: 10px">
-						<input class="form-control" type="text" id="id" name="id" placeholder="아이디"
+						<input class="form-control" type="text" id="id" name="id" placeholder="<spring:message
+									code="header.id" arguments="${header}" text="default text" />""
 						style="
 						display: inline-block;
 					    height: 50px;
@@ -49,7 +57,8 @@
 					    box-sizing: border-box;"
 						/><p>
 						<input class="form-control" type="password" 
-						id="password" name="password" placeholder="비밀번호"
+						id="password" name="password" placeholder="<spring:message
+									code="header.password" arguments="${header}" text="default text" />""
 						style="
 						display: inline-block;
 					    height: 50px;
@@ -61,7 +70,8 @@
 					    background: #fff;
 					    box-sizing: border-box;"/><p>
 							<div style="padding: 0; float: right;">
-							<input type="submit" value="로그인"
+							<input type="submit" value="<spring:message
+									code="header.login" arguments="${header}" text="default text" />"
 							style="
 							display: inline-block;
 						    height: 40px;
@@ -88,7 +98,6 @@
 
 		</div>
 	</div>
-</div>
 
 
 </body>

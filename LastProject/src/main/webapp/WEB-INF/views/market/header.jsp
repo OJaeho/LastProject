@@ -297,25 +297,26 @@
 
 	<!-- Header Mobile -->
 	<div class="wrap-header-mobile">
-	
+
 		<!-- Logo moblie -->
 		<div class="logo-mobile">
 			<a href="folliumtest.user"><img src="./resources/images/logo.png"
 				alt="IMG-LOGO"></a>
 		</div>
-		
+
 		<!-- Icon header -->
 		<div class="wrap-icon-header flex-w flex-r-m m-r-15">
 			<div
 				class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
 				data-notify="0">
 				<p>
-			<a href="<c:url value="/i18n.do?lang=ko" />" style="color: green;font-size: 13px;">한국어</a>
-			<a href="<c:url value="/i18n.do?lang=en" />" style="color: green;font-size: 13px;">/
-				English</a>
-		</p>
+					<a href="<c:url value="/i18n.do?lang=ko" />"
+						style="color: green; font-size: 13px;">한국어</a> <a
+						href="<c:url value="/i18n.do?lang=en" />"
+						style="color: green; font-size: 13px;">/ English</a>
+				</p>
 			</div>
-		
+
 			<sec:authorize access="isAuthenticated()">
 				<form:form action="${pageContext.request.contextPath}/logout"
 					method="POST">
@@ -328,7 +329,7 @@
 				</form:form>
 			</sec:authorize>
 
-			
+
 			<sec:authorize access="isAnonymous()">
 				<div
 					class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
@@ -363,7 +364,7 @@
 
 	<!-- Menu Mobile -->
 	<div class="menu-mobile">
-		
+
 		<ul class="main-menu-m">
 			<li><a href="#"><spring:message code="header.market"
 						arguments="${header}" text="default text" /></a>
