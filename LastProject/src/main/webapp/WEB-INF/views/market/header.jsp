@@ -149,9 +149,9 @@
 			<!-- Topbar -->
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
-					<p>
-						<a href="<c:url value="/i18n.do?lang=ko" />" style="color: white;">한국어</a>
-						<a href="<c:url value="/i18n.do?lang=en" />" style="color: white;">/
+					<p style="display: inline-flex;">
+						<a href="<c:url value="/i18n.do?lang=ko" />" style="color: white; font-size: 15px;">한국어</a>
+						<a href="<c:url value="/i18n.do?lang=en" />" style="color: white; font-size: 15px;">/
 							English</a>
 					</p>
 
@@ -220,7 +220,7 @@
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
-							<li><a href="introMarket.user"><spring:message code="header.market"
+							<li><a href="#"><spring:message code="header.market"
 										arguments="${header}" text="default text" /></a>
 								<ul class="sub-menu">
 									<li><a href="introMarket.user"><spring:message
@@ -241,7 +241,7 @@
 							<li class="label1" data-label1="hot"><a
 								href="getproduct.user"><spring:message code="header.our"
 										arguments="${header}" text="default text" /></a></li>
-							<li><a href="getNoticeList.user"><spring:message code="header.have"
+							<li><a href="#"><spring:message code="header.have"
 										arguments="${header}" text="default text" /></a>
 								<ul class="sub-menu">
 									<li><a href="getNoticeList.user"><spring:message

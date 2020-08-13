@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 
-<title>insertMarket</title>
+<title>회원 관리</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -151,7 +151,6 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">고객관리</h2>
 	</section>
 
 	<!-- header끝 -->
@@ -160,14 +159,14 @@
 		
 		<!-- 시장정보 페이지 시작 -->
 		<div class="mArticle">
-			<h2 class="myth theme_color joinfont">고객 정보</h2>
+			<h2 class="myth theme_color joinfont">회원정보</h2>
 			<form method="get" name="form">
 				<div class="divlist2">
 		    <c:forEach items="${userinfoget}" var="user">
 		    <div>
 		    <strong class="tf_required">ID</strong>
 		    <div class="divlist">
-		    <input type="text" name="userName" id="userName" class="lab_placeholder" 
+		    <input type="text" name="userName" id="userName" class="lab_placeholder profile-p-5" 
 		     required="" value="${user.userName}"readonly >
 		   	<span id="idCheckResult" style="width: 150px; color: red"></span>
 		    </div>
@@ -175,14 +174,14 @@
 		    
 		    <div class="divlist">
 		    <strong class="tf_required">*비밀번호</strong>
-		    <input type="password" name="Password" class="lab_placeholder"
+		    <input type="password" name="Password" class="lab_placeholder profile-p-5"
 		    placeholder="비밀번호"  id="Password" >
 		    </div>
 		     
 		    <div>
 		    <strong class="tf_required">이름</strong>
 		    <div class="divlist">
-		    <input type="text" name="mName" id="mName" class="lab_placeholder" 
+		    <input type="text" name="mName" id="mName" class="lab_placeholder profile-p-5" 
 		    placeholder="이름을 입력해 주세요" required="" value="${user.mName} ">
 		   	<span id="idCheckResult" style="width: 150px; color: red"></span>    
 		    </div>		    
@@ -191,7 +190,7 @@
 		    <div>
 		    <strong class="tf_required">전화번호</strong>
 		    <div class="divlist">
-		    <input placeholder="전화번호 (-)없이 입력"  class="lab_placeholder"
+		    <input placeholder="전화번호 (-)없이 입력"  class="lab_placeholder profile-p-5"
 		    type="text" name="mTel" id="mTel" value="${user.mTel}">
          	<span id="telCheckResult" style="width: 150px; color: red"></span>		    
 		    </div>
@@ -201,18 +200,18 @@
 		    <strong class="tf_required">*주소</strong>
 		    <div class="divlist">
 		    <input type="text" name='mPost' id="sample6_postcode" 
-		    class="lab_placeholder" placeholder="우편번호">
+		    class="lab_placeholder profile-p-5" placeholder="우편번호">
 		    <div class="divlist2">
      		<input type="button" onclick="sample6_execDaumPostcode()" 
      		class="btn_area join-btn" value="우편번호 찾기">
      		</div>
      		<input type="text" name="addr" id="sample6_address" 
-     		class="lab_placeholder" placeholder="주소"><br>
+     		class="lab_placeholder profile-p-5" placeholder="주소"><br>
      		<input type="text" name="detailAddr" id="sample6_detailAddress" 
-     		class="lab_placeholder" placeholder="상세주소">
+     		class="lab_placeholder profile-p-5" placeholder="상세주소">
      		<div class="divlist">
      		<input type="text" id="sample6_extraAddress" 
-     		class="lab_placeholder" placeholder="참고항목">
+     		class="lab_placeholder profile-p-5" placeholder="참고항목">
      		</div>
 		    </div>
 		    </div>
@@ -220,19 +219,17 @@
 		    <div>
 		    <strong class="tf_required">이메일</strong>
 		    <div class="divlist">
-		    <input type="text" name="mEmail" id="mEmail" class="lab_placeholder" 
+		    <input type="text" name="mEmail" id="mEmail" class="lab_placeholder profile-p-5" 
 		      value="${user.mEmail}">
 		    </div>		    
 		    </div>
 		    </c:forEach>
-		    <hr/>
 		   </div>
-				<hr />
 				<div>
-					<div class="divlist">
-						<input type="submit" value="정보수정" class="updateuser" id="updateuser"
+					<div class="divlist" style="padding-top: 15px;">
+						<input type="submit" value="정보수정" class="updateuser join-btn" id="updateuser"
 							 /> 
-						<input type="submit" value="정보삭제" class="deleteuser" id="deleteuser"
+						<input type="submit" value="정보삭제" class="deleteuser join-btn" id="deleteuser"
 							onclick="javascript: form.action='deleteuser.market';" />
 					</div>
 				</div>

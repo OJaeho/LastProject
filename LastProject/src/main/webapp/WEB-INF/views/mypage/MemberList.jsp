@@ -88,25 +88,25 @@
 				</div>
 				<form action="membergetpage.market" method="get">
 					<div class="button">
-						<input type="submit" class="btn btn-link" style="color: green;"
+						<input type="submit" class="btn btn-link" style="color: #009a45;"
 							name="order" value="전체보기">
 					</div>
 				</form>
 				<form action="marketsearch.market" method="get">
 					<div class="button">
-						<input type="submit" class="btn btn-link" style="color: green;"
+						<input type="submit" class="btn btn-link" style="color: #009a45;"
 							name="order" value="시장관리자">
 					</div>
 				</form>
 				<form action="sellersearch.market" method="get">
 					<div class="button">
-						<input type="submit" class="btn btn-link" style="color: green;"
+						<input type="submit" class="btn btn-link" style="color: #009a45;"
 							name="order" value="판매자">
 					</div>
 				</form>
 				<form action="usersearch.market" method="get">
 					<div class="button">
-						<input type="submit" class="btn btn-link" style="color: green;"
+						<input type="submit" class="btn btn-link" style="color: #009a45;"
 							name="order" value="고객">
 					</div>
 				</form>
@@ -127,7 +127,7 @@
 
 			<table style="width: 100%">
 
-				<tr style="background-color: green; color: white; ">
+				<tr style="background-color: #009a45; color: white; ">
 
 					<th style="text-align: center;">아이디</th>
 					<th style="text-align: center;">회원명</th>
@@ -138,12 +138,15 @@
 				</tr>
 			<c:forEach items="${memberget}" var="member">
 				<tr>
-					<td style="border: solid 1px lightgrey;"><a href="memberdetail.market?userName=${member.userName}" style="font-size: 7px;color: green;">${member.userName}</a></td>
-					<td style="border: solid 1px lightgrey;">${member.mName}</td>
-					<td style="border: solid 1px lightgrey;">${member.mEmail}</td>
-					<td style="border: solid 1px lightgrey;">${member.mTel}</td>
-					<td style="border: solid 1px lightgrey;">${member.mBirth}</td>
-					<td style="border: solid 1px lightgrey;">${member.addr}</td>
+					<td style="border: solid 1px lightgrey; padding: 5px;">
+					<a href="memberdetail.market?userName=${member.userName}" style="font-size: 15px;color: #009a45;">
+					${member.userName}</a>
+					</td>
+					<td style="border: solid 1px lightgrey; padding: 5px;">${member.mName}</td>
+					<td style="border: solid 1px lightgrey; padding: 5px;">${member.mEmail}</td>
+					<td style="border: solid 1px lightgrey; padding: 5px;">${member.mTel}</td>
+					<td style="border: solid 1px lightgrey; padding: 5px;">${member.mBirth}</td>
+					<td style="border: solid 1px lightgrey; padding: 5px;">${member.addr}</td>
 				</tr>
 				</c:forEach>
 			</table>

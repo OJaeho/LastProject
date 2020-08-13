@@ -152,9 +152,8 @@
 	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
+	<section class="bg-img1 txt-center p-lr-15 p-t-92"
 		style="background-image: url('images/bg-01.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">시장페이지</h2>
 	</section>
 
 	<!-- header끝 -->
@@ -172,7 +171,7 @@
 					<strong class="tf_required">시장명</strong>
 					<div class="divlist">
 						<input type="text"  disabled='disabled' name="mkName" id="mkName"
-							class="lab_placeholder" value="${market.mkName}" required="">
+							class="lab_placeholder profile_input" value="${market.mkName}" required="">
 						<span id="idCheckResult" style="width: 150px; color: red"></span>
 					</div>
 				</div>
@@ -180,21 +179,21 @@
 					<strong class="tf_required">시장대표</strong>
 					<div class="divlist">
 						<input type="text" disabled='disabled' name="mkOwner" id="mkOwner"
-							class="lab_placeholder" value="${market.mkOwner}" required="">						
+							class="lab_placeholder profile_input" value="${market.mkOwner}" required="">						
 					</div>
 				</div>
 				<div>
 					<strong class="tf_required">시장주소</strong>
 					<div class="divlist">
 						<input type="text"  disabled='disabled' name="mkAddr" id="mkAddr"
-							class="lab_placeholder" value="${market.mkAddr}" required="">
+							class="lab_placeholder profile_input" value="${market.mkAddr}" required="">
 											</div>
 				</div>
 				<div>
 					<strong class="tf_required">시장전화번호</strong>
 					<div class="divlist">
 						<input  value="${market.mkTel}" 
-							class="lab_placeholder"  type="text" name="mkTel" id="mkTel" required="">
+							class="lab_placeholder profile-p-5"  type="text" name="mkTel" id="mkTel" required="">
 						<span id="telCheckResult" style="width: 150px; color: red"></span>
 					</div>
 				</div>
@@ -203,7 +202,7 @@
 					<strong class="tf_required">상점 보유수</strong>
 					<div class="divlist">
 						<input type="text"  name="mkCount" id="mkCount"
-							class="lab_placeholder" value="${market.mkCount}" required=""> 
+							class="lab_placeholder profile-p-5" value="${market.mkCount}" required=""> 
 					</div>
 				</div>
 
@@ -211,12 +210,12 @@
 					<strong class="tf_required">시장이미지</strong>
 					<div class="divlist">
 						<input type="text" name="mkImg1" id="mkImg1"
-							class="lab_placeholder"
+							class="lab_placeholder profile-p-5"
 							value="${market.mkImg1}" required=""> 						
 					</div>
 					<div class="divlist">
 						<input type="text" name="mkImg2" id="mkImg2"
-							class="lab_placeholder"
+							class="lab_placeholder profile-p-5"
 							value="${market.mkImg2}" required=""> 	
 											</div>
 				</div>
@@ -224,7 +223,7 @@
 					<strong class="tf_required">오시는길 이미지</strong>
 					<div class="divlist">
 						<input type="text" name="mkJido" id="mkJido"
-							class="lab_placeholder"
+							class="lab_placeholder profile-p-5"
 							value="${market.mkJido}" required=""> 	
 						
 					</div>
@@ -233,30 +232,28 @@
 					<strong class="tf_required">지역구분</strong>
 					<div class="divlist">
 						<input type="text" disabled='disabled' name="mkLocal" id="mkLocal"
-							class="lab_placeholder"
+							class="lab_placeholder profile_input"
 							value="${market.mkLocal}" required=""> 
 				</div>
 				<div>
 					<strong class="tf_required">시장 위도</strong>
 					<div class="divlist">
-						<input type="text" disabled='disabled' name="mkLat" id="mkLat" class="lab_placeholder"
+						<input type="text" disabled='disabled' name="mkLat" id="mkLat" class="lab_placeholder profile_input"
 							value="${market.mkLat}" required=""> 
 					</div>
 				</div>
 				<div>
 					<strong class="tf_required">시장 경도</strong>
 					<div class="divlist">
-						<input type="text" disabled='disabled' name="mkLong" id="mkLong" class="lab_placeholder"s
+						<input type="text" disabled='disabled' name="mkLong" id="mkLong" class="lab_placeholder profile_input"
 							value="${market.mkLong}" required=""> 
 					</div>
 				</div>
 				<div>
 					<strong class="tf_required">시장 오픈일자</strong>
 					<div class="divlist">
-						<div class="divlist">
 							<input type="text" disabled='disabled' name="mkDate" id="mkDate"
-								class="lab_placeholder" value="${market.mkDate}" required=""> 
-						</div>
+								class="lab_placeholder profile_input" value="${market.mkDate}" required=""> 
 					</div>
 				</div>
 				<div>

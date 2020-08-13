@@ -79,11 +79,7 @@
 		<div class="mArticle">
 
 			<div>
-				<h2 class="myth theme_color joinfont">Store Profile</h2>
-
 							<!-- 회원가입 정보입력 시작 -->
-							​
-
 							<div>
 								<form method="get" action="sellerProfileUpdate.seller" id="frm">
 								
@@ -93,7 +89,7 @@
 											<strong class="tf_required">ID</strong>
 											<div class="divlist">
 												<input type="text" value=${store.USERNAME } name="userName" id="userName"
-													class="lab_placeholder" disabled='disabled' > <span id="idCheckResult"
+													class="lab_placeholder profile_input" disabled='disabled' > <span id="idCheckResult"
 													style="width: 150px; color: red"></span>
 											</div>
 										</div>
@@ -108,8 +104,8 @@
 											<strong class="tf_required">이름</strong>
 											<div class="divlist">
 												<input type="text" value=${store.MNAME } name="mName" id="mName"
-													disabled='disabled' class="lab_placeholder" > <span id="idCheckResult"
-													style="width: 150px; color: red"></span>
+													disabled='disabled' class="lab_placeholder profile_input"> 
+													<span id="idCheckResult" style="width: 150px; color: red"></span>
 											</div>
 										</div>
 
@@ -117,7 +113,7 @@
 											<strong class="tf_required">전화번호</strong>
 											<div class="divlist">
 												<input value=${store.MTEL }
-													class="lab_placeholder" type="text" name="mTel" id="mTel">
+													class="lab_placeholder profile-p-5" type="text" name="mTel" id="mTel">
 												<span id="telCheckResult" style="width: 150px; color: red"></span>
 											</div>
 										</div>
@@ -126,7 +122,7 @@
 											<strong class="tf_required">주소</strong>
 											<div class="divlist">
 												<input type="text" disabled='disabled' name="mAddr" value=${store.MADDR } id="sample5_address"
-													class="lab_placeholder" ><br>
+													class="lab_placeholder profile_input" ><br>
 											</div>
 										</div>
 
@@ -134,7 +130,7 @@
 											<strong class="tf_required">이메일</strong>
 											<div class="divlist">
 												<input type="text" name="mEmail" value=${store.MEMAIL } id="mEmail"
-													class="lab_placeholder"  >
+													class="lab_placeholder profile-p-5">
 											</div>
 										</div>
 
@@ -142,7 +138,7 @@
 											<strong class="tf_required">포인트</strong>
 											<div class="divlist">
 												<input type="text" name="point" disabled='disabled' value=${store.SPOINT } id="mBirth"
-													class="lab_placeholder">
+													class="lab_placeholder profile_input">
 											</div>
 										</div>
 										<hr/>
@@ -155,8 +151,7 @@
 											<strong class="tf_required">상점명</strong>
 											<div class="divlist">
 												<input type="text" name="sName" id="sName" disabled='disabled' value=${store.SNAME }
-													class="lab_placeholder" 
-													>
+													class="lab_placeholder profile_input">
 											</div>
 										</div>
 
@@ -173,7 +168,7 @@
 											<strong class="tf_required">전화번호</strong>
 											<div class="divlist">
 												<input 
-													class="lab_placeholder" value=${store.STEL } type="text" name="sTel" id="sTel">
+													class="lab_placeholder profile-p-5" value=${store.STEL } type="text" name="sTel" id="sTel">
 											</div>
 										</div>
 										
@@ -181,14 +176,14 @@
 											<strong class="tf_required">영업시간</strong>
 											<div class="divlist">
 												<input value=${store.STIME }
-													class="lab_placeholder" type="text" name="sTime" id="sTime">
+													class="lab_placeholder profile-p-5" type="text" name="sTime" id="sTime">
 											</div>
 										</div>
 
 										<div>
 											<strong class="tf_required">주소</strong>
 												<input type="text" name="sAddr" id="sample6_address"
-													class="lab_placeholder" disabled='disabled' value=${store.SADDR }><br>
+													class="lab_placeholder profile_input" disabled='disabled' value=${store.SADDR }><br>
 												
 											</div>
 										</div>
