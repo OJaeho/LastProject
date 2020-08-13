@@ -153,7 +153,7 @@
 		    <div>
 		    <strong class="tf_required">ID</strong>
 		    <div class="divlist">
-		    <input type="text" name="userName" id="userName" class="lab_placeholder profile-p-5" 
+		    <input type="text" name="userName" id="userName" class="lab_placeholder profile_input" 
 		     required="" value="${user.userName}"readonly >
 		   	<span id="idCheckResult" style="width: 150px; color: red"></span>
 		    </div>
@@ -168,7 +168,7 @@
 		    <div>
 		    <strong class="tf_required">이름</strong>
 		    <div class="divlist">
-		    <input type="text" name="mName" id="mName" class="lab_placeholder profile-p-5" 
+		    <input type="text" name="mName" id="mName" class="lab_placeholder profile_input" 
 		    placeholder="이름을 입력해 주세요" required="" value="${user.mName} ">
 		   	<span id="idCheckResult" style="width: 150px; color: red"></span>    
 		    </div>		    
@@ -202,7 +202,7 @@
 		    <div>
 		    <strong class="tf_required">포인트</strong>
 		    <div class="divlist">
-		    <input type="text" name="mPoint" disabled='disabled' id="mPoint" class="lab_placeholder profile-p-5" 
+		    <input type="text" name="mPoint" disabled='disabled' id="mPoint" class="lab_placeholder profile_input" 
 		      value="${user.mPoint}">
 		    </div>		    
 		    </div>
