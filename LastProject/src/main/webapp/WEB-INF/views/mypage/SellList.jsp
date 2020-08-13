@@ -55,9 +55,7 @@
      <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
-      <h2>
-          <img src="./resources/images/logo.png" style="width: 40rem;">
-      </h2>
+		<h2 style="margin-top: 40px;" class="cl2 theme_color cart-main-font">PRODUCT LIST</h2>
    </section>   
 <!-- header끝 -->
    <!-- Content page -->
@@ -71,8 +69,9 @@
       </div>
 
 
-<h3>임시 품절</h3>
-   <div class="page_list">
+	<h3 class="cl2 p-b-16 theme_color news-underbar"
+	style="font-size: 25px;font-weight: bold;">임시품절</h3>
+   <div class="page_list" style="padding-top: 10px;">
                <table class="table table-bordered table-hover">
                   <thead>
                      <tr>
@@ -89,12 +88,12 @@
                         <tr class="QnA">
                            <td>${zero.PID }</td>
                            <td id="#">
-                           <a href="#"> ${zero.PNAME }</a></td>
+                           <a href="#" style="font-size: 15px;"> ${zero.PNAME }</a></td>
                            <td>${zero.PCOUNT }</td>
                            <td>${zero.POPTION1 }</td>
                            <td>${zero.PPRICE }</td>
-                           <td><c:if test="${zero.pId eq null }"><input type="button" value="상세 수정" onClick="location.href='MoveModifySell.seller?pId=${product.pId}'">
-                           <input type="button" value="삭제" onClick="location.href='DeleteSell.seller?pId=${zero.PID}'"></c:if></td>
+                           <td><c:if test="${zero.pId eq null }"><input class="join-btn" type="button" value="상세수정" onClick="location.href='MoveModifySell.seller?pId=${product.pId}'">
+                           <input class="join-btn" type="button" value="삭제" onClick="location.href='DeleteSell.seller?pId=${zero.PID}'"></c:if></td>
                         </tr>
                      </c:forEach>
                   </tbody>
@@ -103,8 +102,9 @@
             </div>
 
       
-<h3>판매중</h3>
- <div class="page_list">
+<h3 class="cl2 p-b-16 theme_color news-underbar"
+style="font-size: 25px;font-weight: bold;">판매중</h3>
+ <div class="page_list" style="padding-top: 10px;">
                <table class="table table-bordered table-hover">
                   <thead>
                      <tr>

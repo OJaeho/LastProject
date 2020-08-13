@@ -69,7 +69,8 @@
 
       <!-- Main Content -->
 
-	<h2 style="text-align: center" class="mypage_content_font p-b-40">${store.sName }'s My Page</h2>
+   	<h2 style="margin-top: 40px;"
+	class="cl2 p-b-20 theme_color cart-main-font cart-title-border">${store.sName }'s My Page</h2>
 
 		<!-- MyPage List -->
 	<div class="wrapper tabled">
