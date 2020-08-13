@@ -74,8 +74,7 @@
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
-	<h2 style="margin-top: 40px;"
-							class="cl2 theme_color cart-main-font">REVIEW</h2>
+	<h2 style="margin-top: 40px;" class="cl2 theme_color cart-main-font">REVIEW</h2>
 	</section>
 	<!-- header끝 -->
 	<!-- Content page -->

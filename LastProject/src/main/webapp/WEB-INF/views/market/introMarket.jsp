@@ -111,7 +111,8 @@
 									<div class="txt_box">
 										<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h4 class="intro_font_bold">${intro.mkName}은</h4>
+											<h4 class="intro_font_bold"
+											style="font-size: 35px;">${intro.mkName}은</h4>
 										</div>
 									</div>
 								</div>
@@ -125,7 +126,8 @@
 								<div class="component_box _component" data-index="4">
 									<div class="txt_box">
 										<div class="txt_component color2 big align_c t_space">
-											<p class="intro_content_font txt-center">${intro.mkIntro}</p>
+											<p class="intro_content_font txt-center"
+											style="font-size: 17px;">${intro.mkIntro}</p>
 										</div>
 									</div>
 								</div>
@@ -161,7 +163,8 @@
 									<div class="txt_box">
 										<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h3 class="intro_font_bold">${intro.mkName} 상점 수는</h3>
+											<h3 class="intro_font_bold"
+											style="font-size: 35px;">${intro.mkName} 상점 수는</h3>
 										</div>
 									</div>
 								</div>
@@ -170,7 +173,8 @@
 								<div class="" data-index="10">
 									<div class="txt_box">
 										<div class="txt_component color2 big align_c t_space ">
-											<p class="intro_content_font txt-center">음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
+											<p class="intro_content_font txt-center"
+											style="font-size: 17px;">음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
 												있고,</p>
 										</div>
 									</div>
@@ -186,10 +190,12 @@
 										<div class="txt_component color1 big align_c t_space " >
 											<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h3 class="intro_font_bold">시장이 생긴 날짜는</h3>
+											<h3 class="intro_font_bold"
+											style="font-size: 35px;">시장이 생긴 날짜는</h3>
 										</div>
 											<div class="txt_component color2 big align_c t_space ">											
-											<p class="intro_content_font txt-center">${intro.mkDate} 입니다.</p>
+											<p class="intro_content_font txt-center"
+											style="font-size: 17px;">${intro.mkDate} 입니다.</p>
 										</div></div>
 									</div>
 								</div>
@@ -205,7 +211,8 @@
 									<div class="txt_box">
 										<div class="txt_component color1 big align_c t_space "
 											style="color: rgb(0, 154, 69);">
-											<h3 class="intro_font_bold">${intro.mkName} 영업시간은</h3>
+											<h3 class="intro_font_bold"
+											style="font-size: 35px;">${intro.mkName} 영업시간은</h3>
 										</div>
 									</div>
 								</div>
@@ -223,7 +230,8 @@
 											summary="표 입력">
 											<tbody>
 												<tr>
-													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0">${intro.mkTime}</td>
+													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0"
+													style="font-size: 17px;">${intro.mkTime}</td>
 												</tr>
 
 											</tbody>

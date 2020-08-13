@@ -69,7 +69,8 @@
 
       <!-- Main Content -->
 
-	<h2 style="text-align: center" class="mypage_content_font p-b-40">My Page</h2>
+	   	<h2 style="margin-top: 40px;"
+	class="cl2 p-b-20 theme_color cart-main-font cart-title-border">관리자페이지</h2>
 
 		<!-- MyPage List -->
 	<div class="wrapper tabled">
@@ -90,7 +91,7 @@
       	<p>
       	   <div class="link-1">
         <a href="insertMarket.master">
-          <span class="thin link-1-color">Market </span><span class="thick link-1-color">Regist</span>
+          <span class="thin link-1-color">Market</span><span class="thick link-1-color">Regist</span>
         </a>  
       </div>
       	<p>

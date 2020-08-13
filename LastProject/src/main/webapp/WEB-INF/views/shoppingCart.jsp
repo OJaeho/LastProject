@@ -243,7 +243,7 @@
 									<fmt:formatNumber value="${total}" type="number" var="numberType"/>
 									<input type="hidden" value="${total}" id="smto">
 									<span id="totalspan" style="font-weight: 900;
-												font-size: 18px;
+												font-size: 23px;
 												margin: 0 0 0 auto;
 												text-align: right;">
 									${numberType}원
@@ -261,11 +261,13 @@
 						<div class="flex-w flex-t p-t-16 cart-right">
 							<form action="payment.user" style="padding: 0 5px;">
 								<input type="hidden" id="boxValue" name="boxValue">
-								<input type="submit" id="payBtn" value="결제" class="join-btn flex-c-m cl0 size-121 bg3 p-lr-15 trans-04 pointer">
+								<input type="submit" id="payBtn" value="결제" style="font-size: 15px; font-weight: 700;" 
+								class="join-btn flex-c-m cl0 size-121 bg3 p-lr-15 trans-04 pointer">
 								<br/>
 							</form>
 							 <a href="getproduct.user">
-							 <button class="join-btn flex-c-m cl0 size-121 bg3 p-lr-15 trans-04 pointer">
+							 <button class="join-btn flex-c-m cl0 size-121 bg3 p-lr-15 trans-04 pointer"
+							 style="font-size: 15px; font-weight: 700;">
 									쇼핑 계속하기
 							</button>
 							</a>

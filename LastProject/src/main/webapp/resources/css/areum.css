@@ -267,10 +267,10 @@ a {
 }
 
 .tf_required {
-    display: block;
-    font-size: 12px;
-    color: #000;
-    font-weight: normal;
+	display: block;
+    font-size: 18px;
+    color: #009a45;
+    font-weight: 700;
     margin-top: 40px;
 }
 
@@ -784,7 +784,7 @@ body{
     position: relative;
     /* padding: 0 10px 0 8px; */
     /* border-bottom: 1px solid #e9ecef; */
-/*     font-size: 12px; */
+    font-size: 22px;
     color: #222;
     line-height: 19px;
     text-align: center;
@@ -943,7 +943,7 @@ div > p #mangwon{
 	height: 58px;
     line-height: 20px;
     text-align: right;
-    font-size: 17px;
+    font-size: 22px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -961,7 +961,7 @@ div > p #mangwon{
 #cart-name > a {
 	color: black !important;
     font-weight: 700 !important;
-    font-size: 17px;
+    font-size: 23px;
 }
 
 .cart-li-border-left{
@@ -1019,6 +1019,7 @@ div > p #mangwon{
     padding: 10px 5px 10px 10px;
     border-top: 1px solid #ccc;
     font-weight: normal;
+    font-size: 20px;
 }
 
 caption {
@@ -1076,8 +1077,8 @@ caption {
 }
 
 .order-title{
-	color: #494949;
-    font-size: larger;
+	color: #009a45;
+    font-size: xx-large;
     font-weight: 800;
 }
 
