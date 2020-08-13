@@ -90,12 +90,12 @@ select * from product where pCOunt = 0 and sid=#{sId}
 
 <!-- 최신 준비중 리스트 -->
 <select id="getRecentOrderList" parameterType="string" resultType="hashmap">
-select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype='준비중' and sid=#{sId}
+select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype='준비중' and sid=#{sId} order by paydate desc
 </select>
 
 <!-- 준비중 외의 SaleList -->
 <select id="getSaleList" parameterType="hashmap" resultType="hashmap">
- <![CDATA[select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype <>'준비중' and sid=#{sId} and no> #{no}]]>
+ <![CDATA[select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype <>'준비중' and sid=#{sId} and no> #{no} order by paydate desc]]>
 </select>
 
 <!-- 준비완료 업데이트 -->
@@ -112,4 +112,29 @@ select * from market where username = #{username}
 <select id="StoreList" parameterType="hashmap" resultType="hashmap">
  <![CDATA[select * from (select rownum no,s.* from store s where s.mkid = #{mkId}) hello where hello.no > #{no} ]]>
 </select>
+
+<!-- 상점 프로필 : 상점, 회원 정보 출력 id로 -->
+<select id="getStoreMemberbyId" parameterType="string" resultType="hashmap">
+select * from store s inner join users u on u.username = s.username where u.username=#{id}
+
+</select>
+
+<!-- 상점 프로필 수정 -->
+<update id="updateStore" parameterType="store">
+<![CDATA[
+      	UPDATE store
+      	SET sDetail=#{sDetail}, sTel=#{sTel}  ,sTime=#{sTime} ,sImg1=#{sImg1}, sImg3=#{sImg3}     	
+      	where username=#{userName}
+      	]]>     
+
+</update>
+
+<!-- 상점 회원 프로필 수정 -->
+<update id="updateUsers" parameterType="users">
+<![CDATA[ 
+      	UPDATE users
+      	SET mTel=#{mTel} ,mEmail=#{mEmail}
+      	where username=#{userName}
+      	]]> 
+</update>
 </mapper>

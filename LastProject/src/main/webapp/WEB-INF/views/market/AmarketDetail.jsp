@@ -171,7 +171,7 @@
 				<div>
 					<strong class="tf_required">시장명</strong>
 					<div class="divlist">
-						<input type="text"  disabled='disabled' name="mkName" id="mkName"
+						<input type="text" name="mkName" id="mkName"
 							class="lab_placeholder" value="${market.mkName}" required="">
 						<span id="idCheckResult" style="width: 150px; color: red"></span>
 					</div>
@@ -179,14 +179,14 @@
 				<div>
 					<strong class="tf_required">시장대표</strong>
 					<div class="divlist">
-						<input type="text" disabled='disabled' name="mkOwner" id="mkOwner"
+						<input type="text" name="mkOwner" id="mkOwner"
 							class="lab_placeholder" value="${market.mkOwner}" required="">						
 					</div>
 				</div>
 				<div>
 					<strong class="tf_required">시장주소</strong>
 					<div class="divlist">
-						<input type="text"  disabled='disabled' name="mkAddr" id="mkAddr"
+						<input type="text" name="mkAddr" id="mkAddr"
 							class="lab_placeholder" value="${market.mkAddr}" required="">
 											</div>
 				</div>
@@ -194,7 +194,7 @@
 					<strong class="tf_required">시장전화번호</strong>
 					<div class="divlist">
 						<input  value="${market.mkTel}" 
-							class="lab_placeholder"  type="text" name="mkTel" id="mkTel" required="">
+							class="lab_placeholder" type="text" name="mkTel" id="mkTel" required="">
 						<span id="telCheckResult" style="width: 150px; color: red"></span>
 					</div>
 				</div>
@@ -202,7 +202,7 @@
 				<div>
 					<strong class="tf_required">상점 보유수</strong>
 					<div class="divlist">
-						<input type="text"  name="mkCount" id="mkCount"
+						<input type="text" name="mkCount" id="mkCount"
 							class="lab_placeholder" value="${market.mkCount}" required=""> 
 					</div>
 				</div>
@@ -232,21 +232,21 @@
 				<div>
 					<strong class="tf_required">지역구분</strong>
 					<div class="divlist">
-						<input type="text" disabled='disabled' name="mkLocal" id="mkLocal"
+						<input type="text" name="mkLocal" id="mkLocal"
 							class="lab_placeholder"
 							value="${market.mkLocal}" required=""> 
 				</div>
 				<div>
 					<strong class="tf_required">시장 위도</strong>
 					<div class="divlist">
-						<input type="text" disabled='disabled' name="mkLat" id="mkLat" class="lab_placeholder"
+						<input type="text" name="mkLat" id="mkLat" class="lab_placeholder"
 							value="${market.mkLat}" required=""> 
 					</div>
 				</div>
 				<div>
 					<strong class="tf_required">시장 경도</strong>
 					<div class="divlist">
-						<input type="text" disabled='disabled' name="mkLong" id="mkLong" class="lab_placeholder"s
+						<input type="text" name="mkLong" id="mkLong" class="lab_placeholder"s
 							value="${market.mkLong}" required=""> 
 					</div>
 				</div>
@@ -254,7 +254,7 @@
 					<strong class="tf_required">시장 오픈일자</strong>
 					<div class="divlist">
 						<div class="divlist">
-							<input type="text" disabled='disabled' name="mkDate" id="mkDate"
+							<input type="text" name="mkDate" id="mkDate"
 								class="lab_placeholder" value="${market.mkDate}" required=""> 
 						</div>
 					</div>
@@ -273,6 +273,8 @@
 					<div class="divlist">
 						<input type="submit" value="정보수정" class="updateMarket" name="updateMarket"
 							onclick="javascript: form.action='updateMarket.market';" /> 
+						<input type="submit" value="정보삭제" class="deleteMarket" name="deleteMarket"
+							onclick="javascript: form.action='deleteMarket.master';" />
 					</div>
 				</div>
 			</form>
@@ -407,3 +409,4 @@
 	<script src="./resources/js/main.js"></script>
 </body>
 </html>
+

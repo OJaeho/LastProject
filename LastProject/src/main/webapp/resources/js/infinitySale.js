@@ -26,7 +26,6 @@ let isEnd = false;
         // renderList 함수에서 html 코드를 보면 <li> 태그에 data-no 속성이 있는 것을 알 수 있다.
         // ajax에서는 data- 속성의 값을 가져오기 위해 data() 함수를 제공.
         let startNo = $("#list_Sale tr").last().data("no") || 0;
-        alert(startNo);
         $.ajax({
             url:"saleListJson.seller?no="+startNo ,
             type: "GET",

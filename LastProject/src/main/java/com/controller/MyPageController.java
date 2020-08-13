@@ -19,6 +19,7 @@ import com.vo.MypageVO;
 import com.vo.PayVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
+import com.vo.UsersVO;
 
 @Controller
 public class MyPageController {
@@ -50,7 +51,8 @@ public class MyPageController {
 
    // 시스템 관리자 마이페이지
    @RequestMapping("/Amypage.master")
-   public String Amypage() {
+   public String Amypage(Model model) {
+	      model.addAttribute("list", con.selectFooter()); // footer처리
       return "mypage/Amypage";
    }
 
@@ -60,6 +62,9 @@ public class MyPageController {
 	   //로그인한 시장 id의 시장 정보 가져오기
 	   String mkName=service.getMarketById(String.valueOf(request.getRemoteUser())).getMkName();
 	   model.addAttribute("mkName", mkName);
+	   model.addAttribute("list", con.selectFooter()); // footer처리
+
+	   
       return "mypage/Mmypage";
    }
 
@@ -67,12 +72,16 @@ public class MyPageController {
    @RequestMapping("/Smypage.seller")
    public String Smypage(HttpServletRequest request,Model model) {
       model.addAttribute("store", service.getStoreById(request.getRemoteUser()));
+      model.addAttribute("list", con.selectFooter()); // footer처리
+
       return "mypage/Smypage";
    }
 
    // user 마이페이지
    @RequestMapping("/Umypage.user")
-   public String Umypage() {
+   public String Umypage(Model model) {
+	      model.addAttribute("list", con.selectFooter()); // footer처리
+
       return "mypage/Umypage";
    }
 
@@ -183,10 +192,7 @@ public class MyPageController {
    @RequestMapping("DeleteSell.seller")
    public String DeleteSell(String pId,Model model,HttpServletRequest request) {
       mypageDao.deleteProduct(pId);
-      model.addAttribute("list", con.selectFooter()); // footer처리
-      //sId 구하기
-      StoreVO imsivo= service.getStoreById(request.getRemoteUser());
-      return "redirect:/SellList.seller?sId="+imsivo.getsId();
+      return "삭제가 되었습니다.";
    }
    
    // 판매목록 리스트 가져오기
@@ -242,4 +248,30 @@ public class MyPageController {
 	   return service.getStoreListJson(String.valueOf(imsivo.getMkId()),no);
    }
    
+	//market mypage management로 이동
+	@RequestMapping("/moveManagement.market")
+	public String moveManagement() {
+		
+		return "mypage/Management";
+	}
+	
+	//Store Profile로 이동
+	@RequestMapping("/moveStoreProfile.seller")
+	public String moveStoreProfile(Model model,HttpServletRequest request) {
+		//아이디로 상점 정보랑  회원정보 가져오기
+		model.addAttribute("store", service.getStoreMemberbyId(request.getRemoteUser()) );
+		
+		return "mypage/StoreProfile";
+	}
+	@RequestMapping("/sellerProfileUpdate.seller")
+	public String sellerProfileUpdate(StoreVO svo,UsersVO uvo,HttpServletRequest request) {
+		svo.setUserName(request.getRemoteUser());
+		uvo.setUserName(request.getRemoteUser());
+		
+		//업데이트 호출
+		service.sellerProfileUpdate(svo,uvo);
+		
+		return "redirect:/moveStoreProfile.seller";
+	}
+
 }

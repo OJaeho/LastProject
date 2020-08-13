@@ -13,6 +13,7 @@ $(document).ready(function(){
 			data: "payId="+payId,
 			success : function(resultData){
 				alert(payId+"번 상품 준비가 완료되었습니다."); 
+				window.location.reload()
 			} 
 		});  
        
