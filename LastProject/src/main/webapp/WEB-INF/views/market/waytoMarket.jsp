@@ -77,7 +77,7 @@
 		<div class="container">
 			<div class="row p-b-148">
 				<div class="col-md-7 col-lg-8">
-					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+					<div class="p-t-7 p-r-15-lg p-r-0-md">
 						<h3 class="cl2 p-b-16 theme_color news-underbar"
 							style="font-size: 27px; font-weight: bold; padding-top: 20px;">오시는 길</h3>
 							<a style="padding-left: 90%" href="https://map.kakao.com/link/search/${intro.mkaddr}"	target="_blank"><img style="width: 45px; height: 45px;" src="./resources/images/icons/unnamed.png" class="scale" />
