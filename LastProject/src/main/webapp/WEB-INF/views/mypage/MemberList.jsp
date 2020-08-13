@@ -55,7 +55,7 @@
 <link rel="stylesheet" type="text/css" href="./resources/css/hover.css">
 <link rel="stylesheet" href="./resources/css/bootstrap.css">
 <!--===============================================================================================-->
-
+<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
 <!-- Bootstrap -->
 <link
@@ -139,7 +139,7 @@
 			<c:forEach items="${memberget}" var="member">
 				<tr>
 					<td style="border: solid 1px lightgrey; padding: 5px;">
-					<a href="memberdetail.market?userName=${member.userName}" style="font-size: 15px;color: #009a45;">
+					<a href="memberdetail2.user?userName=${member.userName}" style="font-size: 15px;color: #009a45;">
 					${member.userName}</a>
 					</td>
 					<td style="border: solid 1px lightgrey; padding: 5px;">${member.mName}</td>
@@ -160,7 +160,7 @@
 
 	<!-- 유효성 체크  -->
 	<!--===============================================================================================-->
-	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+
 	<!--===============================================================================================-->
 	<script src="./resources/vendor/animsition/js/animsition.min.js"></script>
 	<!--===============================================================================================-->

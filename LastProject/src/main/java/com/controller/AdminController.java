@@ -97,7 +97,7 @@ public class AdminController {
 	@RequestMapping(value = "/updateuser.user")
 	public String updateuser(Model model, UsersVO uvo, HttpSession session, HttpServletRequest request) {
 			service.updateuser(uvo); 
-		return "redirect:/membergetpage.market";
+		return "redirect:/memberdetail2.user?userName="+uvo.getUserName();
 	}
 	// 고객 삭제
 	@RequestMapping(value = "/deleteuser.market")

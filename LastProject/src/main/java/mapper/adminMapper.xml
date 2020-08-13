@@ -78,7 +78,7 @@
 
 	<update id="updateuser" parameterType="users">
 		UPDATE users SET
-		password=#{Password},mname=#{mName},maddr=#{addr},mtel=#{mTel},memail=#{mEmail}
+		password=#{Password},mname=#{mName},maddr=#{mAddr},mtel=#{mTel},memail=#{mEmail}
 		WHERE username=#{userName}
 	</update>
 	

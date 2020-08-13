@@ -84,7 +84,9 @@ public class UsersVO {
 		this.mTel = mTel;
 	}
 	public String getmAddr() {
+		if (getAddr() !=null) {
 		setmAddr();
+		}
 		return mAddr;
 	}
 	public void setmAddr() {
