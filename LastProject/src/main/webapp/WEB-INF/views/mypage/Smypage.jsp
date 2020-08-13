@@ -77,7 +77,7 @@
     <div class="middled">
 
       <div class="link-1">
-        <a href="#">
+        <a href="moveStoreProfile.seller">
           <span class="thin link-1-color">Pro</span><span class="thick link-1-color">file</span>
         </a>  
       </div>
@@ -95,8 +95,8 @@
       </div>
       	<p>
       <div class="link-1">
-        <a href="#">
-          <span class="thin link-1-color">C</span><span class="thick link-1-color">hart</span>
+        <a href="insertproduct.seller">
+          <span class="thin link-1-color">Product </span><span class="thick link-1-color">Regist</span>
         </a>  
       </div>
       

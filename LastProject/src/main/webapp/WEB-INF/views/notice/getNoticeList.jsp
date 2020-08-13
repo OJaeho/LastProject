@@ -122,7 +122,7 @@
 
 					<hr />
 				</div>
-
+				<sec:authorize access="hasRole('ROLE_MARKET')">
 				<div class="div-right">
 					<div>
 						<span> <a class="btnqna btn_qna qna_hover"
@@ -130,6 +130,7 @@
 						</span>
 					</div>
 				</div>
+				</sec:authorize>
 				<br />
 
 				<div class="text-center-page">

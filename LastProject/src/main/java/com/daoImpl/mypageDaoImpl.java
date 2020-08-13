@@ -15,6 +15,7 @@ import com.vo.PayVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
+import com.vo.UsersVO;
 
 @Repository("mypagedao")
 public class mypageDaoImpl implements mypageDao {
@@ -132,6 +133,17 @@ public List<HashMap> getStoreListJson(String mkId, String no) {
 	m.put("mkId",mkId);
 	m.put("no",no);
 	return mybatis.selectList("mypageMapper.StoreList",m);
+}
+
+@Override
+public HashMap getStoreMemberbyId(String id) {
+	return mybatis.selectOne("mypageMapper.getStoreMemberbyId",id);
+}
+
+@Override
+public int sellerProfileUpdate(StoreVO svo, UsersVO uvo) {
+	mybatis.update("mypageMapper.updateStore",svo);
+	return mybatis.update("mypageMapper.updateUsers",uvo);
 }
 
 }

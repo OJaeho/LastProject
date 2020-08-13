@@ -77,14 +77,14 @@
     <div class="middled">
 
       <div class="link-1">
-        <a href="#">
+        <a href="marketDetail.market">
           <span class="thin link-1-color">pro</span><span class="thick link-1-color">file</span>
         </a>  
       </div>
 		<p>
       <div class="link-1">
-        <a href="#">
-          <span class="thin link-1-color">Post </span><span class="thick link-1-color">Management</span>
+        <a href="moveManagement.market">
+          <span class="thin link-1-color">Manage</span><span class="thick link-1-color">ment</span>
         </a>  
       </div>
       	<p>
@@ -94,11 +94,11 @@
         </a>  
       </div>
       	<p>
-      <div class="link-1">
-        <a href="moveUChart.user">
-          <span class="thin link-1-color">C</span><span class="thick link-1-color">hart</span>
-        </a>  
-      </div>
+<!--       <div class="link-1"> -->
+<!--         <a href="moveUChart.user"> -->
+<!--           <span class="thin link-1-color">C</span><span class="thick link-1-color">hart</span> -->
+<!--         </a>   -->
+<!--       </div> -->
       
      </div>
     </div>

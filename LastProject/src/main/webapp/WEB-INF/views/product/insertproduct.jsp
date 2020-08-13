@@ -93,7 +93,7 @@
 					</tr>
 					<tr>
 						<th scope="row"><label style="width: 100px;" for="tName"
-							class="font-black">가격</label><span id="optionCheckResult">ddd</span></th>
+							class="font-black">가격</label><span id="optionCheckResult"></span></th>
 						<td><input type="text" name="priceOption" id="priceOption"
 							class="input_txt _isRequiredArea"
 							placeholder="ex) 10000/18000/23000" data-required="true"

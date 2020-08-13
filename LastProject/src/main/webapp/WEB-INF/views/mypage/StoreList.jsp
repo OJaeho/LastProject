@@ -90,7 +90,13 @@
                </table>
                <hr />
             </div>
-
+<div class="div-right">
+					<div>
+						<span> <a class="btnqna btn_qna qna_hover"
+							href="insertstore.market">상점 등록</a>
+						</span>
+					</div>
+				</div>
             </div>
 
  </section>

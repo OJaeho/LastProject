@@ -752,6 +752,7 @@ body{
 .table_cell {
     line-height: 48px;
     text-align: center;
+    font-size: 20px;
 }
 
 .table_row{
@@ -783,7 +784,7 @@ body{
     position: relative;
     /* padding: 0 10px 0 8px; */
     /* border-bottom: 1px solid #e9ecef; */
-    font-size: 12px;
+/*     font-size: 12px; */
     color: #222;
     line-height: 19px;
     text-align: center;
@@ -942,7 +943,7 @@ div > p #mangwon{
 	height: 58px;
     line-height: 20px;
     text-align: right;
-    font-size: 12px;
+    font-size: 17px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -960,6 +961,7 @@ div > p #mangwon{
 #cart-name > a {
 	color: black !important;
     font-weight: 700 !important;
+    font-size: 17px;
 }
 
 .cart-li-border-left{

@@ -58,18 +58,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <!--===============================================================================================-->
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#summernote').summernote({
-			height : 300, // 에디터 높이
-			minHeight : null, // 최소 높이
-			maxHeight : null, // 최대 높이
-			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
-			lang : "ko-KR", // 한글 설정
-			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder
-		});
-	});
-</script>
+<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!-- post검색--------------------------------------------------------------------------------------------------------------------------  -->
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -598,7 +587,7 @@
 
 		<!-- 유효성 체크  -->
 		<!--===============================================================================================-->
-		<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+		
 		<!--===============================================================================================-->
 		<script src="./resources/vendor/animsition/js/animsition.min.js"></script>
 		<!--===============================================================================================-->

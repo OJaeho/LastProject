@@ -272,7 +272,7 @@ public class marketController {
 	
 		
 	// 5_4. 마이페이지에서 시장정보조회 버튼 클릭 시 화면에 정보 조회
-	@RequestMapping(value = "/marketDetail.master", method = RequestMethod.GET)
+	@RequestMapping(value = "/marketDetail.market", method = RequestMethod.GET)
 	public String marketDetail(MarketVO vo, HttpServletRequest request, HttpSession session, Model model) {	
 		// 풋터 '전국시장' 셀렉트함수 호출
 		model.addAttribute("list", selectFooter());
@@ -292,8 +292,26 @@ public class marketController {
 		return  "market/marketDetail";
 	}	
 	
+	// 5_4.Admin 전용 마이페이지에서 시장정보조회 버튼 클릭 시 화면에 정보 조회
+		@RequestMapping(value = "/marketDetail.master", method = RequestMethod.GET)
+		public String AmarketDetail(MarketVO vo, HttpServletRequest request, HttpSession session, Model model) {	
+			// 풋터 '전국시장' 셀렉트함수 호출
+			model.addAttribute("list", selectFooter());
+
+			
+			// 시장소개 메뉴_DB에서 시장정보 가져옴
+			MarketVO vo1 = service.introMarket(vo);
+								
+			// 날짜형태를 yyyy-MM-dd 형태로 자름
+			vo1.setMkDate(vo1.getMkDate().substring(0, 11));
+									
+			model.addAttribute("market", vo1);
+						
+			return  "market/AmarketDetail";
+		}	
+	
 	// 5_5. 시장페이지에서 정보 수정 버튼 클릭 시 화면에 정보 수정
-	@RequestMapping(value = "/updateMarket.master", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateMarket.market", method = RequestMethod.GET)
 	public String updateMarket(MarketVO vo, HttpServletRequest request, HttpSession session, Model model) {	
 			// 풋터 '전국시장' 셀렉트함수 호출
 			model.addAttribute("list", selectFooter());
@@ -306,7 +324,7 @@ public class marketController {
 			
 			model.addAttribute("message",message);
 					
-			return  "redirect:/marketDetail.master";
+			return  "redirect:/introMarket.user";
 		}
 	
 	// 5_6. 시장페이지에서 삭제 버튼 클릭 시 화면에 정보 수정

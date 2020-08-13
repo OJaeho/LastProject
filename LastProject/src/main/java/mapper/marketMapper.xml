@@ -73,11 +73,20 @@
       	]]>     
   	</select>
   	
-  	 <!-- 시장페이지에서 시장정보 수정 -->
-	<update id="updateMarket" parameterType="market" >
+  	 <!-- Admin 시장페이지에서 시장정보 수정 -->
+	<update id="AupdateMarket" parameterType="market" >
       	<![CDATA[
       	UPDATE market
       	SET mkname=#{mkName}, mkowner=#{mkOwner}, mkaddr=#{mkAddr}, mktel=#{mkTel}, mkcount=#{mkCount}, mkimg1=#{mkImg1},mkimg2=#{mkImg2},mkjido=#{mkJido},mklocal=#{mkLocal},mklat=#{mkLat},mklong=#{mkLong},mkdate=#{mkDate},mkintro=#{mkIntro}      	
+      	where mkid=#{mkId} and delyn='N'
+      	]]>     
+  	</update>
+  	
+  	<!-- 시장페이지에서 시장정보 수정 -->
+	<update id="updateMarket" parameterType="market" >
+      	<![CDATA[
+      	UPDATE market
+      	SET    mktel=#{mkTel}, mkcount=#{mkCount}, mkimg1=#{mkImg1},mkimg2=#{mkImg2},mkjido=#{mkJido},mkintro=#{mkIntro}      	
       	where mkid=#{mkId} and delyn='N'
       	]]>     
   	</update>

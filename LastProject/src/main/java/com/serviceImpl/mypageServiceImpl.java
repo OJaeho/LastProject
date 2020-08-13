@@ -18,6 +18,7 @@ import com.vo.PayVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
+import com.vo.UsersVO;
 
 @Service("mypageService")
 public class mypageServiceImpl implements mypageService {
@@ -285,6 +286,16 @@ public class mypageServiceImpl implements mypageService {
 		}
 		all.put("data", data);
 		return all;
+	}
+
+	@Override
+	public HashMap getStoreMemberbyId(String id) {
+		return mypageDao.getStoreMemberbyId(id);
+	}
+
+	@Override
+	public int sellerProfileUpdate(StoreVO svo, UsersVO uvo) {
+		return mypageDao.sellerProfileUpdate(svo,uvo);
 	}
 
 }

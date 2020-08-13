@@ -83,22 +83,25 @@
       </div>
 		<p>
       <div class="link-1">
+        <a href="moveManagement.market">
+          <span class="thin link-1-color">Manage</span><span class="thick link-1-color">ment</span>
+        </a>  
+      </div>
+      	<p>
+      	   <div class="link-1">
+        <a href="insertMarket.master">
+          <span class="thin link-1-color">Market </span><span class="thick link-1-color">Regist</span>
+        </a>  
+      </div>
+      	<p>
+      	  <div class="link-1">
         <a href="marketDetail.master">
-          <span class="thin link-1-color">Or</span><span class="thick link-1-color">der</span>
+          <span class="thin link-1-color">imsi </span><span class="thick link-1-color">Regist</span>
         </a>  
       </div>
       	<p>
-      <div class="link-1">
-        <a href="reviewList.user">
-          <span class="thin link-1-color">re</span><span class="thick link-1-color">view</span>
-        </a>  
-      </div>
-      	<p>
-      <div class="link-1">
-        <a href="moveUChart.user">
-          <span class="thin link-1-color">C</span><span class="thick link-1-color">hart</span>
-        </a>  
-      </div>
+      	
+      	
       
      </div>
     </div>

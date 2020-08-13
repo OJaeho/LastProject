@@ -10,6 +10,7 @@ import com.vo.PayVO;
 import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
+import com.vo.UsersVO;
 
 public interface mypageDao {
    
@@ -29,6 +30,8 @@ public interface mypageDao {
    public List<HashMap> getRecentOrderList(String sId);
    public List<HashMap> getSaleListTypeJson(String sId,String no);
    public int readyOrder(PayVO vo);
+   public HashMap getStoreMemberbyId(String id);
+   public int sellerProfileUpdate(StoreVO svo,UsersVO uvo);
    //market 마이페이지
    public MarketVO getMarketById(String id);
    public List<HashMap> getStoreListJson(String mkId,String no);

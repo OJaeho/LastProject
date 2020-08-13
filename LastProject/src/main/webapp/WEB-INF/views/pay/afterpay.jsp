@@ -4,6 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,8 +73,9 @@
 	<section class="bg0 p-t-75 p-b-120">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-lg-9 p-b-80" style="margin: 0 auto;">
-					<div class="p-r-0-lg">
+				<div class="col-md-8 col-lg-9 p-b-80">
+					<div class="p-r-0-lg"
+					style="width: 150%">
 						<h2 style="margin-top: 40px;"
 							class="cl2 p-b-20 theme_color cart-main-font cart-title-border">ORDER
 							LIST</h2>
@@ -95,27 +97,29 @@
 											<td class="cart_table_line-01" style="padding: 0; border-left: 0px; border-right: 0px;">
 												<div class="product_item_wrap" style="padding: 10px;">
 													<div class="product_item--price">
-														<div class="product_item--price" style="font-size: 15px;">
+														<div class="product_item--price" style="font-size: 18px;">
 														<span class="payStoreName">${list.payContent}</span>
 													</div>
+												</div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap" style="padding: 10px;">
-													<div class="product_item--price" style="font-size: 15px;">
+													<div class="product_item--price" style="font-size: 18px;">
 													<span class="count">${list.payCount}</span></div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap" style="padding: 10px;">
 												<fmt:formatNumber value="${list.payTotal}" type="number" var="payTotal"/>
-													<div class="product_item--price" style="font-size: 15px;">
-													<span class="sm_total">${list.payTotal}</span></div>
+													<div class="product_item--price" style="font-size: 18px;">
+													<span class="sm_total">${list.payTotal}원</span>
+													</div>
 												</div>
 											</td>
 											<td class="cart_table_line-01" style="padding: 0;">
 												<div class="product_item_wrap" style="padding: 10px;">
-													<div class="product_item--price" style="font-size: 15px;">
+													<div class="product_item--price" style="font-size: 18px;">
 													<span class="paystate">${list.payState}</span></div>
 												</div>
 											</td>
@@ -139,19 +143,19 @@
 												<tr>
 													<th scope="row">주문자 성함</th>
 													<td><label
-														style="border: 1px solid #eee; border-radius: 2px; padding: 5px;">
+														style="padding: 5px;">
 															${user.userName} </label></td>
 												</tr>
 												<tr>
 													<th scope="row">주소</th>
 													<td><label
-														style="border: 1px solid #eee; border-radius: 2px; padding: 5px;">
+														style="padding: 5px;">
 															${user.payAddr} </label></td>
 												</tr>
 												<tr>
 													<th scope="row">연락처</th>
 													<td><label
-														style="border: 1px solid #eee; border-radius: 2px; padding: 5px;">
+														style="padding: 5px;">
 															${user.payTel} </label></td>
 												</tr>
 											</c:forEach>
@@ -162,18 +166,21 @@
 							</div>
 							<!-- 결제 예정 금액 -->
 							<div class="title">
-								<h3>결제 예정 금액</h3>
+								<h3 class="order-title">결제 예정 금액</h3>
 							</div>
 							<div class="totalArea">
 								<div class="">
 									<table style="margin: 0 auto; width: 100%;">
 										<thead style="background: #f7f7f7;">
 											<tr>
-												<th scope="col" style="text-align: center; padding: 20px">
+												<th scope="col" style="text-align: center; padding: 20px;
+												    border-bottom: 1px solid #c9c9c9;
+												    border-right: 1px solid #eee;">
 													<strong>총 주문 금액</strong>
 												</th>
-												<th scope="col" style="text-align: center; padding: 20px">
-													<strong>${getorderprice}</strong> 
+												<th scope="col" style="text-align: center; padding: 20px;
+												    border-bottom: 1px solid #c9c9c9;">
+													<strong>${getorderprice}원</strong> 
 												</th>
 											</tr>
 										</thead>
