@@ -6,11 +6,14 @@
 <meta charset="UTF-8">
 <title>에러페이지</title>
 <style>
-body{
-background-image: url('404error.png');
-}
 </style>
 </head>
 <body>
+<div style="background-color: #fafafa;">
+<center>
+<img src="./resources/images/404error.png" style="width: 100%; max-width: 1280px; height: auto;
+background-color: #ㅊ;">
+</center>
+</div>
 </body>
 </html>
