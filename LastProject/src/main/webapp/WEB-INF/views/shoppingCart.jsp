@@ -129,25 +129,26 @@
 	<section class="bg0 p-t-52 p-b-20">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-lg-9 p-b-80" style="margin: 0 auto;">
-					<div class="p-r-45 p-r-0-lg">
+				<div class="col-md-8 col-lg-9 p-b-80">
+					<div class="p-r-45 p-r-0-lg"
+					style="width: 150%;">
 
 						<h2 style="margin-top: 40px;"
 							class="cl2 p-b-20 theme_color cart-main-font cart-title-border">SHOPPING CART</h2>
 						
 						<div class="container">
 							<div class="row" id="tour">
-								<ul class="nav nav-tabs" style="margin-left: 20%;">
+								<ul class="nav nav-tabs" style="margin: 0 auto;">
 									<li role="presentation" style="font-size: x-large;"
 										class="navLi">
-										<a href="shopping.checking">전체상품 보기</a>
+										<a href="shopping.checking" style="font-weight: 700;">전체상품 보기</a>
 									</li>
 									<li role="presentation" style="font-size: x-large;"
-										class="navLi"><a href="shopping.checking?bState=픽업">포장예약상품
+										class="navLi"><a href="shopping.checking?bState=픽업" style="font-weight: 700;">포장예약상품
 											보기</a>
 									</li>
 									<li role="presentation" style="font-size: x-large;"
-										class="navLi"><a href="shopping.checking?bState=배송">배송상품
+										class="navLi"><a href="shopping.checking?bState=배송" style="font-weight: 700;">배송상품
 											보기</a>
 									</li>
 								</ul>
@@ -242,7 +243,7 @@
 									<fmt:formatNumber value="${total}" type="number" var="numberType"/>
 									<input type="hidden" value="${total}" id="smto">
 									<span id="totalspan" style="font-weight: 900;
-												font-size: 15px;
+												font-size: 18px;
 												margin: 0 0 0 auto;
 												text-align: right;">
 									${numberType}원

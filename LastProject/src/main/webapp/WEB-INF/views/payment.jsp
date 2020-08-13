@@ -70,8 +70,9 @@
 	<section class="bg0 p-t-75 p-b-120">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-lg-9 p-b-80" style="margin: 0 auto;">
-					<div class="p-r-0-lg">
+				<div class="col-md-8 col-lg-9 p-b-80">
+					<div class="p-r-0-lg"
+					style="width: 150%;">
 						<h2 style="margin-top: 40px;"
 							class="cl2 p-b-20 theme_color cart-main-font cart-title-border">ORDER FORM</h2>
 							
@@ -90,13 +91,14 @@
 								<tbody>
 									<c:forEach items="${result}" var="list">
 										<tr class="table_row">
-											<td class="cart_table_line-02" style="padding: 0;">
+											<td class="cart_table_line-02">
 												<div class="product_desc_wrap--pGO3mDnHCR">
 													<div class="product_description--aMGcm-GMeU" id="cart-name">
-														<span class="product_thumb--39N9M1GjTm"> 
+														<span class="product_thumb--39N9M1GjTm"
+														style="top: 0; left: 30%;"> 
 															<img src="${list.payImg}" class="product_img--mmk3PpY1tk">
 														</span>
-														<a href="product-detail.user?pName=${list.payTitle}&pPrice=${list.payPrice}">
+														<a class="test" href="product-detail.user?pName=${list.payTitle}&pPrice=${list.payPrice}">
 														</a>
 															<input type="hidden" class="ptitle" value="${list.payTitle}">
 															<input type="hidden" class="pid" value="${list.pId}">
