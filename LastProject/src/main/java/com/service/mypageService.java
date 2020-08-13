@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import com.vo.MarketVO;
 import com.vo.MypageVO;
 import com.vo.PayVO;
+import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 import com.vo.UsersVO;
@@ -30,9 +31,11 @@ public interface mypageService {
 	public int readyOrder(PayVO vo);
 	public HashMap getStoreMemberbyId(String id);
 	public int sellerProfileUpdate(StoreVO svo,UsersVO uvo);
+	public void updatePro(ProductVO vo);
+	public ProductVO getProductById(String pId);
 	//Market 마이페이지
 	public MarketVO getMarketById(String id);//해당 아이디의 마켓 정보 가져오기
 	public JSONObject getStoreListJson(String mkId,String no)throws Exception;//storeList 가져오기
-
+	
 	
 }

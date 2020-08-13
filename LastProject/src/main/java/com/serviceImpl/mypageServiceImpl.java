@@ -298,4 +298,15 @@ public class mypageServiceImpl implements mypageService {
 		return mypageDao.sellerProfileUpdate(svo,uvo);
 	}
 
+	@Override
+	public void updatePro(ProductVO vo) {
+		mypageDao.updatePro(vo);		
+	}
+
+	@Override
+	public ProductVO getProductById(String pId) {
+		
+		return mypageDao.getProductById(pId);
+	}
+
 }

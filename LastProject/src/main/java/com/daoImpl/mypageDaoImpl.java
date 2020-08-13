@@ -82,6 +82,7 @@ public class mypageDaoImpl implements mypageDao {
 
    @Override
    public ProductVO getProductById(String pId) {
+	   
       return mybatis.selectOne("mypageMapper.productById",pId); 
    }
    @Override
@@ -144,6 +145,12 @@ public HashMap getStoreMemberbyId(String id) {
 public int sellerProfileUpdate(StoreVO svo, UsersVO uvo) {
 	mybatis.update("mypageMapper.updateStore",svo);
 	return mybatis.update("mypageMapper.updateUsers",uvo);
+}
+
+@Override
+public void updatePro(ProductVO vo) {
+	mybatis.update("mypageMapper.updateProduct", vo);
+	
 }
 
 }

@@ -74,7 +74,9 @@ where no > #{no}
 
 <!-- 상품 Id로 상품 정보 가져가기 -->
 <select id="productById" parameterType="String" resultType="product">
-select * from product where pid=#{pId}
+select p.pname as pName, p.pid as pId, s.sName as sName, p.pImg1 as pImg1, p.pDetail as pDetail, p.pPrice as pPrice, p.pOption1 as pOption1, p.pId as pId, s.sId as sId
+from product p inner join store s on p.sid = s.sid 
+where pid = #{pId}
 </select>
 <!-- 상품 수정하기 -->
 
@@ -136,5 +138,10 @@ select * from store s inner join users u on u.username = s.username where u.user
       	SET mTel=#{mTel} ,mEmail=#{mEmail}
       	where username=#{userName}
       	]]> 
+</update>
+
+<update id = "updateProduct" parameterType="product" >
+	update product set pName = #{pName}, pOption1 = #{pOption1}, pPrice=#{pPrice}, pDetail=#{pDetail}, pCount=#{pCount}
+	where pId = #{pId}
 </update>
 </mapper>
