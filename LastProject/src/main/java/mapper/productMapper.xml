@@ -163,5 +163,10 @@
 		and b.username=#{userName}
 		</if>
 	</select>
+	
+	<!-- 판매자가 판매하는 상점명 가져오기 -->
+   <select id="selectedstore" parameterType="string" resultType="string">
+      select sname from store where delyn='N' and username=#{username}
+   </select>
 
 </mapper>

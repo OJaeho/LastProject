@@ -66,4 +66,7 @@ public interface productService {
 	
 	// 배너 장바구니
 	public List<HashMap<String, Object>> selectcart(BuyVO bvo);
+	
+	
+	public String selectedstore(String username);
 }

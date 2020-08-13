@@ -8,7 +8,7 @@ $(document).ready(function(){
 			alert("비밀번호를 입력해주세요");
 			e.preventDefault();
 		}else{
-			javascript: form.action='updateuser.market';
+			javascript: form.action='updateuser.user';
 		}
 	});
 	$('#deleteuser').click(function(e) {

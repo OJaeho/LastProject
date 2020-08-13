@@ -151,4 +151,8 @@ public class productDaoImpl implements productDao {
 		System.out.println("===> ProductMapper selectcart 호출");
 		return mybatis.selectList("product.selectcart", bvo);
 	}
+	
+	public String selectedstore(String username) {
+	      return mybatis.selectOne("product.selectedstore", username);
+	   }
 }

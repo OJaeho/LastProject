@@ -151,4 +151,9 @@ public class productServiceImpl implements productService {
 		System.out.println("service selectcart");
 		return productDao.selectcart(bvo);
 	}
+
+	@Override
+	   public String selectedstore(String username) {
+	      return productDao.selectedstore(username);
+	   }
 }

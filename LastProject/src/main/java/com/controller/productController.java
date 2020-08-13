@@ -233,6 +233,7 @@ public class productController {
 		model.addAttribute("list", con.selectFooter());
 		List<CategoryVO> category = service.SelectMarket(cvo);
 		model.addAttribute("categoryget", category);
+		
 		return "store/insertstore";
 	}
 
@@ -253,12 +254,15 @@ public class productController {
 
 	// 상품등록 페이지 이동
 	@RequestMapping(value = "/insertproduct.seller", method = RequestMethod.GET)
-	public String InsertProductpage(ProductVO vo,StoreVO svo, Model model,HttpSession session) {
+	public String InsertProductpage(ProductVO vo,StoreVO svo, Model model,HttpSession session,HttpServletRequest req) {
 		int mkId = (int) session.getAttribute("mkId");
 		svo.setMkId(mkId);
 		model.addAttribute("list", con.selectFooter());
 		List<StoreVO> storeinfo = service.StoreInfo(svo);
 		model.addAttribute("storeget", storeinfo);
+	      String username = req.getRemoteUser();
+	      String selstore = service.selectedstore(username);
+	      model.addAttribute("selectedstore", selstore);
 		return "product/insertproduct";
 	}
 

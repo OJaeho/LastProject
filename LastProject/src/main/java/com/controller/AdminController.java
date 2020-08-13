@@ -67,30 +67,34 @@ public class AdminController {
 		return "mypage/MemberList";
 	}
 	// 고객디테일페이지 이동
-	@RequestMapping(value = "/memberdetail.market")
+	@RequestMapping(value = "/memberdetail2.user")
 	public String memberdetail(Model model, String userName, HttpSession session, HttpServletRequest request) {
-		model.addAttribute("list", con.selectFooter());
-		List<Object> auth = service.getauth(userName);
+		String Id = userName;
+		if(Id ==null) {
+			Id=request.getRemoteUser();
+		}
+		model.addAttribute("list", con.selectFooter());//footer
+		List<Object> auth = service.getauth(Id);
 		for (Object a : auth) {
 			
 			if (a.equals("ROLE_MARKET")) {
 				
-				List<HashMap<String, Object>> marketinfo = service.marketinfoget(userName);
+				List<HashMap<String, Object>> marketinfo = service.marketinfoget(Id);
 				model.addAttribute("marketinfoget", marketinfo);
 				return "mypage/MarketDetail";
 			} else if (a.equals("ROLE_SELLER")) {
-				List<HashMap<String, Object>> sellerinfo = service.sellerinfoget(userName);
+				List<HashMap<String, Object>> sellerinfo = service.sellerinfoget(Id);
 				model.addAttribute("sellerinfoget", sellerinfo);
 				return "mypage/SellerDetail";
 			}
 		}
-		List<UsersVO> userinfo = service.userinfoget(userName);
+		List<UsersVO> userinfo = service.userinfoget(Id);
 		model.addAttribute("userinfoget", userinfo);
 		return "mypage/UserDetail";
 	}
 	
 	//고객 수정
-	@RequestMapping(value = "/updateuser.market")
+	@RequestMapping(value = "/updateuser.user")
 	public String updateuser(Model model, UsersVO uvo, HttpSession session, HttpServletRequest request) {
 			service.updateuser(uvo); 
 		return "redirect:/membergetpage.market";

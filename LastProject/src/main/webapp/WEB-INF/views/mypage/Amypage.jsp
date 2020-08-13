@@ -94,12 +94,6 @@
         </a>  
       </div>
       	<p>
-      	  <div class="link-1">
-        <a href="marketDetail.master">
-          <span class="thin link-1-color">imsi </span><span class="thick link-1-color">Regist</span>
-        </a>  
-      </div>
-      	<p>
       	
       	
       
