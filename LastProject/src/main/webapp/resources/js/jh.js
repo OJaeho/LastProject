@@ -261,11 +261,17 @@ $(function() {
 // ---------------------------------------------------------------------
 // 장바구니페이지 에서 체크된 상품들 결제 창으로 넘기기
 	$('#payBtn').click(function(){
-		var str = [];
-		$("input[type=checkbox]:checked").each(function(index) {  
-	       	str.push($(this).parent().prev().val());
-	       	$('#boxValue').val(str);
-	    }); 	   
+		if($(".totalcheck") == false){
+			alert("장바구니에 상품이 없습니다");
+			event.preventDefault();
+		}else{
+			var str = [];
+			$("input[type=checkbox]:checked").each(function(index) {  
+		       	str.push($(this).parent().prev().val());
+		       	$('#boxValue').val(str);
+		    });	
+		}
+		 	   
 	}); 
 //------------- --------------------------
 //payment 체크박스 배송지 주문자정보로 올리기
@@ -386,6 +392,4 @@ function numberWithCommas(x) {
 		}
 		}
 	})
-
-
 });

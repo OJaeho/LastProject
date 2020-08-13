@@ -54,18 +54,18 @@
 					<table class="tour_info">
 						<c:forEach var="item" items="${tourlist}">
 							<tr class="tour_info_tr">
-								<input type="hidden" value="${item.tId}" id="tid"/>
 								<td align="center" class="tour_name">
-								<div id="tour">
-								<a href="tourDetail.do?tId=${item.tId}">${item.tName}</a><br/> 
-								</div>
+									<input type="hidden" value="${item.tId}" id="tid"/>
+									<div id="tour">
+										<a href="tourDetail.user?tId=${item.tId}">${item.tName}</a><br/> 
+									</div>
 									<span class="tour_addr">${item.tAddr}</span><br />
 								</td>
 								<td align="center" class="timg">
 								<c:if test="${authority == 'true'}">
-								<a href="#" class="deleteBtn"><img src="./resources/images/icons/icon-close2.png" ></a>
+								<a class="deleteBtn"><img src="./resources/images/delete_news.png" style="width: 1.5rem; float:right; " ></a>
 								</c:if>
-								<img src="${item.tImg1}" style=" width:300px; height:300px;"/>
+								<img src="${item.tImg1}" style= "width:300px; height:300px;"/>
 								</td>
 							</tr>
 							

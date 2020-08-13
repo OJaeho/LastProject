@@ -58,7 +58,7 @@ public class tourController {
 	}
 	
 	//관광지 디테일 화면
-	@RequestMapping("/tourDetail.do")
+	@RequestMapping("/tourDetail.user")
 	public String tourDetail(TourVO vo, HttpServletRequest request, Model model) {
 		model.addAttribute("list", con.selectFooter());
 		int tid = Integer.parseInt(request.getParameter("tId"));
