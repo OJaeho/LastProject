@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib prefix="c"
-	uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>판매물품  리스트</title>
+   <title>Market Management</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->   
@@ -51,12 +47,13 @@
    rel="stylesheet" type="text/css" />
 </head>
 <body class="animsition">
- <!-- Header -->
+   
+   <!-- Header -->
      <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
       <h2>
-          <img src="./resources/images/logo.png" style="width: 40rem;">
+       	<img src="./resources/images/logo.png" style="width: 40rem;">
       </h2>
    </section>   
 <!-- header끝 -->
@@ -70,59 +67,44 @@
          <div class="col-md-12"></div>
       </div>
 
+      <!-- Main Content -->
 
-<h3>임시 품절</h3>
-   <div class="page_list">
-               <table class="table table-bordered table-hover">
-                  <thead>
-                     <tr>
-                        <th class="mythlist">상품ID</th>
-                        <th class="mythlist">상품명</th>
-                        <th class="mythlist">현재 수량</th>
-                        <th class="mythlist">옵션</th>
-                        <th class="mythlist">판매가격</th>
-                        <th class="mythlist">수정/삭제</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <c:forEach items="${cntZeroProduct }" var="zero">
-                        <tr class="QnA">
-                           <td>${zero.PID }</td>
-                           <td id="#">
-                           <a href="#"> ${zero.PNAME }</a></td>
-                           <td>${zero.PCOUNT }</td>
-                           <td>${zero.POPTION1 }</td>
-                           <td>${zero.PPRICE }</td>
-                           <td><c:if test="${zero.pId eq null }"><input type="button" value="상세 수정" onClick="location.href='MoveModifySell.seller?pId=${product.pId}'">
-                           <input type="button" value="삭제" onClick="location.href='DeleteSell.seller?pId=${zero.PID}'"></c:if></td>
-                        </tr>
-                     </c:forEach>
-                  </tbody>
-               </table>
-               <hr />
-            </div>
+	<h2 style="text-align: center" class="mypage_content_font p-b-40">Management</h2>
 
+		<!-- MyPage List -->
+	<div class="wrapper tabled">
+	  <div class="stage" id="page1">
+    <div class="middled">
+
+      <div class="link-1">
+        <a href="getQnAList.user">
+          <span class="thin link-1-color">Q </span><span class="thick link-1-color">& A</span>
+        </a>  
+      </div>
+		<p>
+      <div class="link-1">
+        <a href="getNoticeList.user">
+          <span class="thin link-1-color">No </span><span class="thick link-1-color">tice</span>
+        </a>  
+      </div>
+      	<p>
+      <div class="link-1">
+        <a href="tourHome.user">
+          <span class="thin link-1-color">T</span><span class="thick link-1-color">our</span>
+        </a>  
+      </div>
+      	<p>
+      <div class="link-1">
+        <a href="marketIssue.user">
+          <span class="thin link-1-color">I</span><span class="thick link-1-color">ssue</span>
+        </a>  
+      </div>
       
-<h3>판매중</h3>
- <div class="page_list">
-               <table class="table table-bordered table-hover">
-                  <thead>
-                     <tr>
-                        <th class="mythlist">상품ID</th>
-                        <th class="mythlist">상품명</th>
-                        <th class="mythlist">현재 수량</th>
-                        <th class="mythlist">옵션</th>
-                        <th class="mythlist">판매가격</th>
-                        <th class="mythlist">수정/삭제</th>
-                     </tr>
-                  </thead>
-                  <tbody id="list_product">
-                  </tbody>
-               </table>
-               <hr />
-            </div>
+     </div>
+    </div>
 
- </section>
+   </div>
+  </section>
  <jsp:include page="/WEB-INF/views/market/footer.jsp" />
 
 <!-- script    -->
@@ -144,9 +126,7 @@
 <!-- <script src='resources/js/jquery.validate.min.js' type="text/javascript"></script> -->
 <script
    src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-<!-- 무한 스크롤 -->
 <script type="text/javascript" src="resources/js/js_userinput.js"></script>
-<script type="text/javascript" src="resources/js/infinity1.js"></script> 
 <!--===============================================================================================-->   
    <script src="./resources/vendor/select2/select2.min.js"></script>
    <script>

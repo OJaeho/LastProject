@@ -188,11 +188,13 @@ public class MyPageController {
       return "";
    }
    
-//   판매 상품 수정
+//   판매 상품 삭제
    @RequestMapping("DeleteSell.seller")
    public String DeleteSell(String pId,Model model,HttpServletRequest request) {
       mypageDao.deleteProduct(pId);
-      return "삭제가 되었습니다.";
+      StoreVO svo=service.getStoreById(request.getRemoteUser());
+      System.out.println(svo.getsId());
+      return "redirect:/ProductList.seller?sId="+svo.getsId();
    }
    
    // 판매목록 리스트 가져오기

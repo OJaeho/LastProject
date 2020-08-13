@@ -1,6 +1,5 @@
 $(document).ready(function(){
-	
-	//아이디 중복체크
+	//준비 완료 버튼 눌렀을 시에
 	$('.readyOrder').click(function(){ 
 		var payId=$(this).next().val();
 		alert(payId);
@@ -17,8 +16,7 @@ $(document).ready(function(){
 			} 
 		});  
        
-	})
-	
+	});
 
 
 });
