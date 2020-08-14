@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib prefix="c"
+<%@ taglib prefix="c"
 	uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,8 +86,8 @@
                         <tr class="QnA">
                            <td>${zero.PID }</td>
                            <td id="#">
-                           <a href="#" style="font-size: 15px;"> ${zero.PNAME }</a></td>
-                           <td>${zero.PCOUNT }</td>
+                           <a href="#" style="font-size: 15px; color: black;"> ${zero.PNAME }</a></td>
+                           <td style="color: red; font-weight: bold;" >${zero.PCOUNT }</td>
                            <td>${zero.POPTION1 }</td>
                            <td>${zero.PPRICE }</td>
                            <td><c:if test="${zero.pId eq null }"><input class="join-btn" type="button" value="상세수정" onClick="location.href='MoveModifySell.seller?pId=${zero.PID}'">
