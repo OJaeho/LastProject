@@ -32,6 +32,7 @@ public interface mypageDao {
    public int readyOrder(PayVO vo);
    public HashMap getStoreMemberbyId(String id);
    public int sellerProfileUpdate(StoreVO svo,UsersVO uvo);
+   public void updatePro(ProductVO vo);
    //market 마이페이지
    public MarketVO getMarketById(String id);
    public List<HashMap> getStoreListJson(String mkId,String no);

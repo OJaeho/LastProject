@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>상품등록</title>
+<title>상품정보 수정</title>
 <!--===============================================================================================-->
 <link rel="icon" type="image/png"
    href="./resources/images/icons/favicon.png" />
@@ -55,38 +55,29 @@
    <section class="bg-img1 txt-center p-lr-15 p-tb-92" id="title_section"
       style="background-image: url('images/bg-01.jpg');">
       <h1 class="tour-title theme_color type_block">
-         <span class="notice_title_bullet them_background"></span> 상품 등록하기
+         <span class="notice_title_bullet them_background"></span> 상품 정보 수정
       </h1>
    </section>
    <!-- header 끝 -->
 
    <div style="text-align: -webkit-center;">
-      <form action="pInsert.seller" method="get" id="frm">
+      <form action="updataProduct.seller" method="get" id="frm">
          <table class="table_type2 type_background" style="width: 600px;">
             <tbody class="inner" data-role="lead_form">
                <tr>
                   <th scope="row"><label style="width: 100px;" for="sName"
-                     class="font-black">상점명</label></th>
-
-
-                  <td><select id="sName" name="sName" style="width: auto;">
-                        
-                        <c:if test="${not empty selectedstore}">
-                        <option selected="selected" value="${selectedstore}">[${selectedstore}]</option>
-                        </c:if>
-                        <c:if test="${empty selectedstore}"> 
-                        <option disabled>---------선택---------</option>
-                        <c:forEach items="${storeget}" var="store">
-                           <option id="storeget" value="${store.sName}">[
-                              ${store.sName} ]</option>
-                        </c:forEach>
-                        </c:if>
-                  </select></td>
+                     class="font-black">상점명</label>
+                  </th>
+                  <td>
+                      <input type="text" name="sName" id="sName" value="${product.sName}"
+                     class="input_txt _isRequiredArea" disabled="disabled"
+                     style="width: 300px">                   
+                  </td>
                </tr>
                <tr>
                   <th scope="row"><label style="width: 100px;" for="tName"
                      class="font-black">상품명</label></th>
-                  <td><input type="text" name="pName" id="pName"
+                  <td><input type="text" name="pName" id="pName" value="${product.pName}"
                      class="input_txt _isRequiredArea" data-required="true"
                      style="width: 300px"></td>
                </tr>
@@ -94,38 +85,40 @@
                   <th scope="row"><label style="width: 100px;" for="tName"
                      class="font-black">옵션</label></th>
                   <td><input type="text" name="pOption1" id="pOption1"
-                     class="input_txt _isRequiredArea" placeholder="ex) 소/중/대"
+                     class="input_txt _isRequiredArea" value="${product.pOption1}"
                      data-required="true" style="width: 300px"></td>
                      
                </tr>
                <tr>
                   <th scope="row"><label style="width: 100px;" for="tName"
                      class="font-black">가격</label><span id="optionCheckResult"></span></th>
-                  <td><input type="text" name="priceOption" id="priceOption"
+                  <td><input type="text" name="pPrice" id="pPrice"
                      class="input_txt _isRequiredArea"
-                     placeholder="ex) 10000/18000/23000" data-required="true"
+                     value="${product.pPrice}" data-required="true"
                      style="width: 300px"></td>
                </tr>
                
                <tr>
                   <th scope="row"><label style="width: 100px;" for="tName"
                      class="font-black">상품설명</label></th>
-                  <td><input type="text" name="pDetail" id="pDetail"
+                  <td><input type="text" name="pDetail" id="pDetail" value="${product.pDetail}"
                      class="input_txt _isRequiredArea" data-required="true"
                      style="width: 300px"></td>
                </tr>
                <tr>
                   <th scope="row"><label style="width: 100px;" for="tName"
-                     class="font-black">상품사진</label></th>
-                  <td><input type="text" placeholder="url을 입력해주세요."
-                     name="pImg1" id="pImg1" class="input_txt _isRequiredArea"
+                     class="font-black">수량</label></th>
+                  <td><input type="text"  value="${product.pCount}"
+                     name="pCount" id="pCount" class="input_txt _isRequiredArea"
                      data-required="true" style="width: 300px"></td>
                </tr>
 
             </tbody>
          </table>
          <div>
-            <input type="submit" value="등록하기" class="btn-addr"
+         	<input type="hidden" value="${product.sId}" name="sId">
+         	<input type="hidden" value="${product.pId}" name="pId">
+            <input type="submit" value="수정하기" class="btn-addr"
                style="margin-right: 38.5%">
          </div>
       </form>

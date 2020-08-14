@@ -269,22 +269,7 @@
 														<hr />
 													</div>
 
-													<div
-														class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
-														<img src="./resources/images/k.jpg" alt="AVATAR">
-													</div>
-
-													<div class="size-207">
-														<div class="flex-w flex-sb-m p-b-17">
-															<span class="mtext-107 cl2 p-r-20">EunJung Park</span> <span
-																class="fs-18 cl11"> <i
-																class="zmdi zmdi-star-half"></i>
-															</span>
-														</div>
-
-														<p class="stext-102 cl6">왜 안오시나요?(시장)</p>
-														<hr />
-													</div>
+													
 
 													<c:forEach items="${reviewget}" var="review">
 														<c:if test="${review.userName ne null}">

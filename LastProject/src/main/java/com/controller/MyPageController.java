@@ -17,6 +17,7 @@ import com.service.mypageService;
 import com.vo.MarketVO;
 import com.vo.MypageVO;
 import com.vo.PayVO;
+import com.vo.ProductVO;
 import com.vo.ReviewVO;
 import com.vo.StoreVO;
 import com.vo.UsersVO;
@@ -172,12 +173,17 @@ public class MyPageController {
    //판매 상품 수정으로 이동
    @RequestMapping("MoveModifySell.seller")
    public String MoveModifySell(String pId,Model model) {
-      model.addAttribute("product",mypageDao.getProductById(pId));
+	model.addAttribute("list", con.selectFooter()); // footer처리
+	model.addAttribute("product",service.getProductById(pId));
     //판매 중이지만 품절된 상품 목록
-      model.addAttribute("list", con.selectFooter()); // footer처리
-      
-      
-      return "modifyProduct";
+      return "mypage/modifyProduct";
+   }
+   
+   //상품 정보 수정 >> 수정버튼
+   @RequestMapping("/updataProduct.seller")
+   public String updatePro(ProductVO vo) {
+	   service.updatePro(vo);
+	   return "redirect:/ProductList.seller?sId="+vo.getsId();
    }
    //   판매 상품 수정
    @RequestMapping("ModifySell.seller")
@@ -193,7 +199,6 @@ public class MyPageController {
    public String DeleteSell(String pId,Model model,HttpServletRequest request) {
       mypageDao.deleteProduct(pId);
       StoreVO svo=service.getStoreById(request.getRemoteUser());
-      System.out.println(svo.getsId());
       return "redirect:/ProductList.seller?sId="+svo.getsId();
    }
    

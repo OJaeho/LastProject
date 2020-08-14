@@ -15,10 +15,10 @@
 			SELECT ROWNUM RN, A.* 
 				FROM (
 						SELECT * 
-						FROM tour 
-						) A
+						FROM tour  order by tdate desc ) A
 				)
-	WHERE RN BETWEEN #{vo.start} AND #{vo.end} AND mkid = #{mkId} and delyn = 'N'
+	WHERE RN BETWEEN #{vo.start} AND #{vo.end} AND mkid = #{mkId} and delyn = 'N' 
+
 	</select>
 	
 	<!-- 관광지 디테일 화면 -->

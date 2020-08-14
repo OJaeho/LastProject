@@ -211,10 +211,11 @@
 		   </div>
 				<div>
 					<div class="divlist" style="padding-top: 15px;">
-						<input type="submit" value="정보수정" class="updateuser join-btn" id="updateuser"
-							 /> 
+						<input type="submit" value="정보수정" class="updateuser join-btn" id="updateuser"/> 
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
 						<input type="submit" value="정보삭제" class="deleteuser join-btn" id="deleteuser"
 							onclick="javascript: form.action='deleteuser.market';" />
+							</sec:authorize> 
 					</div>
 				</div>
 			</form>
