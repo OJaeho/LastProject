@@ -20,7 +20,7 @@
                     username-parameter="id"
                     password-parameter="password" />
         <logout logout-url="/logout"
-                logout-success-url="/login/loginForm.user" />
+                logout-success-url="/index2.user?mkId=1009" />
                 
         <access-denied-handler error-page="/login/accessDenied.user" />
     </http>
