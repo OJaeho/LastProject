@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>판매내역  리스트</title>
+   <title>SALE LIST</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->   
@@ -49,6 +49,43 @@
 <!-- Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
    rel="stylesheet" type="text/css" />
+   
+   <style type="text/css">
+   .loading span {
+  display: inline-block;
+  margin: 0 -.05em;
+  animation: loading 1.4s infinite alternate;
+  color: #009a45;
+  font-weight: 800;
+}
+loading span:nth-child(2) {
+  animation-delay: .1s;
+}
+loading span:nth-child(3) {
+  animation-delay: .2s;
+}
+loading span:nth-child(4) {
+  animation-delay: .3s;
+}
+loading span:nth-child(5) {
+  animation-delay: .4s;
+}
+loading span:nth-child(6) {
+  animation-delay: .5s;
+}
+loading span:nth-child(7) {
+  animation-delay: .6s;
+}
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+   </style>
+   
 </head>
 <body class="animsition">
  <!-- Header -->
@@ -69,7 +106,9 @@
          <div class="col-md-12"></div>
       </div>
 
-   <div class="page_list">
+	<h3 class="cl2 p-b-16 theme_color news-underbar"
+	style="font-size: 25px;font-weight: bold; width: 200px;">픽업/배송 상태</h3>
+   <div class="page_list" style="padding-top: 10px;">
                <table class="table table-bordered table-hover">
                   <thead>
                      <tr>
@@ -95,22 +134,32 @@
                            <td>${order.PAYTOTAL }</td>
                            <td>${order.PAYDATE }</td>
                            <td>${order.PAYSTATE }</td>
-                           <td>${order.PAYTYPE }</td>
-                           <td><c:if test="${order.PAYCONTENT ne null }"><input type="button" class='readyOrder' value='준비완료' >
+                           <td>
+							<div class="loading">
+							  <span>W</span>
+							  <span>A</span>
+							  <span>I</span>
+							  <span>T</span>
+							  <span>I</span>
+							  <span>N</span>
+							  <span>G</span>
+							</div>
+							</td>
+                           <td><c:if test="${order.PAYCONTENT ne null }"><input type="button" class='readyOrder join-btn' value='준비완료' >
                            <input type="hidden" class="payId" value=${ order.PAYID}>
                            </c:if></td>
                         </tr>
                      </c:forEach>
                   </tbody>
                </table>
-               <hr />
             </div>
+          </div>
             
 
       
-<h3>판매완료</h3>
-<br/>
- <div class="page_list">
+	<h3 class="cl2 p-b-16 theme_color news-underbar"
+	style="font-size: 25px;font-weight: bold;max-width: 1380px; margin: 0 270px;">판매완료</h3>
+ <div class="page_list" style="padding-top: 10px; max-width: 1380px; margin: 0 auto;">
                <table class="table table-bordered table-hover">
                   <thead>
                      <tr>

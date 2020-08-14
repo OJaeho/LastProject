@@ -113,7 +113,8 @@
 												<div class="product_item_wrap" style="padding: 10px;">
 												<fmt:formatNumber value="${list.payTotal}" type="number" var="payTotal"/>
 													<div class="product_item--price" style="font-size: 18px;">
-													<span class="sm_total">${list.payTotal}원</span>
+													 <fmt:formatNumber value="${list.payTotal}" type="number"  var="getTotalPay"/>
+													<span class="sm_total">${getTotalPay}원</span>
 													</div>
 												</div>
 											</td>
@@ -180,7 +181,8 @@
 												</th>
 												<th scope="col" style="text-align: center; padding: 20px;
 												    border-bottom: 1px solid #c9c9c9;">
-													<strong>${getorderprice}원</strong> 
+												    <fmt:formatNumber value="${getorderprice}" type="number"  var="getPrice"/>
+													<strong>${getPrice}원</strong> 
 												</th>
 											</tr>
 										</thead>
