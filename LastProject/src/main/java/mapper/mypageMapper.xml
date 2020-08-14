@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -144,4 +145,152 @@ select * from store s inner join users u on u.username = s.username where u.user
 	update product set pName = #{pName}, pOption1 = #{pOption1}, pPrice=#{pPrice}, pDetail=#{pDetail}, pCount=#{pCount}
 	where pId = #{pId}
 </update>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypageMapper">
+
+<!-- 주문내역리스트 -->
+<select id="selectPayList" parameterType="hashmap" resultType="hashmap">
+ SELECT * FROM (select  rownum no, a.* from (select pay.payid,pay.pid,pay.paycount,pay.payaddr,pay.groupid,pay.paytel,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate ,pay.paycontent,pay.paytype,pay.paytotal,pay.paystate,s.sname,p.pprice,p.pname from pay pay , store s, product p where pay.username=#{id} and pay.pid =p.pid and  s.sid=p.sid  
+<if test='dating.equals("있음")'>
+ <![CDATA[ and pay.paydate >= to_date(#{vo.start},'YYYY-MM-DD') and pay.paydate<=to_date(#{vo.end},'YYYY-MM-DD-HH24:MI:SS')
+]]></if>
+<if test='vo.payState.equals("배송") || vo.payState.equals("픽업")'> and pay.paystate = #{vo.payState}</if>
+order by pay.paydate desc) a ) pay
+<![CDATA[where pay.no > ${vo.no}]]>
+</select>
+
+<!-- 리뷰리스트 -->
+<select id="selectReviewList" parameterType="hashmap" resultType="hashmap">
+select hello.* from (select rownum rm,r.rid,r.payid,r.rcontent,r.rdate,r.delyn,r.mkid,r.rrating,r.pid,r.username,s.sname from review r , product p, store s where r.pid=p.pid and p.sid=s.sid and r.username=#{id} and r.delyn='N' order by r.rdate desc) hello 
+where rm between #{first} and #{end} 
+</select>
+
+<!-- 전체페이지 수 -->
+<select id="getTotal" parameterType="hashmap" resultType='int'>
+select count(*) from ${table}
+<where>
+${condition1}=#{value1}
+<if test="vo.payState != null">and pay.paystate = #{vo.payState}</if>
+<if test="vo.start != null"><![CDATA[ and pay.paydate >= to_date(#{vo.start},'YYYY-MM-DD') and pay.paydate<=to_date(#{vo.end},'YYYY-MM-DD-HH24:MI:SS')
+]]></if>
+</where>
+</select>
+
+<!-- 리뷰삭제 -->
+<update id="deleteReview" parameterType="review" >
+update review set delyn='Y' where rId=#{rId}
+</update>
+
+<!-- 임의의 사용자의 음식 랭킹 3위 -->
+<select id="foodRank" parameterType="string" resultType="com.vo.ChartVO">
+ <![CDATA[
+select  rownum rm,two.* 
+from (select pname,count(username) cnt_user 
+from (select p.pname pname, pay.username username 
+from product p,pay pay where p.pid=pay.pid and pay.username=#{id}) one group by pname order by cnt_user desc) two
+where rownum <=3
+]]>
+</select>
+
+<!-- 지출금액차트 -->
+<select id="moneyChart" parameterType="string" resultType="com.vo.ChartVO">
+select term,sum(paytotal) sumtotal from (select to_char(paydate,'YYYY/MM') term, paytotal from pay where username=#{id}) one group by one.term order by one.term 
+</select>
+
+<!-- username으로 상점정보 가져오기 -->
+<select id="getStoreById" parameterType="string" resultType="store">
+select * from store where username=#{id}
+
+</select>
+
+<!-- 기본 전체 페이지 수 가져오기 -->
+<select id="getBasicTotal" parameterType="hashmap" resultType='int'>
+select count(*) from ${table}
+<where>
+${condition1}=#{value1}
+</where>
+</select>
+
+<!-- 상점별 판매물품 가져오기 -->
+<select id="getProduct" parameterType="hashmap" resultType="product">
+select hello.* from (select rownum no ,pro.* from product pro where sid=#{sId} and  pro.delyn='N' ) hello 
+where no > #{no}
+</select>
+
+<!-- 상품 Id로 상품 정보 가져가기 -->
+<select id="productById" parameterType="String" resultType="product">
+select p.pname as pName, p.pid as pId, s.sName as sName, p.pImg1 as pImg1, p.pDetail as pDetail, p.pPrice as pPrice, p.pOption1 as pOption1, p.pId as pId, s.sId as sId
+from product p inner join store s on p.sid = s.sid 
+where pid = #{pId}
+</select>
+<!-- 상품 수정하기 -->
+
+<!-- 상품삭제하기 -->
+<update id="deleteProduct" parameterType="String">
+update product set delyn='Y' where pid=#{pId}
+</update>
+
+<!-- 품절된 상품 리스트 -->
+<select id="getCntZeroProduct" parameterType="string" resultType="hashmap">
+select * from product where pCOunt = 0 and sid=#{sId}
+</select>
+
+<!-- 최신 준비중 리스트 -->
+<select id="getRecentOrderList" parameterType="string" resultType="hashmap">
+select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype='준비중' and sid=#{sId} order by paydate desc
+</select>
+
+<!-- 준비중 외의 SaleList -->
+<select id="getSaleList" parameterType="hashmap" resultType="hashmap">
+ <![CDATA[select * from (select rownum no,pay.payId,pay.username,pay.paycount,pay.payaddr,pay.groupid,to_char(pay.paydate,'YYYY-MM-DD HH24:MI:SS') payDate,pay.paycontent,pay.paytype,pay.payTotal,pay.paystate,s.sid from pay , product p, store s where pay.pid=p.pid and p.sid=s.sid) hello where paytype <>'준비중' and sid=#{sId} and no> #{no} order by paydate desc]]>
+</select>
+
+<!-- 준비완료 업데이트 -->
+<update id="readyOrder" parameterType="com.vo.PayVO">
+update pay set paytype='준비완료' where payid=${payId} 
+</update>
+
+<!-- username으로 마켓정보 가져오기 -->
+<select id="getMarketById" parameterType="string" resultType="market">
+select * from market where username = #{username}
+</select>
+
+<!-- storeList 가져오기 -->
+<select id="StoreList" parameterType="hashmap" resultType="hashmap">
+ <![CDATA[select * from (select rownum no,s.* from store s where s.mkid = #{mkId}) hello where hello.no > #{no} ]]>
+</select>
+
+<!-- 상점 프로필 : 상점, 회원 정보 출력 id로 -->
+<select id="getStoreMemberbyId" parameterType="string" resultType="hashmap">
+select * from store s inner join users u on u.username = s.username where u.username=#{id}
+
+</select>
+
+<!-- 상점 프로필 수정 -->
+<update id="updateStore" parameterType="store">
+<![CDATA[
+      	UPDATE store
+      	SET sDetail=#{sDetail}, sTel=#{sTel}  ,sTime=#{sTime} ,sImg1=#{sImg1}, sImg3=#{sImg3}     	
+      	where username=#{userName}
+      	]]>     
+
+</update>
+
+<!-- 상점 회원 프로필 수정 -->
+<update id="updateUsers" parameterType="users">
+<![CDATA[ 
+      	UPDATE users
+      	SET mTel=#{mTel} ,mEmail=#{mEmail}
+      	where username=#{userName}
+      	]]> 
+</update>
+
+<update id = "updateProduct" parameterType="product" >
+	update product set pName = #{pName}, pOption1 = #{pOption1}, pPrice=#{pPrice}, pDetail=#{pDetail}, pCount=#{pCount}
+	where pId = #{pId}
+</update>
+>>>>>>> branch 'master' of https://github.com/OJaeho/LastProject.git
 </mapper>
