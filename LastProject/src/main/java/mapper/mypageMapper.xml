@@ -43,7 +43,7 @@ select  rownum rm,two.*
 from (select pname,count(username) cnt_user 
 from (select p.pname pname, pay.username username 
 from product p,pay pay where p.pid=pay.pid and pay.username=#{id}) one group by pname order by cnt_user desc) two
-where rownum <=3
+where rownum <=7
 ]]>
 </select>
 

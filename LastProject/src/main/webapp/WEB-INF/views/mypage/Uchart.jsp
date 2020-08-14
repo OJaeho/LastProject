@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- 
+	pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib prefix="c"
-	uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Insert title here</title>
@@ -53,9 +52,11 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" href="./resources/css/util.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/main.css">
-<link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="./resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./resources/css/areum.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <!--===============================================================================================-->
 
 <!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
@@ -66,95 +67,115 @@
 
 <!-- 구글 차트 호출을 위한 js 파일 -->
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
-//구글 차트 라이브러리 로딩
-//google객체는 위쪽 google src안에 들어있음
-google.load('visualization','1',{
-    'packages' : ['corechart']
-});
-//로딩이 완료되면 drawChart 함수를 호출
-    google.setOnLoadCallback(drawChart); //라이브러리를 불러오는 작업이 완료되었으면 drawChart작업을 실행하라는 뜻.
-    google.setOnLoadCallback(drawChart2); //차트2
-    function drawChart() {
-        var jsonData = $.ajax({ //비동기적 방식으로 호출한다는 의미이다.
-            url : "userFoodRank.user",
+	//구글 차트 라이브러리 로딩
+	//google객체는 위쪽 google src안에 들어있음
+	google.load('visualization', '1', {
+		'packages' : [ 'corechart' ]
+	});
+	//로딩이 완료되면 drawChart 함수를 호출
+	google.setOnLoadCallback(drawChart); //라이브러리를 불러오는 작업이 완료되었으면 drawChart작업을 실행하라는 뜻.
+	google.setOnLoadCallback(drawChart2); //차트2
+	function drawChart() {
+		var jsonData = $.ajax({ //비동기적 방식으로 호출한다는 의미이다.
+			url : "userFoodRank.user",
 
-            //chart01에서는 json의 주소를 직접 적었지만 이 페이지에서는 컨트롤러로 이동해 맵핑해서 제이슨을 동적으로
-            //직접만들어 그 만든 json을 직접 보낸다.
-            
-            //chart01에서 쓰던 방식 url : "${path}/json/sampleData.json",
-            //json에 sampleData.json파일을 불러온다.
-            //확장자가 json이면 url 맵핑을 꼭 해주어야 한다. 안해주면 자바파일인줄 알고 404에러가 발생한다.
-            //그렇기 때문에 servlet-context파일에서 리소스를 맵핑해준다.
-            dataType : "json",
-            async : false
-        }).responseText; //제이슨파일을 text파일로 읽어들인다는 뜻
-        console.log(jsonData);
-        //데이터테이블 생성
-        var data
-        = new google.visualization.DataTable(jsonData);
-        //제이슨 형식을 구글의 테이블 형식으로 바꿔주기 위해서 집어넣음
-        //차트를 출력할 div
-        //LineChart, ColumnChart, PieChart에 따라서 차트의 형식이 바뀐다.
-        
-        //var chart = new google.visualization.PieChart(
-                //document.getElementByld('chart_div')); //원형 그래프
-        
-//         var chart
-//          = new google.visualization.LineChart(
-//                 document.getElementById('chart_div')); //선 그래프 
-                
-        var chart
-         = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-               // 차트 객체.draw(데이터 테이블, 옵션) //막대그래프
-                
-                //cuveType : "function" => 곡선처리
-                
-                //데이터를 가지고 (타이틀, 높이, 너비) 차트를 그린다.
-                chart.draw(data, {
-                    title : "많이 구매한 상품 순위",
-                    curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
-                    width : 1000,
-                    height : 800
-                });
+			//chart01에서는 json의 주소를 직접 적었지만 이 페이지에서는 컨트롤러로 이동해 맵핑해서 제이슨을 동적으로
+			//직접만들어 그 만든 json을 직접 보낸다.
 
-    }
-//     차트2
-    function drawChart2() {
-        var jsonData = $.ajax({ //비동기적 방식으로 호출한다는 의미이다.
-            url : "userMoneyChart.user",
+			//chart01에서 쓰던 방식 url : "${path}/json/sampleData.json",
+			//json에 sampleData.json파일을 불러온다.
+			//확장자가 json이면 url 맵핑을 꼭 해주어야 한다. 안해주면 자바파일인줄 알고 404에러가 발생한다.
+			//그렇기 때문에 servlet-context파일에서 리소스를 맵핑해준다.
+			dataType : "json",
+			async : false
+		}).responseText; //제이슨파일을 text파일로 읽어들인다는 뜻
+		console.log(jsonData);
+		//데이터테이블 생성
+		var data = new google.visualization.DataTable(jsonData);
+		//제이슨 형식을 구글의 테이블 형식으로 바꿔주기 위해서 집어넣음
+		//차트를 출력할 div
+		//LineChart, ColumnChart, PieChart에 따라서 차트의 형식이 바뀐다.
 
-            dataType : "json",
-            async : false
-        }).responseText; //제이슨파일을 text파일로 읽어들인다는 뜻
-        console.log(jsonData);
-        //데이터테이블 생성
-        var data
-        = new google.visualization.DataTable(jsonData);
-    
-        var chart
-         = new google.visualization.LineChart(
-                document.getElementById('chart_div2')); //선 그래프 
-                
-                chart.draw(data, {
-                    title : "월별 지출액 비교",
-                    curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
-                    width : 1000,
-                    height : 800
-                });
-    }
-// 차트2 끝
+		//var chart = new google.visualization.PieChart(
+		//document.getElementByld('chart_div')); //원형 그래프
+
+		//         var chart
+		//          = new google.visualization.LineChart(
+		//                 document.getElementById('chart_div')); //선 그래프 
+
+		var chart = new google.visualization.ColumnChart(document
+				.getElementById('chart_div'));
+		var chart2 = new google.visualization.PieChart(document
+				.getElementById('chart_div_1'));
+		// 차트 객체.draw(데이터 테이블, 옵션) //막대그래프
+
+		//cuveType : "function" => 곡선처리
+
+		//데이터를 가지고 (타이틀, 높이, 너비) 차트를 그린다.
+		chart.draw(data, {
+			
+			curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
+			width : 700,
+			height : 500,
+			colors : ['green']
+		});
+		chart2.draw(data, {
+			
+			curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
+			width : 700,
+			height : 500
+		});
+
+	}
+	
+	
+	//     차트2
+	function drawChart2() {
+		var jsonData = $.ajax({ //비동기적 방식으로 호출한다는 의미이다.
+			url : "userMoneyChart.user",
+
+			dataType : "json",
+			async : false
+		}).responseText; //제이슨파일을 text파일로 읽어들인다는 뜻
+		console.log(jsonData);
+		//데이터테이블 생성
+		var data = new google.visualization.DataTable(jsonData);
+
+		var chart = new google.visualization.AreaChart(document
+				.getElementById('chart_div2')); //선 그래프 
+		var chart2 = new google.visualization.BarChart(document
+				.getElementById('chart_div2_1'));
+
+		chart.draw(data, {
+			
+			curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
+			width : 700,
+			height : 500
+		});
+		chart2.draw(data, {
+			
+			curveType : "function", //curveType는 차트의 모양이 곡선으로 바뀐다는 뜻
+			width : 700,
+			height : 500,
+			series: [{color: 'blue', visibleInLegend: true}, {color: 'red', visibleInLegend: false}] 
+		});
+	}
+	// 차트2 끝
 </script>
 <script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
 
 </head>
 <body>
-<!-- Header -->
+	<!-- Header -->
 	<jsp:include page="/WEB-INF/views/market/header.jsp" />
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-01.jpg');">
-   	<h2 style="margin-top: 40px;"
-	class="cl2 p-b-20 theme_color cart-main-font cart-title-border">MY CHART</h2>
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92"
+		style="background-image: url('images/bg-01.jpg');">
+		<h2 style="margin-top: 40px;"
+			class="cl2 p-b-20 theme_color cart-main-font cart-title-border">MY
+			CHART</h2>
 	</section>
 	<!-- header끝 -->
 	<!-- Content page -->
@@ -163,22 +184,27 @@ google.load('visualization','1',{
 			<div class="inner Content container">
 				<div class="title">
 					<h2 class="notice_title theme_color type_block">
-						<span class="notice_title_bullet them_background"></span> 사용자 통계페이지
+						<span class="notice_title_bullet them_background"></span> 사용자
+						통계페이지
 					</h2>
 				</div>
 				<br>
 			</div>
 			<div class="board">
-				<span> </span>
 			</div>
-    <!-- 차트 출력 영역 -->
-    <div id="chart_div"></div>
-    <!-- 차트가 그려지는 영역 -->
-    <!-- 차트 새로고침 버튼 -->
-<!--     <button id="btn" type="button" onclick="drawChart()">새로고침</button> -->
-<!-- 	차트2 출력 -->
-	<div id="chart_div2"></div>
-</div>
+			<!-- 차트 출력 영역 -->
+			
+			<h2 style="padding-top: 20px;">상품 구매량</h2>
+			<div id="chart_div" style="float: right;"></div>
+			<div id="chart_div_1" ></div><hr/>
+			<!-- 차트가 그려지는 영역 -->
+			<!-- 차트 새로고침 버튼 -->
+			<!--     <button id="btn" type="button" onclick="drawChart()">새로고침</button> -->
+			<!-- 	차트2 출력 -->
+			<h2 style="padding-top: 20px;">월별 지출액</h2>
+			<div id="chart_div2" style="float: right;"></div>
+			<div id="chart_div2_1" ></div>
+		</div>
 	</section>
 	<!-- footer -->
 	<jsp:include page="/WEB-INF/views/market/footer.jsp" />
