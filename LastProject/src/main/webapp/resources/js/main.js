@@ -31,6 +31,7 @@
     $(window).on('scroll',function(){
         if ($(this).scrollTop() > windowH) {
             $("#myBtn").css('display','flex');
+            $("#myBtn").css('color','red');
         } else {
             $("#myBtn").css('display','none');
         }

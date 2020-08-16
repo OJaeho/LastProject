@@ -153,7 +153,7 @@
 											<th scope="row">주문자 성함</th>
 											<td>
 											<input type="text" value="${name}" id="cc" style="border: 1px solid #eee;
-																							  font-size: 15px;
+																							  font-size: 20px;
 																							  border-radius: 2px;
 																							  padding: 5px;"/>
 											</td>
@@ -162,9 +162,9 @@
 											<th scope="row">주소</th>
 											<td>
 											<input type="text" value="${addr}" id="aa"
-											class="inputTypeText" placeholder="" size="40"
+											class="inputTypeText" placeholder="" size="50"
 											style="border: 1px solid #eee;
-													font-size: 15px;
+													font-size: 20px;
 													border-radius: 2px;
 													padding: 5px;"/>
 											</td>
@@ -173,7 +173,7 @@
 											<th scope="row">연락처</th>
 											<td>
 											<input type="text" style="border: 1px solid #eee;
-																font-size: 15px;
+																font-size: 20px;
 																border-radius: 2px;
 																padding: 5px;" value="${tel}" id="bb"/>
 											</td>
@@ -182,7 +182,7 @@
 											<th scope="row" style="border-bottom: 1px solid #ccc;">주문자 정보로 배송</th>
 											<td style="border-bottom: 1px solid #ccc;">
 											<input type="checkbox" style="border: 1px solid #eee;
-																		 font-size: 15px;
+																		 font-size: 20px;
 																		 border-radius: 2px;
 																		 padding: 5px;" id="infomation">
 											</td>
@@ -208,7 +208,7 @@
 												<th scope="row">받으시는 분</th>
 												<td>
 												<input type="text" style="border: 1px solid #eee;
-																		font-size: 15px;
+																		font-size: 20px;
 																		border-radius: 2px;
 																		padding: 5px;" id="name1"/>
 												</td>
@@ -217,10 +217,10 @@
 												<th scope="row">주소</th>
 												<td>
 												<input type="text" style="border: 1px solid #eee;
-																	font-size: 15px;
+																	font-size: 20px;
 																	border-radius: 2px;
 																	padding: 5px;" id="addr1" class="inputTypeText" 
-																	placeholder="상세 주소까지 기입" size="40" id="addr1" />
+																	placeholder="상세 주소까지 기입" size="50" id="addr1" />
 												<input class="btn btn-addr" id="findpostcode1" type="button" value="우편번호">
 												</td>
 											</tr>
@@ -228,7 +228,7 @@
 												<th scope="row" style="border-bottom: 1px solid #ccc;">연락처</th>
 												<td style="border-bottom: 1px solid #ccc;">
 												<input type="text" style="border: 1px solid #eee;
-																		font-size: 15px;
+																		font-size: 20px;
 																		border-radius: 2px;
 																		padding: 5px;" id="tel1" placeholder=" '-' 제외"/>
 												</td>
@@ -239,7 +239,7 @@
 							</div>
 							<!-- 결제 예정 금액 -->
 							<div class="title">
-								<h3>결제 예정 금액</h3>
+								<h3 class="order-title">결제 예정 금액</h3>
 							</div>
 							<div class="totalArea">
 								<div class="">

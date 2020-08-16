@@ -17,14 +17,14 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login/loginForm.user", method = RequestMethod.GET)
 	public String loginFor(Locale locale, Model model,HttpSession session) {
-		logger.info("Welcome Login Form!");
+//		logger.info("Welcome Login Form!");
 		session.getAttribute("mkId");
 		return "login/loginForm";
 	}
 	
 	@RequestMapping(value = "/login/accessDenied.user", method = RequestMethod.GET)
 	public String accessDenied(Locale locale, Model model) {
-		logger.info("Welcome Access Denied!");
+//		logger.info("Welcome Access Denied!");
 		
 		return "login/accessDenied";
 	}

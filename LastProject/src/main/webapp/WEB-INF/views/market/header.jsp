@@ -182,6 +182,7 @@
 									value="<spring:message code="header.logout" arguments="${header}" text="default text" />"
 									class="flex-c-m trans-04 p-lr-25"
 									style="background-color: transparent; color: white;" />
+									<input type="hidden" id='abcd' value='<%=request.getRemoteUser()%>' >
 							</form:form>
 						</sec:authorize>
 
@@ -252,7 +253,9 @@
 								</ul></li>
 						</ul>
 					</div>
-
+							<input type="button" id="socketAlert"
+							class="btn-warning animate__animated animate__flash" style="margin-left: 20%; font-size: 30px;color: white;"
+							onClick = "location.href='moveSaleList.seller'"/>
 					<!-- Header desktop END -->
 				</nav>
 			</div>
@@ -405,6 +408,42 @@
 	</div>
 
 	</header>
+	<!--===============================================================================================-->
+	<script src="./resources/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+<script>
+		var abcd = $('#abcd').val();
+		if (abcd) {
+			var socket = null;
+			$(document).ready(function() {
+				connectWS();
+			});
+			function connectWS() {
+				var ws = new WebSocket("ws://192.168.0.62:8080/LastProject/MarketWS");
+				socket = ws;
+				ws.onopen = function() {
+					console.log('Info: connection opened.');
+				};
+				ws.onmessage = function(event) {
+					console.log("ReceiveMessage:", event.data + '\n');
+					$('#socketAlert').val(event.data);
+					var btn = $('#socketAlert');
+					
+					
+					// 				setTimeout(function() {
+					// 					$socketAlert.css('display', 'none');
+					// 				}, 5000);
+				};
 
+				ws.onclose = function(event) {
+					console.log('Info: connection closed.');
+					//setTimeout( function(){ connect(); }, 1000); // retry connection!!
+				};
+				ws.onerror = function(err) {
+					console.log('Error:', err);
+				};
+			}
+		}
+	</script>
 </body>
 </html>

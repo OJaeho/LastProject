@@ -385,6 +385,8 @@ function numberWithCommas(x) {
 					paybid.push($(this).val());
 				})
 				$('#payBid').val(paybid);
+				
+				socket.send(state);
 				$('#frmpay').submit();
 			}
 		else if(!con){

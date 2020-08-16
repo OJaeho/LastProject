@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib prefix="c"
-	uri="http://java.sun.com/jsp/jstl/core"%>
+   uri="http://www.springframework.org/security/tags"%>
+   <%@ taglib prefix="c"
+   uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <title>SALE LIST</title>
+   <title>판매내역  리스트</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->   
@@ -49,8 +49,7 @@
 <!-- Bootstrap -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
    rel="stylesheet" type="text/css" />
-   
-   <style type="text/css">
+    <style type="text/css">
    .loading span {
   display: inline-block;
   margin: 0 -.05em;
@@ -85,7 +84,6 @@ loading span:nth-child(7) {
   }
 }
    </style>
-   
 </head>
 <body class="animsition">
  <!-- Header -->
@@ -93,7 +91,7 @@ loading span:nth-child(7) {
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
       <h2 style="margin-top: 40px;"
-							class="cl2 p-b-30 theme_color cart-main-font">SALE LIST</h2>
+                     class="cl2 p-b-30 theme_color cart-main-font">SALE LIST</h2>
    </section>   
 <!-- header끝 -->
    <!-- Content page -->
@@ -106,10 +104,10 @@ loading span:nth-child(7) {
          <div class="col-md-12"></div>
       </div>
 
-	<h3 class="cl2 p-b-16 theme_color news-underbar"
+<h3 class="cl2 p-b-16 theme_color news-underbar"
 	style="font-size: 25px;font-weight: bold; width: 200px;">픽업/배송 상태</h3>
-   <div class="page_list" style="padding-top: 10px;">
-               <table class="table table-bordered table-hover">
+   <div class="page_list" style="padding-top: 10px;">               
+   <table class="table table-bordered table-hover">
                   <thead>
                      <tr>
                       <th class="mythlist">그룹</th>
@@ -134,7 +132,7 @@ loading span:nth-child(7) {
                            <td>${order.PAYTOTAL }</td>
                            <td>${order.PAYDATE }</td>
                            <td>${order.PAYSTATE }</td>
-                           <td>
+                          <td>
 							<div class="loading">
 							  <span>W</span>
 							  <span>A</span>
@@ -152,18 +150,18 @@ loading span:nth-child(7) {
                      </c:forEach>
                   </tbody>
                </table>
+               <hr />
             </div>
-          </div>
             
 
       
-	<h3 class="cl2 p-b-16 theme_color news-underbar"
-	style="font-size: 25px;font-weight: bold;max-width: 1380px; margin: 0 270px;">판매완료</h3>
- <div class="page_list" style="padding-top: 10px; max-width: 1380px; margin: 0 auto;">
+<h3>판매완료</h3>
+<br/>
+ <div class="page_list">
                <table class="table table-bordered table-hover">
                   <thead>
                      <tr>
-                     	<th class="mythlist">그룹</th>
+                        <th class="mythlist">그룹</th>
                         <th class="mythlist">판매 대상</th>
                         <th class="mythlist">판매 내역</th>
                         <th class="mythlist">판매 수량</th>

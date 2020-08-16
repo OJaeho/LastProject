@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ import com.vo.UsersVO;
 @Controller
 public class marketController {
 
-	private static final Logger logger = LoggerFactory.getLogger(marketController.class);
+	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(HeaderController.class);
 	@Autowired
 	private marketService service;
 	@Autowired
@@ -73,6 +73,9 @@ public class marketController {
 		model.addAttribute("issueget", issue);
 		model.addAttribute("qnaget", qna);
 
+//		로그 처리
+		MarketVO logvo = service.marketDetail(mkId);
+		logger.info(logvo.getMkName());
 		return "index";
 	}
 

@@ -52,7 +52,7 @@ let isEnd = false;
             "<td>"+ vo.pCount +  "</td>" +
             "<td>"+vo.pOption1+"</td>" +
             "<td>"+vo.pPrice+"</td>" +
-            "<td><input class='join-btn' type='button' id='pModify' value='수정' onClick=location.href=MoveModifySell.seller?pId="+vo.pId+"'>"+
+            "<td><input class='join-btn' type='button' id='pModify' value='상세수정' onClick=location.href='MoveModifySell.seller?pId="+vo.pId+"'>"+
             "<input class='join-btn' type='button' value='삭제' onClick=location.href='DeleteSell.seller?pId="+vo.pId+"' ></td>"+
             "<input type='hidden' value="+vo.pId+">"
             "</tr>"

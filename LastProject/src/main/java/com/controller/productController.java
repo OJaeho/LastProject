@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +29,8 @@ import com.vo.UsersVO;
 
 @Controller
 public class productController {
-
+	
+	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(productController.class);
 	@Autowired
 	private productService service;
 	@Autowired
@@ -172,6 +174,16 @@ public class productController {
 		} else {
 			model.addAttribute("payId", "");
 		}
+		
+		String id=null;
+//		로그 처리
+		if ( request.getRemoteUser()==null)
+		{
+			id="익명";
+		}else {
+			id=request.getRemoteUser();
+		}
+		logger.info(id+",접속,detail,상품,"+productinfo.get(0).getpName());
 		return "product/product-detail";
 	}
 

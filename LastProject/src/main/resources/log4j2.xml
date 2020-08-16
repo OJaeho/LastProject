@@ -6,12 +6,12 @@
        <!-- console appender 설정 -->
        <Console name="TestConsole">
           <!-- layout 설정 -->
-          <PatternLayout pattern="%d{YYYY/MM/dd : HH:mm:ss} [%t] %-5level %logger{36} - %msg%n" />
+          <PatternLayout pattern="%d{YYYY/MM/dd : HH:mm:ss},%msg%n" />
       </Console>
       <!-- file appender 설정 -->
       <File name="testFile" fileName = "C:/Users/KOSMO_13/git/LastProject/LastProject/src/main/resources/test.log" append = "true">
          <!-- 기본값으로 layout 설정 -->
-          <PatternLayout pattern="%d{YYYY:MM:dd : HH:mm:ss} [%t] %-5level %n-%msg%n" />
+          <PatternLayout pattern="%d{YYYY/MM/dd : HH:mm:ss},%msg%n" />
       </File>
     </appenders>
    <!-- logger들 모임 -->
