@@ -2059,7 +2059,7 @@ input.num-product::-webkit-inner-spin-button {
 
 /*---------------------------------------------*/
 .block1-txt:hover {
-  background-color: rgba(103,117,214,0.8);
+  background-color: #FFF;
 }
 
 .block1-txt:hover .block1-txt-child2 {

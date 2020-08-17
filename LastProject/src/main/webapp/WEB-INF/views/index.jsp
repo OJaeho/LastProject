@@ -160,8 +160,10 @@
 					<div class="flex-w flex-c-m" style="margin: auto;">
 
 					<!-- Block1 -->
-						<div class="block1 wrap-pic-w" >
-							<span class="block1-name trans-04 p-b-8"> 상점
+						<div class="block1 wrap-pic-w" 
+						style="border: none;">
+							<span class="block1-name trans-04 p-b-8"> 
+							<img src="./resources/images/mainicon2.png" style="height: auto; max-width: 150px; width: 100%;">
 							<img src="./resources/images/ssack3_start.png" 
 							style="height: auto; max-width: 150px; width: 100%;">
 							</span>
@@ -176,10 +178,11 @@
 					<div class="flex-w flex-c-m" style="margin: auto;">
 
 					<!-- Block2 -->
-						<div class="block1 wrap-pic-w" >
-							<span class="block1-name trans-04 p-b-8"> 상품
-							<img src="./resources/images/ssack3_start.png" 
-							style="height: auto; max-width: 150px; width: 100%;">
+						<div class="block1 wrap-pic-w" 
+						style="border: none;">
+							<span class="block1-name trans-04 p-b-8"> 
+							<img src="./resources/images/mainicon3.png" style="height: auto; max-width: 150px; width: 100%;">
+							<img src="./resources/images/ssack3_start.png" style="height: auto; max-width: 150px; width: 100%;">
 							</span>
 							<a href="getproduct.user"
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
@@ -192,10 +195,11 @@
 					<div class="flex-w flex-c-m" style="margin: auto;">
 
 					<!-- Block3 -->
-						<div class="block1 wrap-pic-w" >
-							<span class="block1-name trans-04 p-b-8"> 관광지
-							<img src="./resources/images/ssack3_start.png" 
-							style="height: auto; max-width: 150px; width: 100%;">
+						<div class="block1 wrap-pic-w" 
+						style="border: none;">
+							<span class="block1-name trans-04 p-b-8">
+							<img src="./resources/images/mainicon1.png" style="height: auto; max-width: 150px; width: 100%;">
+							<img src="./resources/images/ssack3_start.png" style="height: auto; max-width: 150px; width: 100%;">
 							</span>
 							<a href="tourHome.user"
 							class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
