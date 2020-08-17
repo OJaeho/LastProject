@@ -127,7 +127,7 @@
 									<div class="txt_box">
 										<div class="txt_component color2 big align_c t_space">
 											<p class="intro_content_font txt-center"
-											style="font-size: 17px;">${intro.mkIntro}</p>
+											style="font-size: 20px;">${intro.mkIntro}</p>
 										</div>
 									</div>
 								</div>
@@ -174,7 +174,7 @@
 									<div class="txt_box">
 										<div class="txt_component color2 big align_c t_space ">
 											<p class="intro_content_font txt-center"
-											style="font-size: 17px;">음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
+											style="font-size: 20px;">음식점, 농수산물, 축산물, 의류 등 다양한 상점을 ${intro.mkCount}개를 보유하고
 												있고,</p>
 										</div>
 									</div>
@@ -195,7 +195,7 @@
 										</div>
 											<div class="txt_component color2 big align_c t_space ">											
 											<p class="intro_content_font txt-center"
-											style="font-size: 17px;">${intro.mkDate} 입니다.</p>
+											style="font-size: 20px;">${intro.mkDate} 입니다.</p>
 										</div></div>
 									</div>
 								</div>
@@ -231,7 +231,7 @@
 											<tbody>
 												<tr>
 													<td class="intro_content_font" rowspan="1" colspan="1" data-row="0" data-column="0"
-													style="font-size: 17px;">${intro.mkTime}</td>
+													style="font-size: 20px;">${intro.mkTime}</td>
 												</tr>
 
 											</tbody>

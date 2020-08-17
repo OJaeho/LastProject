@@ -52,9 +52,8 @@
      <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
-      <h2>
-       	<img src="./resources/images/logo.png" style="width: 40rem;">
-      </h2>
+	   	<h2 style="margin-top: 40px;"
+	class="cl2 p-b-20 theme_color cart-main-font cart-title-border">ADMIN PAGE</h2>
    </section>   
 <!-- header끝 -->
    <!-- Content page -->
@@ -69,8 +68,7 @@
 
       <!-- Main Content -->
 
-	   	<h2 style="margin-top: 40px;"
-	class="cl2 p-b-20 theme_color cart-main-font cart-title-border">관리자페이지</h2>
+
 
 		<!-- MyPage List -->
 	<div class="wrapper tabled">

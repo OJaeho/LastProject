@@ -74,7 +74,8 @@
 	<section class="bg0 p-b-120">
 		<div class="container">
 			<!-- 좌우측의 공간 확보 -->
-			<h2>** 관리자 - 전체 회원 관리 **</h2>
+	<h3 class="cl2 p-b-16 theme_color"
+	style="font-size: 25px;font-weight: bold;">회원정보관리</h3>
 
 			<div class="flex-w flex-l-m filter-tope-group m-tb-10"
 				style="padding-left: 0.5em;">

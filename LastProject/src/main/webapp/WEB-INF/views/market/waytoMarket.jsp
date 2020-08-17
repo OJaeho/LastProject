@@ -76,7 +76,8 @@
 	<section class="bg0 p-t-75 p-b-120">
 		<div class="container">
 			<div class="row p-b-148">
-				<div class="col-md-7 col-lg-8">
+				<div class="col-md-7 col-lg-8"
+				style="smargin: 0 auto;">
 					<div class="p-t-7 p-r-15-lg p-r-0-md">
 						<h3 class="cl2 p-b-16 theme_color news-underbar"
 							style="font-size: 27px; font-weight: bold; padding-top: 20px;">오시는 길</h3>

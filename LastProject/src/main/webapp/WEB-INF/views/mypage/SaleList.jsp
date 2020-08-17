@@ -153,14 +153,15 @@ loading span:nth-child(7) {
                      </c:forEach>
                   </tbody>
                </table>
-               <hr />
             </div>
             
 
       
-<h3>판매완료</h3>
-<br/>
- <div class="page_list">
+<h3 class="cl2 p-b-16 theme_color news-underbar"
+	style="font-size: 25px;font-weight: bold; width: 200px;">
+	판매완료
+	</h3>
+ <div class="page_list" style="padding-top: 10px;">
                <table class="table table-bordered table-hover">
                   <thead>
                      <tr>

@@ -52,9 +52,8 @@
      <jsp:include page="/WEB-INF/views/market/header.jsp" />
 <!-- Title page -->
    <section class="bg-img1 txt-center p-lr-15 p-t-92" style="background-image: url('images/bg-01.jpg');">
-      <h2>
-       	<img src="./resources/images/logo.png" style="width: 40rem;">
-      </h2>
+	<h2 style="margin-top: 40px;"
+							class="cl2 p-b-30 theme_color cart-main-font">MANAGMENT PAGE</h2>
    </section>   
 <!-- header끝 -->
    <!-- Content page -->
@@ -69,8 +68,6 @@
 
       <!-- Main Content -->
 
-	<h2 style="text-align: center" class="mypage_content_font p-b-40">Management</h2>
-
 		<!-- MyPage List -->
 	<div class="wrapper tabled">
 	  <div class="stage" id="page1">
@@ -84,19 +81,19 @@
 		<p>
       <div class="link-1">
         <a href="getNoticeList.user">
-          <span class="thin link-1-color">No </span><span class="thick link-1-color">tice</span>
+          <span class="thin link-1-color">Not</span><span class="thick link-1-color">ice</span>
         </a>  
       </div>
       	<p>
       <div class="link-1">
         <a href="tourHome.user">
-          <span class="thin link-1-color">T</span><span class="thick link-1-color">our</span>
+          <span class="thin link-1-color">TO</span><span class="thick link-1-color">ur</span>
         </a>  
       </div>
       	<p>
       <div class="link-1">
         <a href="marketIssue.user">
-          <span class="thin link-1-color">I</span><span class="thick link-1-color">ssue</span>
+          <span class="thin link-1-color">Iss</span><span class="thick link-1-color">ue</span>
         </a>  
       </div>
       
