@@ -90,8 +90,11 @@
                            <td style="color: red; font-weight: bold;" >${zero.PCOUNT }</td>
                            <td>${zero.POPTION1 }</td>
                            <td>${zero.PPRICE }</td>
-                           <td><c:if test="${zero.pId eq null }"><input class="join-btn" type="button" value="상세수정" onClick="location.href='MoveModifySell.seller?pId=${zero.PID}'">
-                           <input class="join-btn" type="button" value="삭제" onClick="location.href='DeleteSell.seller?pId=${zero.PID}'"></c:if></td>
+                           <td><c:if test="${zero.pId eq null }">
+                           <input class="join-btn" type="button" value="상세수정" onClick="location.href='MoveModifySell.seller?pId=${zero.PID}'">
+                           <input class="join-btn" type="button" value="삭제" onClick="location.href='DeleteSell.seller?pId=${zero.PID}'">
+                           <input type="hidden" value="${zero.PAYSTATE }" onClick="location.href='DeleteSell.seller?pId=${zero.PID}'">
+                           </c:if></td>
                         </tr>
                      </c:forEach>
                   </tbody>

@@ -143,8 +143,11 @@ loading span:nth-child(7) {
 							  <span>G</span>
 							</div>
 							</td>
-                           <td><c:if test="${order.PAYCONTENT ne null }"><input type="button" class='readyOrder join-btn' value='준비완료' >
+                           <td><c:if test="${order.PAYCONTENT ne null }">
+                           <input type="button" class='readyOrder join-btn' value='준비완료' >
+                           <input type="button" class='detailOrder join-btn' value='상세보기' onClick="location.href='getpayview.user?GroupId=${order.GROUPID}'"  >
                            <input type="hidden" class="payId" value=${ order.PAYID}>
+                           <input type="hidden" class="payState" value=${ order.PAYSTATE}>
                            </c:if></td>
                         </tr>
                      </c:forEach>

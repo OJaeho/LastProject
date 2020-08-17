@@ -35,7 +35,7 @@ public class Websocket extends TextWebSocketHandler {
 		String seller = "seller";
 		for (int i = 0; i < str.length; i++) {
 			WebSocketSession sellerSession = userSessions.get(seller);
-			TextMessage tmpMsg = new TextMessage(str[i]+"주문이들어왔습니다");
+			TextMessage tmpMsg = new TextMessage(str[i]+" "+"주문이 들어왔습니다");
 			sellerSession.sendMessage(tmpMsg);
 		}
 	}
